@@ -1,7 +1,7 @@
 import create from 'zustand';
-import { deleteUserAPI } from '../services/user/deleteUser';
-import { loginAPI } from '../services/user/postLogin';
-import { logoutAPI } from '../services/user/getLogout';
+import deleteUser  from '../services/user/deleteUser';
+import  postLogin  from '../services/user/postLogin';
+import getLogout from '../services/user/getLogout';
 
 type User = {
   id: string;
@@ -30,7 +30,7 @@ const useUserStore = create<UserState>((set,get) => ({
 
   login: async (form: { id: string; password: string }) => {
     try {
-      const response = await loginAPI(form);
+      const response = await postLogin(form);
       set({ isAuthenticated: true, user: response.data.user, accessToken: response.data.accessToken});
     } catch (error) {
       console.error(error);
@@ -44,7 +44,7 @@ const useUserStore = create<UserState>((set,get) => ({
       return;
     }
     try {
-      await logoutAPI(user.id);
+      await getLogout(user.id);
       set({ isAuthenticated: false, user: null, accessToken: null });
     } catch (error) {
       console.error(error);
@@ -59,7 +59,7 @@ const useUserStore = create<UserState>((set,get) => ({
       return;
     }
     try {
-      await deleteUserAPI();
+      await deleteUser();
       set({ isAuthenticated: false, user: null, accessToken: null });
     } catch (error) {
       console.error(error);

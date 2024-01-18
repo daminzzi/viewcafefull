@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import useUserStore from '../stores/userStore';
+import api from '../services/api'
 
 const SignUp = () => {
   const setUser = useUserStore(state => state.setUser);
@@ -105,38 +106,45 @@ const onChangePassword = (e:any) => {
   };
 
   // 아이디 중복 확인 
-  const handleCheckId = async () => {
-    try {
-      const response = await axios({
-        method: 'get',
-        url: `/users/validation/${id}`,
-      });
+const handleCheckId = async () => {
+  try {
+    const response = await api.get(`/users/validation/${id}`);
+    if (response.status === 200) {
       if (response.data.exists) {
         alert('이미 사용 중인 아이디입니다.');
       } else {
         alert('사용 가능한 아이디입니다.');
       }
-    } catch (error) {
-      console.error(error);
+    } else {
+      console.error(`오류: ${response.status}`);
     }
-  };
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-  // 회원가입
-  const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+// 회원가입
+const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    const phone = `${form.phone1}-${form.phone2}-${form.phone3}`;
-    try {
-      const response = await axios({
-        method: 'post',
-        url: '/users',
-        data: {...form, phone, id, password},
-      });
+  const phone = `${form.phone1}-${form.phone2}-${form.phone3}`;
+  try {
+    const response = await axios({
+      method: 'post',
+      url: '/users',
+      data: {...form, phone, id, password},
+    });
+
+    if (response.status === 201) {
       setUser(response.data);
-    } catch (error) {
-      console.error(error);
+    } else {
+      console.error(`오류: ${response.status}`);
     }
-  };
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 
   return (
     <div>

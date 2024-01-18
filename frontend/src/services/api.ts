@@ -3,7 +3,7 @@ import useUserStore from '../stores/userStore';
 
 // axios 인스턴스 생성
 const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'http://localhost:8080',
 });
 
 // 요청 인터셉터 추가
@@ -16,5 +16,6 @@ api.interceptors.request.use((config) => {
 }, (error) => {
   return Promise.reject(error);
 });
+
 
 export default api;
