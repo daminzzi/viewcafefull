@@ -1,6 +1,6 @@
 package com.ssafy.ViewCareFull.domain.galary.entity;
 
-import com.ssafy.ViewCareFull.domain.user.entity.user.Caregiver;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Caregiver;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

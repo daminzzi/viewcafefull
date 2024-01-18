@@ -1,8 +1,8 @@
 package com.ssafy.ViewCareFull.domain.conference.entity;
 
-import com.ssafy.ViewCareFull.domain.user.entity.PermissionType;
-import com.ssafy.ViewCareFull.domain.user.entity.user.Guardian;
-import com.ssafy.ViewCareFull.domain.user.entity.user.Hospital;
+import com.ssafy.ViewCareFull.domain.users.entity.PermissionType;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Hospital;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

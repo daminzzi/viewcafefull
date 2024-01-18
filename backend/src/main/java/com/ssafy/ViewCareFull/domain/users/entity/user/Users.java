@@ -1,4 +1,4 @@
-package com.ssafy.ViewCareFull.domain.user.entity.user;
+package com.ssafy.ViewCareFull.domain.users.entity.user;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
@@ -10,8 +10,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.validation.constraints.NotNull;
+import lombok.experimental.SuperBuilder;
 
 @Entity
+@SuperBuilder
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Users {

@@ -1,7 +1,7 @@
 package com.ssafy.ViewCareFull.domain.message.entity;
 
-import com.ssafy.ViewCareFull.domain.user.entity.user.Guardian;
-import com.ssafy.ViewCareFull.domain.user.entity.user.Users;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
