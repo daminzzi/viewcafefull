@@ -18,7 +18,7 @@ export type VisitData = {
   endDatetime: string | null;
 }
 
-function Visit() {
+function FamilyVisit() {
   const [visitList, setVisitList] = useState<{ conferenceList: VisitData[] | null }>({
     conferenceList: null,
   });
@@ -59,4 +59,4 @@ function Visit() {
   )
 }
 
-export default Visit
+export default FamilyVisit

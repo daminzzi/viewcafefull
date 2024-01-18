@@ -7,11 +7,11 @@ function FamilyHeader() {
   const { connectArr, currConnect, setCurr, updateConnect } = useConnectStore();
   
   if (connectArr.length === 0) {
-    updateConnect();
+    updateConnect('app','asdf');
   }
 
   return (
-    <div className="header">
+    <div className="family-header">
       <UserImgIcon className="user-img-icon" />
       <span>
         {currConnect.tarName}

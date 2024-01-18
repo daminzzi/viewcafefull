@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import deleteUser  from '../services/user/deleteUser';
 import  postLogin  from '../services/user/postLogin';
 import getLogout from '../services/user/getLogout';

@@ -1,5 +1,5 @@
 import React from 'react'
-import { VisitData } from '../../pages/family/Visit'
+import { VisitData } from '../../pages/family/FamilyVisit'
 import VisitStateTag from './VisitStateTag';
 type Props = {
 	visit: VisitData | null;

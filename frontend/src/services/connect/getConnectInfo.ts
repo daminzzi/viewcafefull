@@ -3,24 +3,7 @@
 // api 요청 작성 api 완성시 확인 필요
 // import api from '../api';
 
-type PathType = 'app' | 'tar'
-
-// function getConnectInfo(type: PathType, domainId: string) {
-//   axios({
-//     method: 'get',
-//     url: `/user-link/${type}`,
-//     params: {
-//       'domain-id' : domainId,
-//     },
-//   })
-//     .then((res) => {
-//       return res.data;
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     })
-// }
-
+export type PathType = 'app' | 'tar'
 
 // function getConnectInfo(type: PathType, domainId: string) {
 //   api.get(`/user-link/${type}`, {

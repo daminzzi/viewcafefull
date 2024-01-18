@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import getConnectInfo from '../services/connect/getConnectInfo';
+import getConnectInfo, { PathType } from '../services/connect/getConnectInfo';
 // import { persist } from 'zustand/middleware';
 
 interface Response {
@@ -20,7 +20,7 @@ type ConnectState = {
   connectArr: Array<Response>,
   currConnect: Response,
   setCurr: (index: number) => void,
-  updateConnect: () => void,  
+  updateConnect: (type: PathType, domainId: string) => void,  
 }
 
 
@@ -45,8 +45,8 @@ const useConnectStore = create<ConnectState>((set) => ({
     set((state: any) => ({ currConnect: state.connectArr[index] }));
   },
 
-  updateConnect: () => {
-    set(() => ({ connectArr: getConnectInfo('app', 'userid') }));
+  updateConnect: (type, domainId) => {
+    set(() => ({ connectArr: getConnectInfo(type, domainId) }));
     set((state: any) => ({ currConnect: state.connectArr[0] }));
   },
 }))

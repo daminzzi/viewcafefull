@@ -6,7 +6,11 @@ import CareGiver from './pages/caregiver/CareGiver';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-import Visit from './pages/family/Visit';
+import FamilyHome from './pages/family/FamilyHome';
+import FamilyGallery from './pages/family/FamilyGallery';
+import FamilyMessage from './pages/family/FamilyMessage';
+import FamilyVisit from './pages/family/FamilyVisit';
+import FamilyProfile from './pages/family/FamilyProfile';
 
 function App() {
   return (
@@ -17,7 +21,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path='/family' element={<Family />} >
-          <Route path="visit" element={<Visit />} />
+          <Route path='/family/home' element={<FamilyHome />} />
+          <Route path='/family/gallery' element={<FamilyGallery />} />
+          <Route path='/family/message' element={<FamilyMessage />} />
+          <Route path='/family/visit' element={<FamilyVisit />} />
+          <Route path='/family/profile' element={<FamilyProfile />} />
         </Route>
         <Route path='/caregiver' element={<CareGiver />}>
         </Route>
