@@ -1,7 +1,7 @@
 import create from 'zustand';
-import { deleteUserAPI } from '../services/deleteUser';
-import { loginAPI } from '../services/postLogin';
-import { logoutAPI } from '../services/getLogout';
+import { deleteUserAPI } from '../services/user/deleteUser';
+import { loginAPI } from '../services/user/postLogin';
+import { logoutAPI } from '../services/user/getLogout';
 
 type User = {
   id: string;

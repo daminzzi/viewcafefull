@@ -1,5 +1,5 @@
 import axios from 'axios';
-import useUserStore from './userStore';
+import useUserStore from '../stores/userStore';
 
 // axios 인스턴스 생성
 const api = axios.create({

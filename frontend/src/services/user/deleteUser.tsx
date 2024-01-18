@@ -1,4 +1,4 @@
-import api from '../stores/api';
+import api from '../api';
 
 
 // 회원탈퇴

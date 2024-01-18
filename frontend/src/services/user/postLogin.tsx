@@ -1,4 +1,4 @@
-import api from '../stores/api';
+import api from '../api';
 
 // 로그인
 export const loginAPI = async (

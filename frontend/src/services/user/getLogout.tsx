@@ -1,4 +1,4 @@
-import api from '../stores/api';
+import api from '../api';
 
 // 로그아웃
 export const logoutAPI = async (id: string) => {
