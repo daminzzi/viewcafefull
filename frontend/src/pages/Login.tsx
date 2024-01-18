@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const { login } = useUserStore();
-  const { navigate } = useNavigate;
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     id: '',
     password: '',
