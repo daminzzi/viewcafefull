@@ -185,6 +185,9 @@ WhereIsMyHome_Java.iml
 # https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij
 .idea/**/azureSettings.xml
 
+# 설정 파일
+application.yml
+
 ### Java ###
 # Compiled class file
 *.class
