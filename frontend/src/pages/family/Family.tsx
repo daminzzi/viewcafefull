@@ -8,7 +8,6 @@ function Family() {
   return (
     <div>
       <FamilyHeader />
-      아울렛
       <Outlet />
       <FamilyNav />
     </div>

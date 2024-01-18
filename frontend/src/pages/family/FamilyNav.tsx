@@ -11,15 +11,15 @@ function FamilyNav() {
     <div className='family-nav'>
       <Link to='/family/home'>
         <HomeIcon className='home-icon'/>
+      <Link to='/family/visit'>
+        <VisitIcon className='visit-icon'/>
       </Link>
-      <Link to='/family/gallery'>
-        <GalleryIcon className='gallery-icon'/>
       </Link>
       <Link to='/family/message'>
         <MessageIcon className='message-icon'/>
       </Link>
-      <Link to='/family/visit'>
-        <VisitIcon className='visit-icon'/>
+      <Link to='/family/gallery'>
+        <GalleryIcon className='gallery-icon'/>
       </Link>
       <Link to='/family/profile'>
         <ProfileIcon className='profile-icon'/>

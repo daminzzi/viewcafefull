@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Page } from '../../components/familyhome/TabButton'
+import TabButtonGroup from '../../components/familyhome/TabButtonGroup';
+import Comment from '../../components/familyhome/Comment';
 
-type Props = {}
+function FamilyHome() {
+  const [tab, setTab] = useState<Page>('sum');
 
-function FamilyHome({}: Props) {
+  function handleChangeTab (tab: Page): void {
+    setTab(tab);
+  }
+
   return (
-    <div>FamilyHome</div>
+    <div>
+      <h1>Family Home</h1>
+      <hr />
+      <TabButtonGroup handleChangeTab={handleChangeTab} />
+      <hr />
+      <Comment />
+    </div>
   )
 }
 

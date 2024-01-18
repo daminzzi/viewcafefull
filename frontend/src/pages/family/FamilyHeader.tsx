@@ -7,7 +7,7 @@ function FamilyHeader() {
   const { connectArr, currConnect, setCurr, updateConnect } = useConnectStore();
   
   if (connectArr.length === 0) {
-    updateConnect('app','asdf');
+    updateConnect('app', 'asdf');
   }
 
   return (

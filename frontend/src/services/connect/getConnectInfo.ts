@@ -38,8 +38,6 @@ const dummy = [
 ]
 
 function getConnectInfo(type: PathType, domainId: string) {
-  console.log(type)
-  console.log(domainId)
   
   return dummy;
 }

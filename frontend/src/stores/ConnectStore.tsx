@@ -23,8 +23,6 @@ type ConnectState = {
   updateConnect: (type: PathType, domainId: string) => void,  
 }
 
-
-
 const useConnectStore = create<ConnectState>((set) => ({
   connectArr: [],
   currConnect: {
@@ -41,11 +39,11 @@ const useConnectStore = create<ConnectState>((set) => ({
     relationship: '',
   },
 
-  setCurr: (index: number) => { 
+  setCurr (index) { 
     set((state: any) => ({ currConnect: state.connectArr[index] }));
   },
 
-  updateConnect: (type, domainId) => {
+  updateConnect (type, domainId) {
     set(() => ({ connectArr: getConnectInfo(type, domainId) }));
     set((state: any) => ({ currConnect: state.connectArr[0] }));
   },
