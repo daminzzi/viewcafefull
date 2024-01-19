@@ -127,12 +127,12 @@ const handleCheckId = async () => {
 const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
-  const phone = `${form.phone1}-${form.phone2}-${form.phone3}`;
+  const phoneNumber = `${form.phone1}-${form.phone2}-${form.phone3}`;
   try {
     const response = await axios({
       method: 'post',
       url: '/users',
-      data: {...form, phone, id, password},
+      data: {...form, phoneNumber, id, password},
     });
 
     if (response.status === 201) {

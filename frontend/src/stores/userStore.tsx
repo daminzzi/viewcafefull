@@ -8,11 +8,13 @@ type User = {
   name: string;
   phone: number;
   birth: number;
+  role: string;
 };
 
 type UserState = {
   user: User | null;
   isAuthenticated: boolean;
+  isLogin: boolean;
   accessToken: string | null;
   setAccessToken: (token: string | null) => void;
   setUser: (user: User | null) => void;
@@ -24,6 +26,7 @@ type UserState = {
 const useUserStore = create<UserState>((set,get) => ({
   user: null,
   isAuthenticated: false,
+  isLogin: false,
   accessToken: null,
   setAccessToken: (token) => set({ accessToken: token }),
   setUser: (user) => set({ user }),
@@ -31,7 +34,7 @@ const useUserStore = create<UserState>((set,get) => ({
   login: async (form: { id: string; password: string }) => {
     try {
       const response = await postLogin(form);
-      set({ isAuthenticated: true, user: response.data.user, accessToken: response.data.accessToken});
+      set({ isLogin: true, isAuthenticated: true, user: response.data.user, accessToken: response.data.accessToken});
     } catch (error) {
       console.error(error);
     }
@@ -45,7 +48,7 @@ const useUserStore = create<UserState>((set,get) => ({
     }
     try {
       await getLogout(user.id);
-      set({ isAuthenticated: false, user: null, accessToken: null });
+      set({ isLogin: false, isAuthenticated: false, user: null, accessToken: null });
     } catch (error) {
       console.error(error);
     }
@@ -60,7 +63,7 @@ const useUserStore = create<UserState>((set,get) => ({
     }
     try {
       await deleteUser();
-      set({ isAuthenticated: false, user: null, accessToken: null });
+      set({ isLogin: false, isAuthenticated: false, user: null, accessToken: null });
     } catch (error) {
       console.error(error);
     }
