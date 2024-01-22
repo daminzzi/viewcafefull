@@ -4,7 +4,7 @@ import api from "../api";
 async function deleteUser() {
   try {
     const response = await api.delete(`/users`);
-    if (response.status !== 200) {
+    if (response.status !== 204) {
       throw new Error(`오류: ${response.status}`);
     }
   } catch (error) {

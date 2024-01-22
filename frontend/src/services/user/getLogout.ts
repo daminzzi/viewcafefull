@@ -4,7 +4,7 @@ import api from "../api";
 async function getLogout(id: string) {
   try {
     const response = await api.get(`/users/signout`);
-    if (response.status !== 200) {
+    if (response.status !== 204) {
       throw new Error(`오류: ${response.status}`);
     }
   } catch (error) {

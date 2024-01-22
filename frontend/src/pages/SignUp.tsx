@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import useUserStore from "../stores/userStore";
@@ -21,7 +21,7 @@ const SignUp = () => {
     phone1: "",
     phone2: "",
     phone3: "",
-    birth: "",
+    birth: ""
   });
 
   const [id, setId] = useState<string>("");
@@ -46,7 +46,7 @@ const SignUp = () => {
       setIdMsg("3~20사이 대소문자 또는 숫자만 입력해 주세요!");
       setValidId(false);
     } else {
-      setIdMsg("사용가능한 아이디 입니다.");
+      setIdMsg("");
       setValidId(true);
     }
   }
@@ -114,7 +114,7 @@ const SignUp = () => {
     const { name, value } = e.target;
     setForm((prevForm) => ({
       ...prevForm,
-      [name]: value,
+      [name]: value
     }));
   }
 
@@ -122,21 +122,23 @@ const SignUp = () => {
   async function handleCheckId() {
     try {
       const response = await api.get(`/users/validation/${id}`);
-      if (response.status === 200) {
-        if (response.data.exists) {
-          alert("이미 사용 중인 아이디입니다.");
-          setCheckId(false);
-        } else {
-          alert("사용 가능한 아이디입니다.");
-          setCheckId(true);
-        }
+      if (response.status === 409) {
+        alert("이미 사용 중인 아이디입니다.");
+        setCheckId(false);
       } else {
-        console.error(`오류: ${response.status}`);
+        alert("사용 가능한 아이디입니다.");
+        setCheckId(true);
       }
     } catch (error) {
       console.error(error);
     }
   }
+
+  useEffect(() => {
+    if (vaildId && checkId) {
+      setIdMsg("사용 가능한 아이디입니다.");
+    }
+  }, [vaildId, checkId]);
 
   // 회원가입
   async function handleSignUp(e: FormEvent<HTMLFormElement>) {
@@ -147,7 +149,7 @@ const SignUp = () => {
       const response = await axios({
         method: "post",
         url: "/users",
-        data: { ...form, phoneNumber, id, password },
+        data: { ...form, phoneNumber, id, password }
       });
 
       if (response.status === 201) {
