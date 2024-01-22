@@ -19,7 +19,12 @@ function TabView(props: Props) {
       case "bp":
         return <BloodPressure />;
       case "bs":
-        return <BloodSugar />;
+        return (
+          <BloodSugar
+            beforeArr={props.healthInfo.beforeArr}
+            afterArr={props.healthInfo.afterArr}
+          />
+        );
       case "mm":
         return <MealMedicine />;
       default:
