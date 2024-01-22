@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import useUserStore from '../stores/userStore';
 import { useNavigate, useLocation } from 'react-router-dom';
 import GoogleLoginButton from '../components/common/GoogleLoginButton';
 
 type PathType = 'app' | 'tar';
+
+interface Form {
+  id: string;
+  password: string;
+}
 
 const Login = () => {
   const { login } = useUserStore();
@@ -11,29 +16,41 @@ const Login = () => {
   const location = useLocation();
   const pathType: PathType = location.state?.pathType ?? 'tar';
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<Form>({
     id: '',
     password: '',
   });
 
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
-    setForm({
-      ...form,
-      [name]: value,
-    });
-  };
 
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    setForm(prevForm => ({
+        ...prevForm,
+        [name]: value,
+    }));
+  }
+
+  async function handleLogin(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
     try {
-      await login(form);
-      navigate('/');
+        await login(form);
+        if (pathType === 'app') {
+          // 보호자 로그인 완료시
+          navigate('/family/home');
+        } else if (pathType === 'tar') {
+          // 간병인 로그인 완료시
+          navigate('/caregiver/home');
+        }
     } catch (error) {
-      console.error(error);
+        console.error(error);
     }
-  };
+  }
+
+  function handleAppSignUp() {
+    navigate("/signup");
+  }
 
   const Rest_api_key = process.env.REACT_APP_KAKAO_REST_API_KEY
   const redirect_uri = process.env.REACT_APP_KAKAO_REDIRECT_URI
@@ -63,6 +80,8 @@ const Login = () => {
             pathType === 'app'
             ? <><button onClick={handleKakaoLogin}>카카오 로그인</button>
                 <GoogleLoginButton/>
+                <hr />
+                <button onClick={handleAppSignUp}>회원가입</button>
               </>
             : null
           }

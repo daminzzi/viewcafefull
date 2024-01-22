@@ -1,15 +1,7 @@
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { useNavigate } from 'react-router-dom';
-import useUserStore from '../../stores/userStore';
+import useUserStore, { User } from '../../stores/userStore';
 import api from '../../services/api';
-
-interface User {
-    id: string;
-    name: string;
-    phoneNumber: number;
-    birth: number;
-    role: string;
-  }
   
 interface ResponseData {
     user: User | null;

@@ -6,12 +6,13 @@ import CareGiver from './pages/caregiver/CareGiver';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import KakaoRedirect from '../src/services/KakaoRedirect'
 import FamilyHome from './pages/family/FamilyHome';
 import FamilyGallery from './pages/family/FamilyGallery';
 import FamilyMessage from './pages/family/FamilyMessage';
 import FamilyVisit from './pages/family/FamilyVisit';
 import FamilyProfile from './pages/family/FamilyProfile';
-import KakaoRedirect from '../src/services/KakaoRedirect'
+import CareGiverHome from './pages/caregiver/CareGiverHome';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path='/family/profile' element={<FamilyProfile />} />
         </Route>
         <Route path='/caregiver' element={<CareGiver />}>
+        <Route path='/caregiver/home' element={<CareGiverHome />} />
         </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>

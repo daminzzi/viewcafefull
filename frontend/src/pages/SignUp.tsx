@@ -1,4 +1,5 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import useUserStore from '../stores/userStore';
 import api from '../services/api'
@@ -12,6 +13,7 @@ interface Form {
 }
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const setUser = useUserStore(state => state.setUser);
   const [form, setForm] = useState<Form>({
     name: '',
@@ -149,6 +151,8 @@ async function handleSignUp(e: FormEvent<HTMLFormElement>) {
 
     if (response.status === 201) {
       setUser(response.data);
+      navigate('/login')
+      
     } else {
       console.error(`오류: ${response.status}`);
     }

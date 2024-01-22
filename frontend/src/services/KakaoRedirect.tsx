@@ -1,15 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from './api';
-import useUserStore from '../stores/userStore';
-
-interface User {
-  id: string;
-  name: string;
-  phone: number;
-  birth: number;
-  role: string;
-}
+import useUserStore, { User } from '../stores/userStore';
 
 interface ResponseData {
   user: User | null;

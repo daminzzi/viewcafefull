@@ -1,19 +1,9 @@
 import { useEffect, useState } from "react";
-import getUserInfo from '../../services/user/getUserInfo';
+import getUserInfo, { UserInfo } from '../../services/user/getUserInfo';
 import useConnectStore from "../../stores/ConnectStore";
 
-type Props = {}
 
-interface UserInfo {
-  parentId: number[] | null;
-  parentName: string[] | null;
-  phoneNumber: string;
-  birth: string;
-  userRole: string;
-}
-
-
-function FamilyProfile({}: Props) {
+function FamilyProfile() {
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const { currConnect } = useConnectStore();
 

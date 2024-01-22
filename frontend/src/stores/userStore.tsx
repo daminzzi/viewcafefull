@@ -3,10 +3,10 @@ import deleteUser  from '../services/user/deleteUser';
 import  postLogin  from '../services/user/postLogin';
 import getLogout from '../services/user/getLogout';
 
-type User = {
+export interface User{
   id: string;
   name: string;
-  phone: number;
+  phoneNumber: number;
   birth: number;
   role: string;
 };

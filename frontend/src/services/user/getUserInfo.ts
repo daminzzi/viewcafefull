@@ -1,6 +1,6 @@
 import api from '../api';
 
-interface UserInfo {
+export interface UserInfo {
   parentId: number[] | null;
   parentName: string[] | null;
   residentId: number | null;
