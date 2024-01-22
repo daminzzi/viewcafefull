@@ -11,6 +11,7 @@ import FamilyGallery from './pages/family/FamilyGallery';
 import FamilyMessage from './pages/family/FamilyMessage';
 import FamilyVisit from './pages/family/FamilyVisit';
 import FamilyProfile from './pages/family/FamilyProfile';
+import KakaoRedirect from '../src/services/KakaoRedirect'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/' element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/kakaoLogin" element={<KakaoRedirect />} />
         <Route path='/family' element={<Family />} >
           <Route path='/family/home' element={<FamilyHome />} />
           <Route path='/family/gallery' element={<FamilyGallery />} />
