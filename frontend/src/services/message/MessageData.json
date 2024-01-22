@@ -1,0 +1,22 @@
+{
+	"sum" : 2,
+	"unreadMsgs" : 1, 
+	"messages" : [
+		{
+			"id" : 1, 
+			"from" : "a요양병원", 
+			"title" : "안녕하세요", 
+			"content" : "테스트입니다.", 
+			"time" : "2024-01-13 18:42:21", 
+			"isRead" : true
+		},
+		{
+			"id" : 2, 
+			"from" : "b요양병원", 
+			"title" : "밖녕하세요", 
+			"content" : "테스트합니다.", 
+			"time" : "2024-01-13 18:42:21", 
+			"isRead" : false
+		}
+	]
+}
