@@ -1,8 +1,9 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import useUserStore from '../stores/userStore';
-import api from '../services/api'
+import React from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import useUserStore from "../stores/userStore";
+import api from "../services/api";
 
 interface Form {
   name: string;
@@ -14,20 +15,20 @@ interface Form {
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const setUser = useUserStore(state => state.setUser);
+  const setUser = useUserStore((state) => state.setUser);
   const [form, setForm] = useState<Form>({
-    name: '',
-    phone1: '',
-    phone2: '',
-    phone3: '',
-    birth: '',
+    name: "",
+    phone1: "",
+    phone2: "",
+    phone3: "",
+    birth: "",
   });
 
   const [id, setId] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [passwordConfirm, setPasswordConfirm] = useState<string>("");
   const [vaildId, setValidId] = useState<boolean>(false);
-  const [checkId, setCheckId] = useState<boolean>(false);   // 아이디 중복 유무
+  const [checkId, setCheckId] = useState<boolean>(false); // 아이디 중복 유무
   const [IdMsg, setIdMsg] = useState<string>("");
   const [validPw, setValidPw] = useState<boolean>(false);
   const [PwMsg, setPwMsg] = useState<string>("");
@@ -37,7 +38,7 @@ const SignUp = () => {
   function onChangeId(e: ChangeEvent<HTMLInputElement>) {
     const id = e.target.value;
     setId(id);
-    const idRegex = /^[a-zA-Z][a-zA-Z0-9_-]{2,19}$/
+    const idRegex = /^[a-zA-Z][a-zA-Z0-9_-]{2,19}$/;
 
     if (id.length === 0) {
       setIdMsg("");
@@ -48,54 +49,54 @@ const SignUp = () => {
       setIdMsg("사용가능한 아이디 입니다.");
       setValidId(true);
     }
-  };
-
-// 두 password 일치 확인
-function onChangePasswordConfirm(e: ChangeEvent<HTMLInputElement>) {
-  const passwordConfirm = e.target.value;
-  setPasswordConfirm(passwordConfirm);
-  if (passwordConfirm.length === 0) {
-    setPwConfirmMsg('');
-  } else if ( password !== passwordConfirm) {
-    setPwConfirmMsg('두 비밀번호가 일치하지 않습니다.');
-    setValidPw(false);
-  } else {
-    setPwConfirmMsg('두 비밀번호가 일치합니다.');
-    setValidPw(true);
-  }
-}
-
-// password 유효성 검사
-function onChangePassword(e: ChangeEvent<HTMLInputElement>) {
-  const password = e.target.value;
-  setPassword(password);
-  const pwRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[@#$%^&+=!])(?!.*\s).{8,20}$/
-
-  if (password.length === 0) {
-    setPwMsg("");
-    setValidPw(false);
-  } else if (!pwRegex.test(password)) {
-    setPwMsg("8~20사이 숫자, 소문자, 특수문자 포함해서 입력해주세요!");
-    setValidPw(false);
-  } else {
-    setPwMsg("사용가능한 비밀번호 입니다.");
-    setValidPw(true);
   }
 
-   if (password.length !== 0 && password !== passwordConfirm) {
-    setPwConfirmMsg('두 비밀번호가 일치하지 않습니다.');
-    setValidPw(false);
-  } else if (password.length !== 0 && password === passwordConfirm) {
-    setPwConfirmMsg('두 비밀번호가 일치합니다.');
-    setValidPw(true);
-  } else {
-    setPwConfirmMsg('');
-    setValidPw(false);
+  // 두 password 일치 확인
+  function onChangePasswordConfirm(e: ChangeEvent<HTMLInputElement>) {
+    const passwordConfirm = e.target.value;
+    setPasswordConfirm(passwordConfirm);
+    if (passwordConfirm.length === 0) {
+      setPwConfirmMsg("");
+    } else if (password !== passwordConfirm) {
+      setPwConfirmMsg("두 비밀번호가 일치하지 않습니다.");
+      setValidPw(false);
+    } else {
+      setPwConfirmMsg("두 비밀번호가 일치합니다.");
+      setValidPw(true);
+    }
   }
-}
+
+  // password 유효성 검사
+  function onChangePassword(e: ChangeEvent<HTMLInputElement>) {
+    const password = e.target.value;
+    setPassword(password);
+    const pwRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[@#$%^&+=!])(?!.*\s).{8,20}$/;
+
+    if (password.length === 0) {
+      setPwMsg("");
+      setValidPw(false);
+    } else if (!pwRegex.test(password)) {
+      setPwMsg("8~20사이 숫자, 소문자, 특수문자 포함해서 입력해주세요!");
+      setValidPw(false);
+    } else {
+      setPwMsg("사용가능한 비밀번호 입니다.");
+      setValidPw(true);
+    }
+
+    if (password.length !== 0 && password !== passwordConfirm) {
+      setPwConfirmMsg("두 비밀번호가 일치하지 않습니다.");
+      setValidPw(false);
+    } else if (password.length !== 0 && password === passwordConfirm) {
+      setPwConfirmMsg("두 비밀번호가 일치합니다.");
+      setValidPw(true);
+    } else {
+      setPwConfirmMsg("");
+      setValidPw(false);
+    }
+  }
 
   // 회원가입 버튼 활성화 조건
-  const submitRequirements = 
+  const submitRequirements =
     id &&
     password &&
     passwordConfirm &&
@@ -109,101 +110,156 @@ function onChangePassword(e: ChangeEvent<HTMLInputElement>) {
     form.birth;
 
   // input태그의 이름, 사용자가 입력한 값을 실시간으로 각각 동적 할당
-    function handleChange(e: ChangeEvent<HTMLInputElement>) {
-      const { name, value } = e.target;
-      setForm(prevForm => ({
-        ...prevForm,
-        [name]: value,
-      }));
-    }
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    const { name, value } = e.target;
+    setForm((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
+  }
 
-  // 아이디 중복 확인 
+  // 아이디 중복 확인
   async function handleCheckId() {
-  try {
-    const response = await api.get(`/users/validation/${id}`);
-    if (response.status === 200) {
-      if (response.data.exists) {
-        alert('이미 사용 중인 아이디입니다.');
-        setCheckId(false);
+    try {
+      const response = await api.get(`/users/validation/${id}`);
+      if (response.status === 200) {
+        if (response.data.exists) {
+          alert("이미 사용 중인 아이디입니다.");
+          setCheckId(false);
+        } else {
+          alert("사용 가능한 아이디입니다.");
+          setCheckId(true);
+        }
       } else {
-        alert('사용 가능한 아이디입니다.');
-        setCheckId(true);
+        console.error(`오류: ${response.status}`);
       }
-    } else {
-      console.error(`오류: ${response.status}`);
+    } catch (error) {
+      console.error(error);
     }
-  } catch (error) {
-    console.error(error);
   }
-};
 
-// 회원가입
-async function handleSignUp(e: FormEvent<HTMLFormElement>) {
-  e.preventDefault();
+  // 회원가입
+  async function handleSignUp(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
 
-  const phoneNumber = `${form.phone1}-${form.phone2}-${form.phone3}`;
-  try {
-    const response = await axios({
-      method: 'post',
-      url: '/users',
-      data: {...form, phoneNumber, id, password},
-    });
+    const phoneNumber = `${form.phone1}-${form.phone2}-${form.phone3}`;
+    try {
+      const response = await axios({
+        method: "post",
+        url: "/users",
+        data: { ...form, phoneNumber, id, password },
+      });
 
-    if (response.status === 201) {
-      setUser(response.data);
-      navigate('/login')
-      
-    } else {
-      console.error(`오류: ${response.status}`);
+      if (response.status === 201) {
+        setUser(response.data);
+        navigate("/login");
+      } else {
+        console.error(`오류: ${response.status}`);
+      }
+    } catch (error) {
+      console.error(error);
     }
-  } catch (error) {
-    console.error(error);
   }
-};
-
 
   return (
     <div>
-     <h1>회원가입</h1>
+      <h1>회원가입</h1>
       <form onSubmit={handleSignUp}>
         <label>
-            아이디:
-            <input type="text" name="id" value={id} onChange={onChangeId} required />
-            <button type="button" onClick={handleCheckId}>중복확인</button>
-            <p className='message'>{IdMsg}</p>
+          아이디:
+          <input
+            type="text"
+            name="id"
+            value={id}
+            onChange={onChangeId}
+            required
+          />
+          <button type="button" onClick={handleCheckId}>
+            중복확인
+          </button>
+          <p className="message">{IdMsg}</p>
         </label>
         <br />
         <label>
-            비밀번호:
-            <input type="password" name="password" value={password} onChange={onChangePassword} required />
-            <p className='message'>{PwMsg}</p>
+          비밀번호:
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={onChangePassword}
+            required
+          />
+          <p className="message">{PwMsg}</p>
         </label>
         <br />
         <label>
-            비밀번호 확인:
-            <input type="password" name="passwordConfirm" value={passwordConfirm} onChange={onChangePasswordConfirm} required />
-            <p className='message'>{PwConfirmMsg}</p>
+          비밀번호 확인:
+          <input
+            type="password"
+            name="passwordConfirm"
+            value={passwordConfirm}
+            onChange={onChangePasswordConfirm}
+            required
+          />
+          <p className="message">{PwConfirmMsg}</p>
         </label>
         <br />
         <label>
-            이름:
-            <input type="text" name="name" value={form.name} onChange={handleChange} required />
+          이름:
+          <input
+            type="text"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            required
+          />
         </label>
         <br />
         <label>
-            전화번호:
-            <input type="tel" name="phone1" value={form.phone1} onChange={handleChange} required maxLength={3}/>-
-            <input type="tel" name="phone2" value={form.phone2} onChange={handleChange} required maxLength={4}/>-
-            <input type="tel" name="phone3" value={form.phone3} onChange={handleChange} required maxLength={4}/>
+          전화번호:
+          <input
+            type="tel"
+            name="phone1"
+            value={form.phone1}
+            onChange={handleChange}
+            required
+            maxLength={3}
+          />
+          -
+          <input
+            type="tel"
+            name="phone2"
+            value={form.phone2}
+            onChange={handleChange}
+            required
+            maxLength={4}
+          />
+          -
+          <input
+            type="tel"
+            name="phone3"
+            value={form.phone3}
+            onChange={handleChange}
+            required
+            maxLength={4}
+          />
         </label>
         <br />
         <label>
-            생년월일:
-            <input type="date" name="birth" value={form.birth} onChange={handleChange} required />
+          생년월일:
+          <input
+            type="date"
+            name="birth"
+            value={form.birth}
+            onChange={handleChange}
+            required
+          />
         </label>
         <br />
-      <button type="submit" disabled={!submitRequirements}>회원가입</button>
-    </form>
+        <button type="submit" disabled={!submitRequirements}>
+          회원가입
+        </button>
+      </form>
     </div>
   );
 };

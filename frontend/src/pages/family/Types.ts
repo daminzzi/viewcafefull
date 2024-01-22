@@ -5,19 +5,19 @@ export type Medicine = {
   information: string;
   medicineType: string;
   medicineDate: string;
-}
+};
 
 export type MedicineObj = {
   breakfast: Medicine | null;
   lunch: Medicine | null;
   dinner: Medicine | null;
-}
+};
 
 export type MealObj = {
   breakfast: string;
   lunch: string;
   dinner: string;
-}
+};
 
 export type HealthInfo = {
   beforeArr: Array<number>;
@@ -26,4 +26,4 @@ export type HealthInfo = {
   highArr: Array<number>;
   medicineObj: MedicineObj | null;
   mealObj: MealObj | null;
-}
+};

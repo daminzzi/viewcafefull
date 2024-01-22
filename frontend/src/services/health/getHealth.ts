@@ -20,9 +20,9 @@
 
 // 더미데이터 return
 
-import healthData from './healthData.json';
+import healthData from "./healthData.json";
 
-function getHealth (domainId:string, date: string) {
+function getHealth(domainId: string, date: string) {
   console.log(domainId);
   console.log(date);
   return healthData;

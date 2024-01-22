@@ -1,9 +1,9 @@
-import React from 'react'
-import TabButton, { Page } from './TabButton'
+import React from "react";
+import TabButton, { Page } from "./TabButton";
 
 type Props = {
   handleChangeTab: (tab: Page) => void;
-}
+};
 
 function TabButtonGroup(props: Props) {
   return (
@@ -21,7 +21,7 @@ function TabButtonGroup(props: Props) {
         식단/복약
       </TabButton>
     </div>
-  )
+  );
 }
 
-export default TabButtonGroup
+export default TabButtonGroup;

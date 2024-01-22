@@ -1,4 +1,4 @@
-import api from '../api';
+import api from "../api";
 
 export interface UserInfo {
   parentId: number[] | null;
@@ -24,6 +24,6 @@ async function getUserInfo(): Promise<UserInfo | null> {
     console.error(error);
     return null;
   }
-};
+}
 
 export default getUserInfo;

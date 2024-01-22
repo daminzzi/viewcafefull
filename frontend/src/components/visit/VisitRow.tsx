@@ -7,11 +7,12 @@ type Props = {
 
 function VisitRow({visit}: Props) {
   return (
-	  <div>
-      <span>{visit?.conferenceDate}</span>
+  <div>
+    <span>{visit?.conferenceDate}</span>
       <span>{visit?.conferenceTime}</span>
       {visit?.conferenceState && <VisitStateTag conferenceState={visit?.conferenceState} />}
-	  </div>
+  </div>
+
   )
 }
 

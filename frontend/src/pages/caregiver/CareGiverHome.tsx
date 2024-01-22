@@ -1,9 +1,10 @@
+import React from 'react';
 
 function CareGiverHome() {
-    return (
-      <div>
-        <h1>CareGiverHome</h1>
-      </div>
+  return (
+    <div>
+      <h1>CareGiverHome</h1>
+      </div>  
     )
   }
   

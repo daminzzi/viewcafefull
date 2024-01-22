@@ -1,4 +1,4 @@
-import api from '../api';
+import api from "../api";
 
 // 로그아웃
 async function getLogout(id: string) {
@@ -11,6 +11,6 @@ async function getLogout(id: string) {
     console.error(error);
     throw error;
   }
-};
+}
 
 export default getLogout;

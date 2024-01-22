@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
-
-function BloodPressure({}: Props) {
-  return (
-    <div>BloodPressure</div>
-  );
+function BloodPressure() {
+  return <div>BloodPressure</div>;
 }
 
-export default BloodPressure
+export default BloodPressure;

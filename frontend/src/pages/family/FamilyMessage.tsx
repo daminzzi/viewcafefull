@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
-type Props = {}
-
-function FamilyMessage({}: Props) {
-  return (
-    <div>FamilyMessage</div>
-  )
+function FamilyMessage() {
+  return <div>FamilyMessage</div>;
 }
 
-export default FamilyMessage
+export default FamilyMessage;

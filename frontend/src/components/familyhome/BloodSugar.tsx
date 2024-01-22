@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
-
-function BloodSugar({}: Props) {
-  return (
-    <div>BloodSugar</div>
-  );
+function BloodSugar() {
+  return <div>BloodSugar</div>;
 }
 
-export default BloodSugar
+export default BloodSugar;

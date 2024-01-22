@@ -1,7 +1,7 @@
+import React from "react";
 import { useEffect, useState } from "react";
-import getUserInfo, { UserInfo } from '../../services/user/getUserInfo';
+import getUserInfo, { UserInfo } from "../../services/user/getUserInfo";
 import useConnectStore from "../../stores/ConnectStore";
-
 
 function FamilyProfile() {
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
@@ -20,7 +20,7 @@ function FamilyProfile() {
   }
 
   return (
-    <>
+    <div>
       <div>FamilyProfile</div>
       <div>이름</div>
       <div>{userInfo.parentName}</div>
@@ -30,10 +30,10 @@ function FamilyProfile() {
       <div>{userInfo.phoneNumber}</div>
       <br />
       <div>연결된 입소자 목록</div>
-          <p>{currConnect.perName}요양원</p>
-          <p>입소자 이름: {currConnect.tarName} 님</p>
-    </>
-  )
+      <p>{currConnect.perName}요양원</p>
+      <p>입소자 이름: {currConnect.tarName} 님</p>
+    </div>
+  );
 }
 
 export default FamilyProfile;

@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
-type Props = {}
-
-function FamilyGallery({}: Props) {
-  return (
-    <div>FamilyGallery</div>
-  )
+function FamilyGallery() {
+  return <div>FamilyGallery</div>;
 }
 
-export default FamilyGallery
+export default FamilyGallery;

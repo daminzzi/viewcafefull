@@ -1,15 +1,15 @@
-import { create } from 'zustand';
-import deleteUser  from '../services/user/deleteUser';
-import  postLogin  from '../services/user/postLogin';
-import getLogout from '../services/user/getLogout';
+import { create } from "zustand";
+import deleteUser from "../services/user/deleteUser";
+import postLogin from "../services/user/postLogin";
+import getLogout from "../services/user/getLogout";
 
-export interface User{
+export interface User {
   id: string;
   name: string;
   phoneNumber: number;
   birth: number;
   role: string;
-};
+}
 
 type UserState = {
   user: User | null;
@@ -23,7 +23,7 @@ type UserState = {
   deleteUser: () => void;
 };
 
-const useUserStore = create<UserState>((set,get) => ({
+const useUserStore = create<UserState>((set, get) => ({
   user: null,
   isAuthenticated: false,
   isLogin: false,
@@ -34,7 +34,12 @@ const useUserStore = create<UserState>((set,get) => ({
   login: async (form: { id: string; password: string }) => {
     try {
       const response = await postLogin(form);
-      set({ isLogin: true, isAuthenticated: true, user: response.data.user, accessToken: response.data.accessToken});
+      set({
+        isLogin: true,
+        isAuthenticated: true,
+        user: response.data.user,
+        accessToken: response.data.accessToken,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -43,27 +48,36 @@ const useUserStore = create<UserState>((set,get) => ({
   logout: async () => {
     const { user } = get();
     if (!user) {
-      console.error('로그인 해주세요.');
+      console.error("로그인 해주세요.");
       return;
     }
     try {
       await getLogout(user.id);
-      set({ isLogin: false, isAuthenticated: false, user: null, accessToken: null });
+      set({
+        isLogin: false,
+        isAuthenticated: false,
+        user: null,
+        accessToken: null,
+      });
     } catch (error) {
       console.error(error);
     }
   },
-  
 
   deleteUser: async () => {
     const { user } = get();
     if (!user) {
-      console.error('로그인 해주세요.');
+      console.error("로그인 해주세요.");
       return;
     }
     try {
       await deleteUser();
-      set({ isLogin: false, isAuthenticated: false, user: null, accessToken: null });
+      set({
+        isLogin: false,
+        isAuthenticated: false,
+        user: null,
+        accessToken: null,
+      });
     } catch (error) {
       console.error(error);
     }

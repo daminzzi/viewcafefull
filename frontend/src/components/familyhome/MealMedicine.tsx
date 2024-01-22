@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
-type Props = {}
-
-function MealMedicine({}: Props) {
-  return (
-    <div>MealMedicine</div>
-  );
+function MealMedicine() {
+  return <div>MealMedicine</div>;
 }
 
-export default MealMedicine
+export default MealMedicine;
