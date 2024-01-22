@@ -1,22 +1,26 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import getMessage, {Message, MessagesResponse} from "../../services/message/getMessage"
+import React, { useEffect, useState } from 'react';
+import getMessage, {
+  Message,
+  MessagesResponse,
+} from '../../services/message/getMessage';
 import { ReactComponent as EnvelopeSimpleClosed } from '../../assets/icons/EnvelopeSimpleClosed.svg';
 import { ReactComponent as EnvelopeSimpleOpen } from '../../assets/icons/EnvelopeSimpleOpen.svg';
-import MessageModal from "../../components/message/MessageModal";
-import getReadMessage from "../../services/message/getReadMessage";
+import MessageModal from '../../components/message/MessageModal';
+// import getReadMessage from '../../services/message/getReadMessage';
 
 // 보호자 - 받은 메세지 전체 보기
 
 function FamilyMessage() {
-  const [messagesData, setMessagesData] = useState<MessagesResponse | null>(null);
+  const [messagesData, setMessagesData] = useState<MessagesResponse | null>(
+    null,
+  );
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
 
   useEffect(() => {
     async function fetchMessages() {
       const res = await getMessage();
       setMessagesData(res);
-    };
+    }
     fetchMessages();
   }, []);
 
@@ -44,26 +48,31 @@ function FamilyMessage() {
   return (
     <div>
       <div>메세지</div>
-      <div>{messagesData.unreadMsgs}/{messagesData.sum}</div>
+      <div>
+        {messagesData.unreadMsgs}/{messagesData.sum}
+      </div>
       {messagesData.messages.map((message) => (
         <>
-        <div onClick={() => openModal(message)}>
-          <div key={message.id}>
-            <div>{message.title}</div>
-            <div>{message.from}</div>
-            <div>{message.time}</div>
+          <div onClick={() => openModal(message)}>
+            <div key={message.id}>
+              <div>{message.title}</div>
+              <div>{message.from}</div>
+              <div>{message.time}</div>
 
-            {message.isRead ? 
-              <EnvelopeSimpleOpen className="EnvelopeSimple-open" /> 
-              : <EnvelopeSimpleClosed className="EnvelopeSimple-closed" />
-            }
+              {message.isRead ? (
+                <EnvelopeSimpleOpen className="EnvelopeSimple-open" />
+              ) : (
+                <EnvelopeSimpleClosed className="EnvelopeSimple-closed" />
+              )}
+            </div>
           </div>
-        </div>
           <hr />
         </>
       ))}
 
-      {selectedMessage && <MessageModal message={selectedMessage} onClose={closeModal} />}
+      {selectedMessage && (
+        <MessageModal message={selectedMessage} onClose={closeModal} />
+      )}
     </div>
   );
 }

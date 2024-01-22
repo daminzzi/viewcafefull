@@ -1,46 +1,57 @@
-import React from "react";
-import { HealthInfo } from "../../pages/family/Types";
-import { MealObj } from "../../pages/family/Types";
-import { MedicineObj } from "../../pages/family/Types";
+/* eslint-disable operator-linebreak */
+/* eslint-disable object-curly-newline */
+/* eslint-disable react/jsx-one-expression-per-line */
+import React, { ReactElement } from 'react';
+import { HealthInfo, MealObj, MedicineObj } from '../../pages/family/Types';
 
 type Props = {
   healthInfo: HealthInfo;
 };
 
 function avg(arr: Array<number>): number | null {
-  const result =
-    arr.length === 0
-      ? null
-      : Math.round(arr.reduce((total, value) => total + value) / arr.length);
-  return result;
+  return arr.length === 0
+    ? null
+    : Math.round(arr.reduce((total, value) => total + value) / arr.length);
 }
 
-function renderImage(urls: MealObj | null): any {
+function renderImage(urls: MealObj | null): ReactElement | null {
   return urls === null ? null : (
     <div>
       <p>아침</p>
-      <img src={urls.breakfast} alt="breakfast" />
+      <img
+        src={urls.breakfast}
+        alt="breakfast"
+      />
       <p>점심</p>
-      <img src={urls.lunch} alt="lunch" />
+      <img
+        src={urls.lunch}
+        alt="lunch"
+      />
       <p>저녁</p>
-      <img src={urls.dinner} alt="dinner" />
+      <img
+        src={urls.dinner}
+        alt="dinner"
+      />
     </div>
   );
 }
 
-function checkMedicine(medicineObj: MedicineObj | null): any {
+function checkMedicine(medicineObj: MedicineObj | null): ReactElement | null {
   return medicineObj === null ? null : (
     <div>
-      <span>아침: {medicineObj.breakfast ? "O" : "X"}</span>
-      <span>점심: {medicineObj.lunch ? "O" : "X"}</span>
-      <span>저녁: {medicineObj.dinner ? "O" : "X"}</span>
+      <span>아침: </span>
+      <span>{medicineObj.breakfast ? 'O' : 'X'}</span>
+      <span>점심: </span>
+      <span>{medicineObj.lunch ? 'O' : 'X'}</span>
+      <span>저녁: </span>
+      <span>{medicineObj.dinner ? 'O' : 'X'}</span>
     </div>
   );
 }
 
-function Summary(props: Props) {
+function Summary({ healthInfo }: Props) {
   const { beforeArr, afterArr, lowArr, highArr, medicineObj, mealObj } =
-    props.healthInfo;
+    healthInfo;
 
   return (
     <div>

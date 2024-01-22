@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { ReactComponent as HomeIcon } from "../../assets/icons/home.svg";
-import { ReactComponent as GalleryIcon } from "../../assets/icons/gallery.svg";
-import { ReactComponent as MessageIcon } from "../../assets/icons/message.svg";
-import { ReactComponent as VisitIcon } from "../../assets/icons/visit.svg";
-import { ReactComponent as ProfileIcon } from "../../assets/icons/profile.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
+import { ReactComponent as GalleryIcon } from '../../assets/icons/gallery.svg';
+import { ReactComponent as MessageIcon } from '../../assets/icons/message.svg';
+import { ReactComponent as VisitIcon } from '../../assets/icons/visit.svg';
+import { ReactComponent as ProfileIcon } from '../../assets/icons/profile.svg';
 
 function FamilyNav() {
   return (

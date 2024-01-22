@@ -1,5 +1,5 @@
-import { create } from "zustand";
-import getConnectInfo, { PathType } from "../services/connect/getConnectInfo";
+import { create } from 'zustand';
+import getConnectInfo, { PathType } from '../services/connect/getConnectInfo';
 // import { persist } from 'zustand/middleware';
 
 interface Response {
@@ -27,25 +27,25 @@ const useConnectStore = create<ConnectState>((set) => ({
   connectArr: [],
   currConnect: {
     applicationId: 0,
-    appDomainId: "",
-    appName: "",
+    appDomainId: '',
+    appName: '',
     targerId: 0,
-    tarDomainId: "",
-    tarName: "",
+    tarDomainId: '',
+    tarName: '',
     permissionId: 0,
-    perDomainId: "",
-    perName: "",
-    agreement: "",
-    relationship: "",
+    perDomainId: '',
+    perName: '',
+    agreement: '',
+    relationship: '',
   },
 
   setCurr(index) {
-    set((state: any) => ({ currConnect: state.connectArr[index] }));
+    set((state) => ({ currConnect: state.connectArr[index] }));
   },
 
   updateConnect(type, domainId) {
     set(() => ({ connectArr: getConnectInfo(type, domainId) }));
-    set((state: any) => ({ currConnect: state.connectArr[0] }));
+    set((state) => ({ currConnect: state.connectArr[0] }));
   },
 }));
 

@@ -1,5 +1,5 @@
-import api from "../api";
-import userData from "./userData.json"
+import api from '../api';
+import userData from './userData.json';
 
 export interface UserInfo {
   parentId: number[] | null;

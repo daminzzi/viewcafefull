@@ -1,9 +1,9 @@
-import api from "../api";
+import api from '../api';
 
 // 회원탈퇴
 async function deleteUser() {
   try {
-    const response = await api.delete(`/users`);
+    const response = await api.delete('/users');
     if (response.status !== 204) {
       throw new Error(`오류: ${response.status}`);
     }

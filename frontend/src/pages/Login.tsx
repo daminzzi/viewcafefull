@@ -1,25 +1,24 @@
-import React from "react";
-import { ChangeEvent, FormEvent, useState } from "react";
-import useUserStore from "../stores/userStore";
-import { useNavigate, useLocation } from "react-router-dom";
-import GoogleLoginButton from "../components/common/GoogleLoginButton";
+import React, { ChangeEvent, FormEvent, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import useUserStore from '../stores/userStore';
+import GoogleLoginButton from '../components/common/GoogleLoginButton';
 
-type PathType = "app" | "tar";
+type PathType = 'app' | 'tar';
 
 interface Form {
   id: string;
   password: string;
 }
 
-const Login = () => {
+function Login() {
   const { login } = useUserStore();
   const navigate = useNavigate();
   const location = useLocation();
-  const pathType: PathType = location.state?.pathType ?? "tar";
+  const pathType: PathType = location.state?.pathType ?? 'tar';
 
   const [form, setForm] = useState<Form>({
-    id: "",
-    password: "",
+    id: '',
+    password: '',
   });
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
@@ -36,12 +35,12 @@ const Login = () => {
 
     try {
       await login(form);
-      if (pathType === "app") {
+      if (pathType === 'app') {
         // 보호자 로그인 완료시
-        navigate("/family/home");
-      } else if (pathType === "tar") {
+        navigate('/family/home');
+      } else if (pathType === 'tar') {
         // 간병인 로그인 완료시
-        navigate("/caregiver/home");
+        navigate('/caregiver/home');
       }
     } catch (error) {
       console.error(error);
@@ -49,12 +48,12 @@ const Login = () => {
   }
 
   function handleAppSignUp() {
-    navigate("/signup");
+    navigate('/signup');
   }
 
-  const Rest_api_key = process.env.REACT_APP_KAKAO_REST_API_KEY;
-  const redirect_uri = process.env.REACT_APP_KAKAO_REDIRECT_URI;
-  const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${Rest_api_key}&redirect_uri=${redirect_uri}&response_type=code`;
+  const REST_API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
+  const REDIRECT_URL = process.env.REACT_APP_KAKAO_REDIRECT_URI;
+  const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URL}&response_type=code`;
   const handleKakaoLogin = () => {
     window.location.href = kakaoURL;
   };
@@ -62,6 +61,7 @@ const Login = () => {
   return (
     <div>
       <h1>로그인</h1>
+
       <form onSubmit={handleLogin}>
         <label>
           아이디:
@@ -88,17 +88,21 @@ const Login = () => {
         <button type="submit">로그인</button>
       </form>
       <div>
-        {pathType === "app" ? (
-          <>
-            <button onClick={handleKakaoLogin}>카카오 로그인</button>
+        {pathType === 'app' ? (
+          <div>
+            <button type="button" onClick={handleKakaoLogin}>
+              카카오 로그인
+            </button>
             <GoogleLoginButton />
             <hr />
-            <button onClick={handleAppSignUp}>회원가입</button>
-          </>
+            <button type="button" onClick={handleAppSignUp}>
+              회원가입
+            </button>
+          </div>
         ) : null}
       </div>
     </div>
   );
-};
+}
 
 export default Login;

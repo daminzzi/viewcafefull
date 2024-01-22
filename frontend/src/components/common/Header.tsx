@@ -1,6 +1,6 @@
-import React from "react";
-import useUserStore from "../../stores/userStore";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import useUserStore from '../../stores/userStore';
 
 function Header() {
   const navigate = useNavigate();
@@ -8,12 +8,12 @@ function Header() {
 
   function handleLogout() {
     logout();
-    navigate("/");
+    navigate('/');
   }
 
   function handleDelete() {
     deleteUser();
-    navigate("/");
+    navigate('/');
   }
 
   return (
@@ -21,8 +21,12 @@ function Header() {
       <h1>Header</h1>
       {isAuthenticated ? (
         <div>
-          <button onClick={() => handleLogout()}>로그아웃</button>
-          <button onClick={() => handleDelete()}>회원탈퇴</button>
+          <button type="button" onClick={() => handleLogout()}>
+            로그아웃
+          </button>
+          <button type="button" onClick={() => handleDelete()}>
+            회원탈퇴
+          </button>
         </div>
       ) : null}
     </div>

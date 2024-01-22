@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 
 type Props = {
   conferenceState: string;
 };
 
 function VisitStateTag({ conferenceState }: Props) {
-  if (conferenceState === "S") {
+  if (conferenceState === 'S') {
     return <div>신청</div>;
   }
-  if (conferenceState === "A") {
+  if (conferenceState === 'A') {
     return <div>승인</div>;
   }
-  if (conferenceState === "D") {
+  if (conferenceState === 'D') {
     return <div>거부</div>;
   }
   return <div>VisitStateTag</div>;

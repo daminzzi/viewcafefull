@@ -1,23 +1,23 @@
-import React from "react";
-import TabButton, { Page } from "./TabButton";
+import React from 'react';
+import TabButton, { Page } from './TabButton';
 
 type Props = {
   handleChangeTab: (tab: Page) => void;
 };
 
-function TabButtonGroup(props: Props) {
+function TabButtonGroup({ handleChangeTab }: Props) {
   return (
     <div>
-      <TabButton handleChangeTab={props.handleChangeTab} tab="sum">
+      <TabButton handleChangeTab={handleChangeTab} tab="sum">
         요약
       </TabButton>
-      <TabButton handleChangeTab={props.handleChangeTab} tab="bs">
+      <TabButton handleChangeTab={handleChangeTab} tab="bs">
         혈당
       </TabButton>
-      <TabButton handleChangeTab={props.handleChangeTab} tab="bp">
+      <TabButton handleChangeTab={handleChangeTab} tab="bp">
         혈압
       </TabButton>
-      <TabButton handleChangeTab={props.handleChangeTab} tab="mm">
+      <TabButton handleChangeTab={handleChangeTab} tab="mm">
         식단/복약
       </TabButton>
     </div>

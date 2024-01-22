@@ -1,7 +1,6 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import getUserInfo, { UserInfo } from "../../services/user/getUserInfo";
-import useConnectStore from "../../stores/ConnectStore";
+import React, { useEffect, useState } from 'react';
+import getUserInfo, { UserInfo } from '../../services/user/getUserInfo';
+import useConnectStore from '../../stores/ConnectStore';
 
 function FamilyProfile() {
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);

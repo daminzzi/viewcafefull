@@ -1,24 +1,23 @@
-import axios from "axios";
-import useUserStore from "../stores/userStore";
-import refreshAccessToken from "./user/refreshAccessToken";
+// /* eslint-disable import/no-cycle */
+
+import axios from 'axios';
+import useUserStore from '../stores/userStore';
+import refreshAccessToken from './user/refreshAccessToken';
 
 // axios 인스턴스 생성
-const api = axios.create({
-  baseURL: "http://localhost:8080",
-});
+const api = axios.create({ baseURL: 'http://localhost:8080' });
 
 // 요청 인터셉터 추가
 api.interceptors.request.use(
   (config) => {
     const { accessToken } = useUserStore.getState();
     if (accessToken) {
+      // eslint-disable-next-line no-param-reassign
       config.headers.Authorization = `Bearer ${accessToken}`;
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  },
+  (error) => Promise.reject(error),
 );
 
 // 응답 인터셉터 추가
@@ -26,8 +25,8 @@ api.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
-    if (error.response.status === 401 && !originalRequest._retry) {
-      originalRequest._retry = true;
+    if (error.response.status === 401 && !originalRequest.retry) {
+      originalRequest.retry = true;
       const { accessToken } = await refreshAccessToken();
       useUserStore.getState().setAccessToken(accessToken);
       return api(originalRequest);

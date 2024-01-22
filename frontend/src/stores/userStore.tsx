@@ -1,7 +1,7 @@
-import { create } from "zustand";
-import deleteUser from "../services/user/deleteUser";
-import postLogin from "../services/user/postLogin";
-import getLogout from "../services/user/getLogout";
+import { create } from 'zustand';
+import deleteUser from '../services/user/deleteUser';
+import postLogin from '../services/user/postLogin';
+import getLogout from '../services/user/getLogout';
 
 export interface User {
   id: string;
@@ -48,7 +48,7 @@ const useUserStore = create<UserState>((set, get) => ({
   logout: async () => {
     const { user } = get();
     if (!user) {
-      console.error("로그인 해주세요.");
+      console.error('로그인 해주세요.');
       return;
     }
     try {
@@ -67,7 +67,7 @@ const useUserStore = create<UserState>((set, get) => ({
   deleteUser: async () => {
     const { user } = get();
     if (!user) {
-      console.error("로그인 해주세요.");
+      console.error('로그인 해주세요.');
       return;
     }
     try {

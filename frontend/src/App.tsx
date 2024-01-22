@@ -1,18 +1,19 @@
-import React from "react";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Main from "./pages/Main";
-import Family from "./pages/family/Family";
-import CareGiver from "./pages/caregiver/CareGiver";
-import NotFound from "./pages/NotFound";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
-import KakaoRedirect from "../src/services/KakaoRedirect";
-import FamilyHome from "./pages/family/FamilyHome";
-import FamilyGallery from "./pages/family/FamilyGallery";
-import FamilyMessage from "./pages/family/FamilyMessage";
-import FamilyVisit from "./pages/family/FamilyVisit";
-import FamilyProfile from "./pages/family/FamilyProfile";
-import CareGiverHome from "./pages/caregiver/CareGiverHome";
+import React from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import Main from './pages/Main';
+import Family from './pages/family/Family';
+import CareGiver from './pages/caregiver/CareGiver';
+import NotFound from './pages/NotFound';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import KakaoRedirect from './services/KakaoRedirect';
+import FamilyHome from './pages/family/FamilyHome';
+import FamilyGallery from './pages/family/FamilyGallery';
+import FamilyMessage from './pages/family/FamilyMessage';
+import FamilyVisit from './pages/family/FamilyVisit';
+import FamilyProfile from './pages/family/FamilyProfile';
+import CareGiverHome from './pages/caregiver/CareGiverHome';
+import FamilyVisitRegister from './pages/family/FamilyVisitRegister';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="gallery" element={<FamilyGallery />} />
             <Route path="message" element={<FamilyMessage />} />
             <Route path="visit" element={<FamilyVisit />} />
+            <Route path="visit/register" element={<FamilyVisitRegister />} />
             <Route path="profile" element={<FamilyProfile />} />
           </Route>
           <Route path="/caregiver" element={<CareGiver />}>

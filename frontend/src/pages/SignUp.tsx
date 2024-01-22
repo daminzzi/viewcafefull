@@ -1,9 +1,9 @@
-import React from "react";
-import { useState, ChangeEvent, FormEvent, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import useUserStore from "../stores/userStore";
-import api from "../services/api";
+/* eslint-disable operator-linebreak */
+import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import useUserStore from '../stores/userStore';
+import api from '../services/api';
 
 interface Form {
   name: string;
@@ -13,84 +13,85 @@ interface Form {
   birth: string;
 }
 
-const SignUp = () => {
+function SignUp() {
   const navigate = useNavigate();
   const setUser = useUserStore((state) => state.setUser);
   const [form, setForm] = useState<Form>({
-    name: "",
-    phone1: "",
-    phone2: "",
-    phone3: "",
-    birth: ""
+    name: '',
+    phone1: '',
+    phone2: '',
+    phone3: '',
+    birth: '',
   });
 
-  const [id, setId] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [passwordConfirm, setPasswordConfirm] = useState<string>("");
+  const [id, setId] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [passwordConfirm, setPasswordConfirm] = useState<string>('');
   const [vaildId, setValidId] = useState<boolean>(false);
   const [checkId, setCheckId] = useState<boolean>(false); // 아이디 중복 유무
-  const [IdMsg, setIdMsg] = useState<string>("");
+  const [IdMsg, setIdMsg] = useState<string>('');
   const [validPw, setValidPw] = useState<boolean>(false);
-  const [PwMsg, setPwMsg] = useState<string>("");
-  const [PwConfirmMsg, setPwConfirmMsg] = useState<string>("");
+  const [PwMsg, setPwMsg] = useState<string>('');
+  const [PwConfirmMsg, setPwConfirmMsg] = useState<string>('');
 
   // id 유효성 검사
   function onChangeId(e: ChangeEvent<HTMLInputElement>) {
-    const id = e.target.value;
-    setId(id);
+    const inputId = e.target.value;
+    setId(inputId);
     const idRegex = /^[a-zA-Z][a-zA-Z0-9_-]{2,19}$/;
 
     if (id.length === 0) {
-      setIdMsg("");
+      setIdMsg('');
     } else if (!idRegex.test(id)) {
-      setIdMsg("3~20사이 대소문자 또는 숫자만 입력해 주세요!");
+      setIdMsg('3~20사이 대소문자 또는 숫자만 입력해 주세요!');
       setValidId(false);
     } else {
-      setIdMsg("");
+      setIdMsg('사용가능한 아이디 입니다.');
+      setIdMsg('');
       setValidId(true);
     }
   }
 
   // 두 password 일치 확인
   function onChangePasswordConfirm(e: ChangeEvent<HTMLInputElement>) {
-    const passwordConfirm = e.target.value;
-    setPasswordConfirm(passwordConfirm);
-    if (passwordConfirm.length === 0) {
-      setPwConfirmMsg("");
-    } else if (password !== passwordConfirm) {
-      setPwConfirmMsg("두 비밀번호가 일치하지 않습니다.");
+    const inputPasswordConfirm = e.target.value;
+    setPasswordConfirm(inputPasswordConfirm);
+    if (inputPasswordConfirm.length === 0) {
+      setPwConfirmMsg('');
+    } else if (password !== inputPasswordConfirm) {
+      setPwConfirmMsg('두 비밀번호가 일치하지 않습니다.');
       setValidPw(false);
     } else {
-      setPwConfirmMsg("두 비밀번호가 일치합니다.");
+      setPwConfirmMsg('두 비밀번호가 일치합니다.');
       setValidPw(true);
     }
   }
 
   // password 유효성 검사
   function onChangePassword(e: ChangeEvent<HTMLInputElement>) {
-    const password = e.target.value;
-    setPassword(password);
+    const inputPassword = e.target.value;
+    setPassword(inputPassword);
     const pwRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[@#$%^&+=!])(?!.*\s).{8,20}$/;
 
-    if (password.length === 0) {
-      setPwMsg("");
+    if (inputPassword.length === 0) {
+      setPwMsg('');
       setValidPw(false);
-    } else if (!pwRegex.test(password)) {
-      setPwMsg("8~20사이 숫자, 소문자, 특수문자 포함해서 입력해주세요!");
+    } else if (!pwRegex.test(inputPassword)) {
+      setPwMsg('8~20사이 숫자, 소문자, 특수문자 포함해서 입력해주세요!');
       setValidPw(false);
     } else {
-      setPwMsg("사용가능한 비밀번호 입니다.");
+      setPwMsg('사용가능한 비밀번호 입니다.');
       setValidPw(true);
     }
 
     if (password.length !== 0 && password !== passwordConfirm) {
-      setPwConfirmMsg("두 비밀번호가 일치하지 않습니다.");
+      setPwConfirmMsg('두 비밀번호가 일치하지 않습니다.');
       setValidPw(false);
     } else if (password.length !== 0 && password === passwordConfirm) {
-      setPwConfirmMsg("두 비밀번호가 일치합니다.");
+      setPwConfirmMsg('두 비밀번호가 일치합니다.');
       setValidPw(true);
     } else {
-      setPwConfirmMsg("");
+      setPwConfirmMsg('');
       setValidPw(false);
     }
   }
@@ -114,7 +115,7 @@ const SignUp = () => {
     const { name, value } = e.target;
     setForm((prevForm) => ({
       ...prevForm,
-      [name]: value
+      [name]: value,
     }));
   }
 
@@ -123,10 +124,10 @@ const SignUp = () => {
     try {
       const response = await api.get(`/users/validation/${id}`);
       if (response.status === 409) {
-        alert("이미 사용 중인 아이디입니다.");
+        alert('이미 사용 중인 아이디입니다.');
         setCheckId(false);
       } else {
-        alert("사용 가능한 아이디입니다.");
+        alert('사용 가능한 아이디입니다.');
         setCheckId(true);
       }
     } catch (error) {
@@ -136,7 +137,7 @@ const SignUp = () => {
 
   useEffect(() => {
     if (vaildId && checkId) {
-      setIdMsg("사용 가능한 아이디입니다.");
+      setIdMsg('사용 가능한 아이디입니다.');
     }
   }, [vaildId, checkId]);
 
@@ -147,14 +148,14 @@ const SignUp = () => {
     const phoneNumber = `${form.phone1}-${form.phone2}-${form.phone3}`;
     try {
       const response = await axios({
-        method: "post",
-        url: "/users",
-        data: { ...form, phoneNumber, id, password }
+        method: 'post',
+        url: '/users',
+        data: { ...form, phoneNumber, id, password },
       });
 
       if (response.status === 201) {
         setUser(response.data);
-        navigate("/login");
+        navigate('/login');
       } else {
         console.error(`오류: ${response.status}`);
       }
@@ -264,6 +265,6 @@ const SignUp = () => {
       </form>
     </div>
   );
-};
+}
 
 export default SignUp;

@@ -1,13 +1,19 @@
-import React from "react";
-import useConnectStore from "../../stores/ConnectStore";
-import { ReactComponent as UserImgIcon } from "../../assets/icons/user-image.svg";
-import { ReactComponent as ChevronDownIcon } from "../../assets/icons/chevron-down.svg";
+import React from 'react';
+import useConnectStore from '../../stores/ConnectStore';
+import { ReactComponent as UserImgIcon } from '../../assets/icons/user-image.svg';
+import { ReactComponent as ChevronDownIcon } from '../../assets/icons/chevron-down.svg';
 
 function FamilyHeader() {
-  const { connectArr, currConnect, setCurr, updateConnect } = useConnectStore();
+  const {
+    connectArr,
+    currConnect,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    setCurr,
+    updateConnect,
+  } = useConnectStore();
 
   if (connectArr.length === 0) {
-    updateConnect("app", "asdf");
+    updateConnect('app', 'asdf');
   }
 
   return (
