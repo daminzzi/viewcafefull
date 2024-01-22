@@ -1,6 +1,8 @@
 package com.ssafy.ViewCareFull.domain.users.controller;
 
 import com.ssafy.ViewCareFull.domain.users.dto.JoinForm;
+import com.ssafy.ViewCareFull.domain.users.dto.LoginForm;
+import com.ssafy.ViewCareFull.domain.users.dto.LoginResponse;
 import com.ssafy.ViewCareFull.domain.users.service.UsersService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -31,5 +33,10 @@ public class UsersController {
       return ResponseEntity.status(HttpStatus.CONFLICT).build();
     }
     return ResponseEntity.status(HttpStatus.OK).build();
+  }
+
+  @PostMapping("/signin")
+  public ResponseEntity<LoginResponse> login(@RequestBody LoginForm loginForm) {
+    return ResponseEntity.status(HttpStatus.OK).body(usersService.login(loginForm));
   }
 }

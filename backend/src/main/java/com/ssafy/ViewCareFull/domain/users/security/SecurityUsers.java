@@ -1,5 +1,6 @@
 package com.ssafy.ViewCareFull.domain.users.security;
 
+import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import java.util.Collection;
 import java.util.Collections;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,14 @@ public class SecurityUsers implements UserDetails {
   private String userId;
   private String password;
   private String userName;
-  private String userType; // 유저의 dtype을 매칭하는 방법찾기
+  private String userType;
+
+  public SecurityUsers(Users user) {
+    this.userId = user.getDomainId();
+    this.password = user.getPassword();
+    this.userName = user.getUserName();
+    this.userType = user.getUserType();
+  }
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {

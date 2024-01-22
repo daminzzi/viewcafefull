@@ -1,9 +1,9 @@
 package com.ssafy.ViewCareFull.domain.users.dto;
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 public class TokenInfo {
 
   private String grantType;

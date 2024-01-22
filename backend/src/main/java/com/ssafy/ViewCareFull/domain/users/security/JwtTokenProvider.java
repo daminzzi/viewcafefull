@@ -76,7 +76,7 @@ public class JwtTokenProvider {
   public Authentication decodeToken(String accessToken) {
     Claims claims = parseClaims(accessToken);
     if (claims.get("auth") == null) {
-      throw new UsersException(UserErrorCode.UNAUTHIRUZE_USER);
+      throw new UsersException(UserErrorCode.UNAUTHORIZED_USER);
     }
 
     String username = claims.getSubject();
