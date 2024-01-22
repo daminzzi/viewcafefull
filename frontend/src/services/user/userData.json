@@ -1,0 +1,11 @@
+{
+	"parentId" : [1], 
+	"parentName" : ["임영웅"],
+    "residentId": null, 
+    "residentName": null, 
+	"hospitalId" : 1, 
+	"hospitalName" : "하늘선요양병원", 
+	"phoneNumber" : "010-2647-6874", 
+	"birth" : "1995-01-01",
+	"userRole" : "app"
+}

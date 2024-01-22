@@ -21,7 +21,7 @@ function FamilyProfile() {
 
   return (
     <div>
-      <div>FamilyProfile</div>
+      <h2>개인정보</h2>
       <div>이름</div>
       <div>{userInfo.parentName}</div>
       <div>생년월일</div>
@@ -29,9 +29,10 @@ function FamilyProfile() {
       <div>휴대전화</div>
       <div>{userInfo.phoneNumber}</div>
       <br />
-      <div>연결된 입소자 목록</div>
-      <p>{currConnect.perName}요양원</p>
-      <p>입소자 이름: {currConnect.tarName} 님</p>
+      <h2>입소자</h2>
+      <p>{currConnect.perName}</p>
+      <p>{currConnect.tarName} 님</p>
+      <p>{currConnect.relationship}</p>
     </div>
   );
 }

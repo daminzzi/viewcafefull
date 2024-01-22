@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import getMessage, {Message, MessagesResponse} from "../../services/message/getMessage"
 import { ReactComponent as EnvelopeSimpleClosed } from '../../assets/icons/EnvelopeSimpleClosed.svg';
 import { ReactComponent as EnvelopeSimpleOpen } from '../../assets/icons/EnvelopeSimpleOpen.svg';
-import MessageModal from "../../components/familyhome/MessageModal";
+import MessageModal from "../../components/message/MessageModal";
 import getReadMessage from "../../services/message/getReadMessage";
 
 // 보호자 - 받은 메세지 전체 보기
