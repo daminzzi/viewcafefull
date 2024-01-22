@@ -24,11 +24,11 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/kakaoLogin" element={<KakaoRedirect />} />
         <Route path='/family' element={<Family />} >
-          <Route path='/family/home' element={<FamilyHome />} />
-          <Route path='/family/gallery' element={<FamilyGallery />} />
-          <Route path='/family/message' element={<FamilyMessage />} />
-          <Route path='/family/visit' element={<FamilyVisit />} />
-          <Route path='/family/profile' element={<FamilyProfile />} />
+          <Route path='home' element={<FamilyHome />} />
+          <Route path='gallery' element={<FamilyGallery />} />
+          <Route path='message' element={<FamilyMessage />} />
+          <Route path='visit' element={<FamilyVisit />} />
+          <Route path='profile' element={<FamilyProfile />} />
         </Route>
         <Route path='/caregiver' element={<CareGiver />}>
         <Route path='/caregiver/home' element={<CareGiverHome />} />
@@ -36,7 +36,7 @@ function App() {
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
-  </div>
+    </div>
   );
 }
 

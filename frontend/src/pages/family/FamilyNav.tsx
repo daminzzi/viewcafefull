@@ -11,9 +11,9 @@ function FamilyNav() {
     <div className='family-nav'>
       <Link to='/family/home'>
         <HomeIcon className='home-icon'/>
+      </Link>
       <Link to='/family/visit'>
         <VisitIcon className='visit-icon'/>
-      </Link>
       </Link>
       <Link to='/family/message'>
         <MessageIcon className='message-icon'/>

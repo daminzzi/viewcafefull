@@ -1,0 +1,50 @@
+{
+  "before": [
+    80,
+    90,
+    70
+  ],
+  "after": [
+    100,
+    105,
+    100
+  ],
+  "low": [
+    80,
+    90,
+    70
+  ],
+  "high": [
+    120,
+    130,
+    140
+  ],
+  "medicine": [
+    {
+      "id": "3",
+      "medicineId": "18",
+      "medicineName": "타이레놀",
+      "information": "몸살, 두통, 감기에 좋은 타이레놀",
+      "medicineType": "B",
+      "medicineDate": "20240115"
+    },
+    {
+      "id": "4",
+      "medicineId": "23",
+      "medicineName": "밀크시슬",
+      "information": "간에 좋은 영양제 입니다",
+      "medicineType": "L",
+      "medicineDate": "20240115"
+    }
+  ],
+  "meal": [
+    {
+      "type": "B",
+      "url": "../../assets/images/breakfast.jpg"
+    },
+    {
+      "type": "L",
+      "url": "../../assets/images/lunch.jpg"
+    }
+  ]
+}

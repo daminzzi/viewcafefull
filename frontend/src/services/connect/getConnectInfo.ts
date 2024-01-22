@@ -12,7 +12,13 @@ export type PathType = 'app' | 'tar'
 //     },
 //   })
 //     .then((res) => {
-//       return res.data;
+//       if (res.status === 200) {
+//         return res.data;
+//       } else if (res.status === 401) {
+//         throw new Error(`${res.status}`)
+//       } else if (res.status === 403) {
+//         throw new Error(`${res.status}`)  
+//       }
 //     })
 //     .catch((err) => {
 //       console.log(err);
