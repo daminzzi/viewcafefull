@@ -1,11 +1,19 @@
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import useUserStore from '../stores/userStore';
 import api from '../services/api'
 
+interface Form {
+  name: string;
+  phone1: string;
+  phone2: string;
+  phone3: string;
+  birth: string;
+}
+
 const SignUp = () => {
   const setUser = useUserStore(state => state.setUser);
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<Form>({
     name: '',
     phone1: '',
     phone2: '',
@@ -13,17 +21,18 @@ const SignUp = () => {
     birth: '',
   });
 
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [vaildId, setValidId] = useState(false);
-  const [IdMsg, setIdMsg] = useState("");
-  const [validPw, setValidPw] = useState(false);
-  const [PwMsg, setPwMsg] = useState("");
-  const [PwConfirmMsg, setPwConfirmMsg] = useState("");
+  const [id, setId] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [passwordConfirm, setPasswordConfirm] = useState<string>("");
+  const [vaildId, setValidId] = useState<boolean>(false);
+  const [checkId, setCheckId] = useState<boolean>(false);   // 아이디 중복 유무
+  const [IdMsg, setIdMsg] = useState<string>("");
+  const [validPw, setValidPw] = useState<boolean>(false);
+  const [PwMsg, setPwMsg] = useState<string>("");
+  const [PwConfirmMsg, setPwConfirmMsg] = useState<string>("");
 
   // id 유효성 검사
-  const onChangeId = (e:any) => {
+  function onChangeId(e: ChangeEvent<HTMLInputElement>) {
     const id = e.target.value;
     setId(id);
     const idRegex = /^[a-zA-Z][a-zA-Z0-9_-]{2,19}$/
@@ -40,7 +49,7 @@ const SignUp = () => {
   };
 
 // 두 password 일치 확인
-const onChangePasswordConfirm = (e:any) => {
+function onChangePasswordConfirm(e: ChangeEvent<HTMLInputElement>) {
   const passwordConfirm = e.target.value;
   setPasswordConfirm(passwordConfirm);
   if (passwordConfirm.length === 0) {
@@ -55,7 +64,7 @@ const onChangePasswordConfirm = (e:any) => {
 }
 
 // password 유효성 검사
-const onChangePassword = (e:any) => {
+function onChangePassword(e: ChangeEvent<HTMLInputElement>) {
   const password = e.target.value;
   setPassword(password);
   const pwRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[@#$%^&+=!])(?!.*\s).{8,20}$/
@@ -90,6 +99,7 @@ const onChangePassword = (e:any) => {
     passwordConfirm &&
     vaildId &&
     validPw &&
+    checkId &&
     form.name &&
     form.phone1 &&
     form.phone2 &&
@@ -97,23 +107,25 @@ const onChangePassword = (e:any) => {
     form.birth;
 
   // input태그의 이름, 사용자가 입력한 값을 실시간으로 각각 동적 할당
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setForm({
-      ...form,
-      [name]: value,
-    });
-  };
+    function handleChange(e: ChangeEvent<HTMLInputElement>) {
+      const { name, value } = e.target;
+      setForm(prevForm => ({
+        ...prevForm,
+        [name]: value,
+      }));
+    }
 
   // 아이디 중복 확인 
-const handleCheckId = async () => {
+  async function handleCheckId() {
   try {
     const response = await api.get(`/users/validation/${id}`);
     if (response.status === 200) {
       if (response.data.exists) {
         alert('이미 사용 중인 아이디입니다.');
+        setCheckId(false);
       } else {
         alert('사용 가능한 아이디입니다.');
+        setCheckId(true);
       }
     } else {
       console.error(`오류: ${response.status}`);
@@ -124,7 +136,7 @@ const handleCheckId = async () => {
 };
 
 // 회원가입
-const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
+async function handleSignUp(e: FormEvent<HTMLFormElement>) {
   e.preventDefault();
 
   const phoneNumber = `${form.phone1}-${form.phone2}-${form.phone3}`;
