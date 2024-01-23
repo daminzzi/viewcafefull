@@ -24,8 +24,8 @@ export type HealthInfo = {
   afterArr: Array<number>;
   lowArr: Array<number>;
   highArr: Array<number>;
-  medicineObj: MedicineObj | null;
-  mealObj: MealObj | null;
+  medicineObj: MedicineObj;
+  mealObj: MealObj;
 };
 
 export type VisitData = {

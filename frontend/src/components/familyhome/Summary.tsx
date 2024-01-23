@@ -1,8 +1,5 @@
-/* eslint-disable operator-linebreak */
-/* eslint-disable object-curly-newline */
-/* eslint-disable react/jsx-one-expression-per-line */
-import React, { ReactElement } from 'react';
-import { HealthInfo, MealObj, MedicineObj } from '../../pages/family/Types';
+import React from "react";
+import { HealthInfo, Medicine } from "../../pages/family/Types";
 
 type Props = {
   healthInfo: HealthInfo;
@@ -14,39 +11,12 @@ function avg(arr: Array<number>): number | null {
     : Math.round(arr.reduce((total, value) => total + value) / arr.length);
 }
 
-function renderImage(urls: MealObj | null): ReactElement | null {
-  return urls === null ? null : (
-    <div>
-      <p>아침</p>
-      <img
-        src={urls.breakfast}
-        alt="breakfast"
-      />
-      <p>점심</p>
-      <img
-        src={urls.lunch}
-        alt="lunch"
-      />
-      <p>저녁</p>
-      <img
-        src={urls.dinner}
-        alt="dinner"
-      />
-    </div>
-  );
+export function renderImage(url: string | null, mealType: string) {
+  return url === null ? null : <img src={url} alt={mealType} />;
 }
 
-function checkMedicine(medicineObj: MedicineObj | null): ReactElement | null {
-  return medicineObj === null ? null : (
-    <div>
-      <span>아침: </span>
-      <span>{medicineObj.breakfast ? 'O' : 'X'}</span>
-      <span>점심: </span>
-      <span>{medicineObj.lunch ? 'O' : 'X'}</span>
-      <span>저녁: </span>
-      <span>{medicineObj.dinner ? 'O' : 'X'}</span>
-    </div>
-  );
+function checkMedicine(medicine: Medicine | null) {
+  return medicine === null ? <span>X</span> : <span>O</span>;
 }
 
 function Summary({ healthInfo }: Props) {
@@ -64,8 +34,15 @@ function Summary({ healthInfo }: Props) {
       <p>수축: {avg(highArr)}</p>
       <hr />
       <p>식단/복약</p>
-      {renderImage(mealObj)}
-      {checkMedicine(medicineObj)}
+      <p>아침</p>
+      {renderImage(mealObj.breakfast, "breakfast")}
+      {checkMedicine(medicineObj.breakfast)}
+      <p>점심</p>
+      {renderImage(mealObj.lunch, "lunch")}
+      {checkMedicine(medicineObj.lunch)}
+      <p>저녁</p>
+      {renderImage(mealObj.dinner, "dinner")}
+      {checkMedicine(medicineObj.dinner)}
     </div>
   );
 }

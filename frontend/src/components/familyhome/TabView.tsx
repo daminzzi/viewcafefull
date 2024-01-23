@@ -17,7 +17,12 @@ function TabView({ tab, healthInfo }: Props) {
       case 'sum':
         return <Summary healthInfo={healthInfo} />;
       case 'bp':
-        return <BloodPressure />;
+        return (
+          <BloodPressure
+            lowArr={healthInfo.lowArr}
+            highArr={healthInfo.highArr}
+          />
+        );
       case 'bs':
         return (
           <BloodSugar
@@ -25,14 +30,23 @@ function TabView({ tab, healthInfo }: Props) {
             afterArr={healthInfo.afterArr}
           />
         );
-      case 'mm':
-        return <MealMedicine />;
+        case "mm":
+          return (
+            <MealMedicine
+              mealObj={healthInfo.mealObj}
+              medicineObj={healthInfo.medicineObj}
+            />
+          );
       default:
         return null;
     }
   }
 
-  return <div>{view()}</div>;
+  return (
+    <div>
+      {view()}
+    </div>
+  );
 }
 
 export default TabView;

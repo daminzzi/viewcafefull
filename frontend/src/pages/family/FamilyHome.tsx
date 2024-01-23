@@ -19,16 +19,24 @@ function FamilyHome() {
   const month: string = (today.getMonth() + 1).toString().padStart(2, '0');
   const day = today.getDate();
 
-  const [tab, setTab] = useState<Page>('sum');
+  const [tab, setTab] = useState<Page>("sum");
   // const [selectedDate, setSelectedDate] = useState<Date>(today);
-  const [date, setDate] = useState<string>(`${year}${month}${day}`);
+  const [date, setDate] = useState<string>("");
   const [healthInfo, setHealthInfo] = useState<HealthInfo>({
     beforeArr: [],
     afterArr: [],
     lowArr: [],
     highArr: [],
-    medicineObj: null,
-    mealObj: null,
+    medicineObj: {
+      breakfast: null,
+      lunch: null,
+      dinner: null,
+    },
+    mealObj: {
+      breakfast: noImage,
+      lunch: noImage,
+      dinner: noImage,
+    },
   });
 
   useEffect(() => {
@@ -104,7 +112,7 @@ function FamilyHome() {
       <h1>Family Home</h1>
       <hr />
       <h2>하루 건강 정보</h2>
-      <TabButtonGroup handleChangeTab={() => handleChangeTab} />
+      <TabButtonGroup handleChangeTab={handleChangeTab} />
       <hr />
       <TabView
         tab={tab}

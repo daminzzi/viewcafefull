@@ -38,26 +38,26 @@ const options = {
     },
     title: {
       display: true,
-      text: '혈압',
+      text: '혈당',
     },
   },
 };
 
 const label: string[] = ['아침', '점심', '저녁'];
 
-function BloodSugar(props: Props) {
+function BloodSugar({ beforeArr, afterArr }: Props) {
   const data = {
     labels: label,
     datasets: [
       {
-        label: '식전',
-        data: props.beforeArr,
+        label: '식전 혈당',
+        data: beforeArr,
         borderWidth: 1,
         backgroundColor: '#D2B48C',
       },
       {
-        label: '식후',
-        data: props.afterArr,
+        label: '식후 혈당',
+        data: afterArr,
         borderWidth: 1,
         backgroundColor: '#6EE7B7',
       },
@@ -66,7 +66,7 @@ function BloodSugar(props: Props) {
 
   return (
     <div>
-      <p>혈압asdfasdf</p>
+      <p>혈당</p>
       <Bar options={options} data={data} />
     </div>
   );
