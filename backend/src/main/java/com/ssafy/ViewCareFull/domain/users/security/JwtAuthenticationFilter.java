@@ -3,6 +3,7 @@ package com.ssafy.ViewCareFull.domain.users.security;
 
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import com.ssafy.ViewCareFull.domain.users.repository.UsersRepository;
+import com.ssafy.ViewCareFull.domain.users.security.util.SecurityUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -29,7 +30,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     String token = SecurityUtil.getAccessToken(request);
 
     if (StringUtils.hasText(token) && jwtTokenProvider.validateToken(token)) {
-      // 토큰이 유효할 경우 토큰에서 authentication 객체(사용자 정보)를 받아온다.
       Authentication authentication = jwtTokenProvider.decodeToken(token);
 
       // authentication 객체에 사용자 정보를 추가한다.

@@ -3,9 +3,11 @@ package com.ssafy.ViewCareFull.domain.users.controller;
 import com.ssafy.ViewCareFull.domain.users.dto.JoinForm;
 import com.ssafy.ViewCareFull.domain.users.dto.LoginForm;
 import com.ssafy.ViewCareFull.domain.users.dto.LoginResponse;
+import com.ssafy.ViewCareFull.domain.users.security.util.CookieUtil;
 import com.ssafy.ViewCareFull.domain.users.service.UsersService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,7 +38,10 @@ public class UsersController {
   }
 
   @PostMapping("/signin")
-  public ResponseEntity<LoginResponse> login(@RequestBody LoginForm loginForm) {
-    return ResponseEntity.status(HttpStatus.OK).body(usersService.login(loginForm));
+  public ResponseEntity<LoginResponse> login(@RequestBody LoginForm loginForm){
+    LoginResponse loginResponse = usersService.login(loginForm);
+    ResponseCookie refreshTokenCookie = CookieUtil.convertRefreshTokenToCookie(loginResponse);
+    loginResponse.removeRefreshToken();
+    return ResponseEntity.status(HttpStatus.OK).header("set-cookie", refreshTokenCookie.toString()).body(loginResponse);
   }
 }

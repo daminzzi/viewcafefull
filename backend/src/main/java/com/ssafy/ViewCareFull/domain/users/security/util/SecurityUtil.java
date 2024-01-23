@@ -1,4 +1,4 @@
-package com.ssafy.ViewCareFull.domain.users.security;
+package com.ssafy.ViewCareFull.domain.users.security.util;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.util.StringUtils;

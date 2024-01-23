@@ -16,7 +16,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 
   private final UsersRepository repository;
 
-  // 대충 틀
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     Users findUser = repository.findByDomainId(username)
@@ -25,7 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         .userId(findUser.getDomainId())
         .password(findUser.getPassword())
         .userName(findUser.getUserName())
-        .userType(findUser.getUserType()) // 고쳐야함
+        .userType(findUser.getUserType())
         .build();
   }
 }

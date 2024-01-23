@@ -48,9 +48,30 @@ public class JwtTokenProvider {
     String auth = securityUser.getAuthorities().stream()
         .map(GrantedAuthority::getAuthority)
         .collect(Collectors.joining(","));
-    String id = securityUser.getUsername();
+    String id = securityUser.getUserId();
     long now = (new Date()).getTime();
 
+    String accessToken = createAccessToken(authentication, now, auth, id);
+
+    String refreshToken = createRefreshToken(now, id);
+
+    return TokenInfo.builder()
+        .accessToken(accessToken)
+        .refreshToken(refreshToken)
+        .build();
+  }
+
+  private String createRefreshToken(long now, String id) {
+    String refreshToken = Jwts.builder()
+        .setSubject(id)
+        .setExpiration(new Date(now + REFRESH_TOKEN_EXPIRE_TIME))
+        .signWith(key, SignatureAlgorithm.HS256)
+        .compact();
+    log.info("refreshToken = {}", refreshToken);
+    return refreshToken;
+  }
+
+  private String createAccessToken(Authentication authentication, long now, String auth, String id) {
     Date accessExpiredTime = new Date(now + ACCESS_TOKEN_EXPIRE_TIME);
     String accessToken = Jwts.builder()
         .setSubject(authentication.getName())
@@ -60,17 +81,7 @@ public class JwtTokenProvider {
         .signWith(key, SignatureAlgorithm.HS256)
         .compact();
     log.info("accessToken = {}", accessToken);
-
-    String refreshToken = Jwts.builder()
-        .setExpiration(new Date(now + REFRESH_TOKEN_EXPIRE_TIME))
-        .signWith(key, SignatureAlgorithm.HS256)
-        .compact();
-    log.info("refreshToken = {}", refreshToken);
-
-    return TokenInfo.builder()
-        .accessToken(accessToken)
-        .refreshToken(refreshToken)
-        .build();
+    return accessToken;
   }
 
   public Authentication decodeToken(String accessToken) {

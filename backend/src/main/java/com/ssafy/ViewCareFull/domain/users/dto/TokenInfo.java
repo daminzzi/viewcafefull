@@ -6,13 +6,11 @@ import lombok.Getter;
 @Getter
 public class TokenInfo {
 
-  private String grantType;
   private String accessToken;
   private String refreshToken;
 
   @Builder
-  public TokenInfo(String grantType, String accessToken, String refreshToken) {
-    this.grantType = grantType;
+  public TokenInfo(String accessToken, String refreshToken) {
     this.accessToken = accessToken;
     this.refreshToken = refreshToken;
   }

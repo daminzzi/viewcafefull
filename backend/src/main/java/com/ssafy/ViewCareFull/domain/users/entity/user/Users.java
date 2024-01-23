@@ -1,5 +1,6 @@
 package com.ssafy.ViewCareFull.domain.users.entity.user;
 
+import com.ssafy.ViewCareFull.domain.users.dto.TokenInfo;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.DiscriminatorType;
@@ -53,8 +54,15 @@ public abstract class Users {
   @Column
   private String brith;
 
+  @Column
+  private String refreshToken;
+
   public String getUserType(){
     return this.getClass().getAnnotation(DiscriminatorValue.class).value().toString();
+  }
+
+  public void issueRefreshToken(TokenInfo tokenInfo) {
+    refreshToken = tokenInfo.getRefreshToken();
   }
 }
 

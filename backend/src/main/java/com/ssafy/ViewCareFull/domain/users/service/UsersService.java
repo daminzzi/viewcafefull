@@ -40,6 +40,7 @@ public class UsersService {
     return usersRepository.existsByDomainId(id);
   }
 
+  @Transactional
   public LoginResponse login(LoginForm loginForm) {
     UsernamePasswordAuthenticationToken authenticationToken =
         new UsernamePasswordAuthenticationToken(loginForm.getId(), loginForm.getPassword());
@@ -50,6 +51,7 @@ public class UsersService {
 
     Users user = usersRepository.findByDomainId(loginForm.getId())
         .orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
+    user.issueRefreshToken(tokenInfo);
     return new LoginResponse(user, tokenInfo);
   }
 }
