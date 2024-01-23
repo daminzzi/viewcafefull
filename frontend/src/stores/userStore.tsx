@@ -34,16 +34,24 @@ const useUserStore = create<UserState>((set, get) => ({
   login: async (form: { id: string; password: string }) => {
     try {
       const response = await postLogin(form);
-      set({
-        isLogin: true,
-        isAuthenticated: true,
-        user: response.data.user,
-        accessToken: response.data.accessToken,
-      });
+      if (response.data.user && response.data.accessToken) {
+        set({
+          isLogin: true,
+          isAuthenticated: true,
+          user: response.data.user,
+          accessToken: response.data.accessToken,
+        });
+        return true;
+      } else {
+        throw new Error(
+          '로그인에 실패했습니다. 아이디와 비밀번호를 확인하세요.',
+        );
+      }
     } catch (error) {
-      console.error(error);
+      throw error;
     }
   },
+
 
   logout: async () => {
     const { user } = get();

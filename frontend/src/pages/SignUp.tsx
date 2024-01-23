@@ -1,7 +1,7 @@
 /* eslint-disable operator-linebreak */
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import useUserStore from '../stores/userStore';
 import api from '../services/api';
 
@@ -147,15 +147,10 @@ function SignUp() {
 
     const phoneNumber = `${form.phone1}-${form.phone2}-${form.phone3}`;
     try {
-      const response = await axios({
-        method: 'post',
-        url: '/users',
-        data: { ...form, phoneNumber, id, password },
-      });
-
+      const response = await api.post('/users', { ...form, phoneNumber, id, password });
       if (response.status === 201) {
         setUser(response.data);
-        navigate('/login');
+        navigate('/login', { state: { pathType: 'app' } });
       } else {
         console.error(`오류: ${response.status}`);
       }
