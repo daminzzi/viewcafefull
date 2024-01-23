@@ -1,9 +1,9 @@
 import api from '../api';
 
-// 메세지 상태변경(모달 띄울 시 안읽음->읽음)
-async function getReadMessage(id: number) {
+// 메세지 상태변경(체크박스로 선택해서 모두읽음)
+async function postReadMessage(id: number) {
   try {
-    const response = await api.get(`/msg?id=${id}`);
+    const response = await api.post(`/msg?id=${id}`);
     if (response.status === 200) {
       return response.data;
     } else {
@@ -15,4 +15,4 @@ async function getReadMessage(id: number) {
   }
 }
 
-export default getReadMessage;
+export default postReadMessage;

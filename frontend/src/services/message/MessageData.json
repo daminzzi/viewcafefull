@@ -1,22 +1,86 @@
 {
-	"sum" : 2,
-	"unreadMsgs" : 1, 
-	"messages" : [
-		{
-			"id" : 1, 
-			"from" : "a요양병원", 
-			"title" : "안녕하세요", 
-			"content" : "테스트입니다.", 
-			"time" : "2024-01-13 18:42:21", 
-			"isRead" : true
-		},
-		{
-			"id" : 2, 
-			"from" : "b요양병원", 
-			"title" : "밖녕하세요", 
-			"content" : "테스트합니다.", 
-			"time" : "2024-01-13 18:42:21", 
-			"isRead" : false
-		}
-	]
+  "sum": 10,
+  "unreadMsgs": 9,
+  "messages": [
+    {
+      "id": 1,
+      "from": "a요양병원",
+      "title": "안녕하세요",
+      "content": "테스트입니다.",
+      "time": "2024-01-13 18:42:21",
+      "isRead": true
+    },
+    {
+      "id": 2,
+      "from": "b요양병원",
+      "title": "밖녕하세요",
+      "content": "테스트합니다.",
+      "time": "2024-01-13 18:42:21",
+      "isRead": false
+    },
+    {
+      "id": 3,
+      "from": "b요양병원",
+      "title": "밖녕하세요",
+      "content": "테스트합니다.",
+      "time": "2024-01-13 18:42:21",
+      "isRead": false
+    },
+    {
+      "id": 4,
+      "from": "b요양병원",
+      "title": "밖녕하세요",
+      "content": "테스트합니다.",
+      "time": "2024-01-13 18:42:21",
+      "isRead": false
+    },
+    {
+      "id": 5,
+      "from": "b요양병원",
+      "title": "밖녕하세요",
+      "content": "테스트합니다.",
+      "time": "2024-01-13 18:42:21",
+      "isRead": false
+    },
+    {
+      "id": 6,
+      "from": "b요양병원",
+      "title": "밖녕하세요",
+      "content": "테스트합니다.",
+      "time": "2024-01-13 18:42:21",
+      "isRead": false
+    },
+    {
+      "id": 7,
+      "from": "b요양병원",
+      "title": "밖녕하세요",
+      "content": "테스트합니다.",
+      "time": "2024-01-13 18:42:21",
+      "isRead": false
+    },
+    {
+      "id": 8,
+      "from": "b요양병원",
+      "title": "밖녕하세요",
+      "content": "테스트합니다.",
+      "time": "2024-01-13 18:42:21",
+      "isRead": false
+    },
+    {
+      "id": 9,
+      "from": "b요양병원",
+      "title": "밖녕하세요",
+      "content": "테스트합니다.",
+      "time": "2024-01-13 18:42:21",
+      "isRead": false
+    },
+    {
+      "id": 10,
+      "from": "b요양병원",
+      "title": "밖녕하세요",
+      "content": "테스트합니다.",
+      "time": "2024-01-13 18:42:21",
+      "isRead": false
+    }
+  ]
 }
