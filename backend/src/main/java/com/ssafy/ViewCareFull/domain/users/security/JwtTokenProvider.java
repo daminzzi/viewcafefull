@@ -93,7 +93,7 @@ public class JwtTokenProvider {
     String domainId = claims.getSubject();
     SecurityUsers securityUser = (SecurityUsers) userDetailsService.loadUserByUsername(domainId);
     Collection<? extends GrantedAuthority> authorities = securityUser.getAuthorities();
-    return new UsernamePasswordAuthenticationToken(username, "", authorities);
+    return new UsernamePasswordAuthenticationToken(domainId, "", authorities);
   }
 
   public boolean validateToken(String token) {

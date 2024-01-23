@@ -22,7 +22,6 @@ public class LoginResponse {
         .build();
     this.accessToken = tokenInfo.getAccessToken();
     this.refreshToken = tokenInfo.getRefreshToken();
-    this.role = user.getUserType();
   }
 
   public void removeRefreshToken() {
