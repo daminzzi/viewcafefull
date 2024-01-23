@@ -6,6 +6,7 @@ import com.ssafy.ViewCareFull.domain.users.dto.LoginResponse;
 import com.ssafy.ViewCareFull.domain.users.security.util.CookieUtil;
 import com.ssafy.ViewCareFull.domain.users.service.UsersService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
@@ -38,10 +39,11 @@ public class UsersController {
   }
 
   @PostMapping("/signin")
-  public ResponseEntity<LoginResponse> login(@RequestBody LoginForm loginForm){
+  public ResponseEntity<LoginResponse> login(@RequestBody LoginForm loginForm) {
     LoginResponse loginResponse = usersService.login(loginForm);
     ResponseCookie refreshTokenCookie = CookieUtil.convertRefreshTokenToCookie(loginResponse);
     loginResponse.removeRefreshToken();
-    return ResponseEntity.status(HttpStatus.OK).header("set-cookie", refreshTokenCookie.toString()).body(loginResponse);
+    return ResponseEntity.status(HttpStatus.OK).header(HttpHeaders.SET_COOKIE, refreshTokenCookie.toString())
+        .body(loginResponse);
   }
 }

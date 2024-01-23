@@ -17,15 +17,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 @AllArgsConstructor
 public class SecurityUsers implements UserDetails {
 
-  private String userId;
+  private Long userId;
   private String password;
-  private String userName;
+  private String userDomainId;
   private String userType;
 
   public SecurityUsers(Users user) {
-    this.userId = user.getDomainId();
+    this.userId = user.getId();
     this.password = user.getPassword();
-    this.userName = user.getUserName();
+    this.userDomainId = user.getDomainId();
     this.userType = user.getUserType();
   }
 
@@ -41,7 +41,7 @@ public class SecurityUsers implements UserDetails {
 
   @Override
   public String getUsername() {
-    return userId;
+    return userDomainId;
   }
 
   @Override

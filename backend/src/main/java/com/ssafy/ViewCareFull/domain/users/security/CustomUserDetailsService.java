@@ -21,9 +21,9 @@ public class CustomUserDetailsService implements UserDetailsService {
     Users findUser = repository.findByDomainId(username)
         .orElseThrow(() -> new UsernameNotFoundException("해당 아이디로 가입된 유저가 없습니다."));
     return SecurityUsers.builder()
-        .userId(findUser.getDomainId())
+        .userId(findUser.getId())
         .password(findUser.getPassword())
-        .userName(findUser.getUserName())
+        .userDomainId(findUser.getDomainId())
         .userType(findUser.getUserType())
         .build();
   }

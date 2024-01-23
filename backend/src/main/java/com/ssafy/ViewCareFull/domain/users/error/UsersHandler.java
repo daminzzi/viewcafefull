@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class UsersHandler {
 
   @ExceptionHandler(UsersException.class)
-  public ResponseEntity<Void> handleUsersException(UsersException e) {
+  public ResponseEntity<Void> UsersExceptionHandler(UsersException e) {
     log.error("[handleUsersException] {} : {}", e.getErrorCode().name(), e.getErrorCode().getMessage());
     return ResponseEntity.status(e.getErrorCode().getHttpStatus()).build();
   }

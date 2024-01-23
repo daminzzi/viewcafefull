@@ -7,14 +7,19 @@ import lombok.Getter;
 @Getter
 public class LoginResponse {
 
-  private String name;
+  private UserInfo user;
   private String accessToken;
   private String refreshToken;
-  private String role;
 
   @Builder
   public LoginResponse(Users user, TokenInfo tokenInfo) {
-    this.name = user.getDomainId();
+    this.user = UserInfo.builder().
+        id(user.getDomainId())
+        .name(user.getUserName())
+        .birth(user.getBrith())
+        .phoneNumber(user.getPhoneNumber())
+        .role(user.getUserType())
+        .build();
     this.accessToken = tokenInfo.getAccessToken();
     this.refreshToken = tokenInfo.getRefreshToken();
     this.role = user.getUserType();

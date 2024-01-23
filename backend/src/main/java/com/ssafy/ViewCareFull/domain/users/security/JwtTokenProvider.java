@@ -48,12 +48,12 @@ public class JwtTokenProvider {
     String auth = securityUser.getAuthorities().stream()
         .map(GrantedAuthority::getAuthority)
         .collect(Collectors.joining(","));
-    String id = securityUser.getUserId();
+    String domainId = securityUser.getUsername();
     long now = (new Date()).getTime();
 
-    String accessToken = createAccessToken(authentication, now, auth, id);
+    String accessToken = createAccessToken(authentication, now, auth, domainId);
 
-    String refreshToken = createRefreshToken(now, id);
+    String refreshToken = createRefreshToken(now, domainId);
 
     return TokenInfo.builder()
         .accessToken(accessToken)
@@ -90,8 +90,8 @@ public class JwtTokenProvider {
       throw new UsersException(UserErrorCode.UNAUTHORIZED_USER);
     }
 
-    String username = claims.getSubject();
-    SecurityUsers securityUser = (SecurityUsers) userDetailsService.loadUserByUsername(username);
+    String domainId = claims.getSubject();
+    SecurityUsers securityUser = (SecurityUsers) userDetailsService.loadUserByUsername(domainId);
     Collection<? extends GrantedAuthority> authorities = securityUser.getAuthorities();
     return new UsernamePasswordAuthenticationToken(username, "", authorities);
   }
