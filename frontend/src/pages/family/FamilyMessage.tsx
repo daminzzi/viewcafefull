@@ -8,6 +8,7 @@ import { ReactComponent as EnvelopeSimpleClosed } from '../../assets/icons/Envel
 import { ReactComponent as EnvelopeSimpleOpen } from '../../assets/icons/EnvelopeSimpleOpen.svg';
 import MessageModal from '../../components/message/MessageModal';
 import Pagination from 'react-js-pagination';
+import MessageSearch from '../../components/message/MessageSearch';
 // import getReadMessage from '../../services/message/getReadMessage';
 
 // 보호자 - 받은 메세지 전체 보기
@@ -19,10 +20,8 @@ function FamilyMessage() {
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
   const [checkedMessages, setCheckedMessages] = useState<Message[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [filteredResults, setFilteredResults] = useState<Message[]>([]);
 
-  function handlePageChange(currentPage: React.SetStateAction<number>) {
-    setCurrentPage(currentPage);
-  };
 
   useEffect(() => {
     async function fetchMessages() {
@@ -30,13 +29,35 @@ function FamilyMessage() {
       setMessagesData(res);
     }
     fetchMessages();
+    setFilteredResults(messagesData?.messages || []);
   }, [currentPage, messagesData]);
+  
+  // 메세지 검색
+  function searchMessages(searchValue: string) {
+    if (searchValue !== '') {
+      const filteredData = messagesData?.messages.filter((message) => {
+        return (
+          message.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+          message.content.toLowerCase().includes(searchValue.toLowerCase())
+        );
+      });
+      setFilteredResults(filteredData || []);
+    } else {
+      setFilteredResults(messagesData?.messages || []);
+    }
+  }
 
+  // 현재 페이지 갱신
+  function handlePageChange(currentPage: React.SetStateAction<number>) {
+    setCurrentPage(currentPage);
+  }
+
+  // 메세지 데이터 로딩 중
   if (!messagesData) {
     return <div>Now Loading...</div>;
   }
 
-  // 체크박스의 상태가 변경될 때 호출
+  // 체크박스의 상태가 변경될 때
   function handleCheckboxChange(
     e: React.ChangeEvent<HTMLInputElement>,
     message: Message,
@@ -51,6 +72,7 @@ function FamilyMessage() {
     }
   }
 
+  // 모두 읽음 버튼 눌렀을 때
   async function handleReadClick() {
     const promises = checkedMessages.map((message) =>
       postReadMessage(message.id),
@@ -85,7 +107,7 @@ function FamilyMessage() {
     setSelectedMessage(message);
   }
 
-  // // 모달 클릭시 읽음확인 처리되는 코드
+  // // 모달 클릭시 읽음확인 처리
   // async function openModal(message: Message) {
   //   const updatedMessage = await getReadMessage(message.id);
   //   if (updatedMessage) {
@@ -93,6 +115,7 @@ function FamilyMessage() {
   //   }
   // }
 
+  // 모달 닫히면 메세지 선택 해제
   function closeModal() {
     setSelectedMessage(null);
   }
@@ -101,10 +124,11 @@ function FamilyMessage() {
     <div>
       <div>메세지</div>
       <button onClick={handleReadClick}>모두 읽음</button>
+      <MessageSearch onSearch={searchMessages} />
       <div>
         {messagesData.unreadMsgs}/{messagesData.sum}
       </div>
-      {messagesData.messages.map((message) => (
+      {filteredResults.map((message) => (
         <>
           <input
             type="checkbox"
