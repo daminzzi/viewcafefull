@@ -3,13 +3,13 @@ import getConnectInfo, { PathType } from '../services/connect/getConnectInfo';
 // import { persist } from 'zustand/middleware';
 
 interface Response {
-  applicationId: number;
+  applicationId: string;
   appDomainId: string;
   appName: string;
-  targerId: number;
+  targetId: string;
   tarDomainId: string;
   tarName: string;
-  permissionId: number;
+  permissionId: string;
   perDomainId: string;
   perName: string;
   agreement: string;
@@ -26,13 +26,13 @@ type ConnectState = {
 const useConnectStore = create<ConnectState>((set) => ({
   connectArr: [],
   currConnect: {
-    applicationId: 0,
+    applicationId: '0',
     appDomainId: '',
     appName: '',
-    targerId: 0,
+    targetId: '0',
     tarDomainId: '',
     tarName: '',
-    permissionId: 0,
+    permissionId: '0',
     perDomainId: '',
     perName: '',
     agreement: '',

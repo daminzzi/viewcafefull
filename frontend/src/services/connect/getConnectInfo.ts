@@ -28,13 +28,13 @@ export type PathType = 'app' | 'tar';
 //  임의 데이터 return
 const dummy = [
   {
-    applicationId: 23,
+    applicationId: '23',
     appDomainId: 'junghoon1039',
     appName: '박정훈',
-    targerId: 14,
+    targetId: '14',
     tarDomainId: 'ssafy0101',
     tarName: '김싸피',
-    permissionId: 6,
+    permissionId: '6',
     perDomainId: 'onnuri777',
     perName: '온누리요양원',
     agreement: 'A',
@@ -42,8 +42,40 @@ const dummy = [
   },
 ];
 
+const dummy2 = [
+  {
+    applicationId: '23',
+    appDomainId: 'junghoon1039',
+    appName: '박정훈',
+    targetId: '14',
+    tarDomainId: 'ssafy0101',
+    tarName: '김싸피',
+    permissionId: '6',
+    perDomainId: 'onnuri777',
+    perName: '온누리요양원',
+    agreement: 'A',
+    relationship: '손자',
+  },
+  {
+    applicationId: '24',
+    appDomainId: 'damin1004',
+    appName: '조다민',
+    targetId: '14',
+    tarDomainId: 'ssafy0101',
+    tarName: '김싸피',
+    permissionId: '6',
+    perDomainId: 'onnuri777',
+    perName: '온누리요양원',
+    agreement: 'A',
+    relationship: '증손자',
+  },
+];
+
 function getConnectInfo(type: PathType, domainId: string) {
   console.log(type, domainId);
+  if (type === 'tar') {
+    return dummy2;
+  }
   return dummy;
 }
 

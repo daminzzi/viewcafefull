@@ -1,7 +1,8 @@
 import React, { useState, useEffect, ReactElement } from 'react';
 import getVisitList, { PathType } from '../../services/visit/getVisitList';
-import { VisitData } from './Types';
+import { VisitData } from '../../assets/types/VisitTypes';
 import VisitRow from '../../components/visit/VisitRow';
+import { Link } from 'react-router-dom';
 
 function FamilyVisit() {
   const [visitList, setVisitList] = useState<{
@@ -35,8 +36,8 @@ function FamilyVisit() {
   return (
     <div>
       <h1>면회 일정 조회</h1>
-      <button type="button" onClick={() => console.log('면회 신청')}>
-        면회 신청
+      <button type="button">
+        <Link to="/family/visit/register">면회 신청</Link>
       </button>
       <div>
         {visitList?.conferenceList && repeatVisitRow(visitList.conferenceList)}
