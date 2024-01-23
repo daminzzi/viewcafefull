@@ -1,4 +1,4 @@
-import api from "../api";
+import api from '../api';
 
 // 메세지 상태변경(안읽음->읽음)
 async function getReadMessage(id: number) {

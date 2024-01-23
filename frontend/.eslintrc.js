@@ -6,7 +6,6 @@ module.exports = {
   },
   extends: [
     'plugin:@typescript-eslint/recommended',
-    // '@typescript-eslint/parser',
     'plugin:react/recommended',
   ],
   overrides: [

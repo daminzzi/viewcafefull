@@ -1,4 +1,4 @@
-import api from '../api';
+// import api from '../api';
 import userData from './userData.json';
 
 export interface UserInfo {
