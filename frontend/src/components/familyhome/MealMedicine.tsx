@@ -1,5 +1,4 @@
 import React from 'react';
-import { MealObj, Medicine, MedicineObj } from '../../@types/HealthTypes';
 import { renderImage } from './Summary';
 
 type Props = {

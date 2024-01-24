@@ -1,5 +1,4 @@
 // import api from '../api';
-import { TimeRange } from '../../@types/VisitTypes';
 
 const dummyData: TimeRange[] = [
   {

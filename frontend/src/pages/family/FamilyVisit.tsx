@@ -1,6 +1,5 @@
 import React, { useState, useEffect, ReactElement } from 'react';
 import getVisitList, { PathType } from '../../services/visit/getVisitList';
-import { VisitData } from '../../@types/VisitTypes';
 import VisitRow from '../../components/visit/VisitRow';
 import { Link } from 'react-router-dom';
 

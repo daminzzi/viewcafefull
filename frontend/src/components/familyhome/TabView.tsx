@@ -4,7 +4,6 @@ import BloodPressure from './BloodPressure';
 import BloodSugar from './BloodSugar';
 import MealMedicine from './MealMedicine';
 import { Page } from './TabButton';
-import { HealthInfo } from '../../@types/HealthTypes';
 
 type Props = {
   tab: Page;

@@ -8,7 +8,6 @@ import noImage from '../../assets/images/noImage.jpg';
 import breakfast from '../../assets/images/breakfast.jpg';
 import lunch from '../../assets/images/lunch.jpg';
 import dinner from '../../assets/images/dinner.jpg';
-import { MealObj, MedicineObj, HealthInfo } from '../../@types/HealthTypes';
 
 function FamilyHome() {
   // const today: Date = new Date();
