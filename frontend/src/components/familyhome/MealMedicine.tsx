@@ -1,6 +1,6 @@
-import React from "react";
-import { MealObj, Medicine, MedicineObj } from "../../pages/family/Types";
-import { renderImage } from "./Summary";
+import React from 'react';
+import { MealObj, Medicine, MedicineObj } from '../../@types/HealthTypes';
+import { renderImage } from './Summary';
 
 type Props = {
   mealObj: MealObj;
@@ -21,13 +21,13 @@ function MealMedicine(props: Props) {
     <div>
       <p>MealMedicine</p>
       <p>아침</p>
-      {renderImage(props.mealObj.breakfast, "breakfast")}
+      {renderImage(props.mealObj.breakfast, 'breakfast')}
       {medicineInfo(props.medicineObj.breakfast)}
       <p>점심</p>
-      {renderImage(props.mealObj.lunch, "lunch")}
+      {renderImage(props.mealObj.lunch, 'lunch')}
       {medicineInfo(props.medicineObj.lunch)}
       <p>저녁</p>
-      {renderImage(props.mealObj.dinner, "dinner")}
+      {renderImage(props.mealObj.dinner, 'dinner')}
       {medicineInfo(props.medicineObj.dinner)}
     </div>
   );

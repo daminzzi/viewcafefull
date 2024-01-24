@@ -4,7 +4,7 @@ import BloodPressure from './BloodPressure';
 import BloodSugar from './BloodSugar';
 import MealMedicine from './MealMedicine';
 import { Page } from './TabButton';
-import { HealthInfo } from '../../pages/family/Types';
+import { HealthInfo } from '../../@types/HealthTypes';
 
 type Props = {
   tab: Page;
@@ -30,23 +30,19 @@ function TabView({ tab, healthInfo }: Props) {
             afterArr={healthInfo.afterArr}
           />
         );
-        case "mm":
-          return (
-            <MealMedicine
-              mealObj={healthInfo.mealObj}
-              medicineObj={healthInfo.medicineObj}
-            />
-          );
+      case 'mm':
+        return (
+          <MealMedicine
+            mealObj={healthInfo.mealObj}
+            medicineObj={healthInfo.medicineObj}
+          />
+        );
       default:
         return null;
     }
   }
 
-  return (
-    <div>
-      {view()}
-    </div>
-  );
+  return <div>{view()}</div>;
 }
 
 export default TabView;

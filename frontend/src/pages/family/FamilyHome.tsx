@@ -8,7 +8,7 @@ import noImage from '../../assets/images/noImage.jpg';
 import breakfast from '../../assets/images/breakfast.jpg';
 import lunch from '../../assets/images/lunch.jpg';
 import dinner from '../../assets/images/dinner.jpg';
-import { MealObj, MedicineObj, HealthInfo } from './Types';
+import { MealObj, MedicineObj, HealthInfo } from '../../@types/HealthTypes';
 
 function FamilyHome() {
   // const today: Date = new Date();
@@ -19,9 +19,9 @@ function FamilyHome() {
   const month: string = (today.getMonth() + 1).toString().padStart(2, '0');
   const day = today.getDate();
 
-  const [tab, setTab] = useState<Page>("sum");
+  const [tab, setTab] = useState<Page>('sum');
   // const [selectedDate, setSelectedDate] = useState<Date>(today);
-  const [date, setDate] = useState<string>("");
+  const [date, setDate] = useState<string>('');
   const [healthInfo, setHealthInfo] = useState<HealthInfo>({
     beforeArr: [],
     afterArr: [],
@@ -114,10 +114,7 @@ function FamilyHome() {
       <h2>하루 건강 정보</h2>
       <TabButtonGroup handleChangeTab={handleChangeTab} />
       <hr />
-      <TabView
-        tab={tab}
-        healthInfo={healthInfo}
-      />
+      <TabView tab={tab} healthInfo={healthInfo} />
       <hr />
       <Comment />
     </div>

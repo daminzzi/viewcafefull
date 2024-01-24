@@ -1,5 +1,5 @@
-import React from "react";
-import { HealthInfo, Medicine } from "../../pages/family/Types";
+import React from 'react';
+import { HealthInfo, Medicine } from '../../@types/HealthTypes';
 
 type Props = {
   healthInfo: HealthInfo;
@@ -35,13 +35,13 @@ function Summary({ healthInfo }: Props) {
       <hr />
       <p>식단/복약</p>
       <p>아침</p>
-      {renderImage(mealObj.breakfast, "breakfast")}
+      {renderImage(mealObj.breakfast, 'breakfast')}
       {checkMedicine(medicineObj.breakfast)}
       <p>점심</p>
-      {renderImage(mealObj.lunch, "lunch")}
+      {renderImage(mealObj.lunch, 'lunch')}
       {checkMedicine(medicineObj.lunch)}
       <p>저녁</p>
-      {renderImage(mealObj.dinner, "dinner")}
+      {renderImage(mealObj.dinner, 'dinner')}
       {checkMedicine(medicineObj.dinner)}
     </div>
   );

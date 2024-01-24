@@ -4,7 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as CalendarIcon } from '../../assets/icons/calendar.svg';
 import { ReactComponent as ClockIcon } from '../../assets/icons/clock.svg';
 import useConnectStore from '../../stores/ConnectStore';
-import { TimeRange } from '../../assets/types/VisitTypes';
+import { TimeRange } from '../../@types/VisitTypes';
 import getVisitTime from '../../services/visit/getVisitTime';
 import getConnectInfo from '../../services/connect/getConnectInfo';
 

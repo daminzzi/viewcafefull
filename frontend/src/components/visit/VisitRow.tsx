@@ -1,6 +1,6 @@
 import React from 'react';
 import VisitStateTag from './VisitStateTag';
-import { VisitData } from '../../assets/types/VisitTypes';
+import { VisitData } from '../../@types/VisitTypes';
 
 type Props = {
   key: number | null;
