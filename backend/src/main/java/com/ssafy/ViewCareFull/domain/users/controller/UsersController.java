@@ -32,9 +32,7 @@ public class UsersController {
 
   @GetMapping("/validation/{id}")
   public ResponseEntity<Void> validation(@PathVariable(name = "id") String id) {
-    if (usersService.duplicatedId(id)) {
-      return ResponseEntity.status(HttpStatus.CONFLICT).build();
-    }
+    usersService.duplicatedId(id);
     return ResponseEntity.status(HttpStatus.OK).build();
   }
 

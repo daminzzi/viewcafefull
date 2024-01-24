@@ -36,8 +36,10 @@ public class UsersService {
     usersRepository.save(Guardian.createUser(joinForm, passwordEncoder));
   }
 
-  public boolean duplicatedId(String id) {
-    return usersRepository.existsByDomainId(id);
+  public void duplicatedId(String id) {
+    if (usersRepository.existsByDomainId(id)) {
+      throw new UsersException(UserErrorCode.DUPLICATED_ID);
+    }
   }
 
   @Transactional
