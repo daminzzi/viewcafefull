@@ -13,7 +13,7 @@ export interface UserInfo {
   userRole: string;
 }
 
-// 로그인 된 회원(보호자)의 정보 조회
+// 로그인 된 회원의 정보 조회
 async function getUserInfo(): Promise<UserInfo | null> {
   // try {
   //   const response = await api.get<UserInfo>(`/users`);

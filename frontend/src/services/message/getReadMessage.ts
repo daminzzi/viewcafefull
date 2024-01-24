@@ -5,7 +5,7 @@ async function getReadMessage(id: number) {
   try {
     const response = await api.get(`/msg?id=${id}`);
     if (response.status === 200) {
-      return response.data;
+      return;
     } else {
       throw new Error('메세지를 읽지 못했습니다.');
     }

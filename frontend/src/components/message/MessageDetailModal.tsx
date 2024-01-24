@@ -2,12 +2,12 @@ import React from 'react';
 import { Message } from '../../services/message/getMessage';
 import deleteMessage from '../../services/message/deleteMessage';
 
-type MessageModalProps = {
+type MessageDetailModalProps = {
   message: Message;
   onClose: () => void;
 };
 
-function MessageModal({ message, onClose }: MessageModalProps) {
+function MessageDetailModal({ message, onClose }: MessageDetailModalProps) {
   async function handleDelete() {
     try {
       await deleteMessage(message.id);
@@ -16,6 +16,7 @@ function MessageModal({ message, onClose }: MessageModalProps) {
       console.error('메세지를 삭제하지 못했습니다');
     }
   }
+
 
   return (
     <div
@@ -37,4 +38,4 @@ function MessageModal({ message, onClose }: MessageModalProps) {
   );
 }
 
-export default MessageModal;
+export default MessageDetailModal;

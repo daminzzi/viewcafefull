@@ -14,6 +14,7 @@ import FamilyVisit from './pages/family/FamilyVisit';
 import FamilyProfile from './pages/family/FamilyProfile';
 import CareGiverHome from './pages/caregiver/CareGiverHome';
 import FamilyVisitRegister from './pages/family/FamilyVisitRegister';
+import CareGiverMessage from './pages/caregiver/CareGiverMessage';
 
 function App() {
   return (
@@ -33,7 +34,8 @@ function App() {
             <Route path="profile" element={<FamilyProfile />} />
           </Route>
           <Route path="/caregiver" element={<CareGiver />}>
-            <Route path="/caregiver/home" element={<CareGiverHome />} />
+            <Route path="home" element={<CareGiverHome />} />
+            <Route path="message" element={<CareGiverMessage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -6,7 +6,7 @@ import getMessage, {
 import postReadMessage from '../../services/message/postReadMessage';
 import { ReactComponent as EnvelopeSimpleClosed } from '../../assets/icons/EnvelopeSimpleClosed.svg';
 import { ReactComponent as EnvelopeSimpleOpen } from '../../assets/icons/EnvelopeSimpleOpen.svg';
-import MessageModal from '../../components/message/MessageModal';
+import MessageDetailModal from '../../components/message/MessageDetailModal';
 import Pagination from 'react-js-pagination';
 import MessageSearch from '../../components/message/MessageSearch';
 // import getReadMessage from '../../services/message/getReadMessage';
@@ -22,7 +22,6 @@ function FamilyMessage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredResults, setFilteredResults] = useState<Message[]>([]);
 
-
   useEffect(() => {
     async function fetchMessages() {
       const res = await getMessage();
@@ -31,7 +30,7 @@ function FamilyMessage() {
     fetchMessages();
     setFilteredResults(messagesData?.messages || []);
   }, [currentPage, messagesData]);
-  
+
   // 메세지 검색
   function searchMessages(searchValue: string) {
     if (searchValue !== '') {
@@ -102,7 +101,7 @@ function FamilyMessage() {
     setCheckedMessages([]);
   }
 
-  // 모달 테스트용 코드
+  // 상세보기 할 메세지 선택
   function openModal(message: Message) {
     setSelectedMessage(message);
   }
@@ -153,7 +152,7 @@ function FamilyMessage() {
       ))}
 
       {selectedMessage && (
-        <MessageModal message={selectedMessage} onClose={closeModal} />
+        <MessageDetailModal message={selectedMessage} onClose={closeModal} />
       )}
 
       <Pagination
