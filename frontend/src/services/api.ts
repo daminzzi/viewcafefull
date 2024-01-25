@@ -5,7 +5,7 @@ import useUserStore from '../stores/userStore';
 import refreshAccessToken from './user/refreshAccessToken';
 
 // axios 인스턴스 생성
-const api = axios.create({ baseURL: 'http://localhost:8080' });
+const api = axios.create({ baseURL: process.env.REACT_APP_SPRING_URL });
 
 // 요청 인터셉터 추가
 api.interceptors.request.use(
