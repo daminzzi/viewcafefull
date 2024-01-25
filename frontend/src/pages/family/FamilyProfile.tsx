@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import getUserInfo, { UserInfo } from '../../services/user/getUserInfo';
+import getUserInfo from '../../services/user/getUserInfo';
 import useConnectStore from '../../stores/ConnectStore';
 
 function FamilyProfile() {

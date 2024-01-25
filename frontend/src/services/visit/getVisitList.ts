@@ -1,8 +1,6 @@
 // import api from '../api';
 import tVisitData from './tVisitData.json';
 
-export type PathType = 'app' | 'tar';
-
 async function getVisitList(params: { type: PathType; domainId: string }) {
   try {
     // const response = await api.get(`/conference/${params.type}?domain-id=${params.domainId}`);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ReactElement } from 'react';
-import getVisitList, { PathType } from '../../services/visit/getVisitList';
+import getVisitList from '../../services/visit/getVisitList';
 import VisitRow from '../../components/visit/VisitRow';
 import { Link } from 'react-router-dom';
 

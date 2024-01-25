@@ -2,7 +2,7 @@
 import React from 'react';
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
-import useUserStore, { User } from '../../stores/userStore';
+import useUserStore from '../../stores/userStore';
 import api from '../../services/api';
 
 interface ResponseData {

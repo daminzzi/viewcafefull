@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import getConnectInfo, { PathType } from '../services/connect/getConnectInfo';
+import getConnectInfo from '../services/connect/getConnectInfo';
 // import { persist } from 'zustand/middleware';
 
 interface Response {

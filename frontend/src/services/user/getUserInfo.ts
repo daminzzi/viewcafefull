@@ -1,18 +1,6 @@
 // import api from '../api';
 import userData from './userData.json';
 
-export interface UserInfo {
-  parentId: number[] | null;
-  parentName: string[] | null;
-  residentId: number | null;
-  residentName: string | null;
-  hospitalId: number;
-  hospitalName: string;
-  phoneNumber: string;
-  birth: string;
-  userRole: string;
-}
-
 // 로그인 된 회원의 정보 조회
 async function getUserInfo(): Promise<UserInfo | null> {
   // try {

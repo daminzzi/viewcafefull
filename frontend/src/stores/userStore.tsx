@@ -3,26 +3,6 @@ import deleteUser from '../services/user/deleteUser';
 import postLogin from '../services/user/postLogin';
 import getLogout from '../services/user/getLogout';
 
-export interface User {
-  id: string;
-  name: string;
-  phoneNumber: number;
-  birth: number;
-  role: string;
-}
-
-type UserState = {
-  user: User | null;
-  isAuthenticated: boolean;
-  isLogin: boolean;
-  accessToken: string | null;
-  setAccessToken: (token: string | null) => void;
-  setUser: (user: User | null) => void;
-  login: (form: { id: string; password: string }) => void;
-  logout: () => void;
-  deleteUser: () => void;
-};
-
 const useUserStore = create<UserState>((set, get) => ({
   user: null,
   isAuthenticated: false,
@@ -51,7 +31,6 @@ const useUserStore = create<UserState>((set, get) => ({
       throw error;
     }
   },
-
 
   logout: async () => {
     const { user } = get();
