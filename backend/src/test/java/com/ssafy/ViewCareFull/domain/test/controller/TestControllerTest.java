@@ -25,6 +25,7 @@ import org.springframework.web.context.WebApplicationContext;
 @SpringBootTest
 @Transactional
 @DisplayName("TestController 테스트")
+//@ActiveProfiles("test")
 class TestControllerTest {
 
   private MockMvc mockMvc;
