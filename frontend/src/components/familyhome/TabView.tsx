@@ -3,12 +3,17 @@ import Summary from './Summary';
 import BloodPressure from './BloodPressure';
 import BloodSugar from './BloodSugar';
 import MealMedicine from './MealMedicine';
-import { Page } from './TabButton';
+import styled from 'styled-components';
 
 type Props = {
   tab: Page;
   healthInfo: HealthInfo;
 };
+
+const TempDiv = styled.div`
+  height: 410px;
+  width: 90%;
+`;
 
 function TabView({ tab, healthInfo }: Props) {
   function view() {
@@ -41,7 +46,7 @@ function TabView({ tab, healthInfo }: Props) {
     }
   }
 
-  return <div>{view()}</div>;
+  return <TempDiv>{view()}</TempDiv>;
 }
 
 export default TabView;

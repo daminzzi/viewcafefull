@@ -1,16 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import FlexRowContainer from '../common/FlexRowContainer';
 import DaySpan from './DaySpan';
-
-const DayContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-`;
 
 function Days() {
   return (
-    <DayContainer>
+    <FlexRowContainer $justifyContent='space-around'>
       <DaySpan $day={0}>일</DaySpan>
       <DaySpan $day={1}>월</DaySpan>
       <DaySpan $day={2}>화</DaySpan>
@@ -18,7 +12,7 @@ function Days() {
       <DaySpan $day={4}>목</DaySpan>
       <DaySpan $day={5}>금</DaySpan>
       <DaySpan $day={6}>토</DaySpan>
-    </DayContainer>
+    </FlexRowContainer>
   );
 }
 

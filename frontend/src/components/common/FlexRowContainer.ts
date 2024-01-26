@@ -11,10 +11,9 @@ type Props = {
   $alignItems?: string;
 };
 
-const FlexColContainer = styled.div<Props>`
+const FlexRowContainer = styled.div<Props>`
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
   align-items: center;
 
@@ -60,4 +59,4 @@ const FlexColContainer = styled.div<Props>`
     `}
 `;
 
-export default FlexColContainer;
+export default FlexRowContainer;

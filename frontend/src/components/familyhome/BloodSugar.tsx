@@ -25,6 +25,7 @@ type Props = {
 };
 
 const options = {
+  maintainAspectRatio: false,
   indexAxis: 'y' as const,
   elements: {
     bar: {
@@ -64,12 +65,7 @@ function BloodSugar({ beforeArr, afterArr }: Props) {
     ],
   };
 
-  return (
-    <div>
-      <p>혈당</p>
-      <Bar options={options} data={data} />
-    </div>
-  );
+  return <Bar options={options} data={data} />;
 }
 
 export default BloodSugar;

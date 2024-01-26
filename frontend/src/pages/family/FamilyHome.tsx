@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Page } from '../../components/familyhome/TabButton';
+import styled from 'styled-components';
+import ContentsContainer from '../../components/common/ContentsContainer';
+import FlexColContainer from '../../components/common/FlexColContainer';
 import TabButtonGroup from '../../components/familyhome/TabButtonGroup';
 import Comment from '../../components/familyhome/Comment';
 import TabView from '../../components/familyhome/TabView';
@@ -10,10 +12,14 @@ import breakfast from '../../assets/images/breakfast.jpg';
 import lunch from '../../assets/images/lunch.jpg';
 import dinner from '../../assets/images/dinner.jpg';
 
+const Title = styled.h2`
+  width: 95%;
+`;
+
 export function dateToString(date: Date): string {
   const year: number = date.getFullYear();
   const month: string = (date.getMonth() + 1).toString().padStart(2, '0');
-  const day: string = (date.getDate()).toString().padStart(2, '0');
+  const day: string = date.getDate().toString().padStart(2, '0');
 
   return `${year}${month}${day}`;
 }
@@ -43,17 +49,17 @@ function FamilyHome() {
       dinner: noImage,
     },
   });
-
-  // handle function
-  function handleChangeSelectedDate(newDate: Date): void {
-    setSelectedDate(newDate);
-  }
-
-  function handleChangeTab(tabParam: Page): void {
-    setTab(tabParam);
-  }
+  const start: Date = new Date(selectedDate);
+  start.setDate(start.getDate() - start.getDay());
+  const [startOfWeek, setStartOfWeek] = useState<Date>(start);
 
   // useEffect
+  // 날짜 변경시 주의 시작 일 변경
+  useEffect(() => {
+    const newStart: Date = new Date(selectedDate);
+    newStart.setDate(newStart.getDate() - newStart.getDay());
+    setStartOfWeek(newStart);
+  }, [selectedDate]);
 
   // date 변경 시 건강 정보 요청, 변경
   useEffect(() => {
@@ -116,18 +122,37 @@ function FamilyHome() {
     });
   }, [selectedDate]);
 
+  // handle function
+  function handleChangeSelectedDate(newDate: Date): void {
+    setSelectedDate(newDate);
+  }
+
+  function handleChangeTab(tabParam: Page): void {
+    setTab(tabParam);
+  }
+
+  function handleChangeStart(newStart: Date): void {
+    setStartOfWeek(newStart);
+  }
+
   return (
-    <div>
-      <h1>Family Home</h1>
-      <Callendar today={today} selectedDate={selectedDate} handleChangeSelectedDate={handleChangeSelectedDate} />
-      <hr />
-      <h2>하루 건강 정보</h2>
-      <TabButtonGroup handleChangeTab={handleChangeTab} />
-      <hr />
-      <TabView tab={tab} healthInfo={healthInfo} />
-      <hr />
-      <Comment />
-    </div>
+    <FlexColContainer>
+      <Callendar
+        today={today}
+        selectedDate={selectedDate}
+        startOfWeek={startOfWeek}
+        handleChangeSelectedDate={handleChangeSelectedDate}
+        handleChangeStart={handleChangeStart}
+      />
+      <ContentsContainer>
+        <Title>하루 건강 정보</Title>
+        <TabButtonGroup tab={tab} handleChangeTab={handleChangeTab} />
+        <TabView tab={tab} healthInfo={healthInfo} />
+      </ContentsContainer>
+      <ContentsContainer>
+        <Comment />
+      </ContentsContainer>
+    </FlexColContainer>
   );
 }
 

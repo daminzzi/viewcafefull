@@ -18,7 +18,6 @@ function medicineInfo(medicine: Medicine | null) {
 function MealMedicine(props: Props) {
   return (
     <div>
-      <p>MealMedicine</p>
       <p>아침</p>
       {renderImage(props.mealObj.breakfast, 'breakfast')}
       {medicineInfo(props.medicineObj.breakfast)}

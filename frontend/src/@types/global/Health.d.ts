@@ -27,3 +27,5 @@ type HealthInfo = {
   medicineObj: MedicineObj;
   mealObj: MealObj;
 };
+
+type Page = 'sum' | 'bs' | 'bp' | 'mm';

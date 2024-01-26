@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Week from './Week';
 import Day from './Days';
+import YearMonth from './YearMonth';
 import { light } from '../../assets/styles/palettes';
 import FlexColContainer from '../common/FlexColContainer';
 
 type Props = {
   today: Date;
   selectedDate: Date;
+  startOfWeek: Date;
   handleChangeSelectedDate: (newDate: Date) => void;
+  handleChangeStart: (newDate: Date) => void;
 };
 
-function Callendar({ today, selectedDate, handleChangeSelectedDate }: Props) {
+function Callendar({
+  today,
+  selectedDate,
+  startOfWeek,
+  handleChangeSelectedDate,
+}: Props) {
   const start: Date = new Date(selectedDate);
   start.setDate(start.getDate() - start.getDay());
   const week: Array<Date> = [];
-  const [startOfWeek, setStartOfWeek] = useState<Date>(start);
 
   for (let i = 0; i < 7; i++) {
     const copyStart: Date = new Date(startOfWeek);
@@ -23,18 +30,23 @@ function Callendar({ today, selectedDate, handleChangeSelectedDate }: Props) {
 
   function handleChangeWeek(prev: boolean) {
     if (prev) {
-      const newStart: Date = new Date(startOfWeek);
-      newStart.setDate(newStart.getDate() - 7);
-      setStartOfWeek(newStart);
+      const newDate: Date = new Date(selectedDate);
+      newDate.setDate(newDate.getDate() - 7);
+      handleChangeSelectedDate(newDate);
     } else {
-      const newStart: Date = new Date(startOfWeek);
-      newStart.setDate(newStart.getDate() + 7);
-      setStartOfWeek(newStart);
+      const newDate: Date = new Date(selectedDate);
+      newDate.setDate(newDate.getDate() + 7);
+      handleChangeSelectedDate(newDate);
     }
   }
 
   return (
     <FlexColContainer $backgroundColor={light}>
+      <YearMonth
+        selectedDate={selectedDate}
+        week={week}
+        handleChangeSelectedDate={handleChangeSelectedDate}
+      />
       <Day />
       <Week
         week={week}

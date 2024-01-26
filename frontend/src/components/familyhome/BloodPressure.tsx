@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -7,8 +7,8 @@ import {
   Title,
   Tooltip,
   Legend,
-} from "chart.js";
-import { Bar } from "react-chartjs-2";
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,
@@ -25,7 +25,8 @@ type Props = {
 };
 
 const options = {
-  indexAxis: "y" as const,
+  maintainAspectRatio: false,
+  indexAxis: 'y' as const,
   elements: {
     bar: {
       borderWidth: 2,
@@ -34,42 +35,37 @@ const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: "top" as const,
+      position: 'top' as const,
     },
     title: {
       display: true,
-      text: "혈압",
+      text: '혈압',
     },
   },
 };
 
-const label: string[] = ["아침", "점심", "저녁"];
+const label: string[] = ['아침', '점심', '저녁'];
 
 function BloodPressure({ lowArr, highArr }: Props) {
   const data = {
     labels: label,
     datasets: [
       {
-        label: "수축 혈압",
+        label: '수축 혈압',
         data: lowArr,
         borderWidth: 1,
-        backgroundColor: "#D2B48C",
+        backgroundColor: '#D2B48C',
       },
       {
-        label: "이완 혈압",
+        label: '이완 혈압',
         data: highArr,
         borderWidth: 1,
-        backgroundColor: "#6EE7B7",
+        backgroundColor: '#6EE7B7',
       },
     ],
   };
 
-  return (
-    <div>
-      <p>혈압</p>
-      <Bar options={options} data={data} />
-    </div>
-  );
+  return <Bar options={options} data={data} />;
 }
 
 export default BloodPressure;
