@@ -1,6 +1,6 @@
 package com.ssafy.ViewCareFull.domain.message.controller;
 
-import com.ssafy.ViewCareFull.domain.message.dto.MessageDto;
+import com.ssafy.ViewCareFull.domain.message.dto.SSEMessageDto;
 import com.ssafy.ViewCareFull.domain.message.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,18 +26,18 @@ public class NotificationController {
   }
 
   @GetMapping(value = "/subscribe/{id}")
-  public Flux<ServerSentEvent<MessageDto>> subscribe(@PathVariable Long id) {
-    Flux<MessageDto> subscribe = notificationService.subscribe(id);
+  public Flux<ServerSentEvent<SSEMessageDto>> subscribe(@PathVariable Long id) {
+    Flux<SSEMessageDto> subscribe = notificationService.subscribe(id);
     return subscribe.map(s -> ServerSentEvent.builder(s).build());
   }
 
   @GetMapping(value = "/send/{id}")
   public void send(@PathVariable Long id) {
-    notificationService.send(MessageDto.builder()
+    notificationService.send(SSEMessageDto.builder()
         .sender(1L)
         .receiver(id)
         .message("안녕하세요")
         .build());
   }
-  
+
 }

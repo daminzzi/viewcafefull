@@ -1,10 +1,13 @@
-package com.ssafy.ViewCareFull.domain.test.controller;
+package com.ssafy.ViewCareFull.domain.message.controller;
 
 import static com.epages.restdocs.apispec.MockMvcRestDocumentationWrapper.document;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.ssafy.ViewCareFull.domain.test.service.TestService;
+import com.ssafy.ViewCareFull.domain.message.entity.Message;
+import com.ssafy.ViewCareFull.domain.message.repository.MessageRepository;
+import com.ssafy.ViewCareFull.domain.message.service.MessageService;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
+import com.ssafy.ViewCareFull.domain.users.service.UsersService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,15 +28,16 @@ import org.springframework.web.context.WebApplicationContext;
 @ExtendWith({RestDocumentationExtension.class, SpringExtension.class})
 @SpringBootTest
 @Transactional
-@DisplayName("TestController 테스트")
 @ActiveProfiles("test")
-class TestControllerTest {
+class MessageControllerIntegrationTest {
 
   private MockMvc mockMvc;
-
   @Autowired
-  private TestService testService;
-
+  private MessageService messageService;
+  @Autowired
+  private MessageRepository messageRepository;
+  @Autowired
+  private UsersService usersService;
 
   @BeforeEach
   void setUp(WebApplicationContext context, RestDocumentationContextProvider restDocumentation) {
@@ -43,35 +47,23 @@ class TestControllerTest {
   }
 
   @Test
-  @DisplayName("[성공] test - null")
-  void test() throws Exception {
-    mockMvc.perform(RestDocumentationRequestBuilders.get("/swagger/test"))
-        .andExpect(status().isBadRequest())
-        .andExpect(content().string("null"))
-        .andDo(document("test"));
-
-  }
-
-  @Test
-  @DisplayName("[성공] test - email")
-  void test2() throws Exception {
-    String text = "ssafy@ssafy.com";
-    mockMvc.perform(RestDocumentationRequestBuilders.get("/swagger/test")
-            .queryParam("text", text))
+  @DisplayName("[성공] getMessages")
+  void getMessages() throws Exception {
+    Guardian guardian = Guardian.builder()
+        .domainId("ssafy")
+        .build();
+    Message message = Message.builder()
+        .toId(guardian)
+        .content("test")
+        .build();
+    messageRepository.save(message);
+    mockMvc.perform(RestDocumentationRequestBuilders.get("/msg")
+            .queryParam("page", "0")
+            .queryParam("keyword", "test")
+        )
         .andExpect(status().isOk())
-        .andExpect(content().string("email"))
-        .andDo(document("email"));
+        .andDo(document("getMessages"));
   }
 
-  @Test
-  @DisplayName("[성공] test - notEmail")
-  void test3() throws Exception {
-    String text = "notEmail";
-    mockMvc.perform(RestDocumentationRequestBuilders.get("/swagger/test")
-            .queryParam("text", text))
-        .andExpect(status().isNotFound())
-        .andExpect(content().string("notEmail"))
-        .andDo(document("notEmail"));
-  }
 
 }
