@@ -16,11 +16,13 @@ public class MessageListResponseDto {
 
   private Long sum;
   private Long unreadMsgs;
+  private Long pageNum;
   private List<MessageDto> messages;
 
   public MessageListResponseDto(Page<Message> page) {
     this.sum = page.getTotalElements();
     this.unreadMsgs = page.getTotalElements();
+    this.pageNum = (long) page.getTotalPages();
     this.messages = MessageDto.of(page.getContent());
   }
 }
