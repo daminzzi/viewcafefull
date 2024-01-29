@@ -48,7 +48,7 @@ public class HealthServiceImpl implements HealthService {
     // 수정 하고자 하는 id의 건강정보가 있는지 체크
     Health updateHealth = healthRepository.findById(healthId)
         .orElseThrow(() -> new HealthException(HealthErrorCode.NOT_FOUND_HEALTH_ID));
-    updateHealth.update(id, healthInfo);
+    updateHealth.update(healthInfo);
   }
 
 }
