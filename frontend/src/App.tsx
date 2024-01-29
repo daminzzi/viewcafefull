@@ -16,6 +16,7 @@ import FamilyVisit from './pages/family/FamilyVisit';
 import FamilyProfile from './pages/family/FamilyProfile';
 import CareGiverHome from './pages/caregiver/CareGiverHome';
 import FamilyVisitRegister from './pages/family/FamilyVisitRegister';
+import ConnectRegister from './pages/family/ConnectRegister';
 import CareGiverMessage from './pages/caregiver/CareGiverMessage';
 import Report from './pages/Report';
 
@@ -40,6 +41,7 @@ function App() {
             <Route path="visit" element={<FamilyVisit />} />
             <Route path="visit/register" element={<FamilyVisitRegister />} />
             <Route path="profile" element={<FamilyProfile />} />
+            <Route path="connect" element={<ConnectRegister />} />
           </Route>
           <Route path="/caregiver" element={<CareGiver />}>
             <Route path="home" element={<CareGiverHome />} />
