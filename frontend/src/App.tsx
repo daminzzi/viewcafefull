@@ -18,6 +18,7 @@ import CareGiverHome from './pages/caregiver/CareGiverHome';
 import FamilyVisitRegister from './pages/family/FamilyVisitRegister';
 import ConnectRegister from './pages/family/ConnectRegister';
 import CareGiverMessage from './pages/caregiver/CareGiverMessage';
+import CareGiverSendMessage from './pages/caregiver/CareGiverSendMessage';
 import Report from './pages/Report';
 
 const AppDiv = styled.div`
@@ -46,6 +47,7 @@ function App() {
           <Route path="/caregiver" element={<CareGiver />}>
             <Route path="home" element={<CareGiverHome />} />
             <Route path="message" element={<CareGiverMessage />} />
+            <Route path="message/send" element={<CareGiverSendMessage />} />
           </Route>
           <Route path="/report/:id" element={<Report />} />
           <Route path="*" element={<NotFound />} />

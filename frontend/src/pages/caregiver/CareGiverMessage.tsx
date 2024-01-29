@@ -1,55 +1,63 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import getMessage, {
   Message,
   MessagesResponse,
 } from '../../services/message/getMessage';
-import { ReactComponent as EnvelopeSimpleClosed } from '../../assets/icons/EnvelopeSimpleClosed.svg';
-import { ReactComponent as EnvelopeSimpleOpen } from '../../assets/icons/EnvelopeSimpleOpen.svg';
 import MessageDetailModal from '../../components/message/MessageDetailModal';
-import SendMessageModal from '../../components/message/SendMessageModal';
-import Pagination from 'react-js-pagination';
+import Pagination from '../../components/common/Pagination';
+import MessageSimple from '../../components/message/MessageSimple';
+import useUserStore from '../../stores/userStore';
 
-// 간병인 - 받은 메세지 전체 보기
+// 간병인 - 보낸 메세지 페이지별 조회
 
 function CareGiverMessage() {
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [pageGroupIndex, setPageGroupIndex] = useState(0);
   const [messagesData, setMessagesData] = useState<MessagesResponse | null>(
     null,
   );
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [isSendMessageModalOpen, setSendMessageModalOpen] = useState(false);
+  const { user } = useUserStore();
 
   useEffect(() => {
-    async function fetchMessages() {
-      const res = await getMessage();
+    const fetchData = async () => {
+      const res = await getMessage(currentPage);
       setMessagesData(res);
-    }
-    fetchMessages();
-  }, [currentPage, messagesData]);
-
-  // 현재 페이지 갱신
-  function handlePageChange(currentPage: React.SetStateAction<number>) {
-    setCurrentPage(currentPage);
-  }
+    };
+    fetchData();
+  }, [currentPage]);
 
   // 메세지 데이터 로딩 중
   if (!messagesData) {
     return <div>Now Loading...</div>;
   }
 
+  // 메세지들 불러오기
+  function renderMessages() {
+    if (!messagesData) {
+      return null;
+    }
+    const messageList = [];
+    for (let i = 0; i < messagesData.messages.length; i++) {
+      const message = messagesData.messages[i];
+      messageList.push(
+        <Fragment key={message.id}>
+          <MessageSimple openModal={openModal} message={message} />
+          <hr />
+        </Fragment>,
+      );
+    }
+    return messageList;
+  }
+
   // 상세보기 할 메세지 선택
-  function openDetailModal(message: Message) {
+  function openModal(message: Message) {
     setSelectedMessage(message);
   }
 
   // 모달 닫히면 메세지 선택 해제
-  function closeDetailModal() {
+  function closeModal() {
     setSelectedMessage(null);
-  }
-
-  // 성공적으로 메세지를 전송했을 경우 전송 모달 닫기
-  async function handleSend() {
-    setSendMessageModalOpen(false);
   }
 
   return (
@@ -58,40 +66,21 @@ function CareGiverMessage() {
       <div>
         {messagesData.unreadMsgs}/{messagesData.sum}
       </div>
-      <button onClick={() => setSendMessageModalOpen(true)}>메세지 작성</button>
-      {messagesData.messages.map((message) => (
-        <>
-          <div onClick={() => openDetailModal(message)}>
-            <div key={message.id}>
-              <div>{message.title}</div>
-              <div>{message.from}</div>
-              <div>{message.time}</div>
 
-              {message.isRead ? (
-                <EnvelopeSimpleOpen className="EnvelopeSimple-open" />
-              ) : (
-                <EnvelopeSimpleClosed className="EnvelopeSimple-closed" />
-              )}
-            </div>
-          </div>
-          <hr />
-        </>
-      ))}
-
+      {renderMessages()}
+      
       {selectedMessage && (
-        <MessageDetailModal message={selectedMessage} onClose={closeDetailModal} />
+        <MessageDetailModal
+          message={selectedMessage}
+          onClose={closeModal}
+          userId={user ? user.id : null}
+        />
       )}
-
-      {isSendMessageModalOpen && <SendMessageModal onClose={handleSend} />}
-
       <Pagination
-        activePage={currentPage}
-        itemsCountPerPage={10}
-        totalItemsCount={500}
-        pageRangeDisplayed={5}
-        prevPageText={'‹'}
-        nextPageText={'›'}
-        onChange={handlePageChange}
+        pageGroupIndex={pageGroupIndex}
+        setPageGroupIndex={setPageGroupIndex}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
       />
     </div>
   );

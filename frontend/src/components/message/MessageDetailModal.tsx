@@ -4,10 +4,15 @@ import deleteMessage from '../../services/message/deleteMessage';
 
 type MessageDetailModalProps = {
   message: Message;
+  userId: string | null;
   onClose: () => void;
 };
 
-function MessageDetailModal({ message, onClose }: MessageDetailModalProps) {
+function MessageDetailModal({
+  message,
+  userId,
+  onClose,
+}: MessageDetailModalProps) {
   async function handleDelete() {
     try {
       await deleteMessage(message.id);
@@ -16,7 +21,6 @@ function MessageDetailModal({ message, onClose }: MessageDetailModalProps) {
       console.error('메세지를 삭제하지 못했습니다');
     }
   }
-
 
   return (
     <div
@@ -30,10 +34,12 @@ function MessageDetailModal({ message, onClose }: MessageDetailModalProps) {
         zIndex: 1000,
       }}
     >
+      <button onClick={onClose}>X</button>
       <h2>제목:{message.title}</h2>
       <p>내용: {message.content}</p>
-      <button onClick={handleDelete}>삭제</button>
-      <button onClick={onClose}>닫기</button>
+      {message.from === userId ? (
+        <button onClick={handleDelete}>삭제</button>
+      ) : null}
     </div>
   );
 }

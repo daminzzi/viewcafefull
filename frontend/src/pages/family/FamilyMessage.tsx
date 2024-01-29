@@ -1,55 +1,66 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import getMessage, {
   Message,
   MessagesResponse,
 } from '../../services/message/getMessage';
 import postReadMessage from '../../services/message/postReadMessage';
-import { ReactComponent as EnvelopeSimpleClosed } from '../../assets/icons/EnvelopeSimpleClosed.svg';
-import { ReactComponent as EnvelopeSimpleOpen } from '../../assets/icons/EnvelopeSimpleOpen.svg';
 import MessageDetailModal from '../../components/message/MessageDetailModal';
-import Pagination from 'react-js-pagination';
-import MessageSearch from '../../components/message/MessageSearch';
-// import getReadMessage from '../../services/message/getReadMessage';
+import Pagination from '../../components/common/Pagination';
+import getReadMessage from '../../services/message/getReadMessage';
+import MessageSimple from '../../components/message/MessageSimple';
+import useUserStore from '../../stores/userStore';
 
-// 보호자 - 받은 메세지 전체 보기
+// 보호자 - 받은 메세지 페이지별 조회
 
 function FamilyMessage() {
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [pageGroupIndex, setPageGroupIndex] = useState(0);
+  const [keyword, setKeyword] = useState<string>();
   const [messagesData, setMessagesData] = useState<MessagesResponse | null>(
     null,
   );
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
   const [checkedMessages, setCheckedMessages] = useState<Message[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [filteredResults, setFilteredResults] = useState<Message[]>([]);
+  const { user } = useUserStore();
 
   useEffect(() => {
-    async function fetchMessages() {
-      const res = await getMessage();
+    const fetchData = async () => {
+      const res = await getMessage(currentPage, keyword);
       setMessagesData(res);
+    };
+    fetchData();
+  }, [currentPage, keyword]);
+
+  // 메세지들 불러오기
+  function renderMessages() {
+    if (!messagesData) {
+      return null;
     }
-    fetchMessages();
-    setFilteredResults(messagesData?.messages || []);
-  }, [currentPage, messagesData]);
+    const messageList = [];
+    for (let i = 0; i < messagesData.messages.length; i++) {
+      const message = messagesData.messages[i];
+      messageList.push(
+        <Fragment key={message.id}>
+          <MessageSimple openModal={openModal} message={message} />
+          <input
+            type="checkbox"
+            checked={checkedMessages.some((m) => m.id === message.id)}
+            onChange={(e) => handleCheckboxChange(e, message)}
+          />
+          <hr />
+        </Fragment>,
+      );
+    }
+    return messageList;
+  }
 
   // 메세지 검색
-  function searchMessages(searchValue: string) {
-    if (searchValue !== '') {
-      const filteredData = messagesData?.messages.filter((message) => {
-        return (
-          message.title.toLowerCase().includes(searchValue.toLowerCase()) ||
-          message.content.toLowerCase().includes(searchValue.toLowerCase())
-        );
-      });
-      setFilteredResults(filteredData || []);
-    } else {
-      setFilteredResults(messagesData?.messages || []);
-    }
-  }
-
-  // 현재 페이지 갱신
-  function handlePageChange(currentPage: React.SetStateAction<number>) {
-    setCurrentPage(currentPage);
-  }
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const input = form.elements.namedItem('keyword') as HTMLInputElement;
+    setKeyword(input.value);
+  };
 
   // 메세지 데이터 로딩 중
   if (!messagesData) {
@@ -101,18 +112,18 @@ function FamilyMessage() {
     setCheckedMessages([]);
   }
 
-  // 상세보기 할 메세지 선택
-  function openModal(message: Message) {
-    setSelectedMessage(message);
-  }
+  // 상세보기 할 메세지 선택(더미테스트코드)
+  // function openModal(message: Message) {
+  //   setSelectedMessage(message);
+  // }
 
   // // 모달 클릭시 읽음확인 처리
-  // async function openModal(message: Message) {
-  //   const updatedMessage = await getReadMessage(message.id);
-  //   if (updatedMessage) {
-  //     setSelectedMessage(updatedMessage);
-  //   }
-  // }
+  async function openModal(message: Message) {
+    const updatedMessage = await getReadMessage(message.id);
+    if (updatedMessage) {
+      setSelectedMessage(updatedMessage);
+    }
+  }
 
   // 모달 닫히면 메세지 선택 해제
   function closeModal() {
@@ -122,47 +133,30 @@ function FamilyMessage() {
   return (
     <div>
       <div>메세지</div>
-      <button onClick={handleReadClick}>모두 읽음</button>
-      <MessageSearch onSearch={searchMessages} />
+      <button onClick={handleReadClick}>선택 읽음</button>
       <div>
         {messagesData.unreadMsgs}/{messagesData.sum}
       </div>
-      {filteredResults.map((message) => (
-        <>
-          <input
-            type="checkbox"
-            checked={checkedMessages.some((m) => m.id === message.id)}
-            onChange={(e) => handleCheckboxChange(e, message)}
-          />
-          <div onClick={() => openModal(message)}>
-            <div key={message.id}>
-              <div>{message.title}</div>
-              <div>{message.from}</div>
-              <div>{message.time}</div>
 
-              {message.isRead ? (
-                <EnvelopeSimpleOpen className="EnvelopeSimple-open" />
-              ) : (
-                <EnvelopeSimpleClosed className="EnvelopeSimple-closed" />
-              )}
-            </div>
-          </div>
-          <hr />
-        </>
-      ))}
+      <form onSubmit={handleSearch}>
+        <input type="text" name="keyword" placeholder="검색어를 입력하세요." />
+        <button type="submit">검색</button>
+      </form>
+
+      {renderMessages()}
 
       {selectedMessage && (
-        <MessageDetailModal message={selectedMessage} onClose={closeModal} />
+        <MessageDetailModal
+          message={selectedMessage}
+          onClose={closeModal}
+          userId={user ? user.id : null}
+        />
       )}
-
       <Pagination
-        activePage={currentPage}
-        itemsCountPerPage={10}
-        totalItemsCount={500}
-        pageRangeDisplayed={5}
-        prevPageText={'‹'}
-        nextPageText={'›'}
-        onChange={handlePageChange}
+        pageGroupIndex={pageGroupIndex}
+        setPageGroupIndex={setPageGroupIndex}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
       />
     </div>
   );
