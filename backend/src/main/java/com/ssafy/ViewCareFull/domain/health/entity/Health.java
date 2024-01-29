@@ -50,4 +50,15 @@ public class Health {
   @Column(name = "health_date")
   private LocalDate healthDate;
 
+  public void update(HealthInfo healthInfo) {
+    if (healthInfo.getLevel() != null) {
+      this.level = healthInfo.getLevel();
+    }
+    if (healthInfo.getHealthDate() != null) {
+      this.healthDate = LocalDate.parse(healthInfo.getHealthDate());
+    }
+    if (healthInfo.getHealthType() != null) {
+      this.healthType = HealthType.matchHealthType(healthInfo.getHealthType());
+    }
+  }
 }

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class HealthInfo {
 
   private String healthType;
-  private int level;
+  private Integer level;
   private String healthDate;
 
 }

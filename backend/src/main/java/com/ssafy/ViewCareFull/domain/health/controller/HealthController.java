@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,4 +37,11 @@ public class HealthController {
     return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
   }
 
+  @PatchMapping("/{id}")
+  public ResponseEntity<Void> updateHealthInfo(@AuthenticationPrincipal SecurityUsers securityUser,
+      @PathVariable("id") String id,
+      @RequestBody HealthInfo healthInfo) {
+    healthService.updateHealthInfo(id, healthInfo);
+    return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+  }
 }

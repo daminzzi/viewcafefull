@@ -40,4 +40,15 @@ public class HealthServiceImpl implements HealthService {
     }
     healthRepository.deleteById(healthId);
   }
+
+  @Override
+  @Transactional
+  public void updateHealthInfo(String id, HealthInfo healthInfo) {
+    Long healthId = Long.parseLong(id);
+    // 수정 하고자 하는 id의 건강정보가 있는지 체크
+    Health updateHealth = healthRepository.findById(healthId)
+        .orElseThrow(() -> new HealthException(HealthErrorCode.NOT_FOUND_HEALTH_ID));
+    updateHealth.update(id, healthInfo);
+  }
+
 }
