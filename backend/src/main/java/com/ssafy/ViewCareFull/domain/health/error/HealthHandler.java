@@ -12,7 +12,7 @@ public class HealthHandler {
 
 
   @ExceptionHandler(HealthException.class)
-  public ResponseEntity<?> HealthExceptionHandler(HealthException e) {
+  public ResponseEntity<Void> healthExceptionHandler(HealthException e) {
     log.error("[HealthExceptionHandler] {} : {}", e.getErrorCode().name(), e.getErrorCode().getMessage());
     return ResponseEntity.status(e.getErrorCode().getHttpStatus()).build();
   }

@@ -8,7 +8,8 @@ import org.springframework.http.HttpStatus;
 @RequiredArgsConstructor
 public enum HealthErrorCode {
 
-  NOT_FOUND_HEALTH_TYPE(HttpStatus.NOT_FOUND, "해당하는 건강 타입이 없습니다.");
+  NOT_FOUND_HEALTH_TYPE(HttpStatus.NOT_FOUND, "해당하는 건강 타입이 없습니다."),
+  NOT_FOUND_HEALTH_ID(HttpStatus.FORBIDDEN, "해당하는 건강 정보가 없습니다.");
 
   private final HttpStatus httpStatus;
   private final String message;
