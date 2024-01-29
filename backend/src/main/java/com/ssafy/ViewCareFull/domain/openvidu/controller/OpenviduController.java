@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping({"/openvidu"})
+@Slf4j
 public class OpenviduController {
 
 	@Value("${OPENVIDU_URL}")
@@ -41,7 +42,7 @@ public class OpenviduController {
 	 * @param params session 관련 정보
 	 * @return sessionId
 	 */
-	@PostMapping("/sessions")
+	@PostMapping("/api/sessions")
 	public ResponseEntity<String> initializeSession(@RequestBody(required = false) Map<String, Object> params)
 			throws OpenViduJavaClientException, OpenViduHttpException {
 		log.info("initializeSession");
@@ -55,7 +56,7 @@ public class OpenviduController {
 	 * @param params 연결 관련 정보
 	 * @return 연결에 접근 가능하도록 하는 토큰 정보
 	 */
-	@PostMapping("/sessions/{sessionId}/connections")
+	@PostMapping("/api/sessions/{sessionId}/connections")
 	public ResponseEntity<String> createConnection(@PathVariable("sessionId") String sessionId,
 			@RequestBody(required = false) Map<String, Object> params)
 			throws OpenViduJavaClientException, OpenViduHttpException {
