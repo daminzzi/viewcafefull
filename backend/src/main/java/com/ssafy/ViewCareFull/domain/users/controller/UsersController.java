@@ -4,6 +4,7 @@ import com.ssafy.ViewCareFull.domain.users.dto.JoinForm;
 import com.ssafy.ViewCareFull.domain.users.dto.LoginForm;
 import com.ssafy.ViewCareFull.domain.users.dto.LoginResponse;
 import com.ssafy.ViewCareFull.domain.users.security.util.CookieUtil;
+import com.ssafy.ViewCareFull.domain.users.service.OAuthUserService;
 import com.ssafy.ViewCareFull.domain.users.service.UsersService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsersController {
 
   private final UsersService usersService;
+  private final OAuthUserService oAuthUserService;
 
   @PostMapping
   public ResponseEntity<Void> singup(@RequestBody JoinForm joinForm) {
@@ -39,6 +42,17 @@ public class UsersController {
   @PostMapping("/signin")
   public ResponseEntity<LoginResponse> login(@RequestBody LoginForm loginForm) {
     LoginResponse loginResponse = usersService.login(loginForm);
+    ResponseCookie refreshTokenCookie = CookieUtil.convertRefreshTokenToCookie(loginResponse);
+    loginResponse.removeRefreshToken();
+    return ResponseEntity.status(HttpStatus.OK).header(HttpHeaders.SET_COOKIE, refreshTokenCookie.toString())
+        .body(loginResponse);
+  }
+
+  // TODO:프론트 인증토큰 이름 바꾸기
+  @GetMapping("/{provider}/signin")
+  public ResponseEntity<LoginResponse> oauthLogin(@PathVariable String provider,
+      @RequestParam String code) {
+    LoginResponse loginResponse = oAuthUserService.login(provider, code);
     ResponseCookie refreshTokenCookie = CookieUtil.convertRefreshTokenToCookie(loginResponse);
     loginResponse.removeRefreshToken();
     return ResponseEntity.status(HttpStatus.OK).header(HttpHeaders.SET_COOKIE, refreshTokenCookie.toString())

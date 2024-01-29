@@ -3,45 +3,46 @@ package com.ssafy.ViewCareFull.domain.users.security;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import java.util.Collection;
 import java.util.Collections;
-import lombok.AllArgsConstructor;
+import java.util.Map;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
-@Getter
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class SecurityUsers implements UserDetails {
+public class SecurityUsers implements UserDetails, OAuth2User {
 
-  private Long userId;
-  private String password;
-  private String userDomainId;
-  private String userType;
+  private final Users user;
+  private Map<String, Object> attributes;
 
   public SecurityUsers(Users user) {
-    this.userId = user.getId();
-    this.password = user.getPassword();
-    this.userDomainId = user.getDomainId();
-    this.userType = user.getUserType();
+    this.user = user;
+  }
+
+  public SecurityUsers(Users user, Map<String, Object> attributes) {
+    this.user = user;
+    this.attributes = attributes;
+  }
+
+  @Override
+  public Map<String, Object> getAttributes() {
+    return attributes;
   }
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
-    return Collections.singletonList(new SimpleGrantedAuthority(userType));
+    return Collections.singletonList(new SimpleGrantedAuthority(user.getUserType()));
   }
 
   @Override
   public String getPassword() {
-    return password;
+    return user.getPassword();
   }
 
   @Override
   public String getUsername() {
-    return userDomainId;
+    return user.getDomainId();
   }
 
   @Override
@@ -64,4 +65,8 @@ public class SecurityUsers implements UserDetails {
     return true;
   }
 
+  @Override
+  public String getName() {
+    return null;
+  }
 }

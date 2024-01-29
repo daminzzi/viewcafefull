@@ -1,8 +1,9 @@
-package com.ssafy.ViewCareFull.domain.users.security;
+package com.ssafy.ViewCareFull.domain.users.security.jwt;
 
 import com.ssafy.ViewCareFull.domain.users.dto.TokenInfo;
 import com.ssafy.ViewCareFull.domain.users.error.UserErrorCode;
 import com.ssafy.ViewCareFull.domain.users.error.exception.UsersException;
+import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -32,7 +33,7 @@ public class JwtTokenProvider {
   private static final long ACCESS_TOKEN_EXPIRE_TIME = 30 * 60 * 1000L;
   private static final long REFRESH_TOKEN_EXPIRE_TIME = 7 * 24 * 60 * 60 * 1000L;
 
-  private final Key key;
+  private Key key;
 
   private final UserDetailsService userDetailsService;
 
@@ -43,15 +44,14 @@ public class JwtTokenProvider {
     this.key = Keys.hmacShaKeyFor(keyBytes);
   }
 
-  public TokenInfo generateToken(Authentication authentication) {
-    SecurityUsers securityUser = (SecurityUsers) authentication.getPrincipal();
+  public TokenInfo generateToken(SecurityUsers securityUser) {
     String auth = securityUser.getAuthorities().stream()
         .map(GrantedAuthority::getAuthority)
         .collect(Collectors.joining(","));
     String domainId = securityUser.getUsername();
     long now = (new Date()).getTime();
 
-    String accessToken = createAccessToken(authentication, now, auth, domainId);
+    String accessToken = createAccessToken(securityUser, now, auth, domainId);
 
     String refreshToken = createRefreshToken(now, domainId);
 
@@ -71,10 +71,10 @@ public class JwtTokenProvider {
     return refreshToken;
   }
 
-  private String createAccessToken(Authentication authentication, long now, String auth, String id) {
+  private String createAccessToken(SecurityUsers securityUser, long now, String auth, String id) {
     Date accessExpiredTime = new Date(now + ACCESS_TOKEN_EXPIRE_TIME);
     String accessToken = Jwts.builder()
-        .setSubject(authentication.getName())
+        .setSubject(securityUser.getUsername())
         .claim("auth", auth)
         .claim("id", id)
         .setExpiration(accessExpiredTime)

@@ -1,9 +1,10 @@
-package com.ssafy.ViewCareFull.domain.users.security;
+package com.ssafy.ViewCareFull.domain.users.security.jwt;
 
 
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import com.ssafy.ViewCareFull.domain.users.repository.UsersRepository;
-import com.ssafy.ViewCareFull.domain.users.security.util.SecurityUtil;
+import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
+import com.ssafy.ViewCareFull.domain.users.security.util.JwtTokenUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,7 +28,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
       throws ServletException, IOException {
 
-    String token = SecurityUtil.getAccessToken(request);
+    String token = JwtTokenUtil.getAccessToken(request);
 
     if (StringUtils.hasText(token) && jwtTokenProvider.validateToken(token)) {
       Authentication authentication = jwtTokenProvider.decodeToken(token);

@@ -9,11 +9,8 @@ import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import com.ssafy.ViewCareFull.domain.users.error.UserErrorCode;
 import com.ssafy.ViewCareFull.domain.users.error.exception.UsersException;
 import com.ssafy.ViewCareFull.domain.users.repository.UsersRepository;
-import com.ssafy.ViewCareFull.domain.users.security.JwtTokenProvider;
+import com.ssafy.ViewCareFull.domain.users.security.util.JwtTokenUtil;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,8 +22,7 @@ public class UsersService {
 
   private final UsersRepository usersRepository;
   private final PasswordEncoder passwordEncoder;
-  private final AuthenticationManagerBuilder authenticationManagerBuilder;
-  private final JwtTokenProvider jwtTokenProvider;
+  private final JwtTokenUtil jwtTokenUtil;
 
   @Transactional
   public void singup(JoinForm joinForm) {
@@ -44,15 +40,11 @@ public class UsersService {
 
   @Transactional
   public LoginResponse login(LoginForm loginForm) {
-    UsernamePasswordAuthenticationToken authenticationToken =
-        new UsernamePasswordAuthenticationToken(loginForm.getId(), loginForm.getPassword());
-
-    Authentication authenticate = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
-
-    TokenInfo tokenInfo = jwtTokenProvider.generateToken(authenticate);
-
     Users user = usersRepository.findByDomainId(loginForm.getId())
         .orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
+
+    TokenInfo tokenInfo = jwtTokenUtil.getJwtToken(loginForm.getId(), loginForm.getPassword());
+
     user.issueRefreshToken(tokenInfo);
     return new LoginResponse(user, tokenInfo);
   }

@@ -1,9 +1,9 @@
 package com.ssafy.ViewCareFull.configuartion;
 
 import com.ssafy.ViewCareFull.domain.users.repository.UsersRepository;
-import com.ssafy.ViewCareFull.domain.users.security.CustomUserDetailsService;
-import com.ssafy.ViewCareFull.domain.users.security.JwtAuthenticationFilter;
-import com.ssafy.ViewCareFull.domain.users.security.JwtTokenProvider;
+import com.ssafy.ViewCareFull.domain.users.security.jwt.JwtAuthenticationFilter;
+import com.ssafy.ViewCareFull.domain.users.security.jwt.JwtTokenProvider;
+import com.ssafy.ViewCareFull.domain.users.security.jwt.ViewCareFullUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-  private final CustomUserDetailsService userDetailsService;
+  private final ViewCareFullUserDetailsService userDetailsService;
   private final JwtTokenProvider jwtTokenProvider;
   private final UsersRepository usersRepository;
 
@@ -31,7 +31,7 @@ public class SecurityConfig {
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http
         .csrf(AbstractHttpConfigurer::disable)
-        .cors(AbstractHttpConfigurer::disable)
+//        .cors(AbstractHttpConfigurer::disable)
         .httpBasic(AbstractHttpConfigurer::disable)
         .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(authorize -> authorize

@@ -57,7 +57,16 @@ public abstract class Users {
   @Column
   private String refreshToken;
 
-  public String getUserType(){
+  @Column(name = "kakao_id")
+  private String kakaoId;
+
+  @Column(name = "naver_id")
+  private String naverId;
+
+  @Column
+  private String token;
+
+  public String getUserType() {
     return this.getClass().getAnnotation(DiscriminatorValue.class).value().toString();
   }
 

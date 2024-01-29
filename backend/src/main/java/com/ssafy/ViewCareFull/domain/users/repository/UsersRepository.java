@@ -10,5 +10,7 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
 
   Optional<Users> findByDomainId(String domainId);
 
+  Optional<Users> findBykakaoId(String kakaoId);
+
   boolean existsByDomainId(String domainId);
 }

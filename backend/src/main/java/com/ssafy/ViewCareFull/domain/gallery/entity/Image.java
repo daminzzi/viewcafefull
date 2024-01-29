@@ -1,4 +1,4 @@
-package com.ssafy.ViewCareFull.domain.galary.entity;
+package com.ssafy.ViewCareFull.domain.gallery.entity;
 
 import com.ssafy.ViewCareFull.domain.users.entity.user.Caregiver;
 import jakarta.persistence.Column;
