@@ -17,6 +17,7 @@ import FamilyProfile from './pages/family/FamilyProfile';
 import CareGiverHome from './pages/caregiver/CareGiverHome';
 import FamilyVisitRegister from './pages/family/FamilyVisitRegister';
 import CareGiverMessage from './pages/caregiver/CareGiverMessage';
+import Report from './pages/Report';
 
 const AppDiv = styled.div`
   background-color: ${lightgray};
@@ -44,6 +45,7 @@ function App() {
             <Route path="home" element={<CareGiverHome />} />
             <Route path="message" element={<CareGiverMessage />} />
           </Route>
+          <Route path="/report/:id" element={<Report />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
