@@ -48,7 +48,7 @@ dependencies {
 
     //openvidu
     implementation group: 'io.openvidu', name: 'openvidu-java-client', version: '2.29.0'
-    //PostConstruct #TODO : 의존성 필요 없는 다른 어노테이션으로 조사 후 수정예정 - OpenViduContorller에 위치
+    //PostConstruct - InitializingBean afterPropertiesSet
     implementation group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
 
 
