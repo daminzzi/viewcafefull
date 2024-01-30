@@ -13,26 +13,26 @@ const Wrapper = styled.div<{ $size: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${black};
-  border-radius: 8px;
+  border: 2px solid ${black};
+  border-radius: 50%;
   overflow: hidden;
 
   width: ${(props) => props.$size};
   aspect-ratio: 1 / 1;
 `;
 
-const InnerImage = styled.img`
+const ProfileImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
 `;
 
-function ImageFrame({ src, alt, ...props }: Props) {
+function ProfileFrame({ src, alt, ...props }: Props) {
   return (
     <Wrapper {...props}>
-      <InnerImage src={src} alt={alt} />
+      <ProfileImg src={src} alt={alt} />
     </Wrapper>
   );
 }
 
-export default ImageFrame;
+export default ProfileFrame;
