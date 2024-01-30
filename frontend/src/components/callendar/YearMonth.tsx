@@ -12,7 +12,7 @@ type Props = {
 };
 
 const Span = styled.span`
-  font-size: 20pt;
+  font-size: 2rem;
 `;
 
 const ChevronButton = styled.button`
@@ -55,13 +55,13 @@ function YearMonth({ selectedDate, week, handleChangeSelectedDate }: Props) {
       $margin="10px 0"
     >
       <ChevronButton onClick={() => handleChangeMonth(true)}>
-        <ChevronLeft />
+        <ChevronLeft width="2rem" />
       </ChevronButton>
       <Span>
         {`${res ? selectedDate.getFullYear() : week[0].getFullYear()}.${res ? selectedDate.getMonth() + 1 : week[0].getMonth() + 1}`}
       </Span>
       <ChevronButton onClick={() => handleChangeMonth(false)}>
-        <ChevronRight />
+        <ChevronRight width="2rem" />
       </ChevronButton>
     </FlexRowContainer>
   );

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import ContentsContainer from '../../components/common/ContentsContainer';
 import FlexColContainer from '../../components/common/FlexColContainer';
 import TabButtonGroup from '../../components/familyhome/TabButtonGroup';
-import Comment from '../../components/familyhome/Comment';
 import TabView from '../../components/familyhome/TabView';
 import Callendar from '../../components/callendar/Callendar';
 import getHealth from '../../services/health/getHealth';
@@ -148,9 +147,6 @@ function FamilyHome() {
         <Title>하루 건강 정보</Title>
         <TabButtonGroup tab={tab} handleChangeTab={handleChangeTab} />
         <TabView tab={tab} healthInfo={healthInfo} />
-      </ContentsContainer>
-      <ContentsContainer>
-        <Comment />
       </ContentsContainer>
     </FlexColContainer>
   );

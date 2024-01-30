@@ -1,0 +1,39 @@
+{
+  "pageNumber": "1",
+  "data": [
+    { 
+      "date": "2024-01-30",
+      "images": [
+        "https://webkit.org/demos/srcset/image-1x.png",
+        "https://webkit.org/demos/srcset/image-1x.png",
+        "https://webkit.org/demos/srcset/image-1x.png",
+        "https://webkit.org/demos/srcset/image-1x.png",
+        "https://webkit.org/demos/srcset/image-1x.png"
+      ],
+      "thumnail": [
+        "https://webkit.org/demos/srcset/image-1x.png",
+        "https://webkit.org/demos/srcset/image-1x.png",
+        "https://webkit.org/demos/srcset/image-1x.png",
+        "https://webkit.org/demos/srcset/image-1x.png",
+        "https://webkit.org/demos/srcset/image-1x.png"
+      ]
+    },
+    { 
+      "date": "2024-01-29",
+      "images": [
+        "https://webkit.org/demos/srcset/image-src.png",
+        "https://webkit.org/demos/srcset/image-src.png",
+        "https://webkit.org/demos/srcset/image-src.png",
+        "https://webkit.org/demos/srcset/image-src.png",
+        "https://webkit.org/demos/srcset/image-src.png"
+      ],
+      "thumnail": [
+        "https://webkit.org/demos/srcset/image-src.png",
+        "https://webkit.org/demos/srcset/image-src.png",
+        "https://webkit.org/demos/srcset/image-src.png",
+        "https://webkit.org/demos/srcset/image-src.png",
+        "https://webkit.org/demos/srcset/image-src.png"
+      ]
+    }
+  ]
+}

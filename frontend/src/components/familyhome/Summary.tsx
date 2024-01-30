@@ -1,4 +1,5 @@
 import React from 'react';
+import ImageFrame from '../common/ImageFrame';
 
 type Props = {
   healthInfo: HealthInfo;
@@ -11,7 +12,9 @@ function avg(arr: Array<number>): number | null {
 }
 
 export function renderImage(url: string | null, mealType: string) {
-  return url === null ? null : <img src={url} alt={mealType} />;
+  return url === null ? null : (
+    <ImageFrame src={url} alt={mealType} $size="30%" />
+  );
 }
 
 function checkMedicine(medicine: Medicine | null) {

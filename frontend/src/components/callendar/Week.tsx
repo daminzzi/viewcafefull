@@ -22,18 +22,21 @@ function Week({
   const [moved, setMoved] = useState<boolean>(false);
 
   function renderDate() {
-    return week.map((date, index) => {
-      return (
+    const result = [];
+    for (let i = 0; i < 7; i++) {
+      result.push(
         <DateBox
-          key={index}
-          date={date}
+          key={i}
+          date={week[i]}
           today={today}
           moved={moved}
           selectedDate={selectedDate}
           handleChangeSelectedDate={handleChangeSelectedDate}
         />
       );
-    });
+    }
+
+    return result;
   }
 
   return (
