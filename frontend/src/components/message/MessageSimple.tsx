@@ -3,10 +3,10 @@ import { ReactComponent as EnvelopeSimpleClosed } from '../../assets/icons/Envel
 import { ReactComponent as EnvelopeSimpleOpen } from '../../assets/icons/EnvelopeSimpleOpen.svg';
 import { Message } from '../../services/message/getMessage';
 
-interface MessageProps {
+type MessageProps = {
   openModal: (message: Message) => void;
   message: Message;
-}
+};
 
 const MessageSimple = ({ openModal, message }: MessageProps) => {
   return (
@@ -17,7 +17,6 @@ const MessageSimple = ({ openModal, message }: MessageProps) => {
             ? `${message.title.substring(0, 20)}...`
             : message.title}
         </div>
-        <div>{message.from}</div>
         <div>{message.time}</div>
 
         {message.isRead ? (

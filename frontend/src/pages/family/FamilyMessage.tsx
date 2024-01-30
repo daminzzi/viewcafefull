@@ -6,7 +6,7 @@ import getMessage, {
 import postReadMessage from '../../services/message/postReadMessage';
 import MessageDetailModal from '../../components/message/MessageDetailModal';
 import Pagination from '../../components/common/Pagination';
-import getReadMessage from '../../services/message/getReadMessage';
+// import getReadMessage from '../../services/message/getReadMessage';
 import MessageSimple from '../../components/message/MessageSimple';
 import useUserStore from '../../stores/userStore';
 
@@ -14,7 +14,7 @@ import useUserStore from '../../stores/userStore';
 
 function FamilyMessage() {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pageGroupIndex, setPageGroupIndex] = useState(0);
+  const [startPage, setStartPage] = useState(0);
   const [keyword, setKeyword] = useState<string>();
   const [messagesData, setMessagesData] = useState<MessagesResponse | null>(
     null,
@@ -113,17 +113,17 @@ function FamilyMessage() {
   }
 
   // 상세보기 할 메세지 선택(더미테스트코드)
-  // function openModal(message: Message) {
-  //   setSelectedMessage(message);
-  // }
+  function openModal(message: Message) {
+    setSelectedMessage(message);
+  }
 
   // // 모달 클릭시 읽음확인 처리
-  async function openModal(message: Message) {
-    const updatedMessage = await getReadMessage(message.id);
-    if (updatedMessage) {
-      setSelectedMessage(updatedMessage);
-    }
-  }
+  // async function openModal(message: Message) {
+  //   const updatedMessage = await getReadMessage(message.id);
+  //   if (updatedMessage) {
+  //     setSelectedMessage(updatedMessage);
+  //   }
+  // }
 
   // 모달 닫히면 메세지 선택 해제
   function closeModal() {
@@ -153,10 +153,11 @@ function FamilyMessage() {
         />
       )}
       <Pagination
-        pageGroupIndex={pageGroupIndex}
-        setPageGroupIndex={setPageGroupIndex}
+        startPage={startPage}
+        setStartPage={setStartPage}
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
+        totalPage={messagesData.pageNum}
       />
     </div>
   );

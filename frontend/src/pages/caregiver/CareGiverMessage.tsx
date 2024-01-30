@@ -3,6 +3,7 @@ import getMessage, {
   Message,
   MessagesResponse,
 } from '../../services/message/getMessage';
+import { useNavigate } from 'react-router-dom';
 import MessageDetailModal from '../../components/message/MessageDetailModal';
 import Pagination from '../../components/common/Pagination';
 import MessageSimple from '../../components/message/MessageSimple';
@@ -12,18 +13,19 @@ import useUserStore from '../../stores/userStore';
 
 function CareGiverMessage() {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pageGroupIndex, setPageGroupIndex] = useState(0);
+  const [startPage, setStartPage] = useState(0);
   const [messagesData, setMessagesData] = useState<MessagesResponse | null>(
     null,
   );
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
   const { user } = useUserStore();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchData = async () => {
+    async function fetchData() {
       const res = await getMessage(currentPage);
       setMessagesData(res);
-    };
+    }
     fetchData();
   }, [currentPage]);
 
@@ -66,9 +68,12 @@ function CareGiverMessage() {
       <div>
         {messagesData.unreadMsgs}/{messagesData.sum}
       </div>
+      <button onClick={() => navigate('/caregiver/message/send')}>
+        메세지 작성
+      </button>
 
       {renderMessages()}
-      
+
       {selectedMessage && (
         <MessageDetailModal
           message={selectedMessage}
@@ -77,10 +82,11 @@ function CareGiverMessage() {
         />
       )}
       <Pagination
-        pageGroupIndex={pageGroupIndex}
-        setPageGroupIndex={setPageGroupIndex}
+        startPage={startPage}
+        setStartPage={setStartPage}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
+        totalPage={messagesData.pageNum}
       />
     </div>
   );

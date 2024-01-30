@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import postSendMessage from '../../services/message/postSendMessage';
 import useUserStore from '../../stores/userStore';
 
-interface SendMessageModalProps {
+type SendMessageModalProps = {
   onClose: () => void;
 }
 

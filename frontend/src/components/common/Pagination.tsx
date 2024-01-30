@@ -1,50 +1,63 @@
 import React from 'react';
 
-interface PaginationProps {
-  pageGroupIndex: number;
-  setPageGroupIndex: (pageGroupIndex: number) => void;
+type PaginationProps = {
+  startPage: number;
+  setStartPage: (pageGroupIndex: number) => void;
   currentPage: number;
   setCurrentPage: (currentPage: number) => void;
-}
+  totalPage: number;
+};
 
 // 공통 페이지네이션
-const Pagination = ({
-  pageGroupIndex,
-  setPageGroupIndex,
-  currentPage,
-  setCurrentPage,
-}: PaginationProps) => {
-
+function Pagination({startPage, setStartPage, currentPage, setCurrentPage, totalPage}: PaginationProps) {
   const pageGroupSize = 5;
-  const pages = [];
-  for (
-    let i = 1 + pageGroupSize * pageGroupIndex;
-    i <= pageGroupSize * (pageGroupIndex + 1);
-    i++
-  ) {
-    pages.push(
-      <button
-        key={i}
-        onClick={() => setCurrentPage(i)}
-        style={{ fontWeight: currentPage === i ? 'bold' : 'normal' }}
-      >
-        {i}
-      </button>,
-    );
+
+  function showPages() {
+    const pages = [];
+    for (
+      let i = 1 + pageGroupSize * startPage;
+      i <= Math.min(pageGroupSize * (startPage + 1), totalPage);
+      i++
+    ) {
+      pages.push(
+        <button
+          key={i}
+          onClick={() => setCurrentPage(i)}
+          style={{ fontWeight: currentPage === i ? 'bold' : 'normal' }}
+        >
+          {i}
+        </button>,
+      );
+    }
+    return pages;
   }
 
   return (
     <div>
       <button
-        onClick={() => setPageGroupIndex(pageGroupIndex - 1)}
-        disabled={pageGroupIndex === 0}
+        onClick={() => setStartPage(Math.max(startPage - 1, 0))}
+        disabled={startPage === 0}
       >
         {'<'}
       </button>
-      {pages}
-      <button onClick={() => setPageGroupIndex(pageGroupIndex + 1)}>{'>'}</button>
+      {showPages()}
+      <button
+        onClick={() =>
+          setStartPage(
+            Math.min(
+              startPage + 1,
+              Math.floor((totalPage - 1) / pageGroupSize),
+            ),
+          )
+        }
+        disabled={
+          startPage >= Math.floor((totalPage - 1) / pageGroupSize)
+        }
+      >
+        {'>'}
+      </button>
     </div>
   );
-};
+}
 
 export default Pagination;

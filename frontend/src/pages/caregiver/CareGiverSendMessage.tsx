@@ -31,6 +31,10 @@ function CareGiverSendMessage() {
     }
   }
 
+  function handleClose() {
+    navigate('/caregiver/message');
+  }
+
   return (
     <div>
       <h2>메시지 작성</h2>
@@ -58,6 +62,7 @@ function CareGiverSendMessage() {
         </p>
         <button type="submit">전송</button>
       </form>
+      <button onClick={handleClose}>닫기</button>
     </div>
   );
 }
