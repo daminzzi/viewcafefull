@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { white, black, deep, medium } from '../../assets/styles/palettes';
 import { Link, useLocation } from 'react-router-dom';
-import FlexRowContainer from '../../components/common/FlexRowContainer';
+import FlexRowContainer from '../common/FlexRowContainer';
 import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
 import { ReactComponent as GalleryIcon } from '../../assets/icons/gallery.svg';
 import { ReactComponent as MessageIcon } from '../../assets/icons/message.svg';
@@ -19,7 +19,7 @@ const NavLink = styled(Link)<{ $isActived: boolean }>`
   text-decoration-line: none;
   display: flex;
   justify-content: center;
-  width: 20%;
+  width: 4%;
   color: ${medium};
   ${(props) =>
     props.$isActived &&
@@ -28,7 +28,7 @@ const NavLink = styled(Link)<{ $isActived: boolean }>`
     `}
 `;
 
-function FamilyNav() {
+function Nav() {
   const location = useLocation();
   const [actived, setActived] = useState<string | null>(null);
 
@@ -63,4 +63,4 @@ function FamilyNav() {
   );
 }
 
-export default FamilyNav;
+export default Nav;

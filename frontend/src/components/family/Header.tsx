@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { light } from '../../assets/styles/palettes';
 import { ReactComponent as ChevronDownIcon } from '../../assets/icons/chevron-down.svg';
 import NoProfile from '../../assets/images/NoProfile.png';
-import ProfileFrame from '../../components/common/ProfileFrame';
+import ProfileFrame from '../common/ProfileFrame';
 import useConnectStore from '../../stores/ConnectStore';
 
 const HeaderDiv = styled.div`
@@ -18,7 +18,7 @@ const HeaderSpan = styled.span`
   font-size: 20px;
 `;
 
-function FamilyHeader() {
+function Header() {
   const {
     connectArr,
     currConnect,
@@ -35,9 +35,13 @@ function FamilyHeader() {
     <HeaderDiv className="family-header">
       <ProfileFrame src={NoProfile} alt="profile" $size="30px" />
       <HeaderSpan>{currConnect.tarName}</HeaderSpan>
-      <ChevronDownIcon className="chevron-down-icon" />
+      <ChevronDownIcon
+        className="chevron-down-icon"
+        width="30px"
+        height="30px"
+      />
     </HeaderDiv>
   );
 }
 
-export default FamilyHeader;
+export default Header;

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import FamilyHeader from './FamilyHeader';
-import FamilyNav from './FamilyNav';
+import Header from '../../components/family/Header';
+import Nav from '../../components/family/Nav';
 
 function Family() {
   return (
     <div>
-      <FamilyHeader />
+      <Header />
       <Outlet />
-      <FamilyNav />
+      <Nav />
     </div>
   );
 }
