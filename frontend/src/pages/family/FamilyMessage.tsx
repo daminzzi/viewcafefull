@@ -14,7 +14,6 @@ import useUserStore from '../../stores/userStore';
 
 function FamilyMessage() {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [startPage, setStartPage] = useState(0);
   const [keyword, setKeyword] = useState<string>();
   const [messagesData, setMessagesData] = useState<MessagesResponse | null>(
     null,
@@ -22,6 +21,7 @@ function FamilyMessage() {
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
   const [checkedMessages, setCheckedMessages] = useState<Message[]>([]);
   const { user } = useUserStore();
+  const pageGroupSize = 5;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +29,12 @@ function FamilyMessage() {
       setMessagesData(res);
     };
     fetchData();
-  }, [currentPage, keyword]);
+  }, [currentPage, keyword, messagesData]);
+
+  // 메세지 데이터 로딩 중
+  if (!messagesData) {
+    return <div>Now Loading...</div>;
+  }
 
   // 메세지들 불러오기
   function renderMessages() {
@@ -61,11 +66,6 @@ function FamilyMessage() {
     const input = form.elements.namedItem('keyword') as HTMLInputElement;
     setKeyword(input.value);
   };
-
-  // 메세지 데이터 로딩 중
-  if (!messagesData) {
-    return <div>Now Loading...</div>;
-  }
 
   // 체크박스의 상태가 변경될 때
   function handleCheckboxChange(
@@ -152,11 +152,11 @@ function FamilyMessage() {
           userId={user ? user.id : null}
         />
       )}
+
       <Pagination
-        startPage={startPage}
-        setStartPage={setStartPage}
-        setCurrentPage={setCurrentPage}
+        pageGroupSize={pageGroupSize}
         currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
         totalPage={messagesData.pageNum}
       />
     </div>

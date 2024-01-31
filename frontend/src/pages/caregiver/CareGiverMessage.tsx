@@ -13,13 +13,13 @@ import useUserStore from '../../stores/userStore';
 
 function CareGiverMessage() {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [startPage, setStartPage] = useState(0);
   const [messagesData, setMessagesData] = useState<MessagesResponse | null>(
     null,
   );
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
   const { user } = useUserStore();
   const navigate = useNavigate();
+  const pageGroupSize = 5;
 
   useEffect(() => {
     async function fetchData() {
@@ -27,7 +27,7 @@ function CareGiverMessage() {
       setMessagesData(res);
     }
     fetchData();
-  }, [currentPage]);
+  }, [currentPage, messagesData]);
 
   // 메세지 데이터 로딩 중
   if (!messagesData) {
@@ -81,9 +81,9 @@ function CareGiverMessage() {
           userId={user ? user.id : null}
         />
       )}
+
       <Pagination
-        startPage={startPage}
-        setStartPage={setStartPage}
+        pageGroupSize={pageGroupSize}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         totalPage={messagesData.pageNum}
