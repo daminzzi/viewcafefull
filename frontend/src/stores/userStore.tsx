@@ -4,10 +4,20 @@ import postLogin from '../services/user/postLogin';
 import getLogout from '../services/user/getLogout';
 
 const useUserStore = create<UserState>((set, get) => ({
-  user: null,
-  isAuthenticated: false,
-  isLogin: false,
-  accessToken: null,
+  user: {
+    id: 'user1',
+    name: '박정훈',
+    phoneNumber: '010-1111-1111',
+    birth: '2024-01-23',
+    role: 'Guardian',
+  },
+  isAuthenticated: true,
+  isLogin: true,
+  accessToken: 'token',
+  // user: null,
+  // isAuthenticated: false,
+  // isLogin: false,
+  // accessToken: null,
   setAccessToken: (token) => set({ accessToken: token }),
   setUser: (user) => set({ user }),
 

@@ -1,8 +1,8 @@
-interface User {
+type User = {
   id: string;
   name: string;
-  phoneNumber: number;
-  birth: number;
+  phoneNumber: string;
+  birth: stirng;
   role: string;
 }
 
@@ -18,17 +18,6 @@ type UserState = {
   deleteUser: () => void;
 };
 
-interface UserInfo {
-  parentId: number[] | null;
-  parentName: string[] | null;
-  residentId: number | null;
-  residentName: string | null;
-  hospitalId: number;
-  hospitalName: string;
-  phoneNumber: string;
-  birth: string;
-  userRole: string;
-}
 
 type UserConnectInfo = {
   applicationId: string;
