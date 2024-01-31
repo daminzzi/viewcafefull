@@ -63,8 +63,6 @@ public abstract class Users {
   @Column(name = "naver_id")
   private String naverId;
 
-  @Column
-  private String token;
 
   public String getUserType() {
     return this.getClass().getAnnotation(DiscriminatorValue.class).value().toString();

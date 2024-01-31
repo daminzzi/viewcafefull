@@ -55,11 +55,8 @@ public class UsersService {
         .orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
   }
 
-  public Caregiver getCaregiver(Users user) {
-    if (user.getUserType().equals("Caregiver")) {
-      return (Caregiver) user;
-    }
-    // Todo : userType이 Caregiver가 아닐 때 UserLink를 통해서 가져와야함
-    throw new RuntimeException();
+  public Caregiver getByCaregiverToken(String targetCode) {
+    return usersRepository.findByToken(targetCode)
+        .orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
   }
 }

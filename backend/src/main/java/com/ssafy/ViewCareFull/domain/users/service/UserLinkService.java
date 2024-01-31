@@ -1,8 +1,13 @@
 package com.ssafy.ViewCareFull.domain.users.service;
 
 import com.ssafy.ViewCareFull.domain.users.dto.CaregiverIdDto;
+import com.ssafy.ViewCareFull.domain.users.dto.LinkRequestDto;
+import com.ssafy.ViewCareFull.domain.users.dto.LinkUpdateRequestDto;
 import com.ssafy.ViewCareFull.domain.users.dto.UserLinkListResponseDto;
 import com.ssafy.ViewCareFull.domain.users.entity.UserLink;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Caregiver;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Hospital;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import com.ssafy.ViewCareFull.domain.users.error.exception.UserLinkNotMatchException;
 import com.ssafy.ViewCareFull.domain.users.error.exception.UserTypeException;
@@ -19,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserLinkService {
 
   private final UserLinkRepository userLinkRepository;
+  private final UsersService usersService;
 
   public Optional<CaregiverIdDto> getCareGiverIdFromOtherUser(Long userId) {
     Optional<UserLink> caregiver = userLinkRepository.findFirstByCaregiver_Id(userId);
@@ -45,5 +51,26 @@ public class UserLinkService {
           .orElseThrow(UserLinkNotMatchException::new));
     }
     throw new UserTypeException();
+  }
+
+  @Transactional
+  public void addLink(SecurityUsers securityUsers, LinkRequestDto linkRequestDto) {
+    Users user = securityUsers.getUser();
+    if (!user.getUserType().equals("Guardian")) {
+      throw new UserTypeException();
+    }
+    Guardian guardian = (Guardian) user;
+    Caregiver caregiver = usersService.getByCaregiverToken(linkRequestDto.getTargetCode());
+    Hospital hospital = caregiver.getHospital();
+    userLinkRepository.save(UserLink.of(guardian, caregiver, hospital, linkRequestDto.getRelationship()));
+  }
+
+  public void updateLink(Long id, LinkUpdateRequestDto linkUpdateRequestDto) {
+    UserLink userLink = userLinkRepository.findById(id).orElseThrow(UserLinkNotMatchException::new);
+    userLink.updateAgreement(linkUpdateRequestDto.getAgreement());
+  }
+
+  public void deleteLink(Long id) {
+    userLinkRepository.deleteById(id);
   }
 }
