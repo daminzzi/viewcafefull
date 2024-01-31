@@ -1,4 +1,4 @@
-package com.ssafy.ViewCareFull.domain.medicine;
+package com.ssafy.ViewCareFull.domain.medicine.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

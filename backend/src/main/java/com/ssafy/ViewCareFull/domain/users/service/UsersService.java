@@ -48,4 +48,9 @@ public class UsersService {
     user.issueRefreshToken(tokenInfo);
     return new LoginResponse(user, tokenInfo);
   }
+
+  public Users getUser(String domainId) {
+    return usersRepository.findByDomainId(domainId)
+        .orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
+  }
 }
