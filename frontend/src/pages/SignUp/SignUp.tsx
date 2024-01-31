@@ -2,8 +2,12 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import axios from 'axios';
-import useUserStore from '../stores/userStore';
-import api from '../services/api';
+import useUserStore from '../../stores/userStore';
+import api from '../../services/api';
+import { Button, DisabledButton } from '../../components/common/Buttons';
+import Input from '../../components/common/Input';
+import * as S from './SignUp.styles';
+import UserContainer from '../../components/common/UserContainer';
 
 interface Form {
   name: string;
@@ -77,7 +81,7 @@ function SignUp() {
       setPwMsg('');
       setValidPw(false);
     } else if (!pwRegex.test(inputPassword)) {
-      setPwMsg('8~20사이 숫자, 소문자, 특수문자 포함해서 입력해주세요!');
+      setPwMsg('8~20사이로 숫자, 소문자, 특수문자를 포함해주세요!');
       setValidPw(false);
     } else {
       setPwMsg('사용가능한 비밀번호 입니다.');
@@ -147,7 +151,12 @@ function SignUp() {
 
     const phoneNumber = `${form.phone1}-${form.phone2}-${form.phone3}`;
     try {
-      const response = await api.post('/users', { ...form, phoneNumber, id, password });
+      const response = await api.post('/users', {
+        ...form,
+        phoneNumber,
+        id,
+        password,
+      });
       if (response.status === 201) {
         setUser(response.data);
         navigate('/login', { state: { pathType: 'app' } });
@@ -160,105 +169,136 @@ function SignUp() {
   }
 
   return (
-    <div>
-      <h1>회원가입</h1>
-      <form onSubmit={handleSignUp}>
-        <label>
-          아이디:
-          <input
-            type="text"
-            name="id"
-            value={id}
-            onChange={onChangeId}
-            required
-          />
-          <button type="button" onClick={handleCheckId}>
-            중복확인
-          </button>
-          <p className="message">{IdMsg}</p>
-        </label>
-        <br />
-        <label>
-          비밀번호:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={onChangePassword}
-            required
-          />
-          <p className="message">{PwMsg}</p>
-        </label>
-        <br />
-        <label>
-          비밀번호 확인:
-          <input
-            type="password"
-            name="passwordConfirm"
-            value={passwordConfirm}
-            onChange={onChangePasswordConfirm}
-            required
-          />
-          <p className="message">{PwConfirmMsg}</p>
-        </label>
-        <br />
-        <label>
-          이름:
-          <input
-            type="text"
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          전화번호:
-          <input
-            type="tel"
-            name="phone1"
-            value={form.phone1}
-            onChange={handleChange}
-            required
-            maxLength={3}
-          />
-          -
-          <input
-            type="tel"
-            name="phone2"
-            value={form.phone2}
-            onChange={handleChange}
-            required
-            maxLength={4}
-          />
-          -
-          <input
-            type="tel"
-            name="phone3"
-            value={form.phone3}
-            onChange={handleChange}
-            required
-            maxLength={4}
-          />
-        </label>
-        <br />
-        <label>
-          생년월일:
-          <input
-            type="date"
-            name="birth"
-            value={form.birth}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <button type="submit" disabled={!submitRequirements}>
-          회원가입
-        </button>
-      </form>
-    </div>
+    <S.GrayBackground>
+      <S.GlobalStyle />
+      <UserContainer
+        $height="620px"
+        $width="300px"
+        $padding="12px"
+        $alignItems="left"
+      >
+        <S.SignUpText>회원가입</S.SignUpText>
+        <form onSubmit={handleSignUp}>
+          <S.Label>
+            <div>아이디</div>
+            <S.IDContainer>
+              <Input
+                $width="75%"
+                type="text"
+                name="id"
+                placeholder="아이디를 입력해주세요."
+                value={id}
+                onChange={onChangeId}
+                required
+              />
+              <Button $width="30%" $padding="8px" onClick={handleCheckId}>
+                중복확인
+              </Button>
+            </S.IDContainer>
+          </S.Label>
+          <div
+            style={{ marginTop: '-7px' }}
+            className={`message ${IdMsg && 'active'}`}
+          >
+            {IdMsg}
+          </div>
+          <S.Label>
+            <div>비밀번호</div>
+            <Input
+              $width="98%"
+              type="password"
+              name="password"
+              placeholder="비밀번호를 입력해주세요."
+              value={password}
+              onChange={onChangePassword}
+              required
+            />
+          </S.Label>
+          <div className={`message ${PwMsg && 'active'}`}>{PwMsg}</div>
+          <S.Label>
+            <div>비밀번호 확인</div>
+            <Input
+              $width="98%"
+              type="password"
+              name="passwordConfirm"
+              placeholder="비밀번호를 한번 더 입력해주세요."
+              value={passwordConfirm}
+              onChange={onChangePasswordConfirm}
+              required
+            />
+          </S.Label>
+          <div className={`message ${PwConfirmMsg && 'active'}`}>
+            {PwConfirmMsg}
+          </div>
+          <S.Label>
+            <div>이름</div>
+            <Input
+              $width="98%"
+              type="text"
+              name="name"
+              placeholder="이름을 입력해주세요."
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+          </S.Label>
+          <S.Label>
+            <div>생년월일</div>
+            <Input
+              $width="98%"
+              type="date"
+              name="birth"
+              value={form.birth}
+              onChange={handleChange}
+              required
+            />
+          </S.Label>
+          <S.Label>
+            <div>전화번호</div>
+            <S.PhoneContainer>
+              <Input
+                $width="60%"
+                $textAlign="center"
+                type="tel"
+                name="phone1"
+                value={form.phone1}
+                onChange={handleChange}
+                required
+                maxLength={3}
+              />
+              -
+              <Input
+                $width="80%"
+                $textAlign="center"
+                type="tel"
+                name="phone2"
+                value={form.phone2}
+                onChange={handleChange}
+                required
+                maxLength={4}
+              />
+              -
+              <Input
+                $width="80%"
+                $textAlign="center"
+                type="tel"
+                name="phone3"
+                value={form.phone3}
+                onChange={handleChange}
+                required
+                maxLength={4}
+              />
+            </S.PhoneContainer>
+          </S.Label>
+          <br />
+          {submitRequirements ? (
+            <Button type="submit">회원가입</Button>
+          ) : (
+            <DisabledButton>회원가입</DisabledButton>
+          )}
+        </form>
+      </UserContainer>
+    </S.GrayBackground>
   );
 }
 

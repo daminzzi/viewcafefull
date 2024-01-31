@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/common/Header';
+import { Button } from '../components/common/Buttons';
+import styled from 'styled-components';
+import UserContainer from '../components/common/UserContainer';
 
 function Main() {
   const navigate = useNavigate();
@@ -14,22 +16,21 @@ function Main() {
   }
 
   return (
-    <>
-      <div>
-        <Header />
-        Main
-      </div>
-
-      <div>
-        <button type="button" onClick={handleAppLogin}>
-          보호자 로그인
-        </button>
-        <button type="button" onClick={handleTarLogin}>
-          간병인 로그인
-        </button>
-      </div>
-    </>
+    <UserContainer $flexDirection="col" $padding="12px">
+      <MainText>뷰케어풀</MainText>
+      <Button $margin="0px 10px 0px 0px" onClick={handleAppLogin}>
+        보호자 로그인
+      </Button>
+      <Button onClick={handleTarLogin}>간병인 로그인</Button>
+    </UserContainer>
   );
 }
 
 export default Main;
+
+const MainText = styled.div`
+  position: absolute;
+  top: 100px;
+  font-weight: bold;
+  font-size: 30px;
+`;
