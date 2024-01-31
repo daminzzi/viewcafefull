@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+// @Transactional(readOnly = true)
 public class OpenviduService {
 
   @Value("${OPENVIDU_URL}")
