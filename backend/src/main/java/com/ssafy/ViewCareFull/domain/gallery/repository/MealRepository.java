@@ -12,4 +12,6 @@ public interface MealRepository extends JpaRepository<Meal, Long> {
   @Query("select m from Meal m where m.user.id = :caregiverId and m.mealDate = :day")
   List<Meal> findByCaregiverAndDay(@Param("caregiverId") Long caregiverId, @Param("day") LocalDate day);
 
+  @Query("select m from Meal m where m.user.domainId = :domainId and m.mealDate = :date")
+  List<Meal> findByDomainIdAndDate(String domainId, LocalDate date);
 }

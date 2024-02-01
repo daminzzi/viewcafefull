@@ -2,9 +2,9 @@ package com.ssafy.ViewCareFull.domain.condition.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ssafy.ViewCareFull.domain.common.entity.TimeType;
 import com.ssafy.ViewCareFull.domain.condition.entity.Condition;
 import com.ssafy.ViewCareFull.domain.condition.entity.ConditionType;
-import com.ssafy.ViewCareFull.domain.condition.entity.TimeType;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import java.time.LocalDate;
 import lombok.Getter;

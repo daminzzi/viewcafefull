@@ -49,4 +49,8 @@ public class MealService {
         .time(time)
         .build();
   }
+
+  public List<Meal> getMealListWithIdDate(String domainId, LocalDate date) {
+    return mealRepository.findByDomainIdAndDate(domainId, date);
+  }
 }

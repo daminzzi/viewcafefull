@@ -1,7 +1,7 @@
 package com.ssafy.ViewCareFull.domain.condition.repository;
 
+import com.ssafy.ViewCareFull.domain.common.entity.TimeType;
 import com.ssafy.ViewCareFull.domain.condition.entity.Condition;
-import com.ssafy.ViewCareFull.domain.condition.entity.TimeType;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import java.time.LocalDate;
 import java.util.List;
