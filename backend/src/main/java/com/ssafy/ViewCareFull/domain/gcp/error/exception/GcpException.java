@@ -11,5 +11,5 @@ import lombok.RequiredArgsConstructor;
 public class GcpException extends RuntimeException {
 
   private final GcpErrorCode errorCode;
-  private final String errorMessage;
+  private String errorMessage;
 }

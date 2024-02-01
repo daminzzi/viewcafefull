@@ -11,5 +11,5 @@ import lombok.RequiredArgsConstructor;
 public class OpenviduException extends RuntimeException {
 
   private final OpenviduErrorCode errorCode;
-  private final String errorMessage;
+  private String errorMessage;
 }
