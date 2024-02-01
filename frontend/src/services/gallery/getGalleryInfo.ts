@@ -1,8 +1,9 @@
 // import api from '../api';
 import page1 from './tGallery1.json';
 import page2 from './tGallery2.json';
+import nopage from './tGallery3.json'
 
-// async function getGallery(page: number): Gallery | null {
+// async function getGallery(page: number): Gallery{
 //   try {
 //     const response = await api.get('/gallery', { params: { page: page } });
 //     if (response.status !== 200) {
@@ -15,13 +16,13 @@ import page2 from './tGallery2.json';
 //   }
 // }
 
-function getGallery(page: number): Gallery | null {
+function getGallery(page: number): Gallery{
   if (page === 1) {
     return page1;
   } else if (page === 2) {
     return page2;
   }
-  return null;
+  return nopage;
 }
 
 export default getGallery;
