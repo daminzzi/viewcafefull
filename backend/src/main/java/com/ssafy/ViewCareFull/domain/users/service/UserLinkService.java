@@ -21,12 +21,12 @@ public class UserLinkService {
   private final UserLinkRepository userLinkRepository;
 
   public Optional<CaregiverIdDto> getCareGiverIdFromOtherUser(Long userId) {
-    Optional<UserLink> caregiver = userLinkRepository.findLinkByCaregiverId(userId);
+    Optional<UserLink> caregiver = userLinkRepository.findFirstByCaregiver_Id(userId);
     if (caregiver.isPresent()) {
       return Optional.of(new CaregiverIdDto(caregiver.get()));
     }
-    Optional<UserLink> hospital = userLinkRepository.findLinkByHospitalId(userId);
-    return hospital.map(CaregiverIdDto::new);
+    Optional<UserLink> guardian = userLinkRepository.findLinkByGuardianId(userId);
+    return guardian.map(CaregiverIdDto::new);
   }
 
   public UserLinkListResponseDto getLinkList(SecurityUsers securityUsers, String type) {

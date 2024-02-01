@@ -12,8 +12,10 @@ public interface UserLinkRepository extends JpaRepository<UserLink, Long> {
   @Query("select ul from UserLink ul where ul.caregiver.id = :userId")
   Optional<UserLink> findLinkByCaregiverId(@Param("userId") Long userId);
 
-  @Query("select ul from UserLink ul where ul.hospital.id = :userId")
-  Optional<UserLink> findLinkByHospitalId(@Param("userId") Long userId);
+  Optional<UserLink> findFirstByCaregiver_Id(Long caregiverId);
+
+  @Query("select ul from UserLink ul where ul.guardian.id = :userId")
+  Optional<UserLink> findLinkByGuardianId(@Param("userId") Long userId);
 
   @Query("select ul from UserLink ul where ul.caregiver.id = (select ul.caregiver.id from UserLink ul where ul.guardian.id = :guardianId)")
   Optional<List<UserLink>> findAllGuardianByGuardian(@Param("guardianId") Long guardianId);

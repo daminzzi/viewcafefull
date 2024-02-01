@@ -35,15 +35,16 @@ public class GalleryService {
   private String fileServerUrl;
 
   @Transactional
-  public void saveImage(SecurityUsers securityUsers, MultipartFile image) {
+  public Image saveImage(SecurityUsers securityUsers, MultipartFile image) {
     Users user = securityUsers.getUser();
     CaregiverIdDto caregiverIdDto = userLinkService.getCareGiverIdFromOtherUser(user.getId())
         .orElseThrow(NoMatchCaregiverException::new);
     String ext = getImageExtension(image);
     String fileName = UUID.randomUUID().toString() + ext;
     String saveLocation = fileRealPath + fileName;
-    imageRepository.save(new Image(saveLocation, fileName, caregiverIdDto));
+    Image savedImage = imageRepository.save(new Image(saveLocation, fileName, caregiverIdDto));
     saveImageToDisk(image, saveLocation);
+    return savedImage;
   }
 
   private void saveImageToDisk(MultipartFile image, String saveLocation) {
@@ -69,5 +70,13 @@ public class GalleryService {
         .orElseThrow(NoMatchCaregiverException::new);
     Page<Image> page = imageRepository.findAllByCaregiverId(caregiverIdDto.getCaregiverId(), pageable);
     return new GalleryResponseDto(page, fileServerUrl);
+  }
+
+  public Image getImage(Long imageId) {
+    return imageRepository.findById(imageId).orElseThrow();
+  }
+
+  public String getImageUrl(Long imageId) {
+    return fileServerUrl + imageRepository.findById(imageId).orElseThrow().getImageName();
   }
 }

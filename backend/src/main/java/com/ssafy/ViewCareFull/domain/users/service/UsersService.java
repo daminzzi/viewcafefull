@@ -4,6 +4,7 @@ import com.ssafy.ViewCareFull.domain.users.dto.JoinForm;
 import com.ssafy.ViewCareFull.domain.users.dto.LoginForm;
 import com.ssafy.ViewCareFull.domain.users.dto.LoginResponse;
 import com.ssafy.ViewCareFull.domain.users.dto.TokenInfo;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Caregiver;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import com.ssafy.ViewCareFull.domain.users.error.UserErrorCode;
@@ -52,5 +53,13 @@ public class UsersService {
   public Users getUser(String domainId) {
     return usersRepository.findByDomainId(domainId)
         .orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
+  }
+
+  public Caregiver getCaregiver(Users user) {
+    if (user.getUserType().equals("Caregiver")) {
+      return (Caregiver) user;
+    }
+    // Todo : userType이 Caregiver가 아닐 때 UserLink를 통해서 가져와야함
+    throw new RuntimeException();
   }
 }
