@@ -16,7 +16,7 @@ function VisitRoom() {
   const sessionId = 'sessionA';
   const myUserName = 'Participant' + Math.floor(Math.random() * 100);
   console.log(sessionId, myUserName);
-  const [session, setSession] = useState<OVSession | null>(null);
+  const [session, setSession] = useState<OVSession | null>(OV.initSession());
   const [mainStreamManager, setMainStreamManager] = useState<
     Publisher | Subscriber | null
   >(null);
@@ -46,7 +46,7 @@ function VisitRoom() {
 
   const joinSession = async () => {
     if (OV !== null) {
-      setSession(OV.initSession());
+      // setSession(OV.initSession());
       const mySession = session;
 
       mySession?.on('streamCreated', (event) => {
@@ -65,9 +65,7 @@ function VisitRoom() {
       });
 
       const token = await getToken();
-      console.log(token);
       mySession?.connect(token, { clientData: myUserName }).then(async () => {
-        console.log('Connected');
         const publisher = await OV.initPublisherAsync(undefined, {
           audioSource: undefined,
           videoSource: undefined,
@@ -85,7 +83,6 @@ function VisitRoom() {
         const videoDevices = devices.filter(
           (device) => device.kind === 'videoinput',
         );
-
         const currentVideoDeviceId = publisher.stream
           .getMediaStream()
           .getVideoTracks()[0]
