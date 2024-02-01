@@ -1,22 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Device,
-  OpenVidu,
-  Session as OVSession,
-  Publisher,
-  Subscriber,
-} from 'openvidu-browser';
+import { Device, OpenVidu, Publisher, Subscriber } from 'openvidu-browser';
 import axios from 'axios';
 import UserVideo from './UserVideo';
 
 const APPLICATION_SERVER_URL = process.env.REACT_APP_SPRING_URL;
-const OV = new OpenVidu();
 
 function VisitRoom() {
+  const OV = new OpenVidu();
+  const session = OV.initSession();
   const sessionId = 'sessionA';
   const myUserName = 'Participant' + Math.floor(Math.random() * 100);
   console.log(sessionId, myUserName);
-  const [session, setSession] = useState<OVSession | null>(OV.initSession());
   const [mainStreamManager, setMainStreamManager] = useState<
     Publisher | Subscriber | null
   >(null);
@@ -112,7 +106,7 @@ function VisitRoom() {
     }
 
     // Empty all properties...
-    setSession(null);
+    // setSession(null);
     setSubscriberList([]);
     setMainStreamManager(null);
     setPublisher(null);
