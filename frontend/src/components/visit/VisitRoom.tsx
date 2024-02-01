@@ -65,7 +65,9 @@ function VisitRoom() {
       });
 
       const token = await getToken();
+      console.log(token);
       mySession?.connect(token, { clientData: myUserName }).then(async () => {
+        console.log('Connected');
         const publisher = await OV.initPublisherAsync(undefined, {
           audioSource: undefined,
           videoSource: undefined,
@@ -83,6 +85,7 @@ function VisitRoom() {
         const videoDevices = devices.filter(
           (device) => device.kind === 'videoinput',
         );
+
         const currentVideoDeviceId = publisher.stream
           .getMediaStream()
           .getVideoTracks()[0]
