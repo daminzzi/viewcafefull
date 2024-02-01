@@ -31,6 +31,6 @@ public class GcpController {
     if (result.get("status").toString().equals("error")) {
       return new ResponseEntity<>(result.get("errorMessage").toString(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    return new ResponseEntity<>(result.get("imgInfo").toString(), HttpStatus.OK);
+    return new ResponseEntity<>(result.get("score").toString(), HttpStatus.OK);
   }
 }
