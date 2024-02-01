@@ -22,15 +22,9 @@ public class GcpController {
    * @param params "imgPath" : String
    */
   @PostMapping("/img")
-  public ResponseEntity<String> analysisImage(@RequestBody(required = false) Map<String, Object> params)
+  public ResponseEntity<Integer> analysisImage(@RequestBody(required = false) Map<String, Object> params)
       throws IOException {
-    Map<String, Object> result = gcpService.detectFace(params.get("imgPath").toString());
-    if (result.get("status").toString().equals("fail")) {
-      return new ResponseEntity<>("Face Detect Fail", HttpStatus.NOT_FOUND);
-    }
-    if (result.get("status").toString().equals("error")) {
-      return new ResponseEntity<>(result.get("errorMessage").toString(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-    return new ResponseEntity<>(result.get("score").toString(), HttpStatus.OK);
+    int result = gcpService.detectFace(params.get("imgPath").toString());
+    return new ResponseEntity<>(result, HttpStatus.OK);
   }
 }

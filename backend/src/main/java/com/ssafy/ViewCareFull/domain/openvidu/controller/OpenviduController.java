@@ -44,9 +44,6 @@ public class OpenviduController {
       @RequestBody(required = false) Map<String, Object> params)
       throws OpenViduJavaClientException, OpenViduHttpException {
     String token = openviduService.creToken(sessionId, params);
-    if (token.equals("Session is null")) {
-      return new ResponseEntity<>("Session does not exist", HttpStatus.NOT_FOUND);
-    }
     return new ResponseEntity<>(token, HttpStatus.OK);
   }
 }

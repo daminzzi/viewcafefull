@@ -1,5 +1,7 @@
 package com.ssafy.ViewCareFull.domain.openvidu.service;
 
+import com.ssafy.ViewCareFull.domain.openvidu.error.OpenviduErrorCode;
+import com.ssafy.ViewCareFull.domain.openvidu.error.exception.OpenviduException;
 import io.openvidu.java.client.Connection;
 import io.openvidu.java.client.ConnectionProperties;
 import io.openvidu.java.client.OpenVidu;
@@ -41,7 +43,7 @@ public class OpenviduService {
       throws OpenViduJavaClientException, OpenViduHttpException {
     Session session = openvidu.getActiveSession(sessionId);
     if (session == null) {
-      return "Session is null";
+      throw new OpenviduException(OpenviduErrorCode.SESSION_IS_NULL, "Session is not active");
     }
     ConnectionProperties properties = ConnectionProperties.fromJson(params).build();
     Connection connection = session.createConnection(properties);
