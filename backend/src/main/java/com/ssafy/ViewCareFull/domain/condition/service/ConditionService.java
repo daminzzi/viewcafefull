@@ -5,8 +5,12 @@ import com.ssafy.ViewCareFull.domain.condition.dto.ConditionRequestDto;
 import com.ssafy.ViewCareFull.domain.condition.dto.ConditionResponseDto;
 import com.ssafy.ViewCareFull.domain.condition.entity.Condition;
 import com.ssafy.ViewCareFull.domain.condition.repository.ConditionRepository;
+import com.ssafy.ViewCareFull.domain.gallery.exception.NoMatchCaregiverException;
+import com.ssafy.ViewCareFull.domain.users.dto.CaregiverIdDto;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
+import com.ssafy.ViewCareFull.domain.users.service.UserLinkService;
+import com.ssafy.ViewCareFull.domain.users.service.UsersService;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +27,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class ConditionService {
 
   private final ConditionRepository conditionRepository;
+  private final UsersService usersService;
+  private final UserLinkService userLinkService;
 
   @Transactional
   public HttpStatus saveOrUpdate(SecurityUsers securityUsers, ConditionRequestDto requestDto) {
@@ -40,8 +46,17 @@ public class ConditionService {
 
   public List<ConditionResponseDto> getCondition(SecurityUsers securityUsers, LocalDate start, LocalDate end) {
     Users user = securityUsers.getUser();
+    CaregiverIdDto caregiverDto = userLinkService.getCareGiverIdFromOtherUser(user.getId())
+        .orElseThrow(NoMatchCaregiverException::new);
+    Users caregiver = usersService.getUser(caregiverDto.getCaregiverId());
+    List<Condition> conditionList = conditionRepository.findByUserAndDateBetween(caregiver, start, end);
+    Map<LocalDate, ConditionResponseDto> map = getLocalDateConditionResponseDtoMap(conditionList);
+    return List.copyOf(map.values());
+  }
+
+  private static Map<LocalDate, ConditionResponseDto> getLocalDateConditionResponseDtoMap(
+      List<Condition> conditionList) {
     Map<LocalDate, ConditionResponseDto> map = new HashMap<>();
-    List<Condition> conditionList = conditionRepository.findByUserAndDateBetween(user, start, end);
     for (Condition condition : conditionList) {
       if (map.containsKey(condition.getDate())) {
         ConditionResponseDto dto = map.get(condition.getDate());
@@ -50,6 +65,6 @@ public class ConditionService {
       }
       map.put(condition.getDate(), new ConditionResponseDto(condition));
     }
-    return List.copyOf(map.values());
+    return map;
   }
 }

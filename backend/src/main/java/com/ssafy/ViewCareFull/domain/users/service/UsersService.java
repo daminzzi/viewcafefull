@@ -55,6 +55,11 @@ public class UsersService {
         .orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
   }
 
+  public Users getUser(Long id) {
+    return usersRepository.findById(id)
+        .orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
+  }
+
   public Users getMatchingTypeUser(String domainId, String userType) {
     Users matchedUser = usersRepository.findByDomainId(domainId)
         .orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
