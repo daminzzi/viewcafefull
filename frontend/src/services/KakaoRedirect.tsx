@@ -23,18 +23,20 @@ function KakaoRedirect() {
     }
 
     // 카카오 로그인
+    // 로그인 시도 시 카카오토큰 유무 확인, 있으면 로그인 완료
     api
-      .post<ResponseData>('/users/kakao/signin', { kakaoToken })
+      .get<ResponseData>(`/users/kakao/signin?code=${kakaoToken}`)
       .then((response) => {
         setUser(response.data.user);
         setAccessToken(response.data.accessToken);
-        navigate('/family/home');
+        navigate('/family');
       })
       .catch((error) => {
-        // 카카오로 가입되지 않은 사용자인 경우
-        if (error.response.status === 404) {
-          // kakaoToken을 포함시킨 회원가입 페이지로 이동
-          navigate('/signup', { state: { kakaoToken } });
+        // 카카오로 가입되지 않은 사용자인 경우(카카오토큰이 없음)
+        if (error.response.status === 400) {
+          const kakaoEmail = error.response.data.email;
+          // 이메일을 포함시킨 회원가입 페이지로 이동
+          navigate('/signup', { state: { kakaoEmail } });
         } else {
           console.error(error);
         }
