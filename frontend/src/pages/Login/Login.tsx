@@ -42,10 +42,10 @@ function Login() {
       await login(form);
       if (pathType === 'app') {
         // 보호자 로그인 완료시
-        navigate('/family/home');
+        navigate('/family/');
       } else if (pathType === 'tar') {
         // 간병인 로그인 완료시
-        navigate('/caregiver/home');
+        navigate('/caregiver/');
       }
     } catch (error) {
       console.error(error);

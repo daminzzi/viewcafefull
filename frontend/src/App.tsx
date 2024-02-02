@@ -20,6 +20,7 @@ import FamilyGalleryDetail from './pages/family/FamilyGalleryDetail';
 import CareGiverMessage from './pages/caregiver/CareGiverMessage';
 import Report from './pages/Report';
 import VisitRoom from './components/visit/VisitRoom';
+import CareGiverSendMessage from './pages/caregiver/CareGiverSendMessage';
 
 const AppDiv = styled.div`
   background-color: ${lightgray};
@@ -47,6 +48,7 @@ function App() {
           <Route path="/caregiver" element={<CareGiver />}>
             <Route path="" element={<CareGiverHome />} />
             <Route path="message" element={<CareGiverMessage />} />
+            <Route path="message/send" element={<CareGiverSendMessage />} />
           </Route>
           <Route path="/report/:id" element={<Report />} />
           <Route path="/openvidu" element={<VisitRoom />} />
