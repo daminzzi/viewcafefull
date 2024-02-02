@@ -12,7 +12,7 @@ api.interceptors.request.use(
   (config) => {
     const { accessToken } = useUserStore.getState();
     if (accessToken) {
-      config.headers.Authorization = `Bearer ${accessToken}`;
+      config.headers.Authorization = `bearer ${accessToken}`;
     }
     return config;
   },

@@ -71,7 +71,7 @@ function FamilyGallery() {
 
   return (
     <div>
-      <Title icon="gallery" buttonContents='버튼'>갤러리</Title>
+      <Title icon="gallery">갤러리</Title>
       {renderPictures(galleryInfo)}
       <div ref={setTarget}>
         {/* target이 보이면 api 요청 */}
