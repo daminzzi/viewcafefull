@@ -8,11 +8,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Entity
 @Getter
 @SuperBuilder
+@NoArgsConstructor
 @AllArgsConstructor
 @DiscriminatorValue(UserType.Values.Caregiver)
 public class Caregiver extends Users {
