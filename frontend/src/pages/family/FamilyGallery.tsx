@@ -31,8 +31,7 @@ function FamilyGallery() {
   // 사진 정보 가져오는 함수
   async function getInfo() {
     switchIsLoading();
-    const response = getGallery(page);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const response = await getGallery(page);
     if (response.data.length > 0) {
       addInfo(response.data);
     } else if (response.data.length <= 0) {
