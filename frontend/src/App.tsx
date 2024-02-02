@@ -13,7 +13,7 @@ import FamilyHome from './pages/family/FamilyHome';
 import FamilyGallery from './pages/family/FamilyGallery';
 import FamilyMessage from './pages/family/FamilyMessage';
 import FamilyVisit from './pages/family/FamilyVisit';
-import FamilyProfile from './pages/family/FamilyProfile';
+import FamilyProfile from './pages/family/FamilyProfile/FamilyProfile';
 import CareGiverHome from './pages/caregiver/CareGiverHome';
 import FamilyVisitRegister from './pages/family/FamilyVisitRegister';
 import FamilyGalleryDetail from './pages/family/FamilyGalleryDetail';
@@ -21,6 +21,7 @@ import CareGiverMessage from './pages/caregiver/CareGiverMessage';
 import Report from './pages/Report';
 import VisitRoom from './components/visit/VisitRoom';
 import CareGiverSendMessage from './pages/caregiver/CareGiverSendMessage';
+import ConnectRegister from './pages/family/ConnectRegister';
 
 const AppDiv = styled.div`
   background-color: ${lightgray};
@@ -36,6 +37,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/kakaoLogin" element={<KakaoRedirect />} />
+          <Route path="/connect/register" element={<ConnectRegister />} />
           <Route path="/family" element={<Family />}>
             <Route path="" element={<FamilyHome />} />
             <Route path="gallery" element={<FamilyGallery />} />

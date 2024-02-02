@@ -7,8 +7,8 @@ const useUserStore = create<UserState>((set, get) => ({
   user: {
     id: 'user1',
     name: '박정훈',
-    phoneNumber: '010-1111-1111',
-    birth: '2024-01-23',
+    phoneNumber: '01011111111',
+    birth: '20240123',
     role: 'Guardian',
   },
   isAuthenticated: true,

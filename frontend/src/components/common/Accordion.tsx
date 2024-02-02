@@ -17,9 +17,10 @@ interface AccordionProps {
   subTitle?: string;
   content: React.ReactNode;
   suffix?: string;
+  imgUrl?: string;
 }
 
-function Accordion({ title, subTitle, suffix, content }: AccordionProps) {
+function Accordion({ title, subTitle, suffix, content, imgUrl }: AccordionProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleAccordion = () => {
@@ -42,17 +43,20 @@ function Accordion({ title, subTitle, suffix, content }: AccordionProps) {
         $padding="15px"
         $width="auto"
       >
-        <div>
-          <SubTitle>{subTitle}</SubTitle>
-          <FlexRowContainer
-            onClick={toggleAccordion}
-            $justifyContent="stretch"
-            $gap="5px"
-          >
-            {title} <SubTitle>{suffix}</SubTitle>
-          </FlexRowContainer>
-        </div>
-        <ChevronDownButton onClick={toggleAccordion}>
+        <FlexRowContainer $gap="7px" $padding="5px" $justifyContent="stretch">
+          <img src={imgUrl} width={'35px'} height={'35px'} />
+          <div>
+            <SubTitle>{subTitle}</SubTitle>
+            <FlexRowContainer
+              onClick={toggleAccordion}
+              $justifyContent="stretch"
+              $gap="5px"
+            >
+              {title} <SubTitle>{suffix}</SubTitle>
+            </FlexRowContainer>
+          </div>
+        </FlexRowContainer>
+        <ChevronButton onClick={toggleAccordion}>
           {isOpen ? (
             <ChevronUpIcon
               className="chevron-up-icon"
@@ -66,7 +70,7 @@ function Accordion({ title, subTitle, suffix, content }: AccordionProps) {
               height="30px"
             />
           )}
-        </ChevronDownButton>
+        </ChevronButton>
       </FlexRowContainer>
       {isOpen && content}
     </FlexColContainer>
@@ -80,6 +84,6 @@ const SubTitle = styled.div`
   align-self: center;
 `;
 
-const ChevronDownButton = styled.div`
+const ChevronButton = styled.div`
   cursor: pointer;
 `;
