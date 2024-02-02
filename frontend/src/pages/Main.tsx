@@ -18,10 +18,12 @@ function Main() {
   return (
     <UserContainer $flexDirection="col" $padding="12px">
       <MainText>뷰케어풀</MainText>
-      <Button $margin="0px 10px 0px 0px" onClick={handleAppLogin}>
+      <Button $width="100%" $margin="0px 10px 0px 0px" onClick={handleAppLogin}>
         보호자 로그인
       </Button>
-      <Button onClick={handleTarLogin}>간병인 로그인</Button>
+      <Button $width="100%" onClick={handleTarLogin}>
+        간병인 로그인
+      </Button>
     </UserContainer>
   );
 }

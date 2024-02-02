@@ -42,10 +42,10 @@ function Login() {
       await login(form);
       if (pathType === 'app') {
         // 보호자 로그인 완료시
-        navigate('/family/');
+        navigate('/family');
       } else if (pathType === 'tar') {
         // 간병인 로그인 완료시
-        navigate('/caregiver/');
+        navigate('/caregiver');
       }
     } catch (error) {
       console.error(error);
@@ -95,7 +95,7 @@ function Login() {
               required
             />
           </S.Label>
-          <Button $margin="10px 0px 0px 0px" type="submit">
+          <Button $margin="10px 0px 0px 0px" $width="100%" type="submit">
             로그인
           </Button>
         </S.Form>

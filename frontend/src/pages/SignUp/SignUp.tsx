@@ -292,9 +292,11 @@ function SignUp() {
           </S.Label>
           <br />
           {submitRequirements ? (
-            <Button type="submit">회원가입</Button>
+            <Button $width="100%" type="submit">
+              회원가입
+            </Button>
           ) : (
-            <DisabledButton>회원가입</DisabledButton>
+            <DisabledButton $width="100%">회원가입</DisabledButton>
           )}
         </form>
       </UserContainer>
