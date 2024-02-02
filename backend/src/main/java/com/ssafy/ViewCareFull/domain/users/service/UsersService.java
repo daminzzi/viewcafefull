@@ -55,6 +55,15 @@ public class UsersService {
         .orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
   }
 
+  public Users getMatchingTypeUser(String domainId, String userType) {
+    Users matchedUser = usersRepository.findByDomainId(domainId)
+        .orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
+    if (!matchedUser.getUserType().equals(userType)) {
+      throw new UsersException(UserErrorCode.NOT_MATCHING_USERTYPE);
+    }
+    return matchedUser;
+  }
+
   public Caregiver getByCaregiverToken(String targetCode) {
     return usersRepository.findByToken(targetCode)
         .orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
