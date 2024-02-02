@@ -11,8 +11,9 @@ import breakfast from '../../assets/images/breakfast.jpg';
 import lunch from '../../assets/images/lunch.jpg';
 import dinner from '../../assets/images/dinner.jpg';
 
-const Title = styled.h2`
-  width: 95%;
+const SubTitle = styled.p`
+  font-weight: bold;
+  width: 90%;
 `;
 
 export function dateToString(date: Date): string {
@@ -144,7 +145,7 @@ function FamilyHome() {
         handleChangeStart={handleChangeStart}
       />
       <ContentsContainer>
-        <Title>하루 건강 정보</Title>
+        <SubTitle>하루 건강 정보</SubTitle>
         <TabButtonGroup tab={tab} handleChangeTab={handleChangeTab} />
         <TabView tab={tab} healthInfo={healthInfo} />
       </ContentsContainer>

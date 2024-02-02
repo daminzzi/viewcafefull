@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ReactComponent as ChevronLeft } from '../../assets/icons/chevron-left.svg';
+import { ReactComponent as XMark } from '../../assets/icons/xMark.svg';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { black, white } from '../../assets/styles/palettes';
@@ -63,7 +63,7 @@ function FamilyGalleryDetail() {
     <Container onClick={() => handleVisible()}>
       <Toolbar $isVisible={isVisible} onClick={(e) => e.stopPropagation()}>
         <VoidButton onClick={() => navigate(-1)}>
-          <ChevronLeft width="4rem" color={black} />
+          <XMark width="4rem" color={black} />
         </VoidButton>
       </Toolbar>
       <Wrapper>

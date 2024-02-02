@@ -4,6 +4,7 @@ import { gray, lightgray, main3, black } from '../../assets/styles/palettes';
 interface ButtonProps {
   $color?: string;
   $width?: string;
+  $height?: string;
   $fontSize?: string;
   $bgColor?: string;
   $margin?: string;
@@ -20,7 +21,8 @@ const Button = styled.button<ButtonProps>`
   cursor: pointer;
   transition: all 0.3s ease;
   color: ${(props) => props.$color || black};
-  width: ${(props) => props.$width || '100%'};
+  width: ${(props) => props.$width || 'auto'};
+  height: ${(props) => props.$height || 'auto'};
   padding: ${(props) => props.$padding || '4%'};
   font-size: ${(props) => props.$fontSize || '15px'};
   background-color: ${(props) => props.$bgColor || main3};
@@ -43,4 +45,9 @@ const DisabledButton = styled(Button)`
   cursor: not-allowed;
 `;
 
-export { Button, OutlineButton, DisabledButton };
+const RoundedButton = styled(Button)`
+  padding: ${(props) => props.$padding || '2px'};
+  border-radius: ${(props) => props.$borderRadius || '10px'};
+`
+
+export { Button, OutlineButton, DisabledButton, RoundedButton };

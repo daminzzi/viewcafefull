@@ -1,19 +1,34 @@
 import React from 'react';
-// import Button from '../common/Button';
-import Button from '../common/Button';
+import { RoundedButton } from '../common/Buttons';
+import { white, medium, deep } from '../../assets/styles/palettes';
 import FlexRowContainer from '../common/FlexRowContainer';
-import styled from 'styled-components';
-// import { deep } from '../../assets/styles/palettes';
+import styled, { css } from 'styled-components';
 
 type Props = {
   tab: Page;
   handleChangeTab: (tab: Page) => void;
 };
 
-const TabButton = styled(Button)`
-  border-radius: 20px;
-  width: 20%;
+const TabButton = styled(RoundedButton)<{ $isSelected: boolean }>`
+font-size: 0.8rem;
+width: 4.5rem;
+height: 1.75rem;
+border-radius: 2rem;
+background-color: ${white};
+box-shadow: 0.1rem 0.1rem 0.2rem ${medium};
+-ms-user-select: none;
+-moz-user-select: -moz-none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+user-select: none;
+
+${(props) =>
+  props.$isSelected &&
+  css`
+    box-shadow: 0 0 0 0.1rem ${deep};
+  `}
 `;
+
 
 function isSelected(curr: Page, state: Page) {
   return curr === state;
