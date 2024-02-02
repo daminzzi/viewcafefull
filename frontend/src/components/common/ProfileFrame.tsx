@@ -13,7 +13,7 @@ const Wrapper = styled.div<{ $size: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid ${black};
+  border: 0.1rem solid ${black};
   border-radius: 50%;
   overflow: hidden;
 

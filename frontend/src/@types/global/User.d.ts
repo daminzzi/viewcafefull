@@ -4,7 +4,7 @@ type User = {
   phoneNumber: string;
   birth: stirng;
   role: string;
-}
+};
 
 type UserState = {
   user: User | null;
@@ -17,7 +17,6 @@ type UserState = {
   logout: () => void;
   deleteUser: () => void;
 };
-
 
 type UserConnectInfo = {
   applicationId: string;

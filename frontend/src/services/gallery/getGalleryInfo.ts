@@ -1,7 +1,7 @@
 // import api from '../api';
 import page1 from './tGallery1.json';
 import page2 from './tGallery2.json';
-import nopage from './tGallery3.json'
+import nopage from './tGallery3.json';
 
 // async function getGallery(page: number): Gallery{
 //   try {
@@ -16,7 +16,7 @@ import nopage from './tGallery3.json'
 //   }
 // }
 
-function getGallery(page: number): Gallery{
+function getGallery(page: number): Gallery {
   if (page === 1) {
     return page1;
   } else if (page === 2) {

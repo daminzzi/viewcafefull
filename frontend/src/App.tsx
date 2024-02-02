@@ -16,6 +16,7 @@ import FamilyVisit from './pages/family/FamilyVisit';
 import FamilyProfile from './pages/family/FamilyProfile';
 import CareGiverHome from './pages/caregiver/CareGiverHome';
 import FamilyVisitRegister from './pages/family/FamilyVisitRegister';
+import FamilyGalleryDetail from './pages/family/FamilyGalleryDetail';
 import CareGiverMessage from './pages/caregiver/CareGiverMessage';
 import Report from './pages/Report';
 import VisitRoom from './components/visit/VisitRoom';
@@ -37,6 +38,7 @@ function App() {
           <Route path="/family" element={<Family />}>
             <Route path="" element={<FamilyHome />} />
             <Route path="gallery" element={<FamilyGallery />} />
+            <Route path="gallery/detail" element={<FamilyGalleryDetail />} />
             <Route path="message" element={<FamilyMessage />} />
             <Route path="visit" element={<FamilyVisit />} />
             <Route path="visit/register" element={<FamilyVisitRegister />} />

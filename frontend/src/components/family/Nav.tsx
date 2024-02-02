@@ -2,24 +2,29 @@ import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { white, black, deep, medium } from '../../assets/styles/palettes';
 import { Link, useLocation } from 'react-router-dom';
-import FlexRowContainer from '../common/FlexRowContainer';
+// import FlexRowContainer from '../common/FlexRowContainer';
 import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
 import { ReactComponent as GalleryIcon } from '../../assets/icons/gallery.svg';
 import { ReactComponent as MessageIcon } from '../../assets/icons/message.svg';
 import { ReactComponent as VisitIcon } from '../../assets/icons/visit.svg';
 import { ReactComponent as ProfileIcon } from '../../assets/icons/profile.svg';
 
-const NavDiv = styled(FlexRowContainer)`
+const NavDiv = styled.nav`
+  display: flex;
+  height: 7.9vh;
+  width: 100vw;
+  justify-content: space-around;
   background-color: ${white};
-  padding: 10px 0;
-  border-top: 2px solid ${black};
+  border-top: 0.1vh solid ${black};
+  position: fixed;
+  bottom: 0;
 `;
 
 const NavLink = styled(Link)<{ $isActived: boolean }>`
   text-decoration-line: none;
   display: flex;
   justify-content: center;
-  width: 4%;
+  width: 20%;
   color: ${medium};
   ${(props) =>
     props.$isActived &&
@@ -45,19 +50,19 @@ function Nav() {
   return (
     <NavDiv className="family-nav">
       <NavLink to="/family" $isActived={actived === 'home'}>
-        <HomeIcon className="home-icon" />
+        <HomeIcon className="home-icon" width="40%" />
       </NavLink>
       <NavLink to="/family/visit" $isActived={actived === 'visit'}>
-        <VisitIcon className="visit-icon" />
+        <VisitIcon className="visit-icon" width="40%" />
       </NavLink>
       <NavLink to="/family/message" $isActived={actived === 'message'}>
-        <MessageIcon className="message-icon" />
+        <MessageIcon className="message-icon" width="40%" />
       </NavLink>
       <NavLink to="/family/gallery" $isActived={actived === 'gallery'}>
-        <GalleryIcon className="gallery-icon" />
+        <GalleryIcon className="gallery-icon" width="40%" />
       </NavLink>
       <NavLink to="/family/profile" $isActived={actived === 'profile'}>
-        <ProfileIcon className="profile-icon" />
+        <ProfileIcon className="profile-icon" width="40%" />
       </NavLink>
     </NavDiv>
   );
