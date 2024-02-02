@@ -1,6 +1,7 @@
 package com.ssafy.ViewCareFull.domain.conference.entity;
 
 import com.ssafy.ViewCareFull.domain.users.entity.PermissionType;
+import com.ssafy.ViewCareFull.domain.users.entity.UserLink;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Hospital;
 import jakarta.persistence.Column;
@@ -17,10 +18,16 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Conference {
 
   @Id
@@ -55,4 +62,14 @@ public class Conference {
 
   @Column(name = "end_datetime")
   private LocalDateTime endDateTime;
+
+  public static Conference of(UserLink userlink, String conferenceDate, String conferenceTime) {
+    return Conference.builder()
+        .guardian(userlink.getGuardian())
+        .hospital(userlink.getHospital())
+        .conferenceDate(LocalDate.parse(conferenceDate))
+        .conferenceTime(LocalTime.parse(conferenceTime))
+        .conferenceState(PermissionType.S)
+        .build();
+  }
 }

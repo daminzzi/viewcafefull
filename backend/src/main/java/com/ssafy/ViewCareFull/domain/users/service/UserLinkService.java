@@ -13,6 +13,7 @@ import com.ssafy.ViewCareFull.domain.users.error.exception.UserLinkNotMatchExcep
 import com.ssafy.ViewCareFull.domain.users.error.exception.UserTypeException;
 import com.ssafy.ViewCareFull.domain.users.repository.UserLinkRepository;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
+import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -39,16 +40,13 @@ public class UserLinkService {
     Users user = securityUsers.getUser();
     if (user.getUserType().equals("Guardian")) {
       if (type.equals("app")) {
-        return new UserLinkListResponseDto(userLinkRepository.findCaregiverByGuardian(user.getId())
-            .orElseThrow(UserLinkNotMatchException::new));
+        return new UserLinkListResponseDto(getCaregiverListByGuardian(user.getId()));
       }
       if (type.equals("tar")) {
-        return new UserLinkListResponseDto(userLinkRepository.findAllGuardianByGuardian(user.getId())
-            .orElseThrow(UserLinkNotMatchException::new));
+        return new UserLinkListResponseDto(getAllUserConnectionByGuardian(user.getId()));
       }
     } else if (user.getUserType().equals("Caregiver")) {
-      return new UserLinkListResponseDto(userLinkRepository.findAllGuardianByCaregiver(user.getId())
-          .orElseThrow(UserLinkNotMatchException::new));
+      return new UserLinkListResponseDto(getGuardianListByCaregiver(user.getId()));
     }
     throw new UserTypeException();
   }
@@ -73,4 +71,35 @@ public class UserLinkService {
   public void deleteLink(Long id) {
     userLinkRepository.deleteById(id);
   }
+
+  public List<UserLink> getGuardianListByCaregiver(Long userId) {
+    return userLinkRepository.findAllGuardianByCaregiver(userId)
+        .orElseThrow(UserLinkNotMatchException::new);
+  }
+
+  public List<UserLink> getGuardianListByCaregiver(String userDomainId) {
+    return userLinkRepository.findAllGuardianByCaregiver(userDomainId)
+        .orElseThrow(UserLinkNotMatchException::new);
+  }
+
+  public List<UserLink> getAllUserConnectionByGuardian(Long userId) {
+    return userLinkRepository.findAllGuardianByGuardian(userId)
+        .orElseThrow(UserLinkNotMatchException::new);
+  }
+
+  public List<UserLink> getAllUserConnectionByGuardian(String userDomainId) {
+    return userLinkRepository.findAllGuardianByGuardian(userDomainId)
+        .orElseThrow(UserLinkNotMatchException::new);
+  }
+
+  public List<UserLink> getCaregiverListByGuardian(Long userId) {
+    return userLinkRepository.findCaregiverByGuardian(userId)
+        .orElseThrow(UserLinkNotMatchException::new);
+  }
+
+  public List<UserLink> getCaregiverListByGuardian(String userDomainId) {
+    return userLinkRepository.findCaregiverByGuardian(userDomainId)
+        .orElseThrow(UserLinkNotMatchException::new);
+  }
+
 }

@@ -48,7 +48,6 @@ public class UsersController {
         .body(loginResponse);
   }
 
-  // TODO:프론트 인증토큰 이름 바꾸기
   @GetMapping("/{provider}/signin")
   public ResponseEntity<LoginResponse> oauthLogin(@PathVariable String provider,
       @RequestParam String code) {
