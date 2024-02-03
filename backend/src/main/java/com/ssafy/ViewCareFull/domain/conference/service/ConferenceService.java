@@ -53,4 +53,11 @@ public class ConferenceService {
         .orElseThrow(() -> new ConferenceException(ConferenceErrorCode.NOT_FOUND_CONFERENCE));
     conference.updatePermissionState(conferenceStateDto);
   }
+  @Transactional
+  public void deleteConference(Long id) {
+    if(!conferenceRepository.existsById(id)){
+      throw new ConferenceException(ConferenceErrorCode.NOT_FOUND_CONFERENCE);
+    }
+    conferenceRepository.deleteById(id);
+  }
 }
