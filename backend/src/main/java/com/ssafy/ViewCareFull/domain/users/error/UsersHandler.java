@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class UsersHandler {
 
   @ExceptionHandler(UsersException.class)
-  public ResponseEntity<?> UsersExceptionHandler(UsersException e) {
+  public ResponseEntity<?> usersExceptionHandler(UsersException e) {
     log.error("[handleUsersException] {} : {}", e.getErrorCode().name(), e.getErrorCode().getMessage());
     if (e.getErrorCode() == UserErrorCode.NOT_FOUND_OAUTH_USER) {
       return ResponseEntity.status(e.getErrorCode().getHttpStatus())

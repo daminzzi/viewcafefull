@@ -1,6 +1,9 @@
 package com.ssafy.ViewCareFull.domain.conference.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -13,13 +16,15 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ConferenceReservation {
+public class ConferenceReservationDto {
 
   private List<Participant> applicationList;
   private String targetId;
   private String permissionId;
-  private String conferenceDate;
-  private String conferenceTime;
+  @JsonFormat(pattern = "yyyyMMdd")
+  private LocalDate conferenceDate;
+  @JsonFormat(pattern = "HH:mm")
+  private LocalTime conferenceTime;
   @JsonIgnore
   private Set<String> applicationIds;
 
