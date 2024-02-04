@@ -16,10 +16,10 @@ public class BaseTime {
 
   @CreatedDate
   @Column(updatable = false)
-  private LocalDateTime createdDate;
+  private LocalDateTime createdDateTime;
 
   @LastModifiedDate
-  private LocalDateTime lastModifiedDate;
+  private LocalDateTime lastModifiedDateTime;
 
 }
 

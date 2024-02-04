@@ -28,7 +28,7 @@ public class ConferenceReservation {
   private Conference conference;
 
   @NotNull
-  @Column(name = "guarioan_id")
+  @Column(name = "guardian_id")
   private Long guardian;
 
   public ConferenceReservation(Conference conference, Long guardian) {

@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ConferenceListDto {
+public class ConferenceInfoListDto {
   private List<ConferenceInfo> conferenceList;
 }

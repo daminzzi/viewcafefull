@@ -1,19 +1,24 @@
 package com.ssafy.ViewCareFull.domain.conference.controller;
 
+import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceInfoListDto;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceReservationDto;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceStateDto;
 import com.ssafy.ViewCareFull.domain.conference.service.ConferenceService;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
+import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -26,14 +31,15 @@ public class ConferenceController {
   @PostMapping
   public ResponseEntity<Void> reserveConference(@AuthenticationPrincipal SecurityUsers securityUser,
       @RequestBody ConferenceReservationDto conferenceReservation) {
-    conferenceService.reserveConference(conferenceReservation);
+    conferenceService.reserveConference(securityUser, conferenceReservation);
     return ResponseEntity.status(HttpStatus.CREATED).build();
   }
 
   @PatchMapping("/{id}")
-  public ResponseEntity<Void> updateConferencePermissionState(@PathVariable Long id,
+  public ResponseEntity<Void> updateConferencePermissionState(@AuthenticationPrincipal SecurityUsers securityUsers,
+      @PathVariable Long id,
       @RequestBody ConferenceStateDto conferenceStateDto) {
-    conferenceService.updateConferencePermissionState(id, conferenceStateDto);
+    conferenceService.updateConferencePermissionState(securityUsers, id, conferenceStateDto);
     return ResponseEntity.status(HttpStatus.OK).build();
   }
 
@@ -41,5 +47,16 @@ public class ConferenceController {
   public ResponseEntity<Void> deleteConference(@PathVariable Long id) {
     conferenceService.deleteConference(id);
     return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+  }
+
+  @GetMapping("/{type}")
+  public ResponseEntity<ConferenceInfoListDto> getConferenceList(
+      @AuthenticationPrincipal SecurityUsers securityUser, @PathVariable String type,
+      @RequestParam("domain-id") String domainId,
+      @RequestParam(value = "start", required = false) @DateTimeFormat(pattern = "yyyyMMdd") LocalDate startDate,
+      @RequestParam(value = "end", required = false) @DateTimeFormat(pattern = "yyyyMMdd") LocalDate endDate,
+      @RequestParam(value = "order", required = false) String order) {
+    return ResponseEntity.status(HttpStatus.OK)
+        .body(conferenceService.getConferenceList(securityUser, type, domainId, startDate, endDate, order));
   }
 }
