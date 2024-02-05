@@ -36,11 +36,9 @@ public class BestPhoto {
 
   private Integer score;
 
-  public static BestPhoto createBestPhoto(Image image, Conference conference, int score) {
-    return BestPhoto.builder()
-        .image(image)
-        .conference(conference)
-        .score(score)
-        .build();
+  public BestPhoto(Image image, Conference conference, int score) {
+    this.image = image;
+    this.conference = conference;
+    this.score = score;
   }
 }

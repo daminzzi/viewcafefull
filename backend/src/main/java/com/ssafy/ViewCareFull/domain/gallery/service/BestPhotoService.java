@@ -2,6 +2,8 @@ package com.ssafy.ViewCareFull.domain.gallery.service;
 
 import com.ssafy.ViewCareFull.domain.conference.entity.Conference;
 import com.ssafy.ViewCareFull.domain.conference.service.ConferenceService;
+import com.ssafy.ViewCareFull.domain.gallery.dto.BestPhotoDto;
+import com.ssafy.ViewCareFull.domain.gallery.dto.ConferenceBestPhotoResponse;
 import com.ssafy.ViewCareFull.domain.gallery.entity.BestPhoto;
 import com.ssafy.ViewCareFull.domain.gallery.entity.Image;
 import com.ssafy.ViewCareFull.domain.gallery.exception.NoBestPhotoException;
@@ -31,13 +33,22 @@ public class BestPhotoService {
     Image image = galleryService.saveImage(securityUsers, imageFile);
     Conference conference = conferenceService.getConferenceById(Long.valueOf(conferenceId));
     int score = gcpService.detectFace(image.getImageUrl());
-    BestPhoto bestPhoto = BestPhoto.createBestPhoto(image, conference, score);
-    bestPhotoRepository.save(bestPhoto);
+    bestPhotoRepository.save(new BestPhoto(image, conference, score));
   }
 
-  public List<BestPhoto> getBestPhoto(String conferenceId) {
-    List<BestPhoto> bestPhotoList = bestPhotoRepository.findByConferenceId(Long.valueOf(conferenceId))
-        .orElseThrow(() -> new NoBestPhotoException());
-    return bestPhotoList;
+  public ConferenceBestPhotoResponse getBestPhoto(String conferenceId) {
+    List<BestPhotoDto> bestPhotoList = bestPhotoRepository.findByConferenceId(Long.valueOf(conferenceId))
+        .orElseThrow(() -> new NoBestPhotoException())
+        .stream()
+        .map(this::convertBestPhotoDto)
+        .toList();
+    return new ConferenceBestPhotoResponse(conferenceId, bestPhotoList);
+  }
+
+  private BestPhotoDto convertBestPhotoDto(BestPhoto bestPhoto) {
+    String imageUrl = galleryService.getImageUrl(bestPhoto.getImage().getId());
+    return BestPhotoDto.builder()
+        .url(imageUrl)
+        .build();
   }
 }

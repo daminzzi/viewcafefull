@@ -1,10 +1,9 @@
 package com.ssafy.ViewCareFull.domain.gallery.controller;
 
-import com.ssafy.ViewCareFull.domain.gallery.entity.BestPhoto;
+import com.ssafy.ViewCareFull.domain.gallery.dto.ConferenceBestPhotoResponse;
 import com.ssafy.ViewCareFull.domain.gallery.service.BestPhotoService;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import java.io.IOException;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +34,7 @@ public class BestPhotoController {
   }
 
   @GetMapping
-  public ResponseEntity<List<BestPhoto>> getBestPhoto(
+  public ResponseEntity<ConferenceBestPhotoResponse> getBestPhoto(
       @RequestParam("conferenceId") String coneferenceId) {
     return new ResponseEntity<>(bestPhotoService.getBestPhoto(coneferenceId), HttpStatus.OK);
   }
