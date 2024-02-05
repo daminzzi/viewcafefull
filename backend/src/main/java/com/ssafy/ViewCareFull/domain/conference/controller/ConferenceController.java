@@ -1,6 +1,7 @@
 package com.ssafy.ViewCareFull.domain.conference.controller;
 
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceInfoListDto;
+import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceInfoSummaryDto;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceReservationDto;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceStateDto;
 import com.ssafy.ViewCareFull.domain.conference.service.ConferenceService;
@@ -58,5 +59,12 @@ public class ConferenceController {
       @RequestParam(value = "order", required = false) String order) {
     return ResponseEntity.status(HttpStatus.OK)
         .body(conferenceService.getConferenceList(securityUser, type, domainId, startDate, endDate, order));
+  }
+
+  @GetMapping("/per")
+  public ResponseEntity<ConferenceInfoSummaryDto> getConferenceList(
+      @AuthenticationPrincipal SecurityUsers securityUser) {
+    return ResponseEntity.status(HttpStatus.OK)
+        .body(conferenceService.getMainConferenceList(securityUser));
   }
 }

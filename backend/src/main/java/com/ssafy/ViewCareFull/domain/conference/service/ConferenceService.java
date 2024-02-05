@@ -2,12 +2,15 @@ package com.ssafy.ViewCareFull.domain.conference.service;
 
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceInfo;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceInfoListDto;
+import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceInfoSummaryDto;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceReservationDto;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceStateDto;
+import com.ssafy.ViewCareFull.domain.conference.dto.TodayConferenceInfo;
 import com.ssafy.ViewCareFull.domain.conference.entity.Conference;
 import com.ssafy.ViewCareFull.domain.conference.error.ConferenceErrorCode;
 import com.ssafy.ViewCareFull.domain.conference.error.exception.ConferenceException;
 import com.ssafy.ViewCareFull.domain.conference.repository.ConferenceRepository;
+import com.ssafy.ViewCareFull.domain.users.entity.PermissionType;
 import com.ssafy.ViewCareFull.domain.users.entity.UserLink;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
@@ -43,7 +46,7 @@ public class ConferenceService {
 
     for (UserLink userLink : userLinkByCaregiver) {
       if (chkApply(conferenceReservationDto.getApplicationIds(), userLink.getGuardian())) {
-        if (userLink.getGuardian().getId() == securityUser.getUser().getId()) {
+        if (userLink.getGuardian().getId().equals(securityUser.getUser().getId())) {
           conference.linkApplicationUsers(userLink);
         }
         conference.addReservationList(userLink);
@@ -68,7 +71,7 @@ public class ConferenceService {
 
   @Transactional
   public void deleteConference(Long id) {
-    if (!conferenceRepository.existsById(id)) {
+    if(!conferenceRepository.existsById(id)){
       throw new ConferenceException(ConferenceErrorCode.NOT_FOUND_CONFERENCE);
     }
     conferenceRepository.deleteById(id);
@@ -106,6 +109,20 @@ public class ConferenceService {
     }
     return conferenceRepository.findAllByGuardianId(guardianId).orElseGet(Collections::emptyList);
   }
+
+
+  public int countNewReservation(SecurityUsers securityUser) {
+    return conferenceRepository.countByHospitalIdAndPermissionState(securityUser.getUser().getId(), PermissionType.S);
+  }
+
+  public ConferenceInfoSummaryDto getMainConferenceList(SecurityUsers securityUser) {
+    int newConferenceCnt = countNewReservation(securityUser);
+    List<TodayConferenceInfo> todayConferenceList =
+        getConferenceListByHospital(securityUser.getUser().getId(), LocalDate.now(), LocalDate.now()).stream()
+            .map((TodayConferenceInfo::new)).toList();
+    return new ConferenceInfoSummaryDto(newConferenceCnt, todayConferenceList);
+  }
+
 
   public Conference getConferenceById(Long conferenceId) {
     return conferenceRepository.getConferenceById(conferenceId)
