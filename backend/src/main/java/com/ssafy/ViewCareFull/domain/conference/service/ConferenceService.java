@@ -5,6 +5,7 @@ import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceInfoListDto;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceInfoSummaryDto;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceReservationDto;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceStateDto;
+import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceTodayListDto;
 import com.ssafy.ViewCareFull.domain.conference.dto.TodayConferenceInfo;
 import com.ssafy.ViewCareFull.domain.conference.entity.Conference;
 import com.ssafy.ViewCareFull.domain.conference.error.ConferenceErrorCode;
@@ -22,6 +23,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -77,17 +80,29 @@ public class ConferenceService {
     conferenceRepository.deleteById(id);
   }
 
-  public ConferenceInfoListDto getConferenceList(SecurityUsers securityUser, String type, String domainId,
-      LocalDate startDate, LocalDate endDate, String order) {
+  public ConferenceTodayListDto getConferenceList(SecurityUsers securityUser, String type,
+      LocalDate startDate, LocalDate endDate, String order, Pageable pageable) {
 
     Users user = securityUser.getUser();
 
     if ("app".equals(type) && "Guardian".equals(user.getUserType())) {
-      return ConferenceInfo.toList(
-          getConferenceListByGuardian(user.getId(), startDate, endDate), order);
+      ConferenceInfoListDto conferenceInfoListDto = ConferenceInfo.toList(
+          getConferenceListByGuardian(user.getId(), startDate, endDate, pageable).getContent(), order);
+
+      List<TodayConferenceInfo> todayConferenceInfoList = conferenceRepository.findAllByGuardianIdAndPermissionState(
+              user.getId(), PermissionType.A, LocalDate.now())
+          .orElseGet(Collections::emptyList)
+          .stream()
+          .map(TodayConferenceInfo::new).toList();
+
+      return new ConferenceTodayListDto(conferenceInfoListDto, todayConferenceInfoList);
+
     } else if ("per".equals(type) && "Hospital".equals(user.getUserType())) {
-      return ConferenceInfo.toList(getConferenceListByHospital(user.getId(), startDate, endDate),
+      ConferenceInfoListDto conferenceListDto = ConferenceInfo.toList(
+          getConferenceListByHospital(user.getId(), startDate, endDate),
           order);
+
+      return new ConferenceTodayListDto(conferenceListDto, null);
     }
     throw new ConferenceException(ConferenceErrorCode.INVALID_TYPE);
   }
@@ -95,19 +110,18 @@ public class ConferenceService {
   public List<Conference> getConferenceListByHospital(Long hospitalId, LocalDate startDate, LocalDate endDate) {
     if (startDate != null && endDate != null) {
       return conferenceRepository.findAllByHospitalIdBetweenDate(hospitalId, startDate.atStartOfDay(),
-              endDate.atTime(LocalTime.MAX))
-          .orElseGet(Collections::emptyList);
+          endDate.atTime(LocalTime.MAX)).orElseGet(Collections::emptyList);
     }
     return conferenceRepository.findAllByHospitalId(hospitalId).orElseGet(Collections::emptyList);
   }
 
-  public List<Conference> getConferenceListByGuardian(Long guardianId, LocalDate startDate, LocalDate endDate) {
+  public Page<Conference> getConferenceListByGuardian(Long guardianId, LocalDate startDate, LocalDate endDate,
+      Pageable pageable) {
     if (startDate != null && endDate != null) {
       return conferenceRepository.findAllByGuardianIdBetweenDate(guardianId, startDate.atStartOfDay(),
-              endDate.atTime(LocalTime.MAX))
-          .orElseGet(Collections::emptyList);
+          endDate.atTime(LocalTime.MAX), pageable);
     }
-    return conferenceRepository.findAllByGuardianId(guardianId).orElseGet(Collections::emptyList);
+    return conferenceRepository.findAllByGuardianId(guardianId, pageable);
   }
 
 
@@ -118,7 +132,8 @@ public class ConferenceService {
   public ConferenceInfoSummaryDto getMainConferenceList(SecurityUsers securityUser) {
     int newConferenceCnt = countNewReservation(securityUser);
     List<TodayConferenceInfo> todayConferenceList =
-        getConferenceListByHospital(securityUser.getUser().getId(), LocalDate.now(), LocalDate.now()).stream()
+        getConferenceListByHospital(securityUser.getUser().getId(), LocalDate.now(), LocalDate.now())
+            .stream()
             .map((TodayConferenceInfo::new)).toList();
     return new ConferenceInfoSummaryDto(newConferenceCnt, todayConferenceList);
   }

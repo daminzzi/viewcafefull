@@ -8,6 +8,8 @@ import com.ssafy.ViewCareFull.domain.conference.service.ConferenceService;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,15 +52,16 @@ public class ConferenceController {
     return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
   }
 
-  @GetMapping("/{type}")
-  public ResponseEntity<ConferenceInfoListDto> getConferenceList(
+  @GetMapping("/{type}/list")
+  public ResponseEntity<? extends ConferenceInfoListDto> getConferenceList(
       @AuthenticationPrincipal SecurityUsers securityUser, @PathVariable String type,
-      @RequestParam("domain-id") String domainId,
       @RequestParam(value = "start", required = false) @DateTimeFormat(pattern = "yyyyMMdd") LocalDate startDate,
       @RequestParam(value = "end", required = false) @DateTimeFormat(pattern = "yyyyMMdd") LocalDate endDate,
-      @RequestParam(value = "order", required = false) String order) {
+      @RequestParam(value = "order", required = false) String order,
+      @RequestParam(value = "page", required = false, defaultValue = "1") Integer page) {
+    Pageable pageable = PageRequest.of(page - 1, 10);
     return ResponseEntity.status(HttpStatus.OK)
-        .body(conferenceService.getConferenceList(securityUser, type, domainId, startDate, endDate, order));
+        .body(conferenceService.getConferenceList(securityUser, type, startDate, endDate, order, pageable));
   }
 
   @GetMapping("/per")

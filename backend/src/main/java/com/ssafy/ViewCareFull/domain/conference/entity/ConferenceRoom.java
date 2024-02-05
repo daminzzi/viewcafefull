@@ -29,9 +29,6 @@ public class ConferenceRoom {
   @Column(name = "room_name")
   private String roomName;
 
-  @Column(name = "conference_link")
-  private String conferenceLink;
-
   @Column(name = "start_datetime")
   private LocalDateTime startDateTime;
 
@@ -42,9 +39,8 @@ public class ConferenceRoom {
     this.conference = conference;
   }
 
-  public void updateConferenceRoomInfo(String roomName, String conferenceLink) {
+  public void updateConferenceRoomInfo(String roomName) {
     this.roomName = roomName;
-    this.conferenceLink = conferenceLink;
   }
 
   public void startConference(LocalDateTime startDateTime) {

@@ -20,13 +20,12 @@ public class ConferenceInfo {
 
   private String applicationId;
   private String targetName;
-  private String targetRoom;
   private String permissionId;
   private LocalDateTime createdDatetime;
   private String conferenceDate;
   private String conferenceTime;
   private PermissionType conferenceState;
-  private String conferenceLink;
+  private String sessionName;
   private LocalDateTime startDatetime;
   private LocalDateTime endDatetime;
 
@@ -41,7 +40,7 @@ public class ConferenceInfo {
         .conferenceState(conference.getConferenceState());
 
     if (conference.getConferenceState() == PermissionType.A) {
-      conferenceInfoBuilder.conferenceLink(conference.getConferenceRoom().getConferenceLink())
+      conferenceInfoBuilder.sessionName(conference.getConferenceRoom().getRoomName())
           .startDatetime(conference.getConferenceRoom().getStartDateTime())
           .endDatetime(conference.getConferenceRoom().getEndDateTime());
     }

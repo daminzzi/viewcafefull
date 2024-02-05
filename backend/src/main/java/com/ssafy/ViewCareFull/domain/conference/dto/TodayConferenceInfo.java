@@ -26,8 +26,10 @@ public class TodayConferenceInfo {
     this.targetName = conference.getCaregiver().getUserName();
     this.conferenceDate = conference.getConferenceDate();
     this.conferenceTime = conference.getConferenceTime();
-    this.startDatetime = conference.getConferenceRoom().getStartDateTime();
-    this.endDatetime = conference.getConferenceRoom().getEndDateTime();
+    if (conference.getConferenceRoom() != null) {
+      this.startDatetime = conference.getConferenceRoom().getStartDateTime();
+      this.endDatetime = conference.getConferenceRoom().getEndDateTime();
+    }
     this.conferenceState = updateConferenceState(LocalDateTime.of(conferenceDate, conferenceTime), startDatetime,
         endDatetime);
   }
