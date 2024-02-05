@@ -1,15 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useConnectStore from '../../../stores/ConnectStore';
-import useUserStore from '../../../stores/userStore';
+import useUserStore from '../../../stores/UserStore';
 import getConnectInfo from '../../../services/connect/getConnectInfo';
 import { Button } from '../../../components/common/Buttons';
 import FlexRowContainer from '../../../components/common/FlexRowContainer';
 import Accordion from '../../../components/common/Accordion';
 import ContentsContainer from '../../../components/common/ContentsContainer';
 import Line from '../../../components/common/Line';
-import NoProfile from '../../assets/images/NoProfile.png';
-import { ReactComponent as Plus } from '../../assets/icons/plus.svg';
+import NoProfile from '../../../assets/images/NoProfile.png';
+import { ReactComponent as Plus } from '../../../assets/icons/plus.svg';
 import { failed, white } from '../../../assets/styles/palettes';
 import * as S from './FamilyProfile.styles';
 

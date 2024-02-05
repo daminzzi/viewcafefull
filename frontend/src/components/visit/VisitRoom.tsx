@@ -1,65 +1,53 @@
 import React, { useEffect, useState } from 'react';
-import { Device, OpenVidu, Publisher, Subscriber } from 'openvidu-browser';
-import axios from 'axios';
+import { OpenVidu, Publisher, Session, Subscriber } from 'openvidu-browser';
 import UserVideo from './UserVideo';
-
-const APPLICATION_SERVER_URL = process.env.REACT_APP_SPRING_URL;
+import useStreamStore from '../../stores/StreamStore';
+import useUserStore from '../../stores/UserStore';
+import { useNavigate, useParams } from 'react-router-dom';
+import postSession from '../../services/visit/postSession';
+import postToken from '../../services/visit/postToken';
 
 function VisitRoom() {
-  const OV = new OpenVidu();
-  const session = OV.initSession();
-  const sessionId = 'sessionA';
-  const myUserName = 'Participant' + Math.floor(Math.random() * 100);
+  let OV: OpenVidu;
+  let session: Session;
+  let sessionId = '';
+  const myUserName = useUserStore().user?.name;
+  const { subscriberList, addSubscriber, delSubscriber, resetSubscriberList } =
+    useStreamStore();
+  const navigator = useNavigate();
+  const params = useParams<{ id: string }>();
+  sessionId = params.id ? params.id : '';
   console.log(sessionId, myUserName);
-  const [mainStreamManager, setMainStreamManager] = useState<
-    Publisher | Subscriber | null
-  >(null);
-  const [currentVideoDevice, setCurrentVideoDevice] = useState<Device | null>(
-    null,
-  );
-  const [subscriberList, setSubscriberList] = useState<Subscriber[]>([]);
+
   const [publisher, setPublisher] = useState<Publisher | null>(null);
-
-  function handleMainVideoStream(stream: Publisher | Subscriber) {
-    if (mainStreamManager !== stream) {
-      setMainStreamManager(stream);
-    }
-  }
-
-  function deleteSubscriber(streamManager: Subscriber) {
-    if (subscriberList === null) {
-      return;
-    }
-    const subscribers: Subscriber[] = subscriberList;
-    const index = subscribers.indexOf(streamManager, 0);
-    if (index > -1) {
-      subscribers.splice(index, 1);
-      setSubscriberList(subscribers);
-    }
-  }
+  const [isVideoEnabled, setIsVideoEnabled] = useState(true);
+  const [isAudioEnabled, setIsAudioEnabled] = useState(true);
 
   const joinSession = async () => {
+    console.log('joinSession');
     if (OV !== null) {
-      // setSession(OV.initSession());
       const mySession = session;
 
-      mySession?.on('streamCreated', (event) => {
+      mySession.on('streamCreated', (event) => {
+        // console.log('new stream created detected');
         const subscriber = mySession.subscribe(event.stream, undefined);
-        setSubscriberList([...subscriberList, subscriber]);
+        // console.log('SubList - ', subscriberList);
+        addSubscriber(subscriber);
+        // console.log('add new subscriber');
       });
 
-      mySession?.on('streamDestroyed', (event) => {
+      mySession.on('streamDestroyed', (event) => {
         if (event.stream.streamManager instanceof Subscriber) {
-          deleteSubscriber(event.stream.streamManager);
+          delSubscriber(event.stream.streamManager);
         }
       });
 
-      mySession?.on('exception', (exception) => {
+      mySession.on('exception', (exception) => {
         console.warn(exception);
       });
 
-      const token = await getToken();
-      mySession?.connect(token, { clientData: myUserName }).then(async () => {
+      const token = await postToken(sessionId);
+      mySession.connect(token, { clientData: myUserName }).then(async () => {
         const publisher = await OV.initPublisherAsync(undefined, {
           audioSource: undefined,
           videoSource: undefined,
@@ -73,32 +61,13 @@ function VisitRoom() {
 
         mySession?.publish(publisher);
 
-        const devices = await OV.getDevices();
-        const videoDevices = devices.filter(
-          (device) => device.kind === 'videoinput',
-        );
-        const currentVideoDeviceId = publisher.stream
-          .getMediaStream()
-          .getVideoTracks()[0]
-          .getSettings().deviceId;
-        const currentVideoDevice = videoDevices.find(
-          (device) => device.deviceId === currentVideoDeviceId,
-        );
-
-        setMainStreamManager(publisher);
         setPublisher(publisher);
-        if (currentVideoDevice !== undefined) {
-          setCurrentVideoDevice(currentVideoDevice);
-        } else {
-          setCurrentVideoDevice(null);
-        }
       });
     }
   };
 
   function leaveSession() {
-    // --- 7) Leave the session by calling 'disconnect' method over the Session object ---
-
+    console.log('leaving session');
     const mySession = session;
 
     if (mySession) {
@@ -106,110 +75,70 @@ function VisitRoom() {
     }
 
     // Empty all properties...
-    // setSession(null);
-    setSubscriberList([]);
-    setMainStreamManager(null);
+    resetSubscriberList();
     setPublisher(null);
+    navigator('/family/visit');
   }
 
-  async function switchCamera() {
-    try {
-      const devices = await OV?.getDevices();
-      const videoDevices = devices?.filter(
-        (device) => device.kind === 'videoinput',
-      );
-
-      if (videoDevices && videoDevices.length > 1) {
-        const newVideoDevice = videoDevices.filter(
-          (device) => device.deviceId !== currentVideoDevice?.deviceId,
-        );
-
-        if (newVideoDevice.length > 0) {
-          // Creating a new publisher with specific videoSource
-          // In mobile devices the default and first camera is the front one
-          const newPublisher = OV?.initPublisher(undefined, {
-            videoSource: newVideoDevice[0].deviceId,
-            publishAudio: true,
-            publishVideo: true,
-            mirror: true,
-          });
-
-          if (
-            mainStreamManager !== null &&
-            mainStreamManager instanceof Publisher
-          ) {
-            //newPublisher.once("accessAllowed", () => {
-            await session?.unpublish(mainStreamManager);
-            if (newPublisher) {
-              await session?.publish(newPublisher);
-
-              setMainStreamManager(newPublisher);
-              setPublisher(newPublisher);
-              setCurrentVideoDevice(newVideoDevice[0]);
-            }
-          }
-        }
-      }
-    } catch (e) {
-      console.error(e);
+  function toggleVideo() {
+    console.log('toggleVideo');
+    if (publisher) {
+      // 비디오 상태 토글
+      publisher.publishVideo(!isVideoEnabled);
+      setIsVideoEnabled(!isVideoEnabled);
+      console.log(isVideoEnabled);
+      console.log(publisher.publishVideo);
     }
   }
 
-  async function getToken() {
-    return await createToken(sessionId);
+  function toggleAudio() {
+    console.log('toggleAudio');
+    if (publisher) {
+      // 오디오 상태 토글
+      publisher.publishAudio(!isAudioEnabled);
+      setIsAudioEnabled(!isAudioEnabled);
+      console.log(isAudioEnabled);
+    }
   }
 
-  async function createSession(sessionId: string) {
-    const response = await axios.post(
-      APPLICATION_SERVER_URL + '/openvidu/sessions',
-      { customSessionId: sessionId },
-      {
-        headers: { 'Content-Type': 'application/json' },
-      },
-    );
-    return response.data; // The sessionId
-  }
-
-  async function createToken(sessionId: string) {
-    const response = await axios.post(
-      APPLICATION_SERVER_URL + `/openvidu/sessions/${sessionId}/connections`,
-      {},
-      {
-        headers: { 'Content-Type': 'application/json' },
-      },
-    );
-    return response.data; // The token
+  function renderSubscriberList() {
+    return subscriberList.map((sub) => (
+      <div key={sub.id}>
+        <span>{sub.id}</span>
+        <UserVideo streamManager={sub} />
+      </div>
+    ));
   }
 
   useEffect(() => {
-    createSession('sessionA');
-    joinSession();
+    const init = async () => {
+      OV = new OpenVidu();
+      session = OV.initSession();
+      await postSession(sessionId);
+      await joinSession();
+      console.log('useEffect');
+    };
+    init();
   }, []);
 
   return (
     <div>
       <header>면회실 헤더</header>
-      <button type="button" onClick={() => leaveSession}>
+      <button type="button" onClick={leaveSession}>
         나가기
       </button>
-      <button type="button" onClick={() => switchCamera}>
-        카메라 전환
-      </button>
-      {mainStreamManager !== null ? (
-        <UserVideo streamManager={mainStreamManager} />
-      ) : null}
       <div>
-        {publisher !== null ? (
-          <div onClick={() => handleMainVideoStream(publisher)}>
-            <UserVideo streamManager={publisher} />
-          </div>
-        ) : null}
-        {subscriberList.map((sub) => (
-          <div key={sub.id} onClick={() => handleMainVideoStream(sub)}>
-            <span>{sub.id}</span>
-            <UserVideo streamManager={sub} />
-          </div>
-        ))}
+        {publisher !== null ? <UserVideo streamManager={publisher} /> : null}
+        <div>위에는 나 밑에는 다른 사람들 {subscriberList.length}</div>
+        {renderSubscriberList()}
+      </div>
+      <div>
+        <button type="button" onClick={toggleVideo}>
+          카메라
+        </button>
+        <button type="button" onClick={toggleAudio}>
+          마이크
+        </button>
       </div>
     </div>
   );

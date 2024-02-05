@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import MessageDetailModal from '../../components/message/MessageDetailModal';
 import Pagination from '../../components/common/Pagination';
 import MessageSimple from '../../components/message/MessageSimple';
-import useUserStore from '../../stores/userStore';
+import useUserStore from '../../stores/UserStore';
 
 // 간병인 - 보낸 메세지 페이지별 조회
 

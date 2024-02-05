@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import postConnection from '../../services/connect/postConnection';
-import useUserStore from '../../stores/userStore';
+import useUserStore from '../../stores/UserStore';
 import { useNavigate } from 'react-router-dom';
 
 function ConnectRegister() {

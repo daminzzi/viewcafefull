@@ -8,7 +8,7 @@ import MessageDetailModal from '../../components/message/MessageDetailModal';
 import Pagination from '../../components/common/Pagination';
 // import getReadMessage from '../../services/message/getReadMessage';
 import MessageSimple from '../../components/message/MessageSimple';
-import useUserStore from '../../stores/userStore';
+import useUserStore from '../../stores/UserStore';
 
 // 보호자 - 받은 메세지 페이지별 조회
 

@@ -35,11 +35,11 @@ const useGalleryStore = create<State & Action>((set) => ({
   },
 
   addPage: () => {
-    set((state) => ({page: state.page + 1}));
+    set((state) => ({ page: state.page + 1 }));
   },
 
   addInfo: (newInfo) => {
-    set((state) => ({ galleryInfo: state.galleryInfo.concat(newInfo)}))
+    set((state) => ({ galleryInfo: state.galleryInfo.concat(newInfo) }));
   },
 
   reset: () => {

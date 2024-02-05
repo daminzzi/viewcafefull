@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import useUserStore from '../../stores/userStore';
+import useUserStore from '../../stores/UserStore';
 import GoogleLoginButton from '../../components/common/GoogleLoginButton';
 import Input from '../../components/common/Input';
 import KakaoButton from '../../assets/images/kakao_login_medium_wide.png';

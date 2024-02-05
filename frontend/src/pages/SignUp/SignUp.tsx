@@ -2,7 +2,7 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import axios from 'axios';
-import useUserStore from '../../stores/userStore';
+import useUserStore from '../../stores/UserStore';
 import api from '../../services/api';
 import { Button, DisabledButton } from '../../components/common/Buttons';
 import Input from '../../components/common/Input';

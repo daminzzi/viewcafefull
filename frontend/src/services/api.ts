@@ -1,7 +1,7 @@
 // /* eslint-disable import/no-cycle */
 
 import axios from 'axios';
-import useUserStore from '../stores/userStore';
+import useUserStore from '../stores/UserStore';
 import refreshAccessToken from './user/refreshAccessToken';
 
 // axios 인스턴스 생성

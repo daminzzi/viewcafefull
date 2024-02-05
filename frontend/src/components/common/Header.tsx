@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import useUserStore from '../../stores/userStore';
+import useUserStore from '../../stores/UserStore';
 
 function Header() {
   const navigate = useNavigate();

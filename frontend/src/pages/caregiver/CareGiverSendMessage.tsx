@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import postSendMessage from '../../services/message/postSendMessage';
-import useUserStore from '../../stores/userStore';
+import useUserStore from '../../stores/UserStore';
 import { useNavigate } from 'react-router-dom';
 
 function CareGiverSendMessage() {
