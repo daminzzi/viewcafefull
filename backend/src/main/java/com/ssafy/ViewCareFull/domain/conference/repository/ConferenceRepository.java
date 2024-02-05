@@ -25,4 +25,7 @@ public interface ConferenceRepository extends JpaRepository<Conference, Long> {
   @Query("SELECT c FROM Conference c WHERE c.id IN (SELECT r.conference.id FROM ConferenceReservation r WHERE r.guardian = :applicationId) and c.createdDateTime between :startDate and :endDate ORDER BY c.id DESC")
   Optional<List<Conference>> findAllByGuardianIdBetweenDate(@Param("applicationId") Long applicationId,
       @Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
+
+  @Query("SELECT c FROM Conference c WHERE c.id = :conferenceId")
+  Optional<Conference> getConferenceById(@Param("conferenceId") Long conferenceId);
 }

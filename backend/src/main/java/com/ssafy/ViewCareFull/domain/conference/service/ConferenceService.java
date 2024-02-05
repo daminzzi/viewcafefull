@@ -68,7 +68,7 @@ public class ConferenceService {
 
   @Transactional
   public void deleteConference(Long id) {
-    if(!conferenceRepository.existsById(id)){
+    if (!conferenceRepository.existsById(id)) {
       throw new ConferenceException(ConferenceErrorCode.NOT_FOUND_CONFERENCE);
     }
     conferenceRepository.deleteById(id);
@@ -105,5 +105,10 @@ public class ConferenceService {
           .orElseGet(Collections::emptyList);
     }
     return conferenceRepository.findAllByGuardianId(guardianId).orElseGet(Collections::emptyList);
+  }
+
+  public Conference getConferenceById(Long conferenceId) {
+    return conferenceRepository.getConferenceById(conferenceId)
+        .orElseThrow(() -> new ConferenceException(ConferenceErrorCode.NOT_FOUND_CONFERENCE));
   }
 }
