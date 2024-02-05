@@ -3,7 +3,7 @@ package com.ssafy.ViewCareFull.domain.condition.service;
 
 import com.ssafy.ViewCareFull.domain.condition.dto.ConditionRequestDto;
 import com.ssafy.ViewCareFull.domain.condition.dto.ConditionResponseDto;
-import com.ssafy.ViewCareFull.domain.condition.entity.Condition;
+import com.ssafy.ViewCareFull.domain.condition.entity.Conditions;
 import com.ssafy.ViewCareFull.domain.condition.repository.ConditionRepository;
 import com.ssafy.ViewCareFull.domain.gallery.exception.NoMatchCaregiverException;
 import com.ssafy.ViewCareFull.domain.users.dto.CaregiverIdDto;
@@ -33,11 +33,11 @@ public class ConditionService {
   @Transactional
   public HttpStatus saveOrUpdate(SecurityUsers securityUsers, ConditionRequestDto requestDto) {
     Users user = securityUsers.getUser();
-    Optional<Condition> object = conditionRepository.findByUserAndDateAndTime(user, requestDto.getDay(),
+    Optional<Conditions> object = conditionRepository.findByUserAndDateAndTime(user, requestDto.getDay(),
         requestDto.getTimeType());
     if (object.isPresent()) {
-      Condition condition = object.get();
-      condition.updateCondition(requestDto.getConditionType());
+      Conditions conditions = object.get();
+      conditions.updateCondition(requestDto.getConditionType());
       return HttpStatus.OK;
     }
     conditionRepository.save(requestDto.toEntity(user));
@@ -49,21 +49,21 @@ public class ConditionService {
     CaregiverIdDto caregiverDto = userLinkService.getCareGiverIdFromOtherUser(user.getId())
         .orElseThrow(NoMatchCaregiverException::new);
     Users caregiver = usersService.getUser(caregiverDto.getCaregiverId());
-    List<Condition> conditionList = conditionRepository.findByUserAndDateBetween(caregiver, start, end);
-    Map<LocalDate, ConditionResponseDto> map = getLocalDateConditionResponseDtoMap(conditionList);
+    List<Conditions> conditionsList = conditionRepository.findByUserAndDateBetween(caregiver, start, end);
+    Map<LocalDate, ConditionResponseDto> map = getLocalDateConditionResponseDtoMap(conditionsList);
     return List.copyOf(map.values());
   }
 
   private static Map<LocalDate, ConditionResponseDto> getLocalDateConditionResponseDtoMap(
-      List<Condition> conditionList) {
+      List<Conditions> conditionsList) {
     Map<LocalDate, ConditionResponseDto> map = new HashMap<>();
-    for (Condition condition : conditionList) {
-      if (map.containsKey(condition.getDate())) {
-        ConditionResponseDto dto = map.get(condition.getDate());
-        dto.updateData(condition);
+    for (Conditions conditions : conditionsList) {
+      if (map.containsKey(conditions.getDate())) {
+        ConditionResponseDto dto = map.get(conditions.getDate());
+        dto.updateData(conditions);
         continue;
       }
-      map.put(condition.getDate(), new ConditionResponseDto(condition));
+      map.put(conditions.getDate(), new ConditionResponseDto(conditions));
     }
     return map;
   }

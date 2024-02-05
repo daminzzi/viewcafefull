@@ -46,7 +46,7 @@ public class Schedule {
 
   @NotNull
   @Enumerated(EnumType.STRING)
-  @Column
+  @Column(name = "day_type")
   private DayType day;
 
 }

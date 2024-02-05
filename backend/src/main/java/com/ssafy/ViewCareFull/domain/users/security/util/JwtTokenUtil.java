@@ -21,7 +21,7 @@ public class JwtTokenUtil {
 
   static public String getAccessToken(HttpServletRequest req) {
     String bearerToken = req.getHeader("Authorization");
-    if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("bearer ")) {
+    if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
       return bearerToken.substring(7);
     }
     return null;
@@ -30,7 +30,8 @@ public class JwtTokenUtil {
   public TokenInfo getJwtToken(String id, String password) {
     UsernamePasswordAuthenticationToken authenticationToken =
         new UsernamePasswordAuthenticationToken(id, password);
-
+    System.out.println("=====================================");
+    System.out.println("id: " + id + " password: " + password);
     Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
 
     return jwtTokenProvider.generateToken((SecurityUsers) authentication.getPrincipal());

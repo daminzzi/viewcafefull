@@ -36,8 +36,7 @@ public class MessageService {
 
   @Transactional
   public MessageDto readMessage(SecurityUsers securityUsers, String id) {
-    String domainId = securityUsers.getUsername();
-    Message message = messageRepository.findByIdAndMemberId(Long.parseLong(id), domainId)
+    Message message = messageRepository.findById(Long.parseLong(id))
         .orElseThrow(NoMessageException::new);
     message.readThisMessage();
     return MessageDto.of(message);

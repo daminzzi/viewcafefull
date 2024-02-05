@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Table(name = "conditions")
-public class Condition {
+public class Conditions {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -5,7 +5,6 @@ import com.ssafy.ViewCareFull.domain.message.dto.MessageListResponseDto;
 import com.ssafy.ViewCareFull.domain.message.dto.MessageRequestDto;
 import com.ssafy.ViewCareFull.domain.message.service.MessageService;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
-import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -63,7 +62,7 @@ public class MessageController {
   @DeleteMapping("/{id}")
   public ResponseEntity<String> deleteMessage(
       @AuthenticationPrincipal SecurityUsers securityUsers,
-      @PathParam("id") String id) {
+      @PathVariable("id") String id) {
     messageService.deleteMessage(securityUsers, id);
     return ResponseEntity.status(204).body("success");
   }

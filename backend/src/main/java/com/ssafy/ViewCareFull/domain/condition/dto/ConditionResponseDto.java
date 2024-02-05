@@ -1,6 +1,6 @@
 package com.ssafy.ViewCareFull.domain.condition.dto;
 
-import com.ssafy.ViewCareFull.domain.condition.entity.Condition;
+import com.ssafy.ViewCareFull.domain.condition.entity.Conditions;
 import lombok.Getter;
 
 @Getter
@@ -9,14 +9,14 @@ public class ConditionResponseDto {
   private String date;
   private ConditionDataDto data;
 
-  public ConditionResponseDto(Condition condition) {
-    this.date = condition.getDate().toString();
+  public ConditionResponseDto(Conditions conditions) {
+    this.date = conditions.getDate().toString();
     this.data = new ConditionDataDto();
-    updateData(condition);
+    updateData(conditions);
   }
 
-  public void updateData(Condition condition) {
-    String text = condition.getCondition().toString();
+  public void updateData(Conditions conditions) {
+    String text = conditions.getCondition().toString();
     if (text.equals("GOOD")) {
       text = "좋음";
     }
@@ -26,7 +26,7 @@ public class ConditionResponseDto {
     if (text.equals("BAD")) {
       text = "나쁨";
     }
-    switch (condition.getTime()) {
+    switch (conditions.getTime()) {
       case MORNING:
         this.data.updateMorning(text);
         break;
