@@ -73,11 +73,11 @@ function FamilyProfile() {
         </S.Dict>
         <S.Dict>
           <span>생년월일</span>
-          <div>{`${user.birth.slice(0, 4)}. ${user.birth.slice(4, 6)}. ${user.birth.slice(6)}`}</div>
+          <div>{user.birth}</div>
         </S.Dict>
         <S.NoLineDict>
           <span>휴대전화</span>
-          <div>{`${user.phoneNumber.slice(0, 3)} - ${user.phoneNumber.slice(3, 7)} - ${user.phoneNumber.slice(7)}`}</div>
+          <div>{user.phoneNumber}</div>
         </S.NoLineDict>
       </ContentsContainer>
       <S.Title>입소자</S.Title>
