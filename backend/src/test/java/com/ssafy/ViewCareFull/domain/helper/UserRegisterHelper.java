@@ -79,4 +79,16 @@ public class UserRegisterHelper {
         .password("1234")
         .build()).getAccessToken();
   }
+
+  public Caregiver getCaregiver() {
+    return (Caregiver) usersRepository.findByDomainId("caregiver").get();
+  }
+
+  public Guardian getGuardian() {
+    return (Guardian) usersRepository.findByDomainId("guardian").get();
+  }
+
+  public Hospital getHospital() {
+    return (Hospital) usersRepository.findByDomainId("hospital").get();
+  }
 }
