@@ -56,6 +56,7 @@ dependencies {
 
     //FileUtils - base64 To File
     implementation 'commons-io:commons-io:2.11.0'
+    implementation 'org.springframework:spring-test:6.1.2'
 
     // h2
     implementation 'com.h2database:h2'
