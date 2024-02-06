@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import checkMark from '../../assets/images/check-mark.png';
+import checkMark from '../../assets/images/checkMark.png';
 import { white, gray } from '../../assets/styles/palettes';
 
 export const HiddenCheckBox = styled.input.attrs({ type: 'checkbox' })`
