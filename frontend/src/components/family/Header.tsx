@@ -12,6 +12,7 @@ const HeaderDiv = styled.header`
   padding: 0 10px;
   align-items: center;
   position: sticky;
+  z-index: 1;
   top: 0;
 `;
 

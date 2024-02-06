@@ -8,16 +8,14 @@ export const HiddenCheckBox = styled.input.attrs({ type: 'checkbox' })`
     transform: scale(1);
   }
 `;
-
-export const ShowCheckBox = styled.label`
+export const ShowCheckBox = styled.label<{ isChecked: boolean }>`
   position: relative;
-  padding-left: 30px;
   cursor: pointer;
   &:before {
     content: '';
     position: absolute;
     left: 0;
-    top: -3px;
+    top: 0;
     width: 20px;
     height: 20px;
     border: 1px solid ${gray};
@@ -27,13 +25,13 @@ export const ShowCheckBox = styled.label`
   &:after {
     content: '';
     position: absolute;
-    left: 5px;
-    top: 2px;
+    left: 4px;
+    top: 4px;
     width: 12px;
     height: 12px;
     border-radius: 3;
     background: url(${checkMark}) center/cover no-repeat;
-    transform: scale(0);
+    transform: ${(props) => (props.isChecked ? 'scale(1)' : 'scale(0)')};
     transition: all 0.2s ease;
   }
 `;

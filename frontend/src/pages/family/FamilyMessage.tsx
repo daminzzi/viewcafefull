@@ -9,6 +9,16 @@ import Pagination from '../../components/common/Pagination';
 // import getReadMessage from '../../services/message/getReadMessage';
 import MessageSimple from '../../components/message/MessageSimple';
 import useUserStore from '../../stores/UserStore';
+import { ShowCheckBox, HiddenCheckBox } from '../../components/common/CheckBox';
+import Title from '../../components/common/Title';
+import { Button } from '../../components/common/Buttons';
+import { black, failed, success, white } from '../../assets/styles/palettes';
+import styled from 'styled-components';
+import Line from '../../components/common/Line';
+import Input from '../../components/common/Input';
+import search from '../../assets/images/search.png';
+import FlexRowContainer from '../../components/common/FlexRowContainer';
+import FlexColContainer from '../../components/common/FlexColContainer';
 
 // 보호자 - 받은 메세지 페이지별 조회
 
@@ -44,14 +54,30 @@ function FamilyMessage() {
     const messageList = [];
     for (let i = 0; i < messagesData.messages.length; i++) {
       const message = messagesData.messages[i];
+      const isChecked = checkedMessages.some((m) => m.id === message.id);
       messageList.push(
         <Fragment key={message.id}>
-          <MessageSimple openModal={openModal} message={message} />
-          <input
-            type="checkbox"
-            checked={checkedMessages.some((m) => m.id === message.id)}
-            onChange={(e) => handleCheckboxChange(e, message)}
-          />
+          <FlexRowContainer
+            $margin="10px 0 0 0"
+            $padding="0 0 7px 0"
+            $position="relative"
+            $justifyContent="stretch"
+            $alignItems="stretch"
+          >
+            <SubContainer>
+              <HiddenCheckBox
+                id={`message-checkbox-${message.id}`}
+                checked={isChecked}
+                onChange={(e) => handleCheckboxChange(e, message)}
+              />
+              <ShowCheckBox
+                htmlFor={`message-checkbox-${message.id}`}
+                isChecked={isChecked}
+              />
+            </SubContainer>
+            <MessageSimple openModal={openModal} message={message} />
+          </FlexRowContainer>
+
           <hr />
         </Fragment>,
       );
@@ -60,12 +86,13 @@ function FamilyMessage() {
   }
 
   // 메세지 검색
-  const handleSearch = (e: React.FormEvent) => {
+  function handleSearch(e: React.FormEvent) {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const input = form.elements.namedItem('keyword') as HTMLInputElement;
     setKeyword(input.value);
-  };
+    setCurrentPage(1);
+  }
 
   // 체크박스의 상태가 변경될 때
   function handleCheckboxChange(
@@ -84,24 +111,33 @@ function FamilyMessage() {
 
   // 모두 읽음 버튼 눌렀을 때
   async function handleReadClick() {
-    const promises = checkedMessages.map((message) =>
-      postReadMessage(message.id),
-    );
+    // 체크된 메시지 각각에 대해 postReadMessage 호출
+    const promises = [];
+    for (let i = 0; i < checkedMessages.length; i++) {
+      promises.push(postReadMessage(checkedMessages[i].id));
+    }
+
     try {
       // 모든 메세지의 읽음 처리가 완료될 때까지 대기
       await Promise.all(promises);
       setMessagesData((prev) => {
         if (!prev) return null;
         // 새로운 메시지 목록(updatedMessages)생성
-        const updatedMessages = prev.messages.map((message) =>
-          checkedMessages.some(
-            // 현재 가리키고 있는 메세지가 체크된 메세지인 경우
-            (checkedMessage) => checkedMessage.id === message.id,
-          ) // 1. 읽음 처리
-            ? { ...message, isRead: true }
-            : // 2. 그대로 유지
-              message,
-        );
+        const updatedMessages = [];
+        for (let i = 0; i < prev.messages.length; i++) {
+          const message = prev.messages[i];
+          if (
+            checkedMessages.some(
+              (checkedMessage) => checkedMessage.id === message.id,
+            )
+          ) {
+            // 현재 가리키고 있는 메세지가 체크된 메세지인 경우 읽음 처리
+            updatedMessages.push({ ...message, isRead: true });
+          } else {
+            // 그대로 유지
+            updatedMessages.push(message);
+          }
+        }
         // 이전 메세지 목록 기존 정보 유지하고, 메세지 목록 새롭게 업데이트해서 반환
         return { ...prev, messages: updatedMessages };
       });
@@ -131,17 +167,36 @@ function FamilyMessage() {
   }
 
   return (
-    <div>
-      <div>메세지</div>
-      <button onClick={handleReadClick}>선택 읽음</button>
-      <div>
-        {messagesData.unreadMsgs}/{messagesData.sum}
-      </div>
+     <div>
+      <Title icon="message">메세지</Title>
+      <FlexColContainer $alignItems="end" $justifyContent="stretch">
+        <SearchForm onSubmit={handleSearch}>
+          <Input
+            $width="195px"
+            type="text"
+            name="keyword"
+            placeholder="검색어를 입력하세요."
+          />
+          <SearchButton type="submit"></SearchButton>
+        </SearchForm>
+      </FlexColContainer>
 
-      <form onSubmit={handleSearch}>
-        <input type="text" name="keyword" placeholder="검색어를 입력하세요." />
-        <button type="submit">검색</button>
-      </form>
+      <SubContainer>
+        <ReadText>
+          <UnReadMsgs>{messagesData.unreadMsgs}</UnReadMsgs>
+          <span>/{messagesData.sum} 안 읽음</span>
+        </ReadText>
+        <Button
+          $bgColor={success}
+          $width="98px"
+          $padding="9px"
+          $color={white}
+          onClick={handleReadClick}
+        >
+          선택 읽기
+        </Button>
+      </SubContainer>
+      <Line $borderColor={black} />
 
       {renderMessages()}
 
@@ -164,3 +219,38 @@ function FamilyMessage() {
 }
 
 export default FamilyMessage;
+
+const UnReadMsgs = styled.span`
+  color: ${failed};
+`;
+
+const SubContainer = styled.div`
+  margin: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const SearchForm = styled.form`
+  position: relative;
+  width: 210px;
+`;
+
+const ReadText = styled.div`
+  margin-top: 15px;
+`;
+
+const SearchButton = styled.button`
+  position: absolute;
+  margin-right: 13px;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 100%;
+  background-image: url(${search});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+`;

@@ -11,6 +11,9 @@ type Props = {
   $alignItems?: string;
   $gap?: string;
   $borderColor?: string;
+  $position?: string;
+  $right?: string;
+  $top?: string;
 };
 
 const FlexRowContainer = styled.div<Props>`
@@ -68,6 +71,21 @@ const FlexRowContainer = styled.div<Props>`
     props.$borderColor &&
     css`
       border-color: ${props.$borderColor};
+    `}
+  ${(props) =>
+    props.$position &&
+    css`
+      position: ${props.$position};
+    `}
+  ${(props) =>
+    props.$right &&
+    css`
+      right: ${props.$right};
+    `}
+  ${(props) =>
+    props.$top &&
+    css`
+      top: ${props.$top};
     `}
 `;
 

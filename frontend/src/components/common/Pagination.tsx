@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ReactComponent as ChevronRight } from '../../assets/icons/chevron-right.svg';
 import { ReactComponent as ChevronLeft } from '../../assets/icons/chevron-left.svg';
 import { white, success, black } from '../../assets/styles/palettes';
+import FlexRowContainer from './FlexRowContainer';
 
 type PaginationProps = {
   currentPage: number;
@@ -57,21 +58,25 @@ function Pagination({
   }
 
   // 이전 페이지 그룹으로 이동
-  const handlePrevClick = () => {
+  function handlePrevClick() {
     if (startPage > 1) {
       setCurrentPage(Math.max(startPage - pageGroupSize, 1));
     }
-  };
+  }
 
   // 다음 페이지 그룹으로 이동
-  const handleNextClick = () => {
+  function handleNextClick() {
     if (endPage < totalPage) {
       setCurrentPage(startPage + pageGroupSize);
     }
-  };
+  }
 
   return (
-    <Container>
+    <FlexRowContainer
+      $justifyContent="center"
+      $padding="0 0 10px 0"
+      $width="auto"
+    >
       <ChevronButton onClick={handlePrevClick} disabled={startPage === 1}>
         <ChevronLeft width="35px" />
       </ChevronButton>
@@ -79,7 +84,7 @@ function Pagination({
       <ChevronButton onClick={handleNextClick} disabled={endPage === totalPage}>
         <ChevronRight width="35px" />
       </ChevronButton>
-    </Container>
+    </FlexRowContainer>
   );
 }
 
@@ -105,19 +110,12 @@ const PageButton = styled.button<{ active?: boolean }>`
   color: ${(props) => (props.active ? white : { black })};
 `;
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  padding-bottom: 10px;
-  margin: 2%;
-`;
-
 const PagesContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 3%;
   width: 20%;
-  padding-top: 4px;
+  padding-top: 2px;
 
   @media (max-width: 600px) {
     width: 50%;
