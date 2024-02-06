@@ -37,8 +37,10 @@ public class GalleryService {
   @Transactional
   public Image saveImage(SecurityUsers securityUsers, MultipartFile image) {
     Users user = securityUsers.getUser();
+    System.out.println("111111111111111111111111111111111");
     CaregiverIdDto caregiverIdDto = userLinkService.getCareGiverIdFromOtherUser(user.getId())
         .orElseThrow(NoMatchCaregiverException::new);
+    System.out.println("222222222222222222222222222222222");
     String ext = getImageExtension(image);
     String fileName = UUID.randomUUID().toString() + ext;
     String saveLocation = fileRealPath + fileName;

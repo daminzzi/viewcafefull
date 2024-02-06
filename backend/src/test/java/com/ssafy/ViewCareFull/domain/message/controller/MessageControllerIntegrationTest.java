@@ -5,20 +5,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.epages.restdocs.apispec.MockMvcRestDocumentationWrapper;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssafy.ViewCareFull.DatabaseCleanup;
+import com.ssafy.ViewCareFull.domain.helper.UserRegisterHelper;
 import com.ssafy.ViewCareFull.domain.message.dto.MessageDto;
 import com.ssafy.ViewCareFull.domain.message.dto.MessageRequestDto;
 import com.ssafy.ViewCareFull.domain.message.entity.Message;
 import com.ssafy.ViewCareFull.domain.message.repository.MessageRepository;
 import com.ssafy.ViewCareFull.domain.message.service.MessageService;
-import com.ssafy.ViewCareFull.domain.users.dto.LinkRequestDto;
-import com.ssafy.ViewCareFull.domain.users.dto.LoginForm;
-import com.ssafy.ViewCareFull.domain.users.entity.user.Caregiver;
-import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
-import com.ssafy.ViewCareFull.domain.users.entity.user.Hospital;
-import com.ssafy.ViewCareFull.domain.users.repository.UsersRepository;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.security.jwt.JwtAuthenticationFilter;
-import com.ssafy.ViewCareFull.domain.users.service.UserLinkService;
 import com.ssafy.ViewCareFull.domain.users.service.UsersService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,7 +26,7 @@ import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation;
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.restdocs.request.RequestDocumentation;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
@@ -54,34 +48,25 @@ class MessageControllerIntegrationTest {
   @Autowired
   private MessageRepository messageRepository;
   @Autowired
-  private UsersService usersService;
-  @Autowired
-  private UsersRepository usersRepository;
-  @Autowired
   private JwtAuthenticationFilter jwtAuthenticationFilter;
   @Autowired
   private ObjectMapper objectMapper;
   @Autowired
-  private UserLinkService userLinkService;
-  @Autowired
   private DatabaseCleanup databaseCleanup;
+  @Autowired
+  private UserRegisterHelper userRegisterHelper;
+  @Autowired
+  private UsersService usersService;
 
   @BeforeEach
   void setUp(WebApplicationContext context, RestDocumentationContextProvider restDocumentation) {
-
-    // database truncate and start id 1
     databaseCleanup.execute();
+    userRegisterHelper.execute(context);
 
     mockMvc = MockMvcBuilders.webAppContextSetup(context)
         .apply(MockMvcRestDocumentation.documentationConfiguration(restDocumentation))
         .addFilter(jwtAuthenticationFilter)
         .build();
-    PasswordEncoder passwordEncoder = context.getBean(PasswordEncoder.class);
-    Hospital hospital = saveHospital(passwordEncoder);
-    saveCaregiver(passwordEncoder, hospital);
-    Guardian guardian = saveGuardian(passwordEncoder);
-    makeLink(guardian);
-    saveMessage();
   }
 
   private void saveMessage() {
@@ -94,44 +79,6 @@ class MessageControllerIntegrationTest {
     messageRepository.save(message);
   }
 
-  private void makeLink(Guardian guardian) {
-    userLinkService.addLink(new SecurityUsers(guardian), LinkRequestDto.builder()
-        .targetCode("token")
-        .relationship("test")
-        .build());
-  }
-
-  private Guardian saveGuardian(PasswordEncoder passwordEncoder) {
-    Guardian guardian = Guardian.builder()
-        .domainId("guardian")
-        .password(passwordEncoder.encode("1234"))
-        .userName("guardian")
-        .build();
-    usersRepository.save(guardian);
-    return guardian;
-  }
-
-  private void saveCaregiver(PasswordEncoder passwordEncoder, Hospital hospital) {
-    Caregiver caregiver = Caregiver.builder()
-        .domainId("caregiver")
-        .password(passwordEncoder.encode("1234"))
-        .userName("caregiver")
-        .hospital(hospital)
-        .token("token")
-        .build();
-    usersRepository.save(caregiver);
-  }
-
-  private Hospital saveHospital(PasswordEncoder passwordEncoder) {
-    Hospital hospital = Hospital.builder()
-        .domainId("hospital")
-        .password(passwordEncoder.encode("1234"))
-        .userName("hospital")
-        .build();
-    usersRepository.save(hospital);
-    return hospital;
-  }
-
   @Nested
   @DisplayName("메세지 조회")
   class getMessage {
@@ -140,11 +87,17 @@ class MessageControllerIntegrationTest {
     @DisplayName("[성공] 보호자 메세지 조회")
     void getMessages() throws Exception {
       mockMvc.perform(RestDocumentationRequestBuilders.get("/msg")
-              .header("Authorization", getGuardianAccessToken())
-              .param("page", "1")
-              .param("keyword", ""))
+              .header("Authorization", userRegisterHelper.getGuardianAccessToken())
+              .queryParam("page", "1")
+              .queryParam("keyword", ""))
           .andExpect(status().isOk())
-          .andDo(MockMvcRestDocumentationWrapper.document("보호자 메세지 조회"));
+          .andDo(MockMvcRestDocumentationWrapper.document(
+              "보호자 메세지 조회",
+              RequestDocumentation.queryParameters(
+                  RequestDocumentation.parameterWithName("page").description("페이지 번호"),
+                  RequestDocumentation.parameterWithName("keyword").description("검색어")
+              )
+          ));
 
     }
 
@@ -152,7 +105,7 @@ class MessageControllerIntegrationTest {
     @DisplayName("[성공] 간병인 메세지 조회")
     void getMessages2() throws Exception {
       mockMvc.perform(RestDocumentationRequestBuilders.get("/msg")
-              .header("Authorization", getCaregiverAccessToken())
+              .header("Authorization", userRegisterHelper.getCaregiverAccessToken())
               .param("page", "1")
               .param("keyword", ""))
           .andExpect(status().isOk());
@@ -174,7 +127,7 @@ class MessageControllerIntegrationTest {
           .build();
 
       mockMvc.perform(RestDocumentationRequestBuilders.post("/msg")
-              .header("Authorization", getCaregiverAccessToken())
+              .header("Authorization", userRegisterHelper.getCaregiverAccessToken())
               .contentType("application/json")
               .content(objectMapper.writeValueAsString(messageRequestDto)))
           .andExpect(status().isCreated())
@@ -193,7 +146,7 @@ class MessageControllerIntegrationTest {
     @DisplayName("[성공] 메세지 단건 조회")
     void getMessageDetail() throws Exception {
       mockMvc.perform(RestDocumentationRequestBuilders.get("/msg/{id}", 1)
-              .header("Authorization", getGuardianAccessToken()))
+              .header("Authorization", userRegisterHelper.getGuardianAccessToken()))
           .andExpect(status().isOk())
           .andDo(MockMvcRestDocumentationWrapper.document("메세지 단건 조회"));
     }
@@ -208,7 +161,7 @@ class MessageControllerIntegrationTest {
     @DisplayName("[성공] 메세지 읽기")
     void readMessage() throws Exception {
       mockMvc.perform(RestDocumentationRequestBuilders.post("/msg/{id}", 1)
-              .header("Authorization", getGuardianAccessToken()))
+              .header("Authorization", userRegisterHelper.getGuardianAccessToken()))
           .andExpect(status().isOk())
           .andDo(MockMvcRestDocumentationWrapper.document("메세지 읽기"));
       MessageDto messageDto = messageService.readMessage(new SecurityUsers(usersService.getUser("guardian")), "1");
@@ -224,7 +177,7 @@ class MessageControllerIntegrationTest {
     @DisplayName("[성공] 메세지 삭제")
     void deleteMessage() throws Exception {
       mockMvc.perform(RestDocumentationRequestBuilders.delete("/msg/{id}", 1)
-              .header("Authorization", getGuardianAccessToken()))
+              .header("Authorization", userRegisterHelper.getGuardianAccessToken()))
           .andExpect(status().isNoContent())
           .andDo(MockMvcRestDocumentationWrapper.document("메세지 삭제"));
 
@@ -232,17 +185,4 @@ class MessageControllerIntegrationTest {
     }
   }
 
-  private String getCaregiverAccessToken() {
-    return "Bearer " + usersService.login(LoginForm.builder()
-        .id("caregiver")
-        .password("1234")
-        .build()).getAccessToken();
-  }
-
-  private String getGuardianAccessToken() {
-    return "Bearer " + usersService.login(LoginForm.builder()
-        .id("guardian")
-        .password("1234")
-        .build()).getAccessToken();
-  }
 }
