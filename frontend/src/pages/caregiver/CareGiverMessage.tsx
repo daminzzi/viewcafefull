@@ -8,6 +8,12 @@ import MessageDetailModal from '../../components/message/MessageDetailModal';
 import Pagination from '../../components/common/Pagination';
 import MessageSimple from '../../components/message/MessageSimple';
 import useUserStore from '../../stores/UserStore';
+import Title from '../../components/common/Title';
+import { black, failed, success, white } from '../../assets/styles/palettes';
+import styled from 'styled-components';
+import Line from '../../components/common/Line';
+import FlexRowContainer from '../../components/common/FlexRowContainer';
+import { Button } from '../../components/common/Buttons';
 
 // 간병인 - 보낸 메세지 페이지별 조회
 
@@ -25,7 +31,7 @@ function CareGiverMessage() {
     async function fetchData() {
       const res = await getMessage(currentPage);
       setMessagesData(res);
-    }
+    };
     fetchData();
   }, [currentPage, messagesData]);
 
@@ -44,7 +50,16 @@ function CareGiverMessage() {
       const message = messagesData.messages[i];
       messageList.push(
         <Fragment key={message.id}>
-          <MessageSimple openModal={openModal} message={message} />
+          <FlexRowContainer
+            $margin="10px 0 0 0"
+            $padding="0 0 7px 0"
+            $position="relative"
+            $justifyContent="stretch"
+            $alignItems="stretch"
+          >
+            <MessageSimple openModal={openModal} message={message} />
+          </FlexRowContainer>
+
           <hr />
         </Fragment>,
       );
@@ -52,7 +67,7 @@ function CareGiverMessage() {
     return messageList;
   }
 
-  // 상세보기 할 메세지 선택
+  // 상세보기 할 메세지 선택(더미테스트코드)
   function openModal(message: Message) {
     setSelectedMessage(message);
   }
@@ -64,13 +79,23 @@ function CareGiverMessage() {
 
   return (
     <div>
-      <div>메세지</div>
-      <div>
-        {messagesData.unreadMsgs}/{messagesData.sum}
-      </div>
-      <button onClick={() => navigate('/caregiver/message/send')}>
-        메세지 작성
-      </button>
+      <Title icon="message">메세지</Title>
+      <SubContainer>
+        <ReadText>
+          <UnReadMsgs>{messagesData.unreadMsgs}</UnReadMsgs>
+          <span>/{messagesData.sum} 안 읽음</span>
+        </ReadText>
+        <Button
+          $bgColor={success}
+          $color={white}
+          $width="100px"
+          $padding="10px"
+          onClick={() => navigate('/caregiver/message/send')}
+        >
+          메세지 작성
+        </Button>
+      </SubContainer>
+      <Line $borderColor={black} />
 
       {renderMessages()}
 
@@ -93,3 +118,17 @@ function CareGiverMessage() {
 }
 
 export default CareGiverMessage;
+
+const UnReadMsgs = styled.span`
+  color: ${failed};
+`;
+
+const ReadText = styled.div`
+  margin-top: 15px;
+`;
+
+const SubContainer = styled.div`
+  margin: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+`;
