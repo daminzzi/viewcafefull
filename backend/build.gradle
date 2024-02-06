@@ -54,6 +54,9 @@ dependencies {
     //gcp
     implementation 'com.google.cloud:google-cloud-vision:3.31.0'
 
+    //FileUtils - base64 To File
+    implementation 'commons-io:commons-io:2.11.0'
+
     // h2
     implementation 'com.h2database:h2'
 
