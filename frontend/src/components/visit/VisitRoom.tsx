@@ -6,8 +6,9 @@ import useUserStore from '../../stores/UserStore';
 import { useNavigate, useParams } from 'react-router-dom';
 import postSession from '../../services/visit/postSession';
 import postToken from '../../services/visit/postToken';
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
 import { styled } from 'styled-components';
+import ToolBar from './ToolBar';
 
 function VisitRoom() {
   const { subscriberList, addSubscriber, delSubscriber, resetSubscriberList } =
@@ -110,17 +111,17 @@ function VisitRoom() {
     ));
   }
 
-  async function capturePublisher() {
-    if (captureRef.current) {
-      try {
-        const canvas = await html2canvas(captureRef.current);
-        const imageDataURL = canvas.toDataURL('image/jpeg');
-        console.log(imageDataURL);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  }
+  // async function capturePublisher() {
+  //   if (captureRef.current) {
+  //     try {
+  //       const canvas = await html2canvas(captureRef.current);
+  //       const imageDataURL = canvas.toDataURL('image/jpeg');
+  //       console.log(imageDataURL);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  // }
 
   useEffect(() => {
     const init = async () => {
@@ -139,36 +140,28 @@ function VisitRoom() {
 
   return (
     <div>
-      <header>면회실 헤더</header>
-      <button type="button" onClick={leaveSession}>
-        나가기
-      </button>
+      <StyledHeader>면회실 헤더</StyledHeader>
       <VideoGroup>
         <VideoOne ref={captureRef}>
           {publisher !== null ? <UserVideo streamManager={publisher} /> : null}
         </VideoOne>
         {renderSubscriberList()}
       </VideoGroup>
-      <div>
-        <button type="button" onClick={toggleVideo}>
-          카메라
-        </button>
-        <button type="button" onClick={toggleAudio}>
-          마이크
-        </button>
-        <button type="button" onClick={capturePublisher}>
-          캡쳐
-        </button>
-      </div>
+      <ToolBar
+        isVideoEnabled={isVideoEnabled}
+        isAudioEnabled={isAudioEnabled}
+        handleVideo={toggleVideo}
+        handleAudio={toggleAudio}
+        handleLeave={leaveSession}
+      />
     </div>
   );
-  8;
 }
 
 export default VisitRoom;
 
 const VideoGroup = styled.div`
-  height: 85vh;
+  height: 80vh;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -178,4 +171,8 @@ const VideoGroup = styled.div`
 const VideoOne = styled.div`
   display: inline-block;
   height: 50%;
+`;
+
+const StyledHeader = styled.div`
+  height: 7vh;
 `;

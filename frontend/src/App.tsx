@@ -59,7 +59,7 @@ function App() {
             <Route path="gallery/upload" element={<CareGiverGalleryUpload />} />
           </Route>
           <Route path="/report/:id" element={<Report />} />
-          <Route path="/openvidu" element={<VisitRoom />} />
+          <Route path="/openvidu/:id" element={<VisitRoom />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
