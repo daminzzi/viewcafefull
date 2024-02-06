@@ -22,9 +22,10 @@ public class MedicineHistoryController {
 
   private final MedicineHistoryService medicineHistoryService;
 
-  @PostMapping
+  @PostMapping("/{domain-id}")
   public ResponseEntity<String> createMedicineHistory(
       @AuthenticationPrincipal SecurityUsers securityUsers,
+      @PathVariable("domain-id") String domainId,
       @RequestBody MedicineHistoryCreateRequestDto medicineHistoryCreateRequestDto) {
     medicineHistoryService.createMedicineHistory(securityUsers.getUser(), medicineHistoryCreateRequestDto);
     return ResponseEntity.created(null).body("success");
