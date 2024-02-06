@@ -1,42 +1,35 @@
 import React, { useState } from 'react';
-// import React from 'react';
+import useHealthStore from '../../stores/HealthStore';
 import DateBox from './DateBox';
 import FlexRowContainer from '../common/FlexRowContainer';
 
-type Props = {
-  week: Array<Date>;
-  today: Date;
-  selectedDate: Date;
-  handleChangeWeek: (prev: boolean) => void;
-  handleChangeSelectedDate: (newDate: Date) => void;
-};
-
-function Week({
-  week,
-  today,
-  selectedDate,
-  handleChangeSelectedDate,
-  handleChangeWeek,
-}: Props) {
+function Week() {
+  const { week, selectedDate, setSelectedDate } = useHealthStore();
   const [startX, setStartX] = useState<number | null>(null);
   const [moved, setMoved] = useState<boolean>(false);
 
   function renderDate() {
     const result = [];
     for (let i = 0; i < 7; i++) {
-      result.push(
-        <DateBox
-          key={i}
-          date={week[i]}
-          today={today}
-          moved={moved}
-          selectedDate={selectedDate}
-          handleChangeSelectedDate={handleChangeSelectedDate}
-        />
-      );
+      result.push(<DateBox key={i} date={week[i]} moved={moved} />);
     }
 
     return result;
+  }
+
+  function handleChangeWeek(prev: boolean) {
+    if (selectedDate === null) {
+      return null;
+    }
+    if (prev === true) {
+      const newDate = new Date(selectedDate);
+      newDate.setDate(newDate.getDate() - 7);
+      setSelectedDate(newDate);
+    } else if (prev === false) {
+      const newDate = new Date(selectedDate);
+      newDate.setDate(newDate.getDate() + 7);
+      setSelectedDate(newDate);
+    }
   }
 
   return (

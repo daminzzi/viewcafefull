@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { ReactComponent as ChevronDownIcon } from '../../assets/icons/chevron-down.svg';
-import { ReactComponent as ChevronUpIcon } from '../../assets/icons/chevron-up.svg';
+import { ReactComponent as ChevronDownIcon } from '../../assets/icons/chevronDown.svg';
+import { ReactComponent as ChevronUpIcon } from '../../assets/icons/chevronUp.svg';
 import styled from 'styled-components';
 import FlexColContainer from './FlexColContainer';
 import FlexRowContainer from './FlexRowContainer';

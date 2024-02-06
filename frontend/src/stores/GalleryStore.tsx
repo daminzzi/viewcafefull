@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 type State = {
-  galleryInfo: Array<Data>;
+  galleryInfo: Array<GalleryData>;
   page: number;
   isLoading: boolean;
   isCallable: boolean;
@@ -11,14 +11,13 @@ type Action = {
   switchIsLoading: () => void;
   switchIsCallable: () => void;
   addPage: () => void;
-  addInfo: (newInfo: Array<Data>) => void;
+  addInfo: (newInfo: Array<GalleryData>) => void;
   reset: () => void;
 };
 
 const initialState: State = {
   galleryInfo: [],
   page: 1,
-  // target: null,
   isLoading: false,
   isCallable: true,
 };

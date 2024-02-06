@@ -1,15 +1,9 @@
 import React from 'react';
 import FlexRowContainer from '../common/FlexRowContainer';
 import styled from 'styled-components';
-import { ReactComponent as ChevronRight } from '../../assets/icons/chevron-right.svg';
-import { ReactComponent as ChevronLeft } from '../../assets/icons/chevron-left.svg';
-import { isSameDate } from './DateBox';
-
-type Props = {
-  selectedDate: Date;
-  week: Array<Date>;
-  handleChangeSelectedDate: (newDate: Date) => void;
-};
+import { ReactComponent as ChevronRight } from '../../assets/icons/chevronRight.svg';
+import { ReactComponent as ChevronLeft } from '../../assets/icons/chevronLeft.svg';
+import useHealthStore, { isSameDate } from '../../stores/HealthStore';
 
 const Span = styled.span`
   font-size: 2rem;
@@ -21,7 +15,8 @@ const ChevronButton = styled.button`
   background: none;
 `;
 
-function YearMonth({ selectedDate, week, handleChangeSelectedDate }: Props) {
+function YearMonth() {
+  const { week, selectedDate, setSelectedDate } = useHealthStore();
   let res = false;
   for (let i = 0; i < 7; i++) {
     if (isSameDate(week[i], selectedDate)) {
@@ -31,20 +26,24 @@ function YearMonth({ selectedDate, week, handleChangeSelectedDate }: Props) {
   }
 
   function handleChangeMonth(prev: boolean) {
-    if (prev) {
+    if (selectedDate === null) {
+      return null;
+    }
+
+    if (prev === true) {
       const newDate = new Date(
         `${selectedDate.getMonth() === 0 ? selectedDate.getFullYear() - 1 : selectedDate.getFullYear()}-
         ${selectedDate.getMonth() === 0 ? 12 : selectedDate.getMonth()}-
         ${selectedDate.getDate()}`,
       );
-      handleChangeSelectedDate(newDate);
-    } else {
+      setSelectedDate(newDate);
+    } else if (prev === false) {
       const newDate = new Date(
         `${selectedDate.getMonth() === 11 ? selectedDate.getFullYear() + 1 : selectedDate.getFullYear()}-
         ${selectedDate.getMonth() === 11 ? 1 : selectedDate.getMonth() + 2}-
         ${selectedDate.getDate()}`,
       );
-      handleChangeSelectedDate(newDate);
+      setSelectedDate(newDate);
     }
   }
 
@@ -57,9 +56,11 @@ function YearMonth({ selectedDate, week, handleChangeSelectedDate }: Props) {
       <ChevronButton onClick={() => handleChangeMonth(true)}>
         <ChevronLeft width="2rem" />
       </ChevronButton>
-      <Span>
-        {`${res ? selectedDate.getFullYear() : week[0].getFullYear()}.${res ? selectedDate.getMonth() + 1 : week[0].getMonth() + 1}`}
-      </Span>
+      {selectedDate && (
+        <Span>
+          {`${res ? selectedDate.getFullYear() : week[0].getFullYear()}.${res ? selectedDate.getMonth() + 1 : week[0].getMonth() + 1}`}
+        </Span>
+      )}
       <ChevronButton onClick={() => handleChangeMonth(false)}>
         <ChevronRight width="2rem" />
       </ChevronButton>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ReactComponent as EnvelopeSimpleClosed } from '../../assets/icons/EnvelopeSimpleClosed.svg';
-import { ReactComponent as EnvelopeSimpleOpen } from '../../assets/icons/EnvelopeSimpleOpen.svg';
+import { ReactComponent as EnvelopeSimpleClosed } from '../../assets/icons/envelopeSimpleClosed.svg';
+import { ReactComponent as EnvelopeSimpleOpen } from '../../assets/icons/envelopeSimpleOpen.svg';
 import { Message } from '../../services/message/getMessage';
 import styled from 'styled-components';
 import FlexRowContainer from '../common/FlexRowContainer';

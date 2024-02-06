@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { white, black, deep, medium } from '../../assets/styles/palettes';
 import { Link, useLocation } from 'react-router-dom';
-// import FlexRowContainer from '../common/FlexRowContainer';
 import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
 import { ReactComponent as GalleryIcon } from '../../assets/icons/gallery.svg';
 import { ReactComponent as MessageIcon } from '../../assets/icons/message.svg';

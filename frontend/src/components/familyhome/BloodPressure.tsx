@@ -1,4 +1,5 @@
 import React from 'react';
+import useHealthStore from '../../stores/HealthStore';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -18,11 +19,6 @@ ChartJS.register(
   Tooltip,
   Legend,
 );
-
-type Props = {
-  lowArr: Array<number>;
-  highArr: Array<number>;
-};
 
 const options = {
   maintainAspectRatio: false,
@@ -46,19 +42,20 @@ const options = {
 
 const label: string[] = ['아침', '점심', '저녁'];
 
-function BloodPressure({ lowArr, highArr }: Props) {
+function BloodPressure() {
+  const { healthInfo } = useHealthStore();
   const data = {
     labels: label,
     datasets: [
       {
         label: '수축 혈압',
-        data: lowArr,
+        data: Object.values(healthInfo.low),
         borderWidth: 1,
         backgroundColor: '#D2B48C',
       },
       {
         label: '이완 혈압',
-        data: highArr,
+        data: Object.values(healthInfo.high),
         borderWidth: 1,
         backgroundColor: '#6EE7B7',
       },

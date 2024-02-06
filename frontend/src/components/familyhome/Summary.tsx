@@ -1,15 +1,6 @@
 import React from 'react';
 import ImageFrame from '../common/ImageFrame';
-
-type Props = {
-  healthInfo: HealthInfo;
-};
-
-function avg(arr: Array<number>): number | null {
-  return arr.length === 0
-    ? null
-    : Math.round(arr.reduce((total, value) => total + value) / arr.length);
-}
+import useHealthStore from '../../stores/HealthStore';
 
 export function renderImage(url: string | null, mealType: string) {
   return url === null ? null : (
@@ -17,34 +8,41 @@ export function renderImage(url: string | null, mealType: string) {
   );
 }
 
-function checkMedicine(medicine: Medicine | null) {
-  return medicine === null ? <span>X</span> : <span>O</span>;
+function avg(obj: HealthInfoData) {
+  let total = 0;
+  let count = 0;
+  if (obj.morning !== null) {
+    total += Number(obj.morning);
+    count += 1;
+  }
+  if (obj.noon !== null) {
+    total += Number(obj.noon);
+    count += 1;
+  }
+  if (obj.dinner !== null) {
+    total += Number(obj.dinner);
+    count += 1;
+  }
+  return count === 0 ? null : Math.round(total / count);
 }
 
-function Summary({ healthInfo }: Props) {
-  const { beforeArr, afterArr, lowArr, highArr, medicineObj, mealObj } =
-    healthInfo;
+function Summary() {
+  const { healthInfo } = useHealthStore();
 
   return (
     <div>
       <p>혈당</p>
-      <p>공복: {avg(beforeArr)}</p>
-      <p>식후: {avg(afterArr)}</p>
+      <p>공복: {avg(healthInfo.before)}</p>
+      <p>식후: {avg(healthInfo.after)}</p>
       <hr />
       <p>혈압</p>
-      <p>이완: {avg(lowArr)}</p>
-      <p>수축: {avg(highArr)}</p>
+      <p>이완: {avg(healthInfo.low)}</p>
+      <p>수축: {avg(healthInfo.high)}</p>
       <hr />
       <p>식단/복약</p>
       <p>아침</p>
-      {renderImage(mealObj.breakfast, 'breakfast')}
-      {checkMedicine(medicineObj.breakfast)}
       <p>점심</p>
-      {renderImage(mealObj.lunch, 'lunch')}
-      {checkMedicine(medicineObj.lunch)}
       <p>저녁</p>
-      {renderImage(mealObj.dinner, 'dinner')}
-      {checkMedicine(medicineObj.dinner)}
     </div>
   );
 }

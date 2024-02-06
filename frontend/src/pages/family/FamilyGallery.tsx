@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PicByDate from '../../components/gallery/PicByDate';
 import getGallery from '../../services/gallery/getGalleryInfo';
 import Title from '../../components/common/Title';
-import { ReactComponent as Spinner } from '../../assets/icons/spinner2.svg';
+import { ReactComponent as Spinner } from '../../assets/icons/spinner.svg';
 import useGalleryStore from '../../stores/GalleryStore';
 
 function FamilyGallery() {
@@ -19,7 +19,7 @@ function FamilyGallery() {
   const [target, setTarget] = useState<HTMLElement | null>(null); // api요청 타겟
 
   // 날짜 별 사진 렌더링 함수
-  function renderPictures(galleryInfo: Array<Data>) {
+  function renderPictures(galleryInfo: Array<GalleryData>) {
     const result: Array<JSX.Element> = [];
     galleryInfo.forEach((info, index) => {
       result.push(<PicByDate key={index} galleryInfo={info} />);

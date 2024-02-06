@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as ChevronRight } from '../../assets/icons/chevron-right.svg';
-import { ReactComponent as ChevronLeft } from '../../assets/icons/chevron-left.svg';
+import { ReactComponent as ChevronRight } from '../../assets/icons/chevronRight.svg';
+import { ReactComponent as ChevronLeft } from '../../assets/icons/chevronLeft.svg';
 import { white, success, black } from '../../assets/styles/palettes';
 import FlexRowContainer from './FlexRowContainer';
 

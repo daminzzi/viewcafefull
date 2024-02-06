@@ -7,7 +7,10 @@ import {
   medium,
 } from '../../assets/styles/palettes';
 
-const DaySpan = styled.span<{ $day?: number; $isToday?: boolean }>`
+const DaySpan = styled.span<{
+  $day?: number | null;
+  $isToday?: boolean | null;
+}>`
   width: 25px;
   height: 25px;
   text-align: center;

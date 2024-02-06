@@ -5,12 +5,12 @@ import FlexRowContainer from '../common/FlexRowContainer';
 import styled from 'styled-components';
 
 type Props = {
-  galleryInfo: Data;
+  galleryInfo: GalleryData;
 };
 
 const Container = styled.div`
   margin: 0 2%;
-`
+`;
 
 const ImagesContainer = styled(FlexRowContainer)`
   flex-wrap: wrap;
