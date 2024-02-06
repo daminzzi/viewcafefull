@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { ReactComponent as XMark } from '../../assets/icons/xMark.svg';
+import { ReactComponent as XMark } from '../assets/icons/xMark.svg';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { black, white } from '../../assets/styles/palettes';
-import FlexColContainer from '../../components/common/FlexColContainer';
+import { black, white } from '../assets/styles/palettes';
+import FlexColContainer from '../components/common/FlexColContainer';
 
 const Container = styled(FlexColContainer)`
   background-color: ${black};
   display: flex;
   width: 100%;
-  height: 84vh;
+  height: 100vh;
   position: relative;
   cursor: pointer;
 `;
@@ -50,7 +50,7 @@ const InnerImage = styled.img`
   user-select: none;
 `;
 
-function FamilyGalleryDetail() {
+function GalleryDetail() {
   const location = useLocation();
   const [isVisible, setIsVisible] = useState(true);
   const navigate = useNavigate();
@@ -73,4 +73,4 @@ function FamilyGalleryDetail() {
   );
 }
 
-export default FamilyGalleryDetail;
+export default GalleryDetail;

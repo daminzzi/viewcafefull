@@ -1,13 +1,19 @@
 import React, { useState, useRef } from 'react';
 import useGalleryStore from '../../stores/GalleryStore';
 import { useNavigate } from 'react-router-dom';
-// import { ReactComponent as PlusCircle } from '../../assets/icons/plusCircle.svg';
 import styled from 'styled-components';
 import Title from '../../components/common/Title';
-import { main3, success, white } from '../../assets/styles/palettes';
+import {
+  main3,
+  success,
+  white,
+  black,
+  gray,
+} from '../../assets/styles/palettes';
 import FlexColContainer from '../../components/common/FlexColContainer';
 import FlexRowContainer from '../../components/common/FlexRowContainer';
 import { RoundedButton } from '../../components/common/Buttons';
+import postGalleryUpload from '../../services/gallery/postGalleryUpload';
 
 const InputContainer = styled.div`
   display: flex;
@@ -19,6 +25,7 @@ const InputContainer = styled.div`
   aspect-ratio: 4 / 3;
   margin: 2vh 0;
   border-radius: 10px;
+  overflow: hidden;
 `;
 
 const StyledLabel = styled.label`
@@ -32,7 +39,7 @@ const HiddenInput = styled.input`
 const InnerImage = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 `;
 
 const BlankButton = styled.button`
@@ -49,12 +56,20 @@ function CareGiverGalleryUpload() {
   const imageInput = useRef<HTMLInputElement>(null);
   const [imageSrc, setImageSrc] = useState('');
   const navigate = useNavigate();
+  const { reset } = useGalleryStore();
 
-  function handleSubmit(e: React.MouseEvent) {
-    const { reset } = useGalleryStore();
+  async function handleSubmit(e: React.MouseEvent) {
     e.preventDefault();
-    reset();
-    navigate('/caregiver/gallery');
+    if (imageSrc) {
+      const formData = new FormData();
+      const files = (imageInput.current as HTMLInputElement).files as FileList;
+      formData.append('image', files[0]);
+      await postGalleryUpload(formData);
+      reset();
+      navigate('/caregiver/gallery');
+    } else {
+      alert('사진을 첨부해주세요.');
+    }
   }
 
   function handleUpload() {
@@ -75,7 +90,7 @@ function CareGiverGalleryUpload() {
   }
 
   function handleClick() {
-    navigate('caregiver/gallery');
+    navigate('/caregiver/gallery');
   }
 
   return (
@@ -95,7 +110,7 @@ function CareGiverGalleryUpload() {
               handleChange(event);
             }}
           />
-          {imageInput && (
+          {imageSrc ? null : (
             <BlankButton onClick={() => handleUpload()}>
               <RoundedButton
                 as="div"
@@ -105,7 +120,7 @@ function CareGiverGalleryUpload() {
                 $borderRadius="2rem"
                 $width="5rem"
                 $padding="0.75rem 1rem"
-                $margin='auto'
+                $margin="auto"
               >
                 사진 첨부
               </RoundedButton>
@@ -115,9 +130,10 @@ function CareGiverGalleryUpload() {
         </InputContainer>
         <FlexRowContainer>
           <RoundedButton
-            $bgColor={success}
-            $color={white}
+            $bgColor={white}
+            $color={black}
             $fontSize="1rem"
+            $border={`2px solid ${gray}`}
             $borderRadius="2rem"
             $width="auto"
             $padding="0.5rem 1.5rem"

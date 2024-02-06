@@ -53,11 +53,10 @@ function Title({ children, icon = null, buttonContents, handleClick }: Props) {
       buttonContents && (
         <Button
           $width="auto"
-          $padding='0.75rem 1.5rem'
+          $padding='0.5rem 1.5rem'
           $bgColor={success}
           $color={white}
           $fontSize="1rem"
-          $borderRadius='2rem'
           onClick={() => {
             if (handleClick) {
               handleClick();

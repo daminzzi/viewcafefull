@@ -11,6 +11,7 @@ interface ButtonProps {
   $padding?: string;
   $hoverColor?: string;
   $borderRadius?: string;
+  $border?: string;
 }
 
 // 공통 버튼
@@ -27,6 +28,7 @@ const Button = styled.button<ButtonProps>`
   font-size: ${(props) => props.$fontSize || '15px'};
   background-color: ${(props) => props.$bgColor || main3};
   border-radius: ${(props) => props.$borderRadius || '6px'};
+  border: ${(props) => props.$border || 'none'};
   margin: ${(props) => props.$margin || '0px'};
 `;
 

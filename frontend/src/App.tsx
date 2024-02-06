@@ -14,14 +14,13 @@ import FamilyMessage from './pages/family/FamilyMessage';
 import FamilyVisit from './pages/family/FamilyVisit';
 import FamilyProfile from './pages/family/FamilyProfile/FamilyProfile';
 import FamilyVisitRegister from './pages/family/FamilyVisitRegister';
-import FamilyGalleryDetail from './pages/family/FamilyGalleryDetail';
 import CareGiver from './pages/caregiver/CareGiver';
 import CareGiverHome from './pages/caregiver/CareGiverHome';
 import CareGiverMessage from './pages/caregiver/CareGiverMessage';
 import CareGiverSendMessage from './pages/caregiver/CareGiverSendMessage';
 import CareGiverGallery from './pages/caregiver/CareGiverGallery';
-import CareGiverGalleryDetail from './pages/caregiver/CareGiverGalleryDetail';
 import CareGiverGalleryUpload from './pages/caregiver/CareGiverGalleryUpload';
+import GalleryDetail from './pages/GalleryDetail';
 import Report from './pages/Report';
 import VisitRoom from './components/visit/VisitRoom';
 import ConnectRegister from './pages/family/ConnectRegister';
@@ -44,7 +43,6 @@ function App() {
           <Route path="/family" element={<Family />}>
             <Route path="" element={<FamilyHome />} />
             <Route path="gallery" element={<FamilyGallery />} />
-            <Route path="gallery/detail" element={<FamilyGalleryDetail />} />
             <Route path="message" element={<FamilyMessage />} />
             <Route path="visit" element={<FamilyVisit />} />
             <Route path="visit/register" element={<FamilyVisitRegister />} />
@@ -55,9 +53,9 @@ function App() {
             <Route path="message" element={<CareGiverMessage />} />
             <Route path="message/send" element={<CareGiverSendMessage />} />
             <Route path="gallery" element={<CareGiverGallery />} />
-            <Route path="gallery/detail" element={<CareGiverGalleryDetail />} />
             <Route path="gallery/upload" element={<CareGiverGalleryUpload />} />
           </Route>
+          <Route path="gallery/detail" element={<GalleryDetail />} />
           <Route path="/report/:id" element={<Report />} />
           <Route path="/openvidu/:id" element={<VisitRoom />} />
           <Route path="*" element={<NotFound />} />
