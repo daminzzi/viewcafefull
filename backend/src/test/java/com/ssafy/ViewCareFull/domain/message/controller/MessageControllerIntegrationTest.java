@@ -67,6 +67,7 @@ class MessageControllerIntegrationTest {
         .apply(MockMvcRestDocumentation.documentationConfiguration(restDocumentation))
         .addFilter(jwtAuthenticationFilter)
         .build();
+    saveMessage();
   }
 
   private void saveMessage() {
