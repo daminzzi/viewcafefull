@@ -5,6 +5,7 @@ import Header from '../../components/family/Header';
 import Nav from '../../components/family/Nav';
 
 const Wrapper = styled.div`
+  min-height: 84vh;
   margin-bottom: 8vh;
 `;
 

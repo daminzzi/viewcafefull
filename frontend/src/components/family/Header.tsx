@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { light } from '../../assets/styles/palettes';
-import NoProfile from '../../assets/images/NoProfile.png';
+import NoProfile from '../../assets/images/noProfile.png';
 import ProfileFrame from '../common/ProfileFrame';
 import useConnectStore from '../../stores/ConnectStore';
 

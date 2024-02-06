@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import ImageFrame from '../common/ImageFrame';
 import FlexRowContainer from '../common/FlexRowContainer';
 import styled from 'styled-components';
@@ -20,9 +20,10 @@ const ImagesContainer = styled(FlexRowContainer)`
 
 function PicByDate({ galleryInfo: { date, thumnail, images } }: Props) {
   const navigate = useNavigate();
+  const type = useLocation().pathname.split('/')[1];
 
   function handleClick(image: string): void {
-    navigate('/family/gallery/detail', { state: { src: image } });
+    navigate(`/${type}/gallery/detail`, { state: { src: image } });
   }
   function renderPicture() {
     const result = [];

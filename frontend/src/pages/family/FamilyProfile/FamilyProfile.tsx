@@ -8,7 +8,7 @@ import FlexRowContainer from '../../../components/common/FlexRowContainer';
 import Accordion from '../../../components/common/Accordion';
 import ContentsContainer from '../../../components/common/ContentsContainer';
 import Line from '../../../components/common/Line';
-import NoProfile from '../../../assets/images/NoProfile.png';
+import NoProfile from '../../../assets/images/noProfile.png';
 import { ReactComponent as Plus } from '../../../assets/icons/plus.svg';
 import { failed, white } from '../../../assets/styles/palettes';
 import * as S from './FamilyProfile.styles';

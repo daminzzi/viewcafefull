@@ -11,7 +11,7 @@ type Props = {
   $cursor?: string;
 };
 
-const Wrapper = styled.div<{ $size: string; $cursor?: string }>`
+export const Wrapper = styled.div<{ $size: string; $cursor?: string }>`
   background-color: ${white};
   display: flex;
   justify-content: center;
