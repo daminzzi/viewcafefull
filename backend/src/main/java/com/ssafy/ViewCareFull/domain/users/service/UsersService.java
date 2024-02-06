@@ -5,7 +5,6 @@ import com.ssafy.ViewCareFull.domain.users.dto.LoginForm;
 import com.ssafy.ViewCareFull.domain.users.dto.LoginResponse;
 import com.ssafy.ViewCareFull.domain.users.dto.TokenInfo;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Caregiver;
-import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import com.ssafy.ViewCareFull.domain.users.error.UserErrorCode;
 import com.ssafy.ViewCareFull.domain.users.error.exception.UsersException;
@@ -26,11 +25,11 @@ public class UsersService {
   private final JwtTokenUtil jwtTokenUtil;
 
   @Transactional
-  public void singup(JoinForm joinForm) {
+  public void signup(JoinForm joinForm) {
     if (usersRepository.existsByDomainId(joinForm.getId())) {
       throw new UsersException(UserErrorCode.DUPLICATED_ID);
     }
-    usersRepository.save(Guardian.createUser(joinForm, passwordEncoder));
+    usersRepository.save(Users.createUser(joinForm, passwordEncoder));
   }
 
   public void duplicatedId(String id) {

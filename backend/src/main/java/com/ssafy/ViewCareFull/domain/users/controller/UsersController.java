@@ -28,8 +28,8 @@ public class UsersController {
   private final OAuthUserService oAuthUserService;
 
   @PostMapping
-  public ResponseEntity<Void> singup(@RequestBody JoinForm joinForm) {
-    usersService.singup(joinForm);
+  public ResponseEntity<Void> signup(@RequestBody JoinForm joinForm) {
+    usersService.signup(joinForm);
     return ResponseEntity.status(HttpStatus.CREATED).build();
   }
 

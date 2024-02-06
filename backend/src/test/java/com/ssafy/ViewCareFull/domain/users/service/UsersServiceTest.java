@@ -49,7 +49,7 @@ class UsersServiceTest {
   @DisplayName("서비스단에서 회원가입 성공")
   void signUpOnServiceSuccessTest(String unexistedUserId) {
     Mockito.when(usersRepository.existsByDomainId(unexistedUserId)).thenReturn(false);
-    usersService.singup(JoinForm.builder()
+    usersService.signup(JoinForm.builder()
         .id(unexistedUserId)
         .password("password")
         .build());
@@ -63,7 +63,7 @@ class UsersServiceTest {
     Mockito.when(usersRepository.existsByDomainId(existedUserId)).thenReturn(true);
     Assertions.assertAll(
         () -> Assertions.assertThrows(UsersException.class, () ->
-            usersService.singup(JoinForm.builder()
+            usersService.signup(JoinForm.builder()
                 .id(existedUserId)
                 .password("password")
                 .build())

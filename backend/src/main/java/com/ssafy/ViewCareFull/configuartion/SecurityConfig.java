@@ -1,6 +1,7 @@
 package com.ssafy.ViewCareFull.configuartion;
 
 import com.ssafy.ViewCareFull.domain.users.repository.UsersRepository;
+import com.ssafy.ViewCareFull.domain.users.security.ViewCareFullAuthenticationProvider;
 import com.ssafy.ViewCareFull.domain.users.security.jwt.JwtAuthenticationFilter;
 import com.ssafy.ViewCareFull.domain.users.security.jwt.JwtTokenProvider;
 import com.ssafy.ViewCareFull.domain.users.security.jwt.ViewCareFullUserDetailsService;
@@ -8,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -40,8 +40,8 @@ public class SecurityConfig {
             .requestMatchers("/docs/**").permitAll()
             .requestMatchers("/swagger-resources/**").permitAll()
             .requestMatchers("/**").permitAll()
-            .anyRequest().authenticated()
-        )
+            .anyRequest().authenticated())
+        .authenticationProvider(authenticationProvider())
         .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, usersRepository),
             UsernamePasswordAuthenticationFilter.class)
     ;
@@ -50,10 +50,7 @@ public class SecurityConfig {
 
   @Bean
   public AuthenticationProvider authenticationProvider() {
-    DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-    authProvider.setUserDetailsService(userDetailsService);
-    authProvider.setPasswordEncoder(passwordEncoder());
-    return authProvider;
+    return new ViewCareFullAuthenticationProvider(userDetailsService, passwordEncoder());
   }
 
   @Bean
