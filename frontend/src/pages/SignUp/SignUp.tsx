@@ -191,6 +191,7 @@ function SignUp() {
                 onChange={onChangeId}
                 required
               />
+              {vaildId && checkId ? <S.IdCheckIcon></S.IdCheckIcon> : null}
               <Button $width="30%" $padding="8px" onClick={handleCheckId}>
                 중복확인
               </Button>
@@ -213,6 +214,7 @@ function SignUp() {
               onChange={onChangePassword}
               required
             />
+            {validPw ? <S.PwCheckIcon></S.PwCheckIcon> : null}
           </S.Label>
           <div className={`message ${PwMsg && 'active'}`}>{PwMsg}</div>
           <S.Label>
@@ -226,6 +228,7 @@ function SignUp() {
               onChange={onChangePasswordConfirm}
               required
             />
+            {validPw ? <S.PwConfirmCheckIcon></S.PwConfirmCheckIcon> : null}
           </S.Label>
           <div className={`message ${PwConfirmMsg && 'active'}`}>
             {PwConfirmMsg}
@@ -305,3 +308,4 @@ function SignUp() {
 }
 
 export default SignUp;
+

@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { lightgray } from '../../assets/styles/palettes';
+import check from '../../assets/images/checkMark.png';
 
 export const GlobalStyle = createGlobalStyle`
   .message {
@@ -43,4 +44,29 @@ export const PhoneContainer = styled.div`
   display: flex;
   text-align: center;
   align-items: center;
+`;
+
+export const IdCheckIcon = styled.div`
+  position: absolute;
+  margin-right: 15px;
+  right: 91px;
+  top: -197px;
+  width: 25px;
+  height: 100%;
+  background-image: url(${check});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+  border: none;
+  background-color: transparent;
+`;
+
+export const PwCheckIcon = styled(IdCheckIcon)`
+  right: 18px;
+  top: -116px;
+`;
+
+export const PwConfirmCheckIcon = styled(IdCheckIcon)`
+  right: 18px;
+  top: -28px;
 `;
