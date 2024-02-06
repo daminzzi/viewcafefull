@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ReactComponent as EnvelopeSimpleClosed } from '../../assets/icons/envelopeSimpleClosed.svg';
-import { ReactComponent as EnvelopeSimpleOpen } from '../../assets/icons/envelopeSimpleOpen.svg';
+import { ReactComponent as EnvelopeClosed } from '../../assets/icons/envelopeClosed.svg';
+import { ReactComponent as EnvelopeOpen } from '../../assets/icons/envelopeOpen.svg';
 import { Message } from '../../services/message/getMessage';
 import styled from 'styled-components';
 import FlexRowContainer from '../common/FlexRowContainer';
@@ -48,9 +48,9 @@ function MessageSimple({ openModal, message }: MessageProps) {
             $top="-2px"
           >
             {message.isRead ? (
-              <EnvelopeSimpleOpen width="20px" height="23px" />
+              <EnvelopeOpen width="20px" height="23px" />
             ) : (
-              <EnvelopeSimpleClosed width="20px" height="23px" />
+              <EnvelopeClosed width="20px" height="23px" />
             )}
             <TimeText isRead={message.isRead}>
               {message.time.split(' ')[0]}
