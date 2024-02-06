@@ -15,10 +15,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class BaseTime {
 
   @CreatedDate
-  @Column(updatable = false)
+  @Column(name = "created_DateTime", updatable = false)
   private LocalDateTime createdDateTime;
 
   @LastModifiedDate
+  @Column(name = "last_modified_datetime")
   private LocalDateTime lastModifiedDateTime;
 
 }

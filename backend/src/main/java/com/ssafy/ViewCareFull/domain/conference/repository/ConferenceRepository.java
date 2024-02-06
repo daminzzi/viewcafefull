@@ -19,7 +19,7 @@ public interface ConferenceRepository extends JpaRepository<Conference, Long> {
   @Query(value = "SELECT c FROM Conference c WHERE c.hospital.id = :permissionId order by c.id desc")
   Optional<List<Conference>> findAllByHospitalId(@Param("permissionId") Long permissionId);
 
-  @Query(value = "SELECT c FROM Conference c join fetch ConferenceRoom cr on cr.conference.id = c.id WHERE c.hospital.id = :permissionId and c.createdDateTime between :startDate and :endDate order by c.id desc")
+  @Query(value = "SELECT c FROM Conference c WHERE c.hospital.id = :permissionId and c.createdDateTime between :startDate and :endDate order by c.id desc")
   Optional<List<Conference>> findAllByHospitalIdBetweenDate(@Param("permissionId") Long permissionId,
       @Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
 

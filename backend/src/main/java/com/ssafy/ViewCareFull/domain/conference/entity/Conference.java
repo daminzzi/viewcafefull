@@ -9,6 +9,7 @@ import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Hospital;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -19,7 +20,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -66,11 +66,11 @@ public class Conference extends BaseTime {
   @Enumerated(EnumType.STRING)
   private PermissionType conferenceState;
 
-  @OneToOne(fetch = FetchType.LAZY, mappedBy = "conference", cascade = CascadeType.ALL, orphanRemoval = true)
-  private ConferenceRoom conferenceRoom;
-
   @OneToMany(mappedBy = "conference", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<ConferenceReservation> conferenceReservations;
+
+  @Embedded
+  private ConferenceRoom conferenceRoom;
 
   public void addReservationList(UserLink userlink) {
     this.conferenceReservations.add(new ConferenceReservation(this, userlink.getGuardian().getId()));
@@ -93,8 +93,9 @@ public class Conference extends BaseTime {
 
   public void updatePermissionState(ConferenceStateDto conferenceStateDto) {
     this.conferenceState = PermissionType.of(conferenceStateDto.getConferenceState());
-    if(conferenceState==PermissionType.A && conferenceRoom==null){
-      this.conferenceRoom = new ConferenceRoom(this);
+    if (conferenceState == PermissionType.A) {
+      // TODO: 여기에 만들어진 세션이름 넣어서 conferenceRoom에 생성
+      this.conferenceRoom = new ConferenceRoom();
     }
   }
 }

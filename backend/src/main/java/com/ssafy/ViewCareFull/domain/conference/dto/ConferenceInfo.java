@@ -39,7 +39,7 @@ public class ConferenceInfo {
         .conferenceTime(conference.getConferenceTime().format(DateTimeFormatter.ofPattern("HH:mm")))
         .conferenceState(conference.getConferenceState());
 
-    if (conference.getConferenceState() == PermissionType.A) {
+    if (conference.getConferenceState() == PermissionType.A && conference.getConferenceRoom() != null) {
       conferenceInfoBuilder.sessionName(conference.getConferenceRoom().getRoomName())
           .startDatetime(conference.getConferenceRoom().getStartDateTime())
           .endDatetime(conference.getConferenceRoom().getEndDateTime());

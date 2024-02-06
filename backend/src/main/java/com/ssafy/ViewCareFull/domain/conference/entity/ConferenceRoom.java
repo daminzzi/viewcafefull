@@ -1,30 +1,17 @@
 package com.ssafy.ViewCareFull.domain.conference.entity;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.Embeddable;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Embeddable
 public class ConferenceRoom {
-
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-
-  @OneToOne
-  @JoinColumn(name = "conference_id")
-  private Conference conference;
 
   @Column(name = "room_name")
   private String roomName;
@@ -35,11 +22,7 @@ public class ConferenceRoom {
   @Column(name = "end_datetime")
   private LocalDateTime endDateTime;
 
-  public ConferenceRoom(Conference conference) {
-    this.conference = conference;
-  }
-
-  public void updateConferenceRoomInfo(String roomName) {
+  public ConferenceRoom(String roomName) {
     this.roomName = roomName;
   }
 
