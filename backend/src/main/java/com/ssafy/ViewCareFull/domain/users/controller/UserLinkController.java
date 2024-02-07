@@ -35,7 +35,7 @@ public class UserLinkController {
   @PostMapping("/{domain_id}")
   public ResponseEntity<String> addLink(
       @AuthenticationPrincipal SecurityUsers securityUsers,
-      @PathVariable("domain_id") Long domainId,
+      @PathVariable("domain_id") String domainId,
       @RequestBody LinkRequestDto linkRequestDto) {
     userLinkService.addLink(securityUsers, linkRequestDto);
     return ResponseEntity.created(null).body("success");
