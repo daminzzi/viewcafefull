@@ -49,7 +49,7 @@ const DisabledButton = styled(Button)`
 
 const RoundedButton = styled(Button)`
   padding: ${(props) => props.$padding || '2px'};
-  border-radius: ${(props) => props.$borderRadius || '10px'};
-`
+  border-radius: ${(props) => props.$height || '10px'};
+`;
 
 export { Button, OutlineButton, DisabledButton, RoundedButton };

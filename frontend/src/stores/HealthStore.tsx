@@ -18,12 +18,19 @@ type Action = {
   setWeek: (week: Array<Date>) => void;
   setHealthInfo: (healthInfo: HealthInfo) => void;
   reset: () => void;
+  resetHealthInfo: () => void;
 };
 
-const intialHealth: HealthInfoData = {
+export const initialHealth: HealthInfoData = {
   morning: null,
   noon: null,
   dinner: null,
+};
+
+export const initialImage: HealthInfoData = {
+  morning: noImage,
+  noon: noImage,
+  dinner: noImage,
 };
 
 export const initialState: State = {
@@ -33,12 +40,12 @@ export const initialState: State = {
   startOfWeek: null,
   week: [],
   healthInfo: {
-    low: { ...intialHealth },
-    high: { ...intialHealth },
-    before: { ...intialHealth },
-    after: { ...intialHealth },
-    medicine: { ...intialHealth },
-    meal: { morning: noImage, noon: noImage, dinner: noImage },
+    low: { ...initialHealth },
+    high: { ...initialHealth },
+    before: { ...initialHealth },
+    after: { ...initialHealth },
+    medicine: { ...initialHealth },
+    meal: { ...initialImage },
   },
 };
 
@@ -64,7 +71,7 @@ const useHealthStore = create<State & Action>((set, get) => ({
     set({ selectedDate: date });
     const start = new Date(date);
     start.setDate(start.getDate() - start.getDay());
-    
+
     if (get().startOfWeek === null) {
       get().setStartOfWeek(start);
     } else if (get().startOfWeek !== null) {
@@ -98,6 +105,20 @@ const useHealthStore = create<State & Action>((set, get) => ({
 
   reset: () => {
     set(initialState);
+    get().resetHealthInfo();
+  },
+
+  resetHealthInfo: () => {
+    set({
+      healthInfo: {
+        low: { ...initialHealth },
+        high: { ...initialHealth },
+        before: { ...initialHealth },
+        after: { ...initialHealth },
+        medicine: { ...initialHealth },
+        meal: { ...initialImage },
+      },
+    });
   },
 }));
 

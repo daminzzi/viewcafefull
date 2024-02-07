@@ -22,7 +22,7 @@ const TitleDiv = styled.div`
   display: flex;
   align-items: center;
   align-content: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 2;
 `;
 
@@ -34,15 +34,15 @@ function Title({ children, icon = null, buttonContents, handleClick }: Props) {
   function renderIcon() {
     switch (icon) {
       case 'home':
-        return <HomeIcon width="2rem" />;
+        return <HomeIcon width="1.5rem" />;
       case 'visit':
-        return <VisitIcon width="2rem" />;
+        return <VisitIcon width="1.5rem" />;
       case 'message':
-        return <MessageIcon width="2rem" />;
+        return <MessageIcon width="1.5rem" />;
       case 'gallery':
-        return <GalleryIcon width="2rem" />;
+        return <GalleryIcon width="1.5rem" />;
       case 'profile':
-        return <ProfileIcon width="2rem" />;
+        return <ProfileIcon width="1.5rem" />;
       default:
         return null;
     }
@@ -53,7 +53,7 @@ function Title({ children, icon = null, buttonContents, handleClick }: Props) {
       buttonContents && (
         <Button
           $width="auto"
-          $padding='0.5rem 1.5rem'
+          $padding="0.5rem 1.5rem"
           $bgColor={success}
           $color={white}
           $fontSize="1rem"

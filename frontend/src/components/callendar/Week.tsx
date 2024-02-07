@@ -49,6 +49,20 @@ function Week() {
           setStartX(null);
         }
       }}
+      onTouchStart={(e) => {
+        setStartX(e.touches[0].pageX);
+        setMoved(false);
+      }}
+      onTouchEnd={(e) => {
+        if (startX !== null && startX > e.changedTouches[0].pageX) {
+          setMoved(true);
+          handleChangeWeek(false);
+        } else if (startX !== null && startX < e.changedTouches[0].pageX) {
+          setMoved(true);
+          handleChangeWeek(true);
+          setStartX(null);
+        }
+      }}
     >
       {renderDate()}
     </FlexRowContainer>

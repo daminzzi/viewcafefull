@@ -1,49 +1,31 @@
 import React from 'react';
-import ImageFrame from '../common/ImageFrame';
 import useHealthStore from '../../stores/HealthStore';
+import FlexColContainer from '../common/FlexColContainer';
+import styled from 'styled-components';
 
-export function renderImage(url: string | null, mealType: string) {
-  return url === null ? null : (
-    <ImageFrame src={url} alt={mealType} $size="30%" />
-  );
-}
+const StyledHr = styled.hr`
+  width: 100%;
+`;
 
-function avg(obj: HealthInfoData) {
-  let total = 0;
-  let count = 0;
-  if (obj.morning !== null) {
-    total += Number(obj.morning);
-    count += 1;
-  }
-  if (obj.noon !== null) {
-    total += Number(obj.noon);
-    count += 1;
-  }
-  if (obj.dinner !== null) {
-    total += Number(obj.dinner);
-    count += 1;
-  }
-  return count === 0 ? null : Math.round(total / count);
+function maxValue(obj: HealthInfoData) {
+  const values = Object.values(obj) as Array<number>;
+  const max = Math.max(...values);
+  return max === 0 ? null : max;
 }
 
 function Summary() {
   const { healthInfo } = useHealthStore();
 
   return (
-    <div>
+    <FlexColContainer $width="90%" $alignItems="start">
       <p>혈당</p>
-      <p>공복: {avg(healthInfo.before)}</p>
-      <p>식후: {avg(healthInfo.after)}</p>
-      <hr />
-      <p>혈압</p>
-      <p>이완: {avg(healthInfo.low)}</p>
-      <p>수축: {avg(healthInfo.high)}</p>
-      <hr />
-      <p>식단/복약</p>
-      <p>아침</p>
-      <p>점심</p>
-      <p>저녁</p>
-    </div>
+      <p>공복: {maxValue(healthInfo.before)}</p>
+      <p>식후: {maxValue(healthInfo.after)}</p>
+      <StyledHr />
+      <span>혈압</span>
+      <p>이완: {maxValue(healthInfo.low)}</p>
+      <p>수축: {maxValue(healthInfo.high)}</p>
+    </FlexColContainer>
   );
 }
 

@@ -25,6 +25,7 @@ async function getConnectInfo(
     console.log(err);
     return [];
   }
+  
   return [];
 }
 

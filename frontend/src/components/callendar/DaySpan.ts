@@ -11,8 +11,9 @@ const DaySpan = styled.span<{
   $day?: number | null;
   $isToday?: boolean | null;
 }>`
-  width: 25px;
-  height: 25px;
+  width: 1.5rem;
+  height: 1.4rem;
+  padding-top: 0.1rem;
   text-align: center;
   border-radius: 20%;
   color: ${(props) => {

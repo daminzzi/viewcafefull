@@ -6,14 +6,18 @@ import TabButtonGroup from '../../components/familyhome/TabButtonGroup';
 import TabView from '../../components/familyhome/TabView';
 import Callendar from '../../components/callendar/Callendar';
 import getHealth from '../../services/health/getHealth';
-import useHealthStore, { initialState } from '../../stores/HealthStore';
+import useHealthStore, {
+  initialHealth,
+  initialImage,
+} from '../../stores/HealthStore';
+import useConnectStore from '../../stores/ConnectStore';
 
 const SubTitle = styled.p`
   font-weight: bold;
   width: 90%;
 `;
 
-export function dateToString(date: Date): string {
+function dateToString(date: Date): string {
   const year: number = date.getFullYear();
   const month: string = (date.getMonth() + 1).toString().padStart(2, '0');
   const day: string = date.getDate().toString().padStart(2, '0');
@@ -22,8 +26,14 @@ export function dateToString(date: Date): string {
 }
 
 function processInfo(info: HealthResponse) {
-  const newHealth = { ...initialState.healthInfo };
-
+  const newHealth = {
+    low: { ...initialHealth },
+    high: { ...initialHealth },
+    before: { ...initialHealth },
+    after: { ...initialHealth },
+    medicine: { ...initialHealth },
+    meal: { ...initialImage },
+  };
   newHealth.medicine = { ...info.medicine };
 
   info.health.forEach((value) => {
@@ -124,9 +134,14 @@ function FamilyHome() {
   const { selectedDate, setSelectedDate, setToday, setHealthInfo } =
     useHealthStore();
 
-  function getInfo() {
-    const response = getHealth('asdf', '20240116');
-    setHealthInfo(processInfo(response));
+  const { currConnect } = useConnectStore();
+
+  async function getInfo() {
+    if (selectedDate !== null) {
+      const date = dateToString(selectedDate);
+      const response = await getHealth(currConnect.tarDomainId, date);
+      setHealthInfo(processInfo(response));
+    }
   }
 
   useEffect(() => {

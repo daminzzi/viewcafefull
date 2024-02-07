@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import useHealthStore from '../../stores/HealthStore';
 import {
   Chart as ChartJS,
@@ -19,6 +20,11 @@ ChartJS.register(
   Tooltip,
   Legend,
 );
+
+const Container = styled.div`
+  width: 90%;
+  height: 50vh;
+`;
 
 const options = {
   maintainAspectRatio: false,
@@ -62,7 +68,11 @@ function BloodPressure() {
     ],
   };
 
-  return <Bar options={options} data={data} />;
+  return (
+    <Container>
+      <Bar options={options} data={data} />
+    </Container>
+  );
 }
 
 export default BloodPressure;

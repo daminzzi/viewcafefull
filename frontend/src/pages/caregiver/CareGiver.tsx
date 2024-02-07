@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
 
 const Wrapper = styled.div`
-  min-height: 84vh;
+  min-height: 82.5vh;
   margin-bottom: 8vh;
 `;
 
