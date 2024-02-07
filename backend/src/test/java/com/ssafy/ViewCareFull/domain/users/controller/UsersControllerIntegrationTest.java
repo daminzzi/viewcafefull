@@ -119,7 +119,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
-    @DisplayName("[실패] 회원가입된 적없는 아이디로 로그인 시도")
+    @DisplayName("[실패] 회원가입된 적 없는 아이디로 로그인 시도")
     void wrongId() throws Exception {
       LoginForm loginForm = new LoginForm("user2", "1234");
       mockMvc.perform(RestDocumentationRequestBuilders.post("/users/signin")
@@ -130,7 +130,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
-    @DisplayName("[실패] 회원가입된 적없는 아이디로 로그인 시도")
+    @DisplayName("[실패] 다른 비밀번호로 로그인 시도")
     void wrongPassword() throws Exception {
       LoginForm loginForm = new LoginForm("user1", "1111");
       mockMvc.perform(RestDocumentationRequestBuilders.post("/users/signin")

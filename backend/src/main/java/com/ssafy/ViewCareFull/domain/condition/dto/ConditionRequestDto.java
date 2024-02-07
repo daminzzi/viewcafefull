@@ -7,9 +7,11 @@ import com.ssafy.ViewCareFull.domain.condition.entity.ConditionType;
 import com.ssafy.ViewCareFull.domain.condition.entity.Conditions;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import java.time.LocalDate;
+import lombok.Builder;
 import lombok.Getter;
 
 @Getter
+@Builder
 public class ConditionRequestDto {
 
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")

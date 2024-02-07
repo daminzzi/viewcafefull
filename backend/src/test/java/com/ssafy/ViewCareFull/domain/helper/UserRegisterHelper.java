@@ -80,6 +80,13 @@ public class UserRegisterHelper {
         .build()).getAccessToken();
   }
 
+  public String getHospitalAccessToken() {
+    return "Bearer " + usersService.login(LoginForm.builder()
+        .id("hospital")
+        .password("1234")
+        .build()).getAccessToken();
+  }
+
   public Caregiver getCaregiver() {
     return (Caregiver) usersRepository.findByDomainId("caregiver").get();
   }
