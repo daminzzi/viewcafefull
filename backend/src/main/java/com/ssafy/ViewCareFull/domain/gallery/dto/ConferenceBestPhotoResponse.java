@@ -7,10 +7,12 @@ import lombok.Getter;
 public class ConferenceBestPhotoResponse {
 
   private String conferenceId;
-  private List<BestPhotoDto> bestPhotos;
+  private String userId;
+  private List<BestPhotoDto> bestPhotoList;
 
-  public ConferenceBestPhotoResponse(String conferenceId, List<BestPhotoDto> bestPhotos) {
+  public ConferenceBestPhotoResponse(String conferenceId, String userId, List<BestPhotoDto> bestPhotos) {
     this.conferenceId = conferenceId;
-    this.bestPhotos = bestPhotos;
+    this.userId = userId;
+    this.bestPhotoList = bestPhotos;
   }
 }

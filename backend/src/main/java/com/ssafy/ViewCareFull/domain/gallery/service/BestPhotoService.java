@@ -55,13 +55,19 @@ public class BestPhotoService {
         .stream()
         .map(this::convertBestPhotoDto)
         .toList();
-    return new ConferenceBestPhotoResponse(conferenceId, bestPhotoList);
+    Conference conference = conferenceService.getConferenceById(Long.valueOf(conferenceId));
+    return new ConferenceBestPhotoResponse(conferenceId, conference.getCaregiver().getId().toString(), bestPhotoList);
   }
 
   private BestPhotoDto convertBestPhotoDto(BestPhoto bestPhoto) {
-    String imageUrl = galleryService.getImageUrl(bestPhoto.getImage().getId());
+    Long imageId = bestPhoto.getImage().getId();
+    LocalDateTime imageDateTime = bestPhoto.getImage().getImageDateTime();
+    String imageUrl = galleryService.getImageUrl(imageId);
     return BestPhotoDto.builder()
-        .url(imageUrl)
+        .imageId(imageId.toString())
+        .score(bestPhoto.getScore())
+        .imageUrl(imageUrl)
+        .imageDateTime(imageDateTime)
         .build();
   }
 
