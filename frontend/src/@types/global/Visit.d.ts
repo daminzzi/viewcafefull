@@ -1,13 +1,12 @@
 type VisitData = {
   applicationId: string;
   targetName: string;
-  targetRoom: string;
   permissionId: string;
   createdDatetime: string;
   conferenceDate: string;
   conferenceTime: string;
   conferenceState: string;
-  conferenceLink: string | null;
+  sessionName: string | null;
   startDatetime: string | null;
   endDatetime: string | null;
 };

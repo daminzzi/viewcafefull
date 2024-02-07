@@ -1,28 +1,52 @@
 {
-  "conferenceList": [
+  "todayConferenceList": [
     {
       "applicationId": "junghoon1039",
-      "targetName": "김광선",
-      "targetRoom": "A104",
+      "targetName": "최선미",
       "permissionId": "wooriwelfare",
       "createdDatetime": "2024-01-04 17:34:22",
       "conferenceDate": "20240105",
       "conferenceTime": "14:30",
       "conferenceState": "A",
-      "conferenceLink": null,
+      "sessionName": "sessionA",
+      "startDatetime": "2024-01-05 14:32:47",
+      "endDatetime": "2024-01-05 14:58:33"
+    },
+    {
+      "applicationId": "junghoon1039",
+      "targetName": "이선미",
+      "permissionId": "wooriwelfare",
+      "createdDatetime": "2024-01-13 18:42:21",
+      "conferenceDate": "20240114",
+      "conferenceTime": "15:00",
+      "conferenceState": "S",
+      "sessionName": "sessionB",
+      "startDatetime": null,
+      "endDatetime": null
+    }
+  ],
+  "reservedConferenceList": [
+    {
+      "applicationId": "junghoon1039",
+      "targetName": "김광선",
+      "permissionId": "wooriwelfare",
+      "createdDatetime": "2024-01-04 17:34:22",
+      "conferenceDate": "20240105",
+      "conferenceTime": "14:30",
+      "conferenceState": "A",
+      "sessionName": "sessionA",
       "startDatetime": "2024-01-05 14:32:47",
       "endDatetime": "2024-01-05 14:58:33"
     },
     {
       "applicationId": "junghoon1039",
       "targetName": "김광숙",
-      "targetRoom": "A105",
       "permissionId": "wooriwelfare",
       "createdDatetime": "2024-01-13 18:42:21",
       "conferenceDate": "20240114",
       "conferenceTime": "15:00",
       "conferenceState": "S",
-      "conferenceLink": "tempLink",
+      "sessionName": "sessionB",
       "startDatetime": null,
       "endDatetime": null
     }
