@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BestPhotoRepository extends JpaRepository<BestPhoto, Long> {
 
-  @Query(value = "SELECT b FROM BestPhoto b WHERE b.conference.id = :conferenceId")
+  @Query(value = "SELECT b FROM BestPhoto b WHERE b.conference.id = :conferenceId ORDER BY b.score DESC")
   List<BestPhoto> findByConferenceId(Long conferenceId);
 }
