@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import VideoContainer from './VideoContainer';
 import { Publisher, Subscriber } from 'openvidu-browser';
 
 type Props = {
@@ -14,7 +15,7 @@ function OpenViduVideo({ streamManager }: Props) {
     }
   }, [streamManager]);
 
-  return <video autoPlay={true} ref={videoRef} />;
+  return <VideoContainer autoPlay={true} ref={videoRef} />;
 }
 
 export default OpenViduVideo;
