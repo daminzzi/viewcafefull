@@ -2,6 +2,12 @@ import React, { ChangeEvent, useState } from 'react';
 import postConnection from '../../services/connect/postConnection';
 import useUserStore from '../../stores/UserStore';
 import { useNavigate } from 'react-router-dom';
+import UserContainer from '../../components/common/UserContainer';
+import styled from 'styled-components';
+import { lightgray } from '../../assets/styles/palettes';
+import Input from '../../components/common/Input';
+import { Button } from '../../components/common/Buttons';
+import FlexRowContainer from '../../components/common/FlexRowContainer';
 
 function ConnectRegister() {
   const navigate = useNavigate();
@@ -48,45 +54,60 @@ function ConnectRegister() {
   }
 
   return (
-    <div>
-      <h1>연결 신청</h1>
-      <form>
-        <button type="button" onClick={handleSubmit}>
-          신청
-        </button>
-        <label>
-          요양원명
-          <input
+    <GrayBackground>
+      <UserContainer
+        $height="420px"
+        $width="300px"
+        $padding="12px"
+        $alignItems="left"
+      >
+        <FlexRowContainer $justifyContent="space-between">
+          <Title>입소자 연결 신청</Title>
+          <Button
+            $width="22%"
+            $padding="8px"
+            type="button"
+            onClick={handleSubmit}
+          >
+            신청
+          </Button>
+        </FlexRowContainer>
+
+        <Label>
+          <div>요양원명</div>
+          <Input
+            $width="98%"
             type="text"
             name="nursingHome"
-            placeholder="요양원명"
+            placeholder="요양원명을 입력해주세요."
             value={form.nursingHome}
             onChange={handleChange}
           />
-        </label>
-        <label>
-          입소자코드
-          <input
-            type="text"
+        </Label>
+        <Label>
+          <div>입소자코드</div>
+          <Input
+            $width="98%"
             name="targetCode"
-            placeholder="입소자코드"
+            placeholder="입소자코드를 입력해주세요."
             value={form.targetCode}
             onChange={handleChange}
           />
-        </label>
-        <label>
-          입소자명
-          <input
+        </Label>
+        <Label>
+          <div>입소자명</div>
+          <Input
+            $width="98%"
             type="text"
             name="targetName"
-            placeholder="입소자명"
+            placeholder="입소자명을 입력해주세요."
             value={form.targetName}
             onChange={handleChange}
           />
-        </label>
-        <label>
-          입소자와의 관계
-          <select
+        </Label>
+        <Label>
+          <div>입소자와의 관계</div>
+          <Select
             name="relationship"
             value={form.relationship}
             onChange={handleChange}
@@ -96,22 +117,54 @@ function ConnectRegister() {
             <option value="grandson">손자</option>
             <option value="granddaughter">손녀</option>
             <option value="etc">기타</option>
-          </select>
-        </label>
+          </Select>
+        </Label>
         {form.relationship === 'etc' && (
-          <label>
-            기타 관계
-            <input
+          <Label>
+            <div>기타 관계</div>
+            <Input
+              $width="98%"
               type="text"
               name="otherRelationship"
+              placeholder="관계를 입력해주세요."
               value={otherRelationship}
               onChange={(e) => setOtherRelationship(e.target.value)}
             />
-          </label>
+          </Label>
         )}
-      </form>
-    </div>
+      </UserContainer>
+    </GrayBackground>
   );
 }
 
 export default ConnectRegister;
+
+const GrayBackground = styled.div`
+  background-color: ${lightgray};
+  min-height: 100vh;
+`;
+
+const Title = styled.div`
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 10px;
+`;
+
+const Label = styled.label`
+  > div {
+    margin: 8px 0px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+`;
+
+const Select = styled.select`
+  width: 100%;
+  display: flex;
+  border: 2px solid ${lightgray};
+  border-radius: 7px;
+  height: 30px;
+  text-align: 'left';
+  margin-bottom: '0px';
+  text-indent: 5px;
+`;
