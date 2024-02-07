@@ -1,12 +1,9 @@
 import React, { useEffect, useState, Fragment } from 'react';
-import getMessage, {
-  Message,
-  MessagesResponse,
-} from '../../services/message/getMessage';
+import getMessage from '../../services/message/getMessage';
 import postReadMessage from '../../services/message/postReadMessage';
 import MessageDetailModal from '../../components/message/MessageDetailModal';
 import Pagination from '../../components/common/Pagination';
-// import getReadMessage from '../../services/message/getReadMessage';
+import getReadMessage from '../../services/message/getReadMessage';
 import MessageSimple from '../../components/message/MessageSimple';
 import useUserStore from '../../stores/UserStore';
 import { ShowCheckBox, HiddenCheckBox } from '../../components/common/CheckBox';
@@ -34,12 +31,16 @@ function FamilyMessage() {
   const pageGroupSize = 5;
 
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await getMessage(currentPage, keyword);
-      setMessagesData(res);
-    };
-    fetchData();
-  }, [currentPage, keyword, messagesData]);
+    if (selectedMessage === null) {
+      const fetchData = async () => {
+        if (user) {
+          const res = await getMessage(currentPage, keyword);
+          setMessagesData(res);
+        }
+      };
+      fetchData();
+    }
+  }, [currentPage, keyword, selectedMessage]);
 
   // 메세지 데이터 로딩 중
   if (!messagesData) {
@@ -109,7 +110,7 @@ function FamilyMessage() {
     }
   }
 
-  // 모두 읽음 버튼 눌렀을 때
+  // 선택 읽기 버튼 눌렀을 때
   async function handleReadClick() {
     // 체크된 메시지 각각에 대해 postReadMessage 호출
     const promises = [];
@@ -149,17 +150,17 @@ function FamilyMessage() {
   }
 
   // 상세보기 할 메세지 선택(더미테스트코드)
-  function openModal(message: Message) {
-    setSelectedMessage(message);
-  }
-
-  // // 모달 클릭시 읽음확인 처리
-  // async function openModal(message: Message) {
-  //   const updatedMessage = await getReadMessage(message.id);
-  //   if (updatedMessage) {
-  //     setSelectedMessage(updatedMessage);
-  //   }
+  // function openModal(message: Message) {
+  //   setSelectedMessage(message);
   // }
+
+  // 모달 클릭시 읽음확인 처리 + 단일상세조회
+  async function openModal(message: Message) {
+    const updatedMessage = await getReadMessage(message.id);
+    if (updatedMessage) {
+      setSelectedMessage(updatedMessage);
+    }
+  }
 
   // 모달 닫히면 메세지 선택 해제
   function closeModal() {
@@ -167,8 +168,17 @@ function FamilyMessage() {
   }
 
   return (
-     <div>
+    <div>
       <Title icon="message">메세지</Title>
+      <Button
+        $bgColor={success}
+        $width="98px"
+        $padding="9px"
+        $color={white}
+        onClick={handleReadClick}
+      >
+        선택 읽기
+      </Button>
       <FlexColContainer $alignItems="end" $justifyContent="stretch">
         <SearchForm onSubmit={handleSearch}>
           <Input
@@ -182,19 +192,8 @@ function FamilyMessage() {
       </FlexColContainer>
 
       <SubContainer>
-        <ReadText>
-          <UnReadMsgs>{messagesData.unreadMsgs}</UnReadMsgs>
-          <span>/{messagesData.sum} 안 읽음</span>
-        </ReadText>
-        <Button
-          $bgColor={success}
-          $width="98px"
-          $padding="9px"
-          $color={white}
-          onClick={handleReadClick}
-        >
-          선택 읽기
-        </Button>
+        <UnReadMsgs>{messagesData.unreadMsgs}</UnReadMsgs>
+        <span>/{messagesData.sum} 안 읽음</span>
       </SubContainer>
       <Line $borderColor={black} />
 
@@ -226,17 +225,11 @@ const UnReadMsgs = styled.span`
 
 const SubContainer = styled.div`
   margin: 0.75rem;
-  display: flex;
-  justify-content: space-between;
 `;
 
 const SearchForm = styled.form`
   position: relative;
   width: 210px;
-`;
-
-const ReadText = styled.div`
-  margin-top: 15px;
 `;
 
 const SearchButton = styled.button`

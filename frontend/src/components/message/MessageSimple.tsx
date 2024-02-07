@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ReactComponent as EnvelopeClosed } from '../../assets/icons/envelopeClosed.svg';
 import { ReactComponent as EnvelopeOpen } from '../../assets/icons/envelopeOpen.svg';
-import { Message } from '../../services/message/getMessage';
 import styled from 'styled-components';
 import FlexRowContainer from '../common/FlexRowContainer';
 import { gray, black } from '../../assets/styles/palettes';
@@ -15,6 +14,17 @@ function MessageSimple({ openModal, message }: MessageProps) {
   const [contentMaxLength, setContentMaxLength] = useState(
     window.innerWidth > 1200 ? 80 : 20,
   );
+
+  const dateTime = new Date(message.time);
+  const year = dateTime.getFullYear();
+
+  const month = ('0' + (dateTime.getMonth() + 1)).slice(-2);
+  const date = ('0' + dateTime.getDate()).slice(-2);
+  const hours = ('0' + dateTime.getHours()).slice(-2);
+  const minutes = ('0' + dateTime.getMinutes()).slice(-2);
+
+  const time = `${year}/${month}/${date} ${hours}:${minutes}`;
+
   useEffect(() => {
     function handleResize() {
       setContentMaxLength(window.innerWidth > 1200 ? 80 : 20);
@@ -29,8 +39,8 @@ function MessageSimple({ openModal, message }: MessageProps) {
       <div onClick={() => openModal(message)}>
         <div key={message.id}>
           <TitleText isRead={message.isRead}>
-            {message.title.length > 15
-              ? `${message.title.substring(0, 15)}...`
+            {message.title.length > 10
+              ? `${message.title.substring(0, 10)}...`
               : message.title}
           </TitleText>
           <ContentText isRead={message.isRead}>
@@ -52,9 +62,7 @@ function MessageSimple({ openModal, message }: MessageProps) {
             ) : (
               <EnvelopeClosed width="20px" height="23px" />
             )}
-            <TimeText isRead={message.isRead}>
-              {message.time.split(' ')[0]}
-            </TimeText>
+            <TimeText isRead={message.isRead}>{time}</TimeText>
           </FlexRowContainer>
         </div>
       </div>

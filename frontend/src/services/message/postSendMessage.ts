@@ -1,15 +1,13 @@
 import api from '../api';
 
 // 메세지 작성
-async function postSendMessage(
-  message: {
-    to: string;
-    title: string;
-    content: string;
-  },
-) {
+async function postSendMessage(message: {
+  to: string;
+  title: string;
+  content: string;
+}) {
   try {
-    const response = await api.post('/msg', { ...message});
+    const response = await api.post('/msg', { ...message });
     if (response.status === 201) {
       return response.data;
     } else {

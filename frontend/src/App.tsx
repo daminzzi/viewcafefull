@@ -16,8 +16,7 @@ import FamilyProfile from './pages/family/FamilyProfile/FamilyProfile';
 import FamilyVisitRegister from './pages/family/FamilyVisitRegister';
 import CareGiver from './pages/caregiver/CareGiver';
 import CareGiverHome from './pages/caregiver/CareGiverHome';
-import CareGiverMessage from './pages/caregiver/CareGiverMessage';
-import CareGiverSendMessage from './pages/caregiver/CareGiverSendMessage';
+import CareGiverSendMessage from './pages/caregiver/CareGiverSendMessage/CareGiverSendMessage';
 import CareGiverGallery from './pages/caregiver/CareGiverGallery';
 import CareGiverGalleryUpload from './pages/caregiver/CareGiverGalleryUpload';
 import GalleryDetail from './pages/GalleryDetail';
@@ -50,7 +49,6 @@ function App() {
           </Route>
           <Route path="/caregiver" element={<CareGiver />}>
             <Route path="" element={<CareGiverHome />} />
-            <Route path="message" element={<CareGiverMessage />} />
             <Route path="message/send" element={<CareGiverSendMessage />} />
             <Route path="gallery" element={<CareGiverGallery />} />
             <Route path="gallery/upload" element={<CareGiverGalleryUpload />} />

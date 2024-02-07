@@ -1,5 +1,4 @@
 import React from 'react';
-import { Message } from '../../services/message/getMessage';
 import deleteMessage from '../../services/message/deleteMessage';
 import styled from 'styled-components';
 import { failed, white, main3 } from '../../assets/styles/palettes';

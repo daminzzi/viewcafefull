@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import postSendMessage from '../../services/message/postSendMessage';
-import useUserStore from '../../stores/UserStore';
+import postSendMessage from '../../../services/message/postSendMessage';
+import useUserStore from '../../../stores/UserStore';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import Input from '../../components/common/Input';
-import { Button } from '../../components/common/Buttons';
-import { failed, main3, success, white } from '../../assets/styles/palettes';
-import TextArea from '../../components/common/TextArea';
-import FlexRowContainer from '../../components/common/FlexRowContainer';
-import Title from '../../components/common/Title';
+import Input from '../../../components/common/Input';
+import { Button } from '../../../components/common/Buttons';
+import { failed, white } from '../../../assets/styles/palettes';
+import * as S from './CareGiverSendMessage.styles'
+import TextArea from '../../../components/common/TextArea';
+import FlexRowContainer from '../../../components/common/FlexRowContainer';
+import Title from '../../../components/common/Title';
+import getConnectInfo from '../../../services/connect/getConnectInfo';
 
 function CareGiverSendMessage() {
   const [title, setTitle] = useState('');
@@ -23,14 +24,25 @@ function CareGiverSendMessage() {
       alert('유저 정보를 불러오지 못했습니다.');
       return;
     }
+
+    const userLinkList = await getConnectInfo('tar', user.id);
+
     try {
-      const message = {
-        to: user.id,
-        title,
-        content,
-      };
-      await postSendMessage(message);
-      alert('메시지 전송 완료.');
+      const messagePromises = [];
+      if (userLinkList && userLinkList.length > 0) {
+        for (let i = 0; i < userLinkList.length; i++) {
+          const userLink = userLinkList[i];
+          const message = {
+            to: userLink.appDomainId,
+            title,
+            content,
+          };
+          messagePromises.push(postSendMessage(message));
+        }
+      }
+
+      await Promise.all(messagePromises);
+      alert('메시지가 전송되었습니다.');
       navigate('/caregiver/message');
     } catch (error) {
       console.error(error);
@@ -43,12 +55,14 @@ function CareGiverSendMessage() {
   }
 
   return (
-    <ParentContainer>
-      <MainContainer>
+    <S.ParentContainer>
+      <S.MainContainer>
         <Title icon="message">메세지 작성</Title>
-        <SubContainer onSubmit={handleSubmit}>
-          <SendButton type="submit">전송</SendButton>
-          <Label>
+        <S.SubContainer>
+          <S.SendButton type="submit" onClick={handleSubmit}>
+            전송
+          </S.SendButton>
+          <S.Label>
             제목
             <div>
               <Input
@@ -59,8 +73,8 @@ function CareGiverSendMessage() {
                 required
               />
             </div>
-          </Label>
-          <Label>
+          </S.Label>
+          <S.Label>
             내용
             <div>
               <TextArea
@@ -71,8 +85,8 @@ function CareGiverSendMessage() {
                 required
               />
             </div>
-          </Label>
-        </SubContainer>
+          </S.Label>
+        </S.SubContainer>
         <FlexRowContainer $justifyContent="end" $alignItems="end">
           <Button
             $borderRadius="50px"
@@ -86,49 +100,10 @@ function CareGiverSendMessage() {
             닫기
           </Button>
         </FlexRowContainer>
-      </MainContainer>
-    </ParentContainer>
+      </S.MainContainer>
+    </S.ParentContainer>
   );
 }
 
 export default CareGiverSendMessage;
 
-const SendButton = styled(Button)`
-  border-radius: 50px;
-  width: 60px;
-  padding: 10px;
-  color: ${white};
-  background-color: ${success};
-  position: absolute;
-  top: -11%;
-  right: 2%;
-`;
-
-const Label = styled.label`
-  margin-bottom: 5px;
-  font-size: 13px;
-  font-weight: bold;
-`;
-
-const ParentContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-`;
-
-const MainContainer = styled.div`
-  padding: 10px;
-  width: 280px;
-  height: 70vh;
-  border-radius: 30px;
-  background-color: ${white};
-  border: 2px solid ${main3};
-`;
-
-const SubContainer = styled.div`
-  position: relative;
-  padding: 10px;
-  align-items: center;
-  width: auto;
-`;

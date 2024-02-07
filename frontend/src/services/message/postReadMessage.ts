@@ -3,7 +3,7 @@ import api from '../api';
 // 메세지 상태변경(체크박스 안읽음->읽음)
 async function postReadMessage(id: number) {
   try {
-    const response = await api.post(`/msg?id=${id}`);
+    const response = await api.post(`/msg/${id}`);
     if (response.status === 200) {
       return;
     } else {
