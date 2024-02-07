@@ -8,7 +8,7 @@ COPY ${JAR_FILE} app.jar
 COPY build/resources/main/static /app/static
 COPY build/api-spec /app/api-spec
 
-
+USER root
 # ffmpeg 설치를 위한 명령어
 # 패키지 목록 업데이트 및 필수 패키지 설치
 RUN apt-get update \
