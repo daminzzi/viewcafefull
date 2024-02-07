@@ -1,5 +1,4 @@
 import React from 'react';
-import deleteMessage from '../../services/message/deleteMessage';
 import styled from 'styled-components';
 import { failed, white, main3 } from '../../assets/styles/palettes';
 import { Button } from '../common/Buttons';
@@ -18,12 +17,13 @@ function MessageDetailModal({
   onClose,
 }: MessageDetailModalProps) {
   async function handleDelete() {
-    try {
-      await deleteMessage(message.id);
-      onClose();
-    } catch (error) {
-      console.error('메세지를 삭제하지 못했습니다');
-    }
+    // try {
+    //   await deleteMessage(message.id);
+    //   onClose();
+    // } catch (error) {
+    //   console.error('메세지를 삭제하지 못했습니다');
+    // }
+    alert('추후 지원 예정 기능입니다');
   }
 
   return (
