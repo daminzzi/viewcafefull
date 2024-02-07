@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +34,8 @@ public class BestPhotoService {
   private final GalleryService galleryService;
   private final ConferenceService conferenceService;
   private final GcpService gcpService;
+  @Value("${file.server.url}")
+  private String fileServerUrl;
 
   @Transactional
   public void writeBestPhoto(SecurityUsers securityUsers, Map<String, Object> params, String conferenceId)
@@ -44,7 +47,7 @@ public class BestPhotoService {
     MultipartFile imageFile = convertBase64ToMultipartFile(base64Image, conferenceId);
     Image image = galleryService.saveImage(securityUsers, imageFile);
     Conference conference = conferenceService.getConferenceById(Long.valueOf(conferenceId));
-    int score = gcpService.detectFace(galleryService.getImageUrl(image.getId()));
+    int score = gcpService.detectFace(fileServerUrl + image.getImageName());
     bestPhotoRepository.save(new BestPhoto(image, conference, score));
   }
 
