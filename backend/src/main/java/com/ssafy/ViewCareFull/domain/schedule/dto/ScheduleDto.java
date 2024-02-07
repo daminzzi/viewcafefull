@@ -19,10 +19,12 @@ public class ScheduleDto {
   private String day;
 
 
-  public ScheduleDto(Schedule schedule) {
-    this.startTime = schedule.getStartTime().toString();
-    this.endTime = schedule.getEndTime().toString();
-    this.unit = schedule.getUnit();
-    this.day = DayType.getNumberDayType(schedule.getDay());
+  public static ScheduleDto of(Schedule schedule) {
+    return ScheduleDto.builder()
+        .startTime(schedule.getStartTime().toString())
+        .endTime(schedule.getEndTime().toString())
+        .unit(schedule.getUnit())
+        .day(DayType.getDayTypeToNumber(schedule.getDay()))
+        .build();
   }
 }

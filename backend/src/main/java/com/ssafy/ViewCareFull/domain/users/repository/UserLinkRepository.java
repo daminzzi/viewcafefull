@@ -18,20 +18,20 @@ public interface UserLinkRepository extends JpaRepository<UserLink, Long> {
   Optional<UserLink> findLinkByGuardianId(@Param("userId") Long userId);
 
   @Query("select ul from UserLink ul where ul.caregiver.id = (select ul.caregiver.id from UserLink ul where ul.guardian.id = :guardianId)")
-  Optional<List<UserLink>> findAllGuardianByGuardian(@Param("guardianId") Long guardianId);
+  List<UserLink> findAllGuardianByGuardian(@Param("guardianId") Long guardianId);
 
   @Query("select ul from UserLink ul where ul.caregiver.id = :caregiverId")
-  Optional<List<UserLink>> findAllGuardianByCaregiver(@Param("caregiverId") Long caregiverId);
+  List<UserLink> findAllGuardianByCaregiver(@Param("caregiverId") Long caregiverId);
 
   @Query("select ul from UserLink ul where ul.guardian.id = :guardianId")
-  Optional<List<UserLink>> findCaregiverByGuardian(@Param("guardianId") Long guardianId);
+  List<UserLink> findCaregiverByGuardian(@Param("guardianId") Long guardianId);
 
   @Query("select ul from UserLink ul where ul.caregiver.id = (select ul.caregiver.id from UserLink ul where ul.guardian.domainId = :guardianId)")
-  Optional<List<UserLink>> findAllGuardianByGuardian(@Param("guardianId") String guardianDomainId);
+  List<UserLink> findAllGuardianByGuardian(@Param("guardianId") String guardianDomainId);
 
   @Query("select ul from UserLink ul where ul.caregiver.domainId = :caregiverId")
-  Optional<List<UserLink>> findAllGuardianByCaregiver(@Param("caregiverId") String caregiverDomainId);
+  List<UserLink> findAllGuardianByCaregiver(@Param("caregiverId") String caregiverDomainId);
 
   @Query("select ul from UserLink ul where ul.guardian.domainId = :guardianId")
-  Optional<List<UserLink>> findCaregiverByGuardian(@Param("guardianId") String guardianDomainId);
+  List<UserLink> findCaregiverByGuardian(@Param("guardianId") String guardianDomainId);
 }

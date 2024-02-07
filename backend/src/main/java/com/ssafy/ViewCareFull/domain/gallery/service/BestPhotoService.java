@@ -6,7 +6,6 @@ import com.ssafy.ViewCareFull.domain.gallery.dto.BestPhotoDto;
 import com.ssafy.ViewCareFull.domain.gallery.dto.ConferenceBestPhotoResponse;
 import com.ssafy.ViewCareFull.domain.gallery.entity.BestPhoto;
 import com.ssafy.ViewCareFull.domain.gallery.entity.Image;
-import com.ssafy.ViewCareFull.domain.gallery.exception.NoBestPhotoException;
 import com.ssafy.ViewCareFull.domain.gallery.repository.BestPhotoRepository;
 import com.ssafy.ViewCareFull.domain.gcp.service.GcpService;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
@@ -53,7 +52,6 @@ public class BestPhotoService {
 
   public ConferenceBestPhotoResponse getBestPhoto(String conferenceId) {
     List<BestPhotoDto> bestPhotoList = bestPhotoRepository.findByConferenceId(Long.valueOf(conferenceId))
-        .orElseThrow(() -> new NoBestPhotoException())
         .stream()
         .map(this::convertBestPhotoDto)
         .toList();

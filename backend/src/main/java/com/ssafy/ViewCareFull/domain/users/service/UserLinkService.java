@@ -73,33 +73,27 @@ public class UserLinkService {
   }
 
   public List<UserLink> getGuardianListByCaregiver(Long userId) {
-    return userLinkRepository.findAllGuardianByCaregiver(userId)
-        .orElseThrow(UserLinkNotMatchException::new);
+    return userLinkRepository.findAllGuardianByCaregiver(userId);
   }
 
   public List<UserLink> getGuardianListByCaregiver(String userDomainId) {
-    return userLinkRepository.findAllGuardianByCaregiver(userDomainId)
-        .orElseThrow(UserLinkNotMatchException::new);
+    return userLinkRepository.findAllGuardianByCaregiver(userDomainId);
   }
 
   public List<UserLink> getAllUserConnectionByGuardian(Long userId) {
-    return userLinkRepository.findAllGuardianByGuardian(userId)
-        .orElseThrow(UserLinkNotMatchException::new);
+    return userLinkRepository.findAllGuardianByGuardian(userId);
   }
 
   public List<UserLink> getAllUserConnectionByGuardian(String userDomainId) {
-    return userLinkRepository.findAllGuardianByGuardian(userDomainId)
-        .orElseThrow(UserLinkNotMatchException::new);
+    return userLinkRepository.findAllGuardianByGuardian(userDomainId);
   }
 
   public List<UserLink> getCaregiverListByGuardian(Long userId) {
-    return userLinkRepository.findCaregiverByGuardian(userId)
-        .orElseThrow(UserLinkNotMatchException::new);
+    return userLinkRepository.findCaregiverByGuardian(userId);
   }
 
   public List<UserLink> getCaregiverListByGuardian(String userDomainId) {
-    return userLinkRepository.findCaregiverByGuardian(userDomainId)
-        .orElseThrow(UserLinkNotMatchException::new);
+    return userLinkRepository.findCaregiverByGuardian(userDomainId);
   }
 
 }
