@@ -37,11 +37,14 @@ public class BestPhotoService {
   @Transactional
   public void writeBestPhoto(SecurityUsers securityUsers, Map<String, Object> params, String conferenceId)
       throws IOException {
+    if (params == null || !params.containsKey("base64Data")) {
+      throw new IllegalArgumentException("base64Data parameter is required");
+    }
     String base64Image = params.get("base64Data").toString();
     MultipartFile imageFile = convertBase64ToMultipartFile(base64Image, conferenceId);
     Image image = galleryService.saveImage(securityUsers, imageFile);
     Conference conference = conferenceService.getConferenceById(Long.valueOf(conferenceId));
-    int score = gcpService.detectFace(image.getImageUrl());
+    int score = gcpService.detectFace(galleryService.getImageUrl(image.getId()));
     bestPhotoRepository.save(new BestPhoto(image, conference, score));
   }
 
@@ -83,7 +86,9 @@ public class BestPhotoService {
     MultipartFile multipartFile = new MockMultipartFile("file", tempFile.getName(), null,
         FileUtils.readFileToByteArray(tempFile));
     // 임시 파일 삭제
-    tempFile.delete();
+    if (tempFile.exists()) {
+      tempFile.delete();
+    }
     return multipartFile;
   }
 }

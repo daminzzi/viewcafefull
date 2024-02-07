@@ -1,6 +1,7 @@
 package com.ssafy.ViewCareFull.domain.ffmpeg.service;
 
 
+import com.ssafy.ViewCareFull.domain.ffmpeg.exception.VideoCreateFailException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -74,6 +75,11 @@ public class FFmpegService {
 
     // 프로세스의 종료를 대기하고 종료 코드 출력
     int exitCode = process.waitFor();
-    log.info("Exited with error code: " + exitCode);
+    if (exitCode == 0) {
+      log.info("Exited with create video success code: 0");
+    } else {
+      log.info("Exited with error code: " + exitCode);
+      throw new VideoCreateFailException();
+    }
   }
 }
