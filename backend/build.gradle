@@ -80,8 +80,8 @@ dependencies {
 openapi3 {
     servers = [
             { url = 'http://localhost:8080' },
-            { url = 'https://i10a601.p.ssafy.io:8091/api' },
-            { url = 'https://i10a601.p.ssafy.io:8090/api' }
+            { url = 'http://i10a601.p.ssafy.io:8081' },
+            { url = 'http://i10a601.p.ssafy.io:8080' },
     ]
     title = 'ViewCareFull API'
     description = 'ViewCareFull API Documentation'
