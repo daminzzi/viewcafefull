@@ -5,9 +5,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.epages.restdocs.apispec.MockMvcRestDocumentationWrapper;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssafy.ViewCareFull.DatabaseCleanup;
+import com.ssafy.ViewCareFull.domain.helper.UserRegisterHelper;
 import com.ssafy.ViewCareFull.domain.users.dto.JoinForm;
 import com.ssafy.ViewCareFull.domain.users.dto.LoginForm;
-import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
 import com.ssafy.ViewCareFull.domain.users.repository.UsersRepository;
 import com.ssafy.ViewCareFull.domain.users.service.UsersService;
 import org.assertj.core.api.Assertions;
@@ -22,7 +22,6 @@ import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation;
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
@@ -41,6 +40,8 @@ public class UsersControllerIntegrationTest {
   @Autowired
   private ObjectMapper objectMapper;
   @Autowired
+  private UserRegisterHelper userRegisterHelper;
+  @Autowired
   private UsersService usersService;
   @Autowired
   private UsersRepository usersRepository;
@@ -48,38 +49,32 @@ public class UsersControllerIntegrationTest {
   @BeforeEach
   void setUp(WebApplicationContext context, RestDocumentationContextProvider restDocumentation) {
     databaseCleanup.execute();
+    userRegisterHelper.execute(context);
     mockMvc = MockMvcBuilders.webAppContextSetup(context)
         .apply(MockMvcRestDocumentation.documentationConfiguration(restDocumentation))
         .build();
-    PasswordEncoder passwordEncoder = context.getBean(PasswordEncoder.class);
-    saveGuardian(passwordEncoder);
-  }
-
-  private void saveGuardian(PasswordEncoder passwordEncoder) {
-    usersRepository.save(Guardian.builder().domainId("user1").password(passwordEncoder.encode
-        ("1234")).userName("유저1").build());
   }
 
   @Nested
-  @DisplayName("중복 아이디 확인")
+  @DisplayName("중복 아이디 테스트")
   class chkDuplicatedId {
 
     @Test
     @DisplayName("[성공]중복 아이디가 없을 경우")
     void chkDuplicatedIdSuccess() throws Exception {
       mockMvc.perform(RestDocumentationRequestBuilders.get("/users/validation/{id}", 1)
-              .param("id", "user2"))
+              .param("id", "user1"))
           .andExpect(status().isOk())
           .andDo(MockMvcRestDocumentationWrapper.document("중복 아이디 확인"));
-      Assertions.assertThat(usersRepository.existsByDomainId("user2")).isFalse();
+      Assertions.assertThat(usersRepository.existsByDomainId("user1")).isFalse();
     }
 
     @Test
     @DisplayName("[실패]중복 아이디가 있을 경우")
     void chkDuplicatedIdFail() throws Exception {
 
-      Assertions.assertThat(usersRepository.existsByDomainId("user1")).isTrue();
-      mockMvc.perform(RestDocumentationRequestBuilders.get("/users/validation/{id}", "user1"))
+      Assertions.assertThat(usersRepository.existsByDomainId("guardian")).isTrue();
+      mockMvc.perform(RestDocumentationRequestBuilders.get("/users/validation/{id}", "guardian"))
           .andExpect(status().isConflict())
           .andDo(MockMvcRestDocumentationWrapper.document("중복 아이디 확인"));
     }
@@ -87,7 +82,7 @@ public class UsersControllerIntegrationTest {
   }
 
   @Nested
-  @DisplayName("회원가입")
+  @DisplayName("회원가입 테스트")
   class join {
 
     @Test
@@ -104,13 +99,13 @@ public class UsersControllerIntegrationTest {
   }
 
   @Nested
-  @DisplayName("로그인")
+  @DisplayName("로그인 테스트")
   class login {
 
     @Test
     @DisplayName("[성공]로그인 성공")
     void loginSuccess() throws Exception {
-      LoginForm loginForm = new LoginForm("user1", "1234");
+      LoginForm loginForm = new LoginForm("guardian", "1234");
       mockMvc.perform(RestDocumentationRequestBuilders.post("/users/signin")
               .contentType("application/json")
               .content(objectMapper.writeValueAsString(loginForm)))
@@ -121,7 +116,7 @@ public class UsersControllerIntegrationTest {
     @Test
     @DisplayName("[실패] 회원가입된 적 없는 아이디로 로그인 시도")
     void wrongId() throws Exception {
-      LoginForm loginForm = new LoginForm("user2", "1234");
+      LoginForm loginForm = new LoginForm("user1", "1234");
       mockMvc.perform(RestDocumentationRequestBuilders.post("/users/signin")
               .contentType("application/json")
               .content(objectMapper.writeValueAsString(loginForm)))
@@ -132,7 +127,7 @@ public class UsersControllerIntegrationTest {
     @Test
     @DisplayName("[실패] 다른 비밀번호로 로그인 시도")
     void wrongPassword() throws Exception {
-      LoginForm loginForm = new LoginForm("user1", "1111");
+      LoginForm loginForm = new LoginForm("guardian", "1111");
       mockMvc.perform(RestDocumentationRequestBuilders.post("/users/signin")
               .contentType("application/json")
               .content(objectMapper.writeValueAsString(loginForm)))

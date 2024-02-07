@@ -14,6 +14,8 @@ import com.ssafy.ViewCareFull.domain.helper.UserRegisterHelper;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import com.ssafy.ViewCareFull.domain.users.security.jwt.JwtAuthenticationFilter;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -118,6 +120,44 @@ public class ConditionControllerIntegrationTest {
       Assertions.assertThat(conditions.getUser().getId()).isEqualTo(1L);
       Assertions.assertThat(conditions.getCondition()).isEqualTo(ConditionType.NORMAL);
       Assertions.assertThat(conditions.getTime()).isEqualTo(TimeType.MORNING);
+    }
+  }
+
+  @Nested
+  @DisplayName("컨디션 조회 테스트")
+  class GetConditionTest {
+
+    @Test
+    @DisplayName("[성공] 기간별 컨디션 조회 테스트")
+    void getConditionTest() throws Exception {
+      // given
+      Users caregiver = userRegisterHelper.getCaregiver();
+      LocalDate date = LocalDate.of(2024, 1, 1);
+      int listSize = 0;
+      List<Conditions> addConditions = new ArrayList<>();
+      for (long i = 0L; i < 31L; i++) {
+        for (int j = 0; j < 3; j++) {
+          Conditions savedCondition = Conditions.builder()
+              .user(caregiver)
+              .date(date.plusDays(i))
+              .time(TimeType.values()[j])
+              .condition(ConditionType.values()[j])
+              .build();
+          addConditions.add(savedCondition);
+          listSize++;
+        }
+        conditionRepository.saveAll(addConditions);
+      }
+      // when
+      mockMvc.perform(RestDocumentationRequestBuilders.get("/condition")
+              .param("start", "2024-01-01")
+              .param("end", "2024-01-31")
+              .header("Authorization", userRegisterHelper.getCaregiverAccessToken()))
+          .andExpect(status().isOk())
+          .andDo(MockMvcRestDocumentation.document("컨디션 조회"));
+      //then
+      Assertions.assertThat(conditionRepository.findByUserAndDateBetween(caregiver, date, date.plusDays(30)).size())
+          .isEqualTo(listSize);
     }
   }
 }
