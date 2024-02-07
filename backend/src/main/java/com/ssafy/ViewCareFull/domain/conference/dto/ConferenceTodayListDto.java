@@ -8,12 +8,12 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ConferenceTodayListDto extends ConferenceInfoListDto {
+public class ConferenceTodayListDto extends ConferenceInfoPageDto {
 
-  private List<TodayConferenceInfo> todayConferenceList;
+  private List<ConferenceInfo> todayConferenceList;
 
-  public ConferenceTodayListDto(ConferenceInfoListDto conferenceList, List<TodayConferenceInfo> todayConferenceList) {
-    super(conferenceList.getConferenceList());
+  public ConferenceTodayListDto(List<ConferenceInfo> reservedConferenceList, List<ConferenceInfo> todayConferenceList) {
+    super(reservedConferenceList);
     this.todayConferenceList = todayConferenceList;
   }
 }

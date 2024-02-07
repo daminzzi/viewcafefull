@@ -4,9 +4,7 @@ import com.ssafy.ViewCareFull.domain.conference.entity.Conference;
 import com.ssafy.ViewCareFull.domain.users.entity.PermissionType;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Stream;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -48,12 +46,8 @@ public class ConferenceInfo {
     return conferenceInfoBuilder.build();
   }
 
-  public static ConferenceInfoListDto toList(List<Conference> conferenceList, String order) {
-    Stream<ConferenceInfo> conferenceInfoStream = conferenceList.stream()
-        .map(ConferenceInfo::of);
-    if ("early".equals(order)) {
-      conferenceInfoStream = conferenceInfoStream.sorted(Comparator.comparing(ConferenceInfo::getCreatedDatetime));
-    }
-    return ConferenceInfoListDto.builder().conferenceList(conferenceInfoStream.toList()).build();
+  public static List<ConferenceInfo> toList(List<Conference> conferenceList) {
+    return conferenceList.stream().map(ConferenceInfo::of).toList();
   }
+
 }

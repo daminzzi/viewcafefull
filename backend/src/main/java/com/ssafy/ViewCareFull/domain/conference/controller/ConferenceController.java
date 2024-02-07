@@ -1,15 +1,13 @@
 package com.ssafy.ViewCareFull.domain.conference.controller;
 
-import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceInfoListDto;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceInfoSummaryDto;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceReservationDto;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceStateDto;
+import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceTodayListDto;
 import com.ssafy.ViewCareFull.domain.conference.service.ConferenceService;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,15 +51,14 @@ public class ConferenceController {
   }
 
   @GetMapping("/{type}/list")
-  public ResponseEntity<? extends ConferenceInfoListDto> getConferenceList(
+  public ResponseEntity<ConferenceTodayListDto> getConferenceList(
       @AuthenticationPrincipal SecurityUsers securityUser, @PathVariable String type,
       @RequestParam(value = "start", required = false) @DateTimeFormat(pattern = "yyyyMMdd") LocalDate startDate,
       @RequestParam(value = "end", required = false) @DateTimeFormat(pattern = "yyyyMMdd") LocalDate endDate,
       @RequestParam(value = "order", required = false) String order,
       @RequestParam(value = "page", required = false, defaultValue = "1") Integer page) {
-    Pageable pageable = PageRequest.of(page - 1, 10);
     return ResponseEntity.status(HttpStatus.OK)
-        .body(conferenceService.getConferenceList(securityUser, type, startDate, endDate, order, pageable));
+        .body(conferenceService.getConferenceList(securityUser, type, startDate, endDate, page, order));
   }
 
   @GetMapping("/per")

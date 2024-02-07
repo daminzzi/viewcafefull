@@ -2,6 +2,7 @@ package com.ssafy.ViewCareFull.domain.conference.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -32,6 +33,10 @@ public class ConferenceReservationDto {
     this.applicationIds = this.applicationList.stream()
         .map(Participant::getApplicationId)
         .collect(Collectors.toSet());
+  }
+
+  public boolean chkApply(Guardian guardian) {
+    return this.applicationIds.contains(guardian.getDomainId());
   }
 
   @Getter
