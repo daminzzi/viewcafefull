@@ -6,8 +6,8 @@ import KakaoButton from '../../assets/images/kakao_login_medium_wide.png';
 import { Button } from '../../components/common/Buttons';
 import UserContainer from '../../components/common/UserContainer';
 import * as S from './Login.styles';
+import useConnectStore from '../../stores/ConnectStore';
 
-type PathType = 'app' | 'tar';
 
 interface Form {
   id: string;
@@ -16,10 +16,11 @@ interface Form {
 
 function Login() {
   const { login } = useUserStore();
+  const { updateConnect } = useConnectStore();
   const navigate = useNavigate();
   const location = useLocation();
-  const pathType: PathType = location.state?.pathType ?? 'tar';
 
+  const pathType: PathType = location.state?.pathType ?? 'tar';
   const [form, setForm] = useState<Form>({
     id: '',
     password: '',
@@ -39,6 +40,7 @@ function Login() {
 
     try {
       await login(form);
+      await updateConnect('tar', form.id);
       if (pathType === 'app') {
         // 보호자 로그인 완료시
         navigate('/family');

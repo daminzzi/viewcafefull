@@ -5,17 +5,15 @@ import { ReactComponent as CalendarIcon } from '../../assets/icons/calendar.svg'
 import { ReactComponent as ClockIcon } from '../../assets/icons/clock.svg';
 import useConnectStore from '../../stores/ConnectStore';
 import getVisitTime from '../../services/visit/getVisitTime';
-import getConnectInfo from '../../services/connect/getConnectInfo';
 
 function VisitRegister() {
   //현재 입소자 정보
-  const { currConnect } = useConnectStore();
+  const { currConnect, connectArr } = useConnectStore();
   //면회 신청 날짜
   const [visitDate, setVisitDate] = useState<Date>();
   //면회 신청 시간
   const [visitTimeArr, setVisitTimeArr] = useState<string[]>(['시간선택']);
   const resVisitTime = getVisitTime(currConnect.tarDomainId);
-  const connectFamily = getConnectInfo('tar', currConnect.tarDomainId);
 
   function generateTimeArray(timeRange: TimeRange): string[] {
     const { startTime, endTime, unit } = timeRange;
@@ -66,15 +64,15 @@ function VisitRegister() {
 
   function showVisitFamily() {
     const arr: ReactElement[] = [];
-    for (let i: number = 0; i < connectFamily.length; i++) {
+    for (let i: number = 0; i < connectArr.length; i++) {
       arr.push(
         <div key={i}>
           <input
             type="checkbox"
-            name={connectFamily[i].appDomainId}
-            value={connectFamily[i].appDomainId}
+            name={connectArr[i].appDomainId}
+            value={connectArr[i].appDomainId}
           />
-          <label>{connectFamily[i].appName}</label>
+          <label>{connectArr[i].appName}</label>
         </div>,
       );
     }

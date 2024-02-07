@@ -5,16 +5,14 @@ import { ReactComponent as CalendarIcon } from '../../assets/icons/calendar.svg'
 import { ReactComponent as ClockIcon } from '../../assets/icons/clock.svg';
 import useConnectStore from '../../stores/ConnectStore';
 import getVisitTime from '../../services/visit/getVisitTime';
-import getConnectInfo from '../../services/connect/getConnectInfo';
 import postVisitRegister from '../../services/visit/postVisitRegister';
 import { useNavigate } from 'react-router-dom';
 
 function FamilyVisitRegister() {
   const navigator = useNavigate();
   //현재 입소자 정보
-  const { currConnect } = useConnectStore();
+  const { currConnect, connectArr } = useConnectStore();
   const resVisitTime = getVisitTime(currConnect.tarDomainId);
-  const connectFamily = getConnectInfo('tar', currConnect.tarDomainId);
   //면회 신청 날짜
   const [visitDate, setVisitDate] = useState<Date>(new Date());
   const [visitTime, setVisitTime] = useState<string>('시간선택');
@@ -72,15 +70,15 @@ function FamilyVisitRegister() {
 
   function showVisitFamily() {
     const arr: ReactElement[] = [];
-    for (let i: number = 0; i < connectFamily.length; i++) {
+    for (let i: number = 0; i < connectArr.length; i++) {
       arr.push(
         <div key={i}>
           <input
             type="checkbox"
-            name={connectFamily[i].appDomainId}
-            value={connectFamily[i].appDomainId}
+            name={connectArr[i].appDomainId}
+            value={connectArr[i].appDomainId}
           />
-          <label>{connectFamily[i].appName}</label>
+          <label>{connectArr[i].appName}</label>
         </div>,
       );
     }
@@ -99,10 +97,10 @@ function FamilyVisitRegister() {
   function handleVisitRegister() {
     try {
       const arr = [];
-      for (let i: number = 0; i < connectFamily.length; i++) {
-        if (connectFamily[i]) {
+      for (let i: number = 0; i < connectArr.length; i++) {
+        if (connectArr[i]) {
           arr.push({
-            applicationId: connectFamily[i].appDomainId,
+            applicationId: connectArr[i].appDomainId,
           });
         }
       }

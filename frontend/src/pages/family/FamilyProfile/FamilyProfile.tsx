@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useConnectStore from '../../../stores/ConnectStore';
 import useUserStore from '../../../stores/UserStore';
-import getConnectInfo from '../../../services/connect/getConnectInfo';
 import { Button } from '../../../components/common/Buttons';
 import FlexRowContainer from '../../../components/common/FlexRowContainer';
 import Accordion from '../../../components/common/Accordion';
@@ -14,7 +13,7 @@ import { failed, white } from '../../../assets/styles/palettes';
 import * as S from './FamilyProfile.styles';
 
 function FamilyProfile() {
-  const { currConnect } = useConnectStore();
+  const { currConnect, connectArr } = useConnectStore();
   const { user, logout } = useUserStore();
   const navigate = useNavigate();
 
@@ -22,14 +21,10 @@ function FamilyProfile() {
     logout();
     navigate('/');
   }
-
-  // 입소자 기준으로 연결 정보를 받아옴(아코디언)
-  function TarConnectInfoList({ domainId }: { domainId: string }) {
-    const connectInfoList = getConnectInfo('tar', domainId);
+  function TarConnectInfoList() {
     const apps = [];
-
-    for (let index = 0; index < connectInfoList.length; index++) {
-      const connectInfo = connectInfoList[index];
+    for (let index = 0; index < connectArr.length; index++) {
+      const connectInfo = connectArr[index];
       apps.push(
         <div key={index}>
           <Line />
@@ -86,7 +81,7 @@ function FamilyProfile() {
         subTitle={currConnect.perName}
         imgUrl={NoProfile}
         suffix="님"
-        content={<TarConnectInfoList domainId={user.id} />}
+        content={<TarConnectInfoList />}
       />
 
       <ContentsContainer $margin="10px" $width="auto" $padding="15px">

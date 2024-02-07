@@ -4,6 +4,8 @@ import { light } from '../../assets/styles/palettes';
 import NoProfile from '../../assets/images/noProfile.png';
 import ProfileFrame from '../common/ProfileFrame';
 import useConnectStore from '../../stores/ConnectStore';
+import useUserStore from '../../stores/UserStore';
+
 
 const HeaderDiv = styled.header`
   display: flex;
@@ -25,13 +27,12 @@ function Header() {
   const {
     connectArr,
     currConnect,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    setCurr,
     updateConnect,
   } = useConnectStore();
+  const { user } = useUserStore();
 
-  if (connectArr.length === 0) {
-    updateConnect('app', 'asdf');
+  if (connectArr.length === 0 && user) {
+    updateConnect('app', user?.id);
   }
 
   return (
