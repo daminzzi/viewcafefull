@@ -1,6 +1,5 @@
 package com.ssafy.ViewCareFull.domain.gallery.dto;
 
-import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,5 +14,4 @@ public class BestPhotoDto {
   private String imageId;
   private int score;
   private String imageUrl;
-  private LocalDateTime imageDateTime;
 }

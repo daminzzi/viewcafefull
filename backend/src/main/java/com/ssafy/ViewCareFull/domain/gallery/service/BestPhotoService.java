@@ -61,13 +61,11 @@ public class BestPhotoService {
 
   private BestPhotoDto convertBestPhotoDto(BestPhoto bestPhoto) {
     Long imageId = bestPhoto.getImage().getId();
-    LocalDateTime imageDateTime = bestPhoto.getImage().getImageDateTime();
     String imageUrl = galleryService.getImageUrl(imageId);
     return BestPhotoDto.builder()
         .imageId(imageId.toString())
         .score(bestPhoto.getScore())
         .imageUrl(imageUrl)
-        .imageDateTime(imageDateTime)
         .build();
   }
 
