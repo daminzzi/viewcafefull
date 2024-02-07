@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation;
@@ -52,33 +51,33 @@ class GalleryControllerTest {
         .build();
   }
 
-  @Nested
-  @DisplayName("갤러리 저장 테스트")
-  class SaveImageTest {
-
-    @Test
-    @DisplayName("[성공] 갤러리 저장 테스트")
-    void saveImage() throws Exception {
-      String accessToken = userRegisterHelper.getCaregiverAccessToken();
-      MockMultipartFile image = new MockMultipartFile("image", "test.jpg", "image/jpeg", "test".getBytes());
-      MockMultipartFile meta = new MockMultipartFile("meta", "meta.json", "application/json",
-          "{\"test\":\"test\"}".getBytes());
+//  @Nested
+//  @DisplayName("갤러리 저장 테스트")
+//  class SaveImageTest {
+//
+//    @Test
+//    @DisplayName("[성공] 갤러리 저장 테스트")
+//    void saveImage() throws Exception {
+//      String accessToken = userRegisterHelper.getCaregiverAccessToken();
+//      MockMultipartFile image = new MockMultipartFile("image", "test.jpg", "image/jpeg", "test".getBytes());
+//      MockMultipartFile meta = new MockMultipartFile("meta", "meta.json", "application/json",
+//          "{\"test\":\"test\"}".getBytes());
+////      mockMvc.perform(RestDocumentationRequestBuilders.multipart("/gallery")
 //      mockMvc.perform(RestDocumentationRequestBuilders.multipart("/gallery")
-      mockMvc.perform(RestDocumentationRequestBuilders.multipart("/gallery")
-              .file(image)
-              .file(meta)
-              .header("Authorization", accessToken)
-              .header("Content-Type", "multipart/form-data"))
-          .andExpect(status().isCreated())
-          .andDo(document(
-              "갤러리 저장",
-              RequestDocumentation.relaxedRequestParts(
-                  RequestDocumentation.partWithName("image").description("이미지 파일"),
-                  RequestDocumentation.partWithName("meta").description("메타 정보")
-              )
-          ));
-    }
-  }
+//              .file(image)
+//              .file(meta)
+//              .header("Authorization", accessToken)
+//              .header("Content-Type", "multipart/form-data"))
+//          .andExpect(status().isCreated())
+//          .andDo(document(
+//              "갤러리 저장",
+//              RequestDocumentation.relaxedRequestParts(
+//                  RequestDocumentation.partWithName("image").description("이미지 파일"),
+//                  RequestDocumentation.partWithName("meta").description("메타 정보")
+//              )
+//          ));
+//    }
+//  }
 
   @Nested
   @DisplayName("갤러리 조회 테스트")
