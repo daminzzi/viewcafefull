@@ -149,11 +149,6 @@ function FamilyMessage() {
     setCheckedMessages([]);
   }
 
-  // 상세보기 할 메세지 선택(더미테스트코드)
-  // function openModal(message: Message) {
-  //   setSelectedMessage(message);
-  // }
-
   // 모달 클릭시 읽음확인 처리 + 단일상세조회
   async function openModal(message: Message) {
     const updatedMessage = await getReadMessage(message.id);
@@ -170,16 +165,14 @@ function FamilyMessage() {
   return (
     <div>
       <Title icon="message">메세지</Title>
-      <Button
-        $bgColor={success}
-        $width="98px"
-        $padding="9px"
-        $color={white}
-        onClick={handleReadClick}
+
+      <FlexColContainer
+        $position="absolute"
+        $top="8vh"
+        $alignItems="end"
+        $justifyContent="stretch"
+        $margin="2vh 0 0 0"
       >
-        선택 읽기
-      </Button>
-      <FlexColContainer $alignItems="end" $justifyContent="stretch">
         <SearchForm onSubmit={handleSearch}>
           <Input
             $width="195px"
@@ -192,8 +185,19 @@ function FamilyMessage() {
       </FlexColContainer>
 
       <SubContainer>
-        <UnReadMsgs>{messagesData.unreadMsgs}</UnReadMsgs>
-        <span>/{messagesData.sum} 안 읽음</span>
+        <ReadText>
+          <UnReadMsgs>{messagesData.unreadMsgs}</UnReadMsgs>
+          <span>/{messagesData.sum} 안 읽음</span>
+        </ReadText>
+        <Button
+          $bgColor={success}
+          $width="98px"
+          $padding="9px"
+          $color={white}
+          onClick={handleReadClick}
+        >
+          선택 읽기
+        </Button>
       </SubContainer>
       <Line $borderColor={black} />
 
@@ -225,11 +229,17 @@ const UnReadMsgs = styled.span`
 
 const SubContainer = styled.div`
   margin: 0.75rem;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const SearchForm = styled.form`
   position: relative;
   width: 210px;
+`;
+
+const ReadText = styled.div`
+  margin-top: 15px;
 `;
 
 const SearchButton = styled.button`
