@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
-import Header from '../../components/family/Header';
+import Header from '../../components/common/Header';
 import Nav from '../../components/family/Nav';
 
 const Wrapper = styled.div`
-  min-height: 82.5vh;
-  margin-bottom: 8vh;
+  min-height: 84vh;
+  padding-bottom: 8vh;
 `;
 
 function Family() {

@@ -1,23 +1,25 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import FlexRowContainer from '../common/FlexRowContainer';
+// import FlexRowContainer from '../common/FlexRowContainer';
+import FlexColContainer from '../common/FlexColContainer';
 import { white, medium, deep } from '../../assets/styles/palettes';
 import DaySpan from './DaySpan';
 import useHealthStore, { isSameDate } from '../../stores/HealthStore';
+import { ReactComponent as Good } from '../../assets/icons/good.svg'
 
 type Props = {
   date: Date;
   moved: boolean;
 };
 
-const Wrapper = styled(FlexRowContainer)<{ $isSelected: boolean | null }>`
+const Wrapper = styled(FlexColContainer)<{ $isSelected: boolean | null }>`
   cursor: pointer;
   background-color: ${white};
   border-radius: 10px;
   width: 13%;
   height: 60px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   padding-top: 0.2%;
   padding-bottom: 0.2%;
   box-shadow: 2px 2px 4px ${medium};
@@ -52,6 +54,7 @@ function DateBox({ date, moved }: Props) {
       <DaySpan $day={date?.getDay()} $isToday={isToday}>
         {date?.getDate()}
       </DaySpan>
+      <Good width='1.5rem' height='1.5rem' />
     </Wrapper>
   );
 }

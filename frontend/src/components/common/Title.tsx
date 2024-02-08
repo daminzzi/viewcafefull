@@ -73,7 +73,8 @@ function Title({ children, icon = null, buttonContents, handleClick }: Props) {
     <FlexRowContainer
       $justifyContent="space-between"
       $width="90%"
-      $margin="1.5vh auto"
+      $margin="auto"
+      $padding="1.5vh 0"
     >
       <TitleDiv>
         {renderIcon()}

@@ -7,7 +7,7 @@ import styled, { css } from 'styled-components';
 
 const TabButton = styled(RoundedButton)<{ $isSelected: boolean }>`
   font-size: 0.8rem;
-  width: 4.5rem;
+  width: 3.5rem;
   height: 1.75rem;
   border-radius: 2rem;
   background-color: ${white};
@@ -55,7 +55,7 @@ function TabButtonGroup() {
         $isSelected={isSelected(tab, 'mm')}
         onClick={() => setTab('mm')}
       >
-        식단/복약
+        식단
       </TabButton>
     </FlexRowContainer>
   );

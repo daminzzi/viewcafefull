@@ -6,7 +6,7 @@ import { ReactComponent as ChevronLeft } from '../../assets/icons/chevronLeft.sv
 import useHealthStore, { isSameDate } from '../../stores/HealthStore';
 
 const Span = styled.span`
-  font-size: 2rem;
+  font-size: 1.5rem;
 `;
 
 const ChevronButton = styled.button`
@@ -54,7 +54,7 @@ function YearMonth() {
       $margin="10px 0"
     >
       <ChevronButton onClick={() => handleChangeMonth(true)}>
-        <ChevronLeft width="2rem" />
+        <ChevronLeft width="1.5rem" />
       </ChevronButton>
       {selectedDate && (
         <Span>
@@ -62,7 +62,7 @@ function YearMonth() {
         </Span>
       )}
       <ChevronButton onClick={() => handleChangeMonth(false)}>
-        <ChevronRight width="2rem" />
+        <ChevronRight width="1.5rem" />
       </ChevronButton>
     </FlexRowContainer>
   );
