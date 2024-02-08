@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import { black, white } from '../assets/styles/palettes';
 import FlexColContainer from '../components/common/FlexColContainer';
 
-const Container = styled(FlexColContainer)`
-  background-color: ${black};
+const Container = styled(FlexColContainer)<{ $isVisible: boolean }>`
+  background-color: ${(props) => (props.$isVisible ? white : black)};
   display: flex;
   width: 100%;
   height: 100vh;
@@ -24,6 +24,7 @@ const VoidButton = styled.button`
 
 const Toolbar = styled.div<{ $isVisible: boolean }>`
   display: flex;
+  justify-content: end;
   align-content: center;
   width: 100%;
   position: absolute;
@@ -60,10 +61,10 @@ function GalleryDetail() {
   }
 
   return (
-    <Container onClick={() => handleVisible()}>
+    <Container $isVisible={isVisible} onClick={() => handleVisible()}>
       <Toolbar $isVisible={isVisible} onClick={(e) => e.stopPropagation()}>
         <VoidButton onClick={() => navigate(-1)}>
-          <XMark width="4rem" color={black} />
+          <XMark width="3rem" color={black} />
         </VoidButton>
       </Toolbar>
       <Wrapper>

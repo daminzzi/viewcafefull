@@ -9,13 +9,13 @@ type Props = {
 };
 
 const Container = styled.div`
-  margin: 0 2%;
+  margin: 0 4vw;
 `;
 
 const ImagesContainer = styled(FlexRowContainer)`
   flex-wrap: wrap;
   justify-content: start;
-  gap: 15px 5%;
+  gap: 15px 2%;
 `;
 
 function PicByDate({ galleryInfo: { date, thumnail, images } }: Props) {
@@ -34,7 +34,7 @@ function PicByDate({ galleryInfo: { date, thumnail, images } }: Props) {
           alt={`${date}${i}`}
           handleClick={handleClick}
           image={images[i]}
-          $size="30%"
+          $size="32%"
           $cursor="pointer"
         />,
       );

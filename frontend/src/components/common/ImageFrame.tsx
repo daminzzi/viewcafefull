@@ -16,7 +16,7 @@ export const Wrapper = styled.div<{ $size: string; $cursor?: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 0 0.1rem ${black};
+  box-shadow: 0 0 1px ${black};
   border-radius: 8px;
   overflow: hidden;
 
