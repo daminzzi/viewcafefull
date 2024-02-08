@@ -8,6 +8,7 @@ import { Button, DisabledButton } from '../../components/common/Buttons';
 import Input from '../../components/common/Input';
 import * as S from './SignUp.styles';
 import UserContainer from '../../components/common/UserContainer';
+import getCheckId from '../../services/user/getCheckId';
 
 interface Form {
   name: string;
@@ -126,16 +127,13 @@ function SignUp() {
   // 아이디 중복 확인
   async function handleCheckId() {
     try {
-      const response = await api.get(`/users/validation/${id}`);
-      if (response.status === 409) {
-        alert('이미 사용 중인 아이디입니다.');
-        setCheckId(false);
-      } else {
-        alert('사용 가능한 아이디입니다.');
-        setCheckId(true);
-      }
+      await getCheckId(id);
+      alert('사용 가능한 아이디입니다.');
+      setCheckId(true);
     } catch (error) {
       console.error(error);
+      alert('이미 사용 중인 아이디입니다.');
+      setCheckId(false);
     }
   }
 
@@ -308,4 +306,3 @@ function SignUp() {
 }
 
 export default SignUp;
-
