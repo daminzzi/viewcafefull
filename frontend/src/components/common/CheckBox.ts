@@ -14,8 +14,8 @@ export const ShowCheckBox = styled.label<{ isChecked: boolean }>`
   &:before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
+    left: -10px;
+    top: -8px;
     width: 20px;
     height: 20px;
     border: 1px solid ${gray};
@@ -25,8 +25,8 @@ export const ShowCheckBox = styled.label<{ isChecked: boolean }>`
   &:after {
     content: '';
     position: absolute;
-    left: 4px;
-    top: 4px;
+    left: -6px;
+    top: -4px;
     width: 12px;
     height: 12px;
     border-radius: 3;

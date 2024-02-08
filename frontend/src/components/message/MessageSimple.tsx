@@ -4,13 +4,24 @@ import { ReactComponent as EnvelopeOpen } from '../../assets/icons/envelopeOpen.
 import styled from 'styled-components';
 import FlexRowContainer from '../common/FlexRowContainer';
 import { gray, black } from '../../assets/styles/palettes';
+import { HiddenCheckBox, ShowCheckBox } from '../common/CheckBox';
 
 type MessageProps = {
   openModal: (message: Message) => void;
   message: Message;
+  isChecked: boolean;
+  handleCheckboxChange: (
+    e: React.ChangeEvent<HTMLInputElement>,
+    message: Message,
+  ) => void;
 };
 
-function MessageSimple({ openModal, message }: MessageProps) {
+function MessageSimple({
+  openModal,
+  message,
+  isChecked,
+  handleCheckboxChange,
+}: MessageProps) {
   const [contentMaxLength, setContentMaxLength] = useState(
     window.innerWidth > 1200 ? 80 : 20,
   );
@@ -36,35 +47,54 @@ function MessageSimple({ openModal, message }: MessageProps) {
   }, []);
   return (
     <MainContainer>
-      <div onClick={() => openModal(message)}>
-        <div key={message.id}>
-          <TitleText isRead={message.isRead}>
-            {message.title.length > 10
-              ? `${message.title.substring(0, 10)}...`
-              : message.title}
-          </TitleText>
-          <ContentText isRead={message.isRead}>
-            {message.content.length > contentMaxLength
-              ? `${message.content.substring(0, contentMaxLength)}...`
-              : message.content}
-          </ContentText>
+      <div key={message.id}>
+        <HiddenCheckBox
+          id={`message-checkbox-${message.id}`}
+          checked={isChecked}
+          onChange={(e) => handleCheckboxChange(e, message)}
+        />
+        <ShowCheckBox
+          htmlFor={`message-checkbox-${message.id}`}
+          isChecked={isChecked}
+        />
 
-          <FlexRowContainer
-            $justifyContent="end"
-            $gap="5px"
-            $position="absolute"
-            $padding="0 7px 0 0"
-            $right="-0px"
-            $top="-2px"
-          >
-            {message.isRead ? (
-              <EnvelopeOpen width="20px" height="23px" />
-            ) : (
-              <EnvelopeClosed width="20px" height="23px" />
-            )}
-            <TimeText isRead={message.isRead}>{time}</TimeText>
-          </FlexRowContainer>
+        <div onClick={() => openModal(message)}>
+          <TitleContainer>
+            <TitleText isRead={message.isRead}>
+              {message.title.length > 10
+                ? `${message.title.substring(0, 10)}...`
+                : message.title}
+            </TitleText>
+            <ContentText isRead={message.isRead}>
+              {message.content.length > contentMaxLength
+                ? `${message.content.substring(0, contentMaxLength)}...`
+                : message.content}
+            </ContentText>
+          </TitleContainer>
         </div>
+        <FlexRowContainer
+          $width="135px"
+          $alignItems="center"
+          $justifyContent="flex-start"
+          $position="absolute"
+          $right="6px"
+          $top="0"
+        >
+          {message.isRead ? (
+            <EnvelopeOpen
+              width="20px"
+              height="23px"
+              style={{ marginRight: '2px' }}
+            />
+          ) : (
+            <EnvelopeClosed
+              width="20px"
+              height="23px"
+              style={{ marginRight: '2px' }}
+            />
+          )}
+          <TimeText isRead={message.isRead}>{time}</TimeText>
+        </FlexRowContainer>
       </div>
     </MainContainer>
   );
@@ -85,9 +115,14 @@ const ContentText = styled(TitleText)`
 const TimeText = styled.div<{ isRead?: boolean }>`
   font-size: 13px;
   padding-bottom: 2px;
+  margin-left: 2px;
   color: ${(props) => (props.isRead ? gray : black)};
 `;
 
 const MainContainer = styled.div`
   margin: 10px 0 0 20px;
+`;
+
+const TitleContainer = styled.div`
+  margin: 0 0 0 20px;
 `;

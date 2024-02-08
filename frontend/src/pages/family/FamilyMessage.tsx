@@ -6,7 +6,6 @@ import Pagination from '../../components/common/Pagination';
 import getReadMessage from '../../services/message/getReadMessage';
 import MessageSimple from '../../components/message/MessageSimple';
 import useUserStore from '../../stores/UserStore';
-import { ShowCheckBox, HiddenCheckBox } from '../../components/common/CheckBox';
 import Title from '../../components/common/Title';
 import { Button } from '../../components/common/Buttons';
 import { black, failed, success, white } from '../../assets/styles/palettes';
@@ -16,6 +15,7 @@ import Input from '../../components/common/Input';
 import search from '../../assets/images/search.png';
 import FlexRowContainer from '../../components/common/FlexRowContainer';
 import FlexColContainer from '../../components/common/FlexColContainer';
+import { ReactComponent as Spinner } from '../../assets/icons/spinner.svg';
 
 // 보호자 - 받은 메세지 페이지별 조회
 
@@ -44,7 +44,7 @@ function FamilyMessage() {
 
   // 메세지 데이터 로딩 중
   if (!messagesData) {
-    return <div>Now Loading...</div>;
+    return <Spinner width="20%" />;
   }
 
   // 메세지들 불러오기
@@ -59,24 +59,16 @@ function FamilyMessage() {
       messageList.push(
         <Fragment key={message.id}>
           <FlexRowContainer
-            $margin="10px 0 0 0"
-            $padding="0 0 7px 0"
             $position="relative"
+            $margin="10px 0 0 0"
             $justifyContent="stretch"
-            $alignItems="stretch"
           >
-            <SubContainer>
-              <HiddenCheckBox
-                id={`message-checkbox-${message.id}`}
-                checked={isChecked}
-                onChange={(e) => handleCheckboxChange(e, message)}
-              />
-              <ShowCheckBox
-                htmlFor={`message-checkbox-${message.id}`}
-                isChecked={isChecked}
-              />
-            </SubContainer>
-            <MessageSimple openModal={openModal} message={message} />
+            <MessageSimple
+              openModal={openModal}
+              message={message}
+              isChecked={isChecked}
+              handleCheckboxChange={handleCheckboxChange}
+            />
           </FlexRowContainer>
 
           <hr />
@@ -199,7 +191,7 @@ function FamilyMessage() {
           선택 읽기
         </Button>
       </SubContainer>
-      <Line $borderColor={black} />
+      <Line $width="auto" $borderColor={black} />
 
       {renderMessages()}
 
