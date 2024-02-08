@@ -1,6 +1,5 @@
 package com.ssafy.ViewCareFull.domain.condition.entity;
 
-import com.ssafy.ViewCareFull.domain.common.entity.TimeType;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -40,10 +39,6 @@ public class Conditions {
   @Column(name = "user_condition")
   @Enumerated(EnumType.STRING)
   private ConditionType condition;
-
-  @Column(name = "time")
-  @Enumerated(EnumType.STRING)
-  private TimeType time;
 
   public void updateCondition(ConditionType condition) {
     this.condition = condition;

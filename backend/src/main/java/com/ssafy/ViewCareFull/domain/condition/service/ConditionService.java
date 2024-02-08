@@ -12,6 +12,7 @@ import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.service.UserLinkService;
 import com.ssafy.ViewCareFull.domain.users.service.UsersService;
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,8 +34,7 @@ public class ConditionService {
   @Transactional
   public HttpStatus saveOrUpdate(SecurityUsers securityUsers, ConditionRequestDto requestDto) {
     Users user = securityUsers.getUser();
-    Optional<Conditions> object = conditionRepository.findByUserAndDateAndTime(user, requestDto.getDay(),
-        requestDto.getTimeType());
+    Optional<Conditions> object = conditionRepository.findByUserAndDate(user, requestDto.getToDate());
     if (object.isPresent()) {
       Conditions conditions = object.get();
       conditions.updateCondition(requestDto.getConditionType());
@@ -50,20 +50,19 @@ public class ConditionService {
         .orElseThrow(NoMatchCaregiverException::new);
     Users caregiver = usersService.getUser(caregiverDto.getCaregiverId());
     List<Conditions> conditionsList = conditionRepository.findByUserAndDateBetween(caregiver, start, end);
-    Map<LocalDate, ConditionResponseDto> map = getLocalDateConditionResponseDtoMap(conditionsList);
-    return List.copyOf(map.values());
+    Map<LocalDate, ConditionResponseDto> map = getLocalDateConditionResponseDtoMap(conditionsList, start, end);
+    return List.copyOf(map.values()).stream().sorted(Comparator.comparing(ConditionResponseDto::getDate)).toList();
   }
 
   private static Map<LocalDate, ConditionResponseDto> getLocalDateConditionResponseDtoMap(
-      List<Conditions> conditionsList) {
+      List<Conditions> conditionsList, LocalDate start, LocalDate end) {
     Map<LocalDate, ConditionResponseDto> map = new HashMap<>();
+    for (LocalDate date = start; date.isBefore(end.plusDays(1)); date = date.plusDays(1)) {
+      map.put(date, new ConditionResponseDto(date));
+    }
     for (Conditions conditions : conditionsList) {
-      if (map.containsKey(conditions.getDate())) {
-        ConditionResponseDto dto = map.get(conditions.getDate());
-        dto.updateData(conditions);
-        continue;
-      }
-      map.put(conditions.getDate(), new ConditionResponseDto(conditions));
+      ConditionResponseDto responseDto = map.get(conditions.getDate());
+      map.put(conditions.getDate(), responseDto.updateData(conditions));
     }
     return map;
   }

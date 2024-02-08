@@ -30,7 +30,6 @@ public class ConditionController {
   public ResponseEntity<String> saveOrUpdate(
       @AuthenticationPrincipal SecurityUsers securityUsers,
       @RequestBody ConditionRequestDto requestDto) {
-    log.info(requestDto.getTime());
     log.info(requestDto.getCondition());
     return ResponseEntity.status(conditionService.saveOrUpdate(securityUsers, requestDto)).body("success");
   }
@@ -38,8 +37,8 @@ public class ConditionController {
   @GetMapping
   public ResponseEntity<List<ConditionResponseDto>> getCondition(
       @AuthenticationPrincipal SecurityUsers securityUsers,
-      @RequestParam("start") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate start,
-      @RequestParam("end") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end) {
+      @RequestParam("start") @DateTimeFormat(pattern = "yyyyMMdd") LocalDate start,
+      @RequestParam("end") @DateTimeFormat(pattern = "yyyyMMdd") LocalDate end) {
     return ResponseEntity.ok(conditionService.getCondition(securityUsers, start, end));
   }
 

@@ -5,13 +5,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.ssafy.ViewCareFull.DatabaseCleanup;
-import com.ssafy.ViewCareFull.domain.common.entity.TimeType;
 import com.ssafy.ViewCareFull.domain.condition.dto.ConditionRequestDto;
+import com.ssafy.ViewCareFull.domain.condition.dto.ConditionResponseDto;
 import com.ssafy.ViewCareFull.domain.condition.entity.ConditionType;
 import com.ssafy.ViewCareFull.domain.condition.entity.Conditions;
 import com.ssafy.ViewCareFull.domain.condition.repository.ConditionRepository;
+import com.ssafy.ViewCareFull.domain.condition.service.ConditionService;
 import com.ssafy.ViewCareFull.domain.helper.UserRegisterHelper;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
+import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.security.jwt.JwtAuthenticationFilter;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -51,6 +53,8 @@ public class ConditionControllerIntegrationTest {
   private JwtAuthenticationFilter jwtAuthenticationFilter;
   @Autowired
   private ConditionRepository conditionRepository;
+  @Autowired
+  private ConditionService conditionService;
 
   @BeforeEach
   void setUp(WebApplicationContext context, RestDocumentationContextProvider restDocumentation) {
@@ -72,10 +76,7 @@ public class ConditionControllerIntegrationTest {
     void saveConditionByCaregiverTest() throws Exception {
       // given
       Users caregiver = userRegisterHelper.getCaregiver();
-      ConditionRequestDto conditionRequestDto = ConditionRequestDto.builder()
-          .day(LocalDate.now())
-          .time("morning")
-          .condition("good").build();
+      ConditionRequestDto conditionRequestDto = new ConditionRequestDto("20240208", "good");
       // when
       mockMvc.perform(RestDocumentationRequestBuilders.post("/condition")
               .content(objectMapper.writeValueAsString(conditionRequestDto))
@@ -84,11 +85,10 @@ public class ConditionControllerIntegrationTest {
           .andExpect(status().isCreated())
           .andDo(MockMvcRestDocumentation.document("컨디션 생성"));
       // then
-      Conditions conditions = conditionRepository.findByUserAndDateAndTime(caregiver, LocalDate.now(), TimeType.MORNING)
+      Conditions conditions = conditionRepository.findByUserAndDate(caregiver, LocalDate.now())
           .get();
       Assertions.assertThat(conditions.getUser().getId()).isEqualTo(1L);
       Assertions.assertThat(conditions.getCondition()).isEqualTo(ConditionType.GOOD);
-      Assertions.assertThat(conditions.getTime()).isEqualTo(TimeType.MORNING);
     }
 
     @Test
@@ -98,15 +98,11 @@ public class ConditionControllerIntegrationTest {
       Users caregiver = userRegisterHelper.getCaregiver();
       Conditions savedCondition = Conditions.builder()
           .user(caregiver)
-          .date(LocalDate.now())
-          .time(TimeType.MORNING)
+          .date(LocalDate.of(2024, 2, 8))
           .condition(ConditionType.GOOD)
           .build();
       conditionRepository.save(savedCondition);
-      ConditionRequestDto conditionRequestDto = ConditionRequestDto.builder()
-          .day(LocalDate.now())
-          .time("morning")
-          .condition("normal").build();
+      ConditionRequestDto conditionRequestDto = new ConditionRequestDto("20240208", "normal");
       // when
       mockMvc.perform(RestDocumentationRequestBuilders.post("/condition")
               .content(objectMapper.writeValueAsString(conditionRequestDto))
@@ -115,11 +111,10 @@ public class ConditionControllerIntegrationTest {
           .andExpect(status().isOk())
           .andDo(MockMvcRestDocumentation.document("컨디션 수정"));
       // then
-      Conditions conditions = conditionRepository.findByUserAndDateAndTime(caregiver, LocalDate.now(), TimeType.MORNING)
+      Conditions conditions = conditionRepository.findByUserAndDate(caregiver, LocalDate.now())
           .get();
       Assertions.assertThat(conditions.getUser().getId()).isEqualTo(1L);
       Assertions.assertThat(conditions.getCondition()).isEqualTo(ConditionType.NORMAL);
-      Assertions.assertThat(conditions.getTime()).isEqualTo(TimeType.MORNING);
     }
   }
 
@@ -127,37 +122,82 @@ public class ConditionControllerIntegrationTest {
   @DisplayName("컨디션 조회 테스트")
   class GetConditionTest {
 
+    LocalDate date = LocalDate.of(2024, 1, 1);
+
+    List<Conditions> createConditions(Users caregiver, long days) {
+      List<Conditions> createdConditions = new ArrayList<>();
+      for (long i = 0L; i < days; i++) {
+        Conditions savedCondition = Conditions.builder()
+            .user(caregiver)
+            .date(date.plusDays(i))
+            .condition(ConditionType.values()[(int) Math.random() * 3])
+            .build();
+        createdConditions.add(savedCondition);
+      }
+      return createdConditions;
+    }
+
     @Test
-    @DisplayName("[성공] 기간별 컨디션 조회 테스트")
-    void getConditionTest() throws Exception {
+    @DisplayName("[성공] 입력되지 않은 컨디션이 있는 기간별 리스트 조회 테스트")
+    void isNullInConditionListDuringDateTest() throws Exception {
       // given
       Users caregiver = userRegisterHelper.getCaregiver();
-      LocalDate date = LocalDate.of(2024, 1, 1);
-      int listSize = 0;
-      List<Conditions> addConditions = new ArrayList<>();
-      for (long i = 0L; i < 31L; i++) {
-        for (int j = 0; j < 3; j++) {
-          Conditions savedCondition = Conditions.builder()
-              .user(caregiver)
-              .date(date.plusDays(i))
-              .time(TimeType.values()[j])
-              .condition(ConditionType.values()[j])
-              .build();
-          addConditions.add(savedCondition);
-          listSize++;
-        }
-        conditionRepository.saveAll(addConditions);
-      }
+      List<Conditions> createdConditionList = createConditions(caregiver, 29L); //29일까지 랜덤 저장
+      createdConditionList.add(Conditions.builder() // 30일 저장
+          .user(caregiver)
+          .date(date.plusDays(29L))
+          .condition(ConditionType.GOOD)
+          .build());
+      conditionRepository.saveAll(createdConditionList);
+
       // when
       mockMvc.perform(RestDocumentationRequestBuilders.get("/condition")
               .param("start", "2024-01-01")
               .param("end", "2024-01-31")
               .header("Authorization", userRegisterHelper.getCaregiverAccessToken()))
           .andExpect(status().isOk())
-          .andDo(MockMvcRestDocumentation.document("컨디션 조회"));
+          .andDo(MockMvcRestDocumentation.document("기간별 컨디션 조회"));
       //then
-      Assertions.assertThat(conditionRepository.findByUserAndDateBetween(caregiver, date, date.plusDays(30)).size())
-          .isEqualTo(listSize);
+      List<Conditions> conditionListByRepository = conditionRepository.findByUserAndDateBetween(caregiver, date,
+          date.plusDays(30));
+      List<ConditionResponseDto> conditionListByService = conditionService.getCondition(new SecurityUsers(caregiver),
+          date, date.plusDays(30));
+
+      Assertions.assertThat(conditionListByRepository.size()).isEqualTo(30);
+      Assertions.assertThat(conditionListByService.size()).isEqualTo(31);
+      Assertions.assertThat(conditionListByService.get(30).getDate()).isEqualTo("2024-01-31");
+      for (int i = 0; i < 30; i++) {
+        Assertions.assertThat(conditionListByService.get(i).getDate()).isNotNull();
+      }
+      Assertions.assertThat(conditionListByService.get(29).getData()).isEqualTo("좋음");
+      Assertions.assertThat(conditionListByService.get(30).getData()).isNull();
+    }
+
+    @Test
+    @DisplayName("[성공] 기간별 컨디션 조회 테스트")
+    void getConditionListDuringDateTest() throws Exception {
+      // given
+      Users caregiver = userRegisterHelper.getCaregiver();
+      conditionRepository.saveAll(createConditions(caregiver, 31L));
+      // when
+      mockMvc.perform(RestDocumentationRequestBuilders.get("/condition")
+              .param("start", "2024-01-01")
+              .param("end", "2024-01-31")
+              .header("Authorization", userRegisterHelper.getCaregiverAccessToken()))
+          .andExpect(status().isOk())
+          .andDo(MockMvcRestDocumentation.document("기간별 컨디션 조회"));
+      // then
+      List<Conditions> conditionListByRepository = conditionRepository.findByUserAndDateBetween(caregiver, date,
+          date.plusDays(30));
+      List<ConditionResponseDto> conditionListByService = conditionService.getCondition(new SecurityUsers(caregiver),
+          date, date.plusDays(30));
+
+      Assertions.assertThat(conditionListByRepository.size()).isEqualTo(31);
+      Assertions.assertThat(conditionListByService.size()).isEqualTo(31);
+      Assertions.assertThat(conditionListByService.get(30).getDate()).isEqualTo("2024-01-31");
+      conditionListByService.stream()
+          .map(ConditionResponseDto::getDate)
+          .forEach(date -> Assertions.assertThat(date).isNotNull());
     }
   }
 }

@@ -1,41 +1,30 @@
 package com.ssafy.ViewCareFull.domain.condition.dto;
 
 import com.ssafy.ViewCareFull.domain.condition.entity.Conditions;
+import java.time.LocalDate;
 import lombok.Getter;
 
 @Getter
 public class ConditionResponseDto {
 
   private String date;
-  private ConditionDataDto data;
+  private String data;
 
-  public ConditionResponseDto(Conditions conditions) {
-    this.date = conditions.getDate().toString();
-    this.data = new ConditionDataDto();
-    updateData(conditions);
+  public ConditionResponseDto(LocalDate date) {
+    this.date = date.toString();
   }
 
-  public void updateData(Conditions conditions) {
+  public ConditionResponseDto updateData(Conditions conditions) {
     String text = conditions.getCondition().toString();
     if (text.equals("GOOD")) {
-      text = "좋음";
+      this.data = "좋음";
     }
     if (text.equals("NORMAL")) {
-      text = "보통";
+      this.data = "보통";
     }
     if (text.equals("BAD")) {
-      text = "나쁨";
+      this.data = "나쁨";
     }
-    switch (conditions.getTime()) {
-      case MORNING:
-        this.data.updateMorning(text);
-        break;
-      case NOON:
-        this.data.updateNoon(text);
-        break;
-      case DINNER:
-        this.data.updateDinner(text);
-        break;
-    }
+    return this;
   }
 }
