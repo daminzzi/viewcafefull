@@ -90,9 +90,7 @@ function FamilyProfile() {
       <ContentsContainer $margin="10px" $width="auto" $padding="15px">
         <S.PlusContainer onClick={() => navigate('/connect/register')}>
           <span>입소자 추가</span>
-          <div>
             <Plus width="20px" />
-          </div>
         </S.PlusContainer>
       </ContentsContainer>
 

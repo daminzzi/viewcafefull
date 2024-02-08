@@ -68,7 +68,7 @@ export const ImgContainer = styled.div`
 
 export const PlusContainer = styled.div`
   display: flex;
-  gap: 5px;
+  gap: 3px;
   color: ${gray};
   cursor: pointer;
 `;
