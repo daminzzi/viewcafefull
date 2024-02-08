@@ -1,7 +1,6 @@
 // 연결 정보 조회
 
 import api from '../api';
-import { ConnectResponse } from '../../stores/ConnectStore';
 
 async function getConnectInfo(
   type: PathType,
