@@ -17,7 +17,7 @@ public class MonthlyReportService {
   private final OpenAIApi openAIApi;
 
 
-  public MonthlyReport createMonthlyReport(SecurityUsers securityUser, String month) {
+  public MonthlyReport createMonthlyReport(SecurityUsers securityUser, String id, String month) {
     HealthIndicatorData healthData = HealthIndicatorData.builder()
         .bloodPressure(HealthIndicatorData.BloodPressure.builder()
             .systolic(
