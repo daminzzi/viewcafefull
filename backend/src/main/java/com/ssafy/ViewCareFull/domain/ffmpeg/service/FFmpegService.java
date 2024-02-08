@@ -73,13 +73,6 @@ public class FFmpegService {
       log.info(line);
     }
 
-    // 에러 스트림을 읽어서 로그에 추가 정보 기록
-    BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-    String errorLine;
-    while ((errorLine = errorReader.readLine()) != null) {
-      log.error(errorLine);
-    }
-
     // 프로세스의 종료를 대기하고 종료 코드 출력
     int exitCode = process.waitFor();
     if (exitCode == 0) {
