@@ -6,8 +6,8 @@ import KakaoButton from '../../assets/images/kakao_login_medium_wide.png';
 import { Button } from '../../components/common/Buttons';
 import UserContainer from '../../components/common/UserContainer';
 import * as S from './Login.styles';
+import getConnectInfo from '../../services/connect/getConnectInfo';
 import useConnectStore from '../../stores/ConnectStore';
-
 
 interface Form {
   id: string;
@@ -40,11 +40,15 @@ function Login() {
 
     try {
       await login(form);
-      await updateConnect('tar', form.id);
-      if (pathType === 'app') {
+      const connectArray = await getConnectInfo('app', form.id);
+      updateConnect('app', form.id);
+
+      if (connectArray.length === 0) {
+        navigate('/connect/register');
+      } else if (connectArray.length !== 0 && pathType === 'app') {
         // 보호자 로그인 완료시
         navigate('/family');
-      } else if (pathType === 'tar') {
+      } else if (connectArray.length !== 0 && pathType === 'tar') {
         // 간병인 로그인 완료시
         navigate('/caregiver');
       }

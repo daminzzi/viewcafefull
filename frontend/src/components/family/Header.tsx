@@ -4,8 +4,6 @@ import { light } from '../../assets/styles/palettes';
 import NoProfile from '../../assets/images/noProfile.png';
 import ProfileFrame from '../common/ProfileFrame';
 import useConnectStore from '../../stores/ConnectStore';
-import useUserStore from '../../stores/UserStore';
-
 
 const HeaderDiv = styled.header`
   display: flex;
@@ -25,15 +23,8 @@ const HeaderSpan = styled.span`
 
 function Header() {
   const {
-    connectArr,
     currConnect,
-    updateConnect,
   } = useConnectStore();
-  const { user } = useUserStore();
-
-  if (connectArr.length === 0 && user) {
-    updateConnect('app', user?.id);
-  }
 
   return (
     <HeaderDiv className="family-header">

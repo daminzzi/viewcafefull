@@ -1,4 +1,4 @@
-import React, { useState, ReactElement } from 'react';
+import React, { useState, ReactElement, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as CalendarIcon } from '../../assets/icons/calendar.svg';
@@ -8,12 +8,16 @@ import getVisitTime from '../../services/visit/getVisitTime';
 
 function VisitRegister() {
   //현재 입소자 정보
-  const { currConnect, connectArr } = useConnectStore();
+  const { currConnect, connectArr, updateConnect } = useConnectStore();
   //면회 신청 날짜
   const [visitDate, setVisitDate] = useState<Date>();
   //면회 신청 시간
   const [visitTimeArr, setVisitTimeArr] = useState<string[]>(['시간선택']);
   const resVisitTime = getVisitTime(currConnect.tarDomainId);
+  const connectFamily = connectArr;
+  useEffect(() => {
+    updateConnect('tar', currConnect.tarDomainId);
+  }, []);
 
   function generateTimeArray(timeRange: TimeRange): string[] {
     const { startTime, endTime, unit } = timeRange;
@@ -64,15 +68,15 @@ function VisitRegister() {
 
   function showVisitFamily() {
     const arr: ReactElement[] = [];
-    for (let i: number = 0; i < connectArr.length; i++) {
+    for (let i: number = 0; i < connectFamily.length; i++) {
       arr.push(
         <div key={i}>
           <input
             type="checkbox"
-            name={connectArr[i].appDomainId}
-            value={connectArr[i].appDomainId}
+            name={connectFamily[i].appDomainId}
+            value={connectFamily[i].appDomainId}
           />
-          <label>{connectArr[i].appName}</label>
+          <label>{connectFamily[i].appName}</label>
         </div>,
       );
     }

@@ -1,5 +1,3 @@
-
-
 // 연결 정보 조회
 
 import api from '../api';
@@ -23,7 +21,7 @@ async function getConnectInfo(
     }
   } catch (err) {
     console.log(err);
-    return [];
+    throw err;
   }
   
   return [];

@@ -1,4 +1,4 @@
-import React, { useState, ReactElement } from 'react';
+import React, { useState, ReactElement, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as CalendarIcon } from '../../assets/icons/calendar.svg';
@@ -7,12 +7,14 @@ import useConnectStore from '../../stores/ConnectStore';
 import getVisitTime from '../../services/visit/getVisitTime';
 import postVisitRegister from '../../services/visit/postVisitRegister';
 import { useNavigate } from 'react-router-dom';
+import ContentsContainer from '../../components/common/ContentsContainer';
 
 function FamilyVisitRegister() {
   const navigator = useNavigate();
   //현재 입소자 정보
-  const { currConnect, connectArr } = useConnectStore();
+  const { currConnect, connectArr, updateConnect } = useConnectStore();
   const resVisitTime = getVisitTime(currConnect.tarDomainId);
+  const connectFamily = connectArr;
   //면회 신청 날짜
   const [visitDate, setVisitDate] = useState<Date>(new Date());
   const [visitTime, setVisitTime] = useState<string>('시간선택');
@@ -20,7 +22,9 @@ function FamilyVisitRegister() {
   const [visitTimeArr, setVisitTimeArr] = useState<string[]>(
     generateTimeArray(visitDate.getDay()),
   );
-
+  useEffect(() => {
+    updateConnect('tar', currConnect.tarDomainId);
+  }, []);
   //면회 가능 시간을 통해 선택 가능한 시간 배열 생성
   function generateTimeArray(day: number): string[] {
     const timeRange = resVisitTime[day];
@@ -70,15 +74,15 @@ function FamilyVisitRegister() {
 
   function showVisitFamily() {
     const arr: ReactElement[] = [];
-    for (let i: number = 0; i < connectArr.length; i++) {
+    for (let i: number = 0; i < connectFamily.length; i++) {
       arr.push(
         <div key={i}>
           <input
             type="checkbox"
-            name={connectArr[i].appDomainId}
-            value={connectArr[i].appDomainId}
+            name={connectFamily[i].appDomainId}
+            value={connectFamily[i].appDomainId}
           />
-          <label>{connectArr[i].appName}</label>
+          <label>{connectFamily[i].appName}</label>
         </div>,
       );
     }
@@ -97,10 +101,10 @@ function FamilyVisitRegister() {
   function handleVisitRegister() {
     try {
       const arr = [];
-      for (let i: number = 0; i < connectArr.length; i++) {
-        if (connectArr[i]) {
+      for (let i: number = 0; i < connectFamily.length; i++) {
+        if (connectFamily[i]) {
           arr.push({
-            applicationId: connectArr[i].appDomainId,
+            applicationId: connectFamily[i].appDomainId,
           });
         }
       }
@@ -121,40 +125,42 @@ function FamilyVisitRegister() {
   return (
     <div>
       <h1>면회신청</h1>
-      <form>
-        <div>
-          <label>
-            <CalendarIcon />
-            면회 날짜 선택
-          </label>
-          <DatePicker
-            selected={visitDate}
-            onSelect={(date: Date) => handleSelectDate(date)}
-            onChange={(date: Date) => setVisitDate(date)}
-            minDate={new Date()}
-            placeholderText="면회 날짜 선택"
-          />
-        </div>
-        <div>
-          <label>
-            <ClockIcon />
-            면회 시간 선택
-          </label>
-          <select
-            value={visitTime}
-            onChange={(e) => setVisitTime(e.target.value)}
-          >
-            {showVisitTime()}
-          </select>
-        </div>
-        <div>
-          <label>면회 참가 인원</label>
-          <div>{showVisitFamily()}</div>
-        </div>
-        <button type="button" onClick={() => handleVisitRegister()}>
-          면회 신청
-        </button>
-      </form>
+      <ContentsContainer>
+        <form>
+          <div>
+            <label>
+              <CalendarIcon />
+              면회 날짜 선택
+            </label>
+            <DatePicker
+              selected={visitDate}
+              onSelect={(date: Date) => handleSelectDate(date)}
+              onChange={(date: Date) => setVisitDate(date)}
+              minDate={new Date()}
+              placeholderText="면회 날짜 선택"
+            />
+          </div>
+          <div>
+            <label>
+              <ClockIcon />
+              면회 시간 선택
+            </label>
+            <select
+              value={visitTime}
+              onChange={(e) => setVisitTime(e.target.value)}
+            >
+              {showVisitTime()}
+            </select>
+          </div>
+          <div>
+            <label>면회 참가 인원</label>
+            <div>{showVisitFamily()}</div>
+          </div>
+          <button type="button" onClick={() => handleVisitRegister()}>
+            면회 신청
+          </button>
+        </form>
+      </ContentsContainer>
     </div>
   );
 }

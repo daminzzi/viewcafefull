@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useConnectStore from '../../../stores/ConnectStore';
 import useUserStore from '../../../stores/UserStore';
@@ -13,10 +13,13 @@ import { failed, white } from '../../../assets/styles/palettes';
 import * as S from './FamilyProfile.styles';
 
 function FamilyProfile() {
-  const { currConnect, connectArr } = useConnectStore();
+  const { currConnect, connectArr, updateConnect } = useConnectStore();
   const { user, logout } = useUserStore();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    updateConnect('tar', currConnect.tarDomainId);
+  }, []);
   function handleLogout() {
     logout();
     navigate('/');
