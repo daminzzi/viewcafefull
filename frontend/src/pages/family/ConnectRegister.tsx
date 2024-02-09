@@ -62,8 +62,13 @@ function ConnectRegister() {
         $width="300px"
         $padding="12px"
         $alignItems="left"
+        $justifyContent="start"
       >
-        <FlexRowContainer $justifyContent="space-between">
+        <FlexRowContainer
+          $justifyContent="space-between"
+          $padding="10px"
+          $width="auto"
+        >
           <Title>입소자 연결 신청</Title>
           <Button
             $width="22%"
