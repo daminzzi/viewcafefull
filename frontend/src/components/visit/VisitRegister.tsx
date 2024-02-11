@@ -3,8 +3,10 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as CalendarIcon } from '../../assets/icons/calendar.svg';
 import { ReactComponent as ClockIcon } from '../../assets/icons/clock.svg';
+import { ReactComponent as MultiUserIcon } from '../../assets/icons/multiUser.svg';
 import useConnectStore from '../../stores/ConnectStore';
 import getVisitTime from '../../services/visit/getVisitTime';
+import Select from 'react-select';
 
 function VisitRegister() {
   //현재 입소자 정보
@@ -12,21 +14,26 @@ function VisitRegister() {
   //면회 신청 날짜
   const [visitDate, setVisitDate] = useState<Date>();
   //면회 신청 시간
-  const [visitTimeArr, setVisitTimeArr] = useState<string[]>(['시간선택']);
+  const [visitTime, setVisitTime] = useState<Option>({
+    value: '',
+    label: '시간 선택',
+  });
+  //면회 신청 가능 시간 배열
+  const [visitTimeArr, setVisitTimeArr] = useState<Option[]>([]);
   const resVisitTime = getVisitTime(currConnect.tarDomainId);
   const connectFamily = connectArr;
   useEffect(() => {
     updateConnect('tar', currConnect.tarDomainId);
   }, []);
 
-  function generateTimeArray(timeRange: TimeRange): string[] {
+  function generateTimeArray(timeRange: TimeRange): Option[] {
     const { startTime, endTime, unit } = timeRange;
 
     const startTimeObj = new Date(`2000-01-01 ${startTime}`);
     const endTimeObj = new Date(`2000-01-01 ${endTime}`);
     const unitMinutes = parseInt(unit, 10);
 
-    const timeArray: string[] = [];
+    const timeArray: Option[] = [];
 
     const currentTime = startTimeObj;
     while (currentTime <= endTimeObj) {
@@ -34,7 +41,7 @@ function VisitRegister() {
         hour: '2-digit',
         minute: '2-digit',
       });
-      timeArray.push(formattedTime);
+      timeArray.push({ value: formattedTime, label: formattedTime });
 
       currentTime.setMinutes(currentTime.getMinutes() + unitMinutes);
     }
@@ -54,16 +61,10 @@ function VisitRegister() {
     console.log(visitTimeArr);
   }
 
-  function showVisitTime() {
-    const arr: ReactElement[] = [];
-    for (let i: number = 0; i < visitTimeArr.length; i++) {
-      arr.push(
-        <option key={i} value={visitTimeArr[i]}>
-          {visitTimeArr[i]}
-        </option>,
-      );
+  function handleSelectTime(time: Option | null) {
+    if (time !== null) {
+      setVisitTime(time);
     }
-    return arr;
   }
 
   function showVisitFamily() {
@@ -89,7 +90,7 @@ function VisitRegister() {
       <form>
         <div>
           <label>
-            <CalendarIcon />
+            <CalendarIcon width="23px" />
             면회 날짜 선택
           </label>
           <DatePicker
@@ -101,13 +102,20 @@ function VisitRegister() {
         </div>
         <div>
           <label>
-            <ClockIcon />
+            <ClockIcon width="23px" />
             면회 시간 선택
           </label>
-          <select>{showVisitTime()}</select>
+          <Select
+            options={visitTimeArr}
+            value={visitTime}
+            onChange={(e) => handleSelectTime(e)}
+          />
         </div>
         <div>
-          <label>면회 참가 인원</label>
+          <label>
+            <MultiUserIcon width="23px" />
+            면회 참가 인원
+          </label>
           <div>{showVisitFamily()}</div>
         </div>
         <button type="button">면회 신청</button>

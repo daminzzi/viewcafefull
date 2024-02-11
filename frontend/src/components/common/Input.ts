@@ -6,6 +6,7 @@ interface InputProps {
   $height?: string;
   $textAlign?: string;
   $marginBottom?: string;
+  $fontSize?: string;
 }
 
 // 공통 인풋
@@ -18,6 +19,7 @@ const Input = styled.input<InputProps>`
   text-align: ${(props) => props.$textAlign || 'left'};
   margin-bottom: ${(props) => props.$marginBottom || '0px'};
   text-indent: 5px;
+  font-size: ${(props) => props.$fontSize || '16px'};
 `;
 
 export default Input;
