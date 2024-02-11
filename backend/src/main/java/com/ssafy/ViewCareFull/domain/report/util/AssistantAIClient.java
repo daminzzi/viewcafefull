@@ -4,7 +4,7 @@ import static java.lang.Thread.sleep;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ssafy.ViewCareFull.domain.report.dto.HealthIndicatorData;
+import com.ssafy.ViewCareFull.domain.report.dto.MonthlyHealthInfo;
 import com.ssafy.ViewCareFull.domain.report.dto.MonthlyReport;
 import com.ssafy.ViewCareFull.domain.report.dto.OpenAI.Assistant.AssistantRequest;
 import com.ssafy.ViewCareFull.domain.report.dto.OpenAI.Assistant.AssistantResponse;
@@ -43,7 +43,7 @@ public class AssistantAIClient implements OpenAIApi {
 
 
   @Override
-  public MonthlyReport getMontlyReportResponse(HealthIndicatorData content) {
+  public MonthlyReport getMonthlyReportResponse(MonthlyHealthInfo content) {
     objectMapper = new ObjectMapper();
 //    AssistantResponse assistantResponse = createAssistant();
     ThreadResponse threadResponse = createThread();
@@ -81,10 +81,6 @@ public class AssistantAIClient implements OpenAIApi {
     }
   }
 
-  private void deleteThread(String threadId) {
-    RestApiUtil.delete(apiKey, "/threads/" + threadId, String.class);
-  }
-
   public Optional<String> waitMessageForSeconds(String threadId, String runId, int seconds) {
     for (int i = 0; i < seconds; i++) {
       RunResponse retriveRunResponse = RestApiUtil.get(apiKey, "/threads/" + threadId + "/runs/" + runId,
@@ -120,7 +116,7 @@ public class AssistantAIClient implements OpenAIApi {
     return RestApiUtil.post(apiKey, "/threads", "", ThreadResponse.class);
   }
 
-  private OpenAIMessageResponse sendMessage(String threadId, String role, HealthIndicatorData content)
+  private OpenAIMessageResponse sendMessage(String threadId, String role, MonthlyHealthInfo content)
       throws JsonProcessingException {
     OpenAIMessageRequest messageRequest = new OpenAIMessageRequest(role,
         objectMapper.writeValueAsString(content).replace("\"", "\\\\\""));

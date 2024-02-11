@@ -1,5 +1,8 @@
 package com.ssafy.ViewCareFull.domain.report.dto;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ssafy.ViewCareFull.domain.report.entity.Reports;
 import java.util.Arrays;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -21,6 +24,29 @@ public class MonthlyReport {
   private PressureMetrics pressure;
   private SugarMetrics sugar;
   private HealthCondition condition;
+
+  public static MonthlyReport of(Reports report) throws JsonProcessingException {
+    ObjectMapper objectMapper = new ObjectMapper();
+    return objectMapper.readValue(report.getReportInfo(), MonthlyReport.class);
+  }
+
+  public Reports toEntity(RequestReportDto requestReportDto) throws JsonProcessingException {
+    ObjectMapper objectMapper = new ObjectMapper();
+    return Reports.builder()
+        .year(requestReportDto.getMonth()/100)
+        .month(requestReportDto.getMonth()%100)
+        .caregiverId(requestReportDto.getId())
+        .reportInfo(objectMapper.writeValueAsString(this))
+        .build();
+  }
+  public void cntCondition(int year, int month, NumOfConditions numOfConditions) {
+    this.year = year;
+    this.month = month;
+    this.condition = new HealthCondition();
+    this.condition.good = numOfConditions.getCntGood();
+    this.condition.normal = numOfConditions.getCntNormal();
+    this.condition.bad = numOfConditions.getCntBad();
+  }
 
   @Getter
   @AllArgsConstructor
@@ -60,15 +86,6 @@ public class MonthlyReport {
     private String day;
     private int low;
     private int high;
-  }
-
-  @Getter
-  @AllArgsConstructor
-  @NoArgsConstructor
-  public static class Condition {
-
-    private Insights insights;
-
   }
 
   @Getter

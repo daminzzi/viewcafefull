@@ -1,10 +1,17 @@
 package com.ssafy.ViewCareFull.domain.report.service;
 
-import com.ssafy.ViewCareFull.domain.report.dto.HealthIndicatorData;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.ssafy.ViewCareFull.domain.condition.service.ConditionService;
+import com.ssafy.ViewCareFull.domain.health.service.HealthService;
+import com.ssafy.ViewCareFull.domain.report.ReportRepository;
 import com.ssafy.ViewCareFull.domain.report.dto.MonthlyReport;
+import com.ssafy.ViewCareFull.domain.report.dto.RequestReportDto;
+import com.ssafy.ViewCareFull.domain.report.entity.Reports;
+import com.ssafy.ViewCareFull.domain.report.error.ReportErrorCode;
+import com.ssafy.ViewCareFull.domain.report.error.exception.ReportException;
 import com.ssafy.ViewCareFull.domain.report.util.OpenAIApi;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
-import java.util.List;
+import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,36 +22,37 @@ import org.springframework.transaction.annotation.Transactional;
 public class MonthlyReportService {
 
   private final OpenAIApi openAIApi;
+  private final ReportRepository reportRepository;
+  private final HealthService healthService;
+  private final ConditionService conditionService;
 
 
-  public MonthlyReport createMonthlyReport(SecurityUsers securityUser, String id, String month) {
-    HealthIndicatorData healthData = HealthIndicatorData.builder()
-        .bloodPressure(HealthIndicatorData.BloodPressure.builder()
-            .systolic(
-                List.of(120, 122, 118, 125, 123, 128, 121, 126, 124, 120, 122, 119, 128, 130, 125, 126, 122, 120,
-                    124,
-                    127, 130, 123, 121, 128, 126, 124, 122, 129, 127, 130))
-            .diastolic(
-                List.of(80, 82, 79, 85, 83, 88, 81, 86, 84, 80, 82, 79, 88, 90, 85, 86, 82, 80, 84, 87, 90, 83, 81,
-                    88,
-                    86, 84, 82, 89, 87, 90))
-            .build())
-        .bloodSugar(HealthIndicatorData.BloodSugar.builder()
-            .fasting(
-                List.of(92, 88, 94, 90, 96, 98, 91, 97, 93, 89, 95, 92, 99, 100, 94, 96, 93, 91, 95, 98, 100, 96,
-                    92,
-                    99, 97, 95, 93, 100, 98, 101))
-            .postprandial(
-                List.of(112, 108, 114, 110, 116, 118, 111, 117, 113, 109, 115, 112, 119, 120, 114, 116, 113, 111,
-                    115,
-                    118, 120, 116, 112, 119, 117, 115, 113, 120, 118, 121))
-            .build())
-        .additionalContext(HealthIndicatorData.AdditionalContext.builder()
-            .age(75)
-            .gender("Female")
-            .build())
-        .build();
+  @Transactional
+  public void createMonthlyReport(SecurityUsers securityUser, RequestReportDto requestReportDto) {
+    int year = requestReportDto.getMonth() / 100;
+    int month = requestReportDto.getMonth() % 100;
+    LocalDate start = LocalDate.of(year, month, 1);
+    int lastOfMonth = LocalDate.of(year, month, 1).lengthOfMonth();
+    LocalDate end = LocalDate.of(year, month, lastOfMonth);
 
-    return openAIApi.getMontlyReportResponse(healthData);
+    MonthlyReport monthlyReportResponse = openAIApi.getMonthlyReportResponse(
+        healthService.getMonthlyAverageHealthList(requestReportDto.getId(), start, end));
+    monthlyReportResponse.cntCondition(year, month,
+        conditionService.cntCondition(requestReportDto.getId(), start, end));
+    try {
+      reportRepository.save(monthlyReportResponse.toEntity(requestReportDto));
+    } catch (JsonProcessingException e) {
+      throw new ReportException(ReportErrorCode.NOT_MATCHED_JSON_FORMAT);
+    }
+  }
+
+  public MonthlyReport getMonthlyReport(long id, int date) {
+    Reports findReport = reportRepository.findByIdAndDate(id, date / 100, date % 100)
+        .orElseThrow(() -> new ReportException(ReportErrorCode.NOT_FOUND_CREATED_REPORT));
+    try {
+      return MonthlyReport.of(findReport);
+    } catch (JsonProcessingException e) {
+      throw new ReportException(ReportErrorCode.NOT_MATCHED_JSON_FORMAT);
+    }
   }
 }

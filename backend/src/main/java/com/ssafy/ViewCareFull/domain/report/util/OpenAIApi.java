@@ -1,9 +1,9 @@
 package com.ssafy.ViewCareFull.domain.report.util;
 
-import com.ssafy.ViewCareFull.domain.report.dto.HealthIndicatorData;
+import com.ssafy.ViewCareFull.domain.report.dto.MonthlyHealthInfo;
 import com.ssafy.ViewCareFull.domain.report.dto.MonthlyReport;
 
 public interface OpenAIApi {
 
-  MonthlyReport getMontlyReportResponse(HealthIndicatorData healthData);
+  MonthlyReport getMonthlyReportResponse(MonthlyHealthInfo healthData);
 }

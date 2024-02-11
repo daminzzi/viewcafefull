@@ -3,6 +3,7 @@ package com.ssafy.ViewCareFull.domain.condition.service;
 
 import com.ssafy.ViewCareFull.domain.condition.dto.ConditionRequestDto;
 import com.ssafy.ViewCareFull.domain.condition.dto.ConditionResponseDto;
+import com.ssafy.ViewCareFull.domain.report.dto.NumOfConditions;
 import com.ssafy.ViewCareFull.domain.condition.entity.Conditions;
 import com.ssafy.ViewCareFull.domain.condition.repository.ConditionRepository;
 import com.ssafy.ViewCareFull.domain.gallery.exception.NoMatchCaregiverException;
@@ -65,5 +66,9 @@ public class ConditionService {
       map.put(conditions.getDate(), responseDto.updateData(conditions));
     }
     return map;
+  }
+
+  public NumOfConditions cntCondition(long id, LocalDate start, LocalDate end) {
+    return new NumOfConditions(conditionRepository.findAllByUserDateBetween(id, start, end));
   }
 }

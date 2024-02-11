@@ -1,5 +1,6 @@
 package com.ssafy.ViewCareFull.domain.users.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,6 +10,7 @@ public class LoginResponse {
 
   private UserInfo user;
   private String accessToken;
+  @JsonIgnore
   private String refreshToken;
 
   @Builder

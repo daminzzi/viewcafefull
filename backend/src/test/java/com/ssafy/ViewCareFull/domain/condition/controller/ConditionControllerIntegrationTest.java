@@ -85,7 +85,7 @@ public class ConditionControllerIntegrationTest {
           .andExpect(status().isCreated())
           .andDo(MockMvcRestDocumentation.document("컨디션 생성"));
       // then
-      Conditions conditions = conditionRepository.findByUserAndDate(caregiver, LocalDate.now())
+      Conditions conditions = conditionRepository.findByUserAndDate(caregiver, LocalDate.of(2024, 2, 8))
           .get();
       Assertions.assertThat(conditions.getUser().getId()).isEqualTo(1L);
       Assertions.assertThat(conditions.getCondition()).isEqualTo(ConditionType.GOOD);
@@ -111,7 +111,7 @@ public class ConditionControllerIntegrationTest {
           .andExpect(status().isOk())
           .andDo(MockMvcRestDocumentation.document("컨디션 수정"));
       // then
-      Conditions conditions = conditionRepository.findByUserAndDate(caregiver, LocalDate.now())
+      Conditions conditions = conditionRepository.findByUserAndDate(caregiver, LocalDate.of(2024, 2, 8))
           .get();
       Assertions.assertThat(conditions.getUser().getId()).isEqualTo(1L);
       Assertions.assertThat(conditions.getCondition()).isEqualTo(ConditionType.NORMAL);
@@ -163,8 +163,8 @@ public class ConditionControllerIntegrationTest {
       List<ConditionResponseDto> conditionListByService = conditionService.getCondition(new SecurityUsers(caregiver),
           date, date.plusDays(30));
 
-      Assertions.assertThat(conditionListByRepository.size()).isEqualTo(30);
-      Assertions.assertThat(conditionListByService.size()).isEqualTo(31);
+      Assertions.assertThat(conditionListByRepository).hasSize(30);
+      Assertions.assertThat(conditionListByService).hasSize(31);
       Assertions.assertThat(conditionListByService.get(30).getDate()).isEqualTo("2024-01-31");
       for (int i = 0; i < 30; i++) {
         Assertions.assertThat(conditionListByService.get(i).getDate()).isNotNull();
@@ -192,8 +192,8 @@ public class ConditionControllerIntegrationTest {
       List<ConditionResponseDto> conditionListByService = conditionService.getCondition(new SecurityUsers(caregiver),
           date, date.plusDays(30));
 
-      Assertions.assertThat(conditionListByRepository.size()).isEqualTo(31);
-      Assertions.assertThat(conditionListByService.size()).isEqualTo(31);
+      Assertions.assertThat(conditionListByRepository).hasSize(31);
+      Assertions.assertThat(conditionListByService).hasSize(31);
       Assertions.assertThat(conditionListByService.get(30).getDate()).isEqualTo("2024-01-31");
       conditionListByService.stream()
           .map(ConditionResponseDto::getDate)

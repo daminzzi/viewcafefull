@@ -11,4 +11,8 @@ public interface HealthRepository extends JpaRepository<Health, Long> {
 
   @Query("select h from Health h where h.user.domainId = :userId and h.healthDate = :date")
   List<Health> findByDomainIdAndDate(@Param("userId") String userId, @Param("date") LocalDate date);
+
+  @Query("select h from Health h where h.user.id = :userId and h.healthDate between :start and :end")
+  List<Health> findAllByUserIdAndHealthDateBetween(@Param("userId") Long userId, @Param("start") LocalDate start,
+      @Param("end") LocalDate end);
 }

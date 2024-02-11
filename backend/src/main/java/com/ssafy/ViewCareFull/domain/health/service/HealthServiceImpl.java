@@ -1,6 +1,9 @@
 package com.ssafy.ViewCareFull.domain.health.service;
 
 import com.ssafy.ViewCareFull.domain.health.dto.HealthInfo;
+import com.ssafy.ViewCareFull.domain.report.dto.MonthlyBloodPressure;
+import com.ssafy.ViewCareFull.domain.report.dto.MonthlyBloodSugar;
+import com.ssafy.ViewCareFull.domain.report.dto.MonthlyHealthInfo;
 import com.ssafy.ViewCareFull.domain.health.entity.Health;
 import com.ssafy.ViewCareFull.domain.health.error.HealthErrorCode;
 import com.ssafy.ViewCareFull.domain.health.error.exception.HealthException;
@@ -24,7 +27,6 @@ public class HealthServiceImpl implements HealthService {
   @Override
   @Transactional
   public void saveHealthInfo(String domainId, HealthInfo healthInfo) {
-    // TODO: 연결정보CRUD 완료시 등록한사람(병원)과 입소자 연결이 있는지 체크하기
     // 건강정보를 등록하려는 입소자가 서비스에 등록된 사용자인지 체크
     Users user = usersService.getUser(domainId);
     healthRepository.save(new Health(user, healthInfo));
@@ -54,6 +56,29 @@ public class HealthServiceImpl implements HealthService {
   @Override
   public List<Health> getHealthListWithIdDate(String domainId, LocalDate date) {
     return healthRepository.findByDomainIdAndDate(domainId, date);
+  }
+
+  @Override
+  public MonthlyHealthInfo getMonthlyAverageHealthList(Long id, LocalDate start, LocalDate end) {
+    int lastOfMonth = end.getDayOfMonth();
+    List<Health> monthlyHealthInfoList = healthRepository.findAllByUserIdAndHealthDateBetween(id, start, end);
+
+    MonthlyBloodPressure monthlyBloodPressure = new MonthlyBloodPressure(lastOfMonth);
+    MonthlyBloodSugar monthlyBloodSugar = new MonthlyBloodSugar(lastOfMonth);
+
+    for (Health health : monthlyHealthInfoList) {
+      switch (health.getHealthType()) {
+        case B, A:
+          monthlyBloodSugar.add(health);
+          break;
+        case L, H:
+          monthlyBloodPressure.add(health);
+          break;
+      }
+    }
+    monthlyBloodSugar.averge(lastOfMonth);
+    monthlyBloodPressure.averge(lastOfMonth);
+    return new MonthlyHealthInfo(monthlyBloodSugar, monthlyBloodPressure);
   }
 
 }
