@@ -38,8 +38,7 @@ public interface ConferenceRepository extends JpaRepository<Conference, Long> {
       @Param("conferenceState") PermissionType conferenceState, @Param("today") LocalDate date);
 
   @Query("SELECT count(c) FROM Conference c WHERE c.hospital.id=:permissionId and c.conferenceState=:conferenceState")
-  int countByHospitalIdAndPermissionState(@Param("permissionId") Long permissionId, @Param("conferenceState")
-  PermissionType conferenceState);
+  int countByHospitalIdAndPermissionState(@Param("permissionId") Long permissionId, @Param("conferenceState") PermissionType conferenceState);
 
   @Query("SELECT c FROM Conference c WHERE c.id = :conferenceId")
   Optional<Conference> getConferenceById(@Param("conferenceId") Long conferenceId);

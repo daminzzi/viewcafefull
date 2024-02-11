@@ -107,8 +107,7 @@ public class ConferenceService {
   public Page<Conference> getConferenceListByHospital(Long hospitalId, LocalDate startDate, LocalDate endDate,
       Pageable pageable) {
     if (startDate != null && endDate != null) {
-      return conferenceRepository.findAllByHospitalIdBetweenDate(hospitalId, startDate,
-          endDate, pageable);
+      return conferenceRepository.findAllByHospitalIdBetweenDate(hospitalId, startDate, endDate, pageable);
     }
     return conferenceRepository.findAllByHospitalId(hospitalId, pageable);
   }

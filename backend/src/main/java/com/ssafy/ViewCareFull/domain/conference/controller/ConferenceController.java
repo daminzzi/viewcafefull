@@ -64,7 +64,6 @@ public class ConferenceController {
   @GetMapping("/per")
   public ResponseEntity<ConferenceInfoSummaryDto> getConferenceList(
       @AuthenticationPrincipal SecurityUsers securityUser) {
-    return ResponseEntity.status(HttpStatus.OK)
-        .body(conferenceService.getMainConferenceList(securityUser));
+    return ResponseEntity.status(HttpStatus.OK).body(conferenceService.getMainConferenceList(securityUser));
   }
 }
