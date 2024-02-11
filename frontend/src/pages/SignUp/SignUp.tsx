@@ -1,6 +1,6 @@
 /* eslint-disable operator-linebreak */
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 // import axios from 'axios';
 import useUserStore from '../../stores/UserStore';
 import api from '../../services/api';
@@ -38,6 +38,13 @@ function SignUp() {
   const [validPw, setValidPw] = useState<boolean>(false);
   const [PwMsg, setPwMsg] = useState<string>('');
   const [PwConfirmMsg, setPwConfirmMsg] = useState<string>('');
+  const location = useLocation();
+  const kakaoEmail = location.state?.kakaoEmail;
+  const [email, setEmail] = useState(kakaoEmail || '');
+
+  useEffect(() => {
+    setEmail(kakaoEmail || '');
+  }, [kakaoEmail]);
 
   // id 유효성 검사
   function onChangeId(e: ChangeEvent<HTMLInputElement>) {
@@ -154,6 +161,7 @@ function SignUp() {
         phoneNumber,
         id,
         password,
+        email
       });
       if (response.status === 201) {
         setUser(response.data);
