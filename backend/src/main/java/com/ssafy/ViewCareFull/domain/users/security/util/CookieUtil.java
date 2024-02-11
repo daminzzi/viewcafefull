@@ -16,7 +16,7 @@ public class CookieUtil {
   }
 
   public static void deleteRefreshTokenCookie() {
-    ResponseCookie.from("refresh-token", " ")
+    ResponseCookie.from("refresh-token", "delete")
         .path("/")
         .sameSite("None")
         .httpOnly(true)

@@ -75,10 +75,11 @@ public class UsersService {
   }
 
   @Transactional
-  public void deleteRefreshToken(SecurityUsers securityUser,String id) {
+  public void deleteRefreshToken(SecurityUsers securityUser, String id) {
     Users user = securityUser.getUser();
-    if(id.equals(user.getDomainId())) {
+    if (id.equals(user.getDomainId())) {
       user.deleteRefreshToken();
+      usersRepository.save(user);
     }
   }
 }

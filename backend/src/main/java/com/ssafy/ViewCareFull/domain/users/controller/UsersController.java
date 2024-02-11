@@ -7,6 +7,7 @@ import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.security.util.CookieUtil;
 import com.ssafy.ViewCareFull.domain.users.service.OAuthUserService;
 import com.ssafy.ViewCareFull.domain.users.service.UsersService;
+import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -62,9 +63,9 @@ public class UsersController {
 
   @GetMapping("/signout")
   public ResponseEntity<Void> signout(@AuthenticationPrincipal SecurityUsers securityUsers,
-      @PathVariable("id") String id) {
+      @PathParam("id") String id) {
     usersService.deleteRefreshToken(securityUsers, id);
     CookieUtil.deleteRefreshTokenCookie();
-    return ResponseEntity.status(HttpStatus.NO_CONTENT).header(HttpHeaders.SET_COOKIE, " ").build();
+    return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
   }
 }
