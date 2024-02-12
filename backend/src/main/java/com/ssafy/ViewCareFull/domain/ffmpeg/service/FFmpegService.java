@@ -37,11 +37,11 @@ public class FFmpegService {
     ffmpegCommandBuilder.append(" -filter_complex \""); // 여러개의 이미지를 하나로 결합하는 필터 사용
     for (int i = 0; i < imageUrls.size(); i++) {
       ffmpegCommandBuilder.append("[").append(i).append(":v]"); // index 번째 이미지 필터 설정
-      ffmpegCommandBuilder.append("loop=60"); // loop/framerate 초 만큼 각 이미지가 재생된다
+      ffmpegCommandBuilder.append("loop=1"); // loop/framerate 초 만큼 각 이미지가 재생된다
       ffmpegCommandBuilder.append(":size=1"); // 반복할 프레임 수 설정 - 1프레임만 반복
       ffmpegCommandBuilder.append(":start=0"); // 반복 시작 시점 설정 - 0초부터 시작
-      ffmpegCommandBuilder.append(",scale=1024:1024"); // 이미지 크기 설정 - 반드시 짝수로 설정해야함
-      ffmpegCommandBuilder.append(",setsar=1"); // 픽셀 샘플링 화면 비율 설정 - 1:1로 설정
+      ffmpegCommandBuilder.append(",scale=1920:1080"); // 이미지 크기 설정 - 1920x1080으로 설정
+      ffmpegCommandBuilder.append(",setsar=1"); // 화면 비율 설정 - 1:1로 설정
       ffmpegCommandBuilder.append("[v").append(i).append("]; "); // index 번째 이미지 필터 설정
     }
     for (int i = 0; i < imageUrls.size(); i++) {

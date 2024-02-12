@@ -11,6 +11,7 @@ import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.service.UserLinkService;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -49,6 +50,10 @@ public class GalleryService {
     return savedImage;
   }
 
+  public List<Image> getNotInMealImageWithMonth(Integer month, Users user) {
+    return imageRepository.findAllNotInMealWithMonthAndUser(month, user.getId());
+  }
+
   private void saveImageToDisk(MultipartFile image, String saveLocation) {
     try {
       image.transferTo(new File(saveLocation));
@@ -80,5 +85,17 @@ public class GalleryService {
 
   public String getImageUrl(Long imageId) {
     return fileServerUrl + imageRepository.findById(imageId).orElseThrow().getImageName();
+  }
+
+  public String getImageUrl(Image image) {
+    return fileServerUrl + image.getImageName();
+  }
+
+  public String getImagePath(Long imageId) {
+    return fileRealPath + imageRepository.findById(imageId).orElseThrow().getImageName();
+  }
+
+  public String getImagePath(Image image) {
+    return fileRealPath + image.getImageName();
   }
 }

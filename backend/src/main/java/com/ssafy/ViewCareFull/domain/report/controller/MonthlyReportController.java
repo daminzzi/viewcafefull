@@ -2,6 +2,7 @@ package com.ssafy.ViewCareFull.domain.report.controller;
 
 import com.ssafy.ViewCareFull.domain.report.dto.MonthlyReport;
 import com.ssafy.ViewCareFull.domain.report.dto.RequestReportDto;
+import com.ssafy.ViewCareFull.domain.report.service.MonthlyMovieService;
 import com.ssafy.ViewCareFull.domain.report.service.MonthlyReportService;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MonthlyReportController {
 
   private final MonthlyReportService monthlyReportService;
+  private final MonthlyMovieService monthlyMovieService;
 
   @GetMapping("/{id}")
   public ResponseEntity<MonthlyReport> getMonthlyReport(@PathVariable("id") long id, @RequestParam int month) {
@@ -33,5 +35,12 @@ public class MonthlyReportController {
     monthlyReportService.createMonthlyReport(securityUser, requestReportDto);
     return ResponseEntity.ok().build();
   }
+
+  @PostMapping("/test")
+  public ResponseEntity<String> test(@AuthenticationPrincipal SecurityUsers securityUser, @RequestParam int month) {
+    monthlyMovieService.createMonthlyMovie(securityUser, month);
+    return ResponseEntity.ok().body("success");
+  }
+
 
 }

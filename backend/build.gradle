@@ -74,7 +74,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-configuration-processor'
     //webClient
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
-
+    // thumbnailator
+    implementation 'net.coobird:thumbnailator:0.4.20'
 }
 
 openapi3 {
