@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import VideoContainer from './VideoContainer';
+import VideoContainer from '../common/VideoContainer';
 import { Publisher, Subscriber } from 'openvidu-browser';
 
 type Props = {
