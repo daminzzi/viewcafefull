@@ -84,6 +84,7 @@ public abstract class Users {
             .userName(joinForm.getName())
             .phoneNumber(joinForm.getPhoneNumber())
             .brith(joinForm.getBirth())
+            .kakaoId(joinForm.getEmail())
             .build();
       case Hospital:
         return Hospital.builder()
@@ -98,7 +99,7 @@ public abstract class Users {
   }
 
   public String getUserType() {
-    return this.getClass().getAnnotation(DiscriminatorValue.class).value().toString();
+    return this.getClass().getAnnotation(DiscriminatorValue.class).value();
   }
 
   public void issueRefreshToken(TokenInfo tokenInfo) {

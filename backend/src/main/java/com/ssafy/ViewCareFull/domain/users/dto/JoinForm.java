@@ -12,15 +12,17 @@ public class JoinForm {
   private final String name;
   private final String phoneNumber;
   private final String birth;
+  private String email;
   private UserType userType;
 
   @Builder
-  public JoinForm(String id, String password, String name, String phoneNumber, String birth) {
+  public JoinForm(String id, String password, String name, String phoneNumber, String birth, String email) {
     this.id = id;
     this.password = password;
     this.name = name;
     this.phoneNumber = phoneNumber;
     this.birth = birth;
+    this.email = email;
     this.userType = UserType.Guardian;
   }
 
