@@ -9,6 +9,7 @@ import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import com.ssafy.ViewCareFull.domain.users.error.UserErrorCode;
 import com.ssafy.ViewCareFull.domain.users.error.exception.UsersException;
 import com.ssafy.ViewCareFull.domain.users.repository.UsersRepository;
+import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.security.util.JwtTokenUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -71,5 +72,13 @@ public class UsersService {
   public Caregiver getByCaregiverToken(String targetCode) {
     return usersRepository.findByToken(targetCode)
         .orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
+  }
+
+  @Transactional
+  public void deleteRefreshToken(SecurityUsers securityUser,String id) {
+    Users user = securityUser.getUser();
+    if(id.equals(user.getDomainId())) {
+      user.deleteRefreshToken();
+    }
   }
 }

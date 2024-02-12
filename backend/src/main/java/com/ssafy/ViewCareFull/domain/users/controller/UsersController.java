@@ -3,6 +3,7 @@ package com.ssafy.ViewCareFull.domain.users.controller;
 import com.ssafy.ViewCareFull.domain.users.dto.JoinForm;
 import com.ssafy.ViewCareFull.domain.users.dto.LoginForm;
 import com.ssafy.ViewCareFull.domain.users.dto.LoginResponse;
+import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.security.util.CookieUtil;
 import com.ssafy.ViewCareFull.domain.users.service.OAuthUserService;
 import com.ssafy.ViewCareFull.domain.users.service.UsersService;
@@ -11,6 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,5 +58,13 @@ public class UsersController {
     loginResponse.removeRefreshToken();
     return ResponseEntity.status(HttpStatus.OK).header(HttpHeaders.SET_COOKIE, refreshTokenCookie.toString())
         .body(loginResponse);
+  }
+
+  @GetMapping("/signout")
+  public ResponseEntity<Void> signout(@AuthenticationPrincipal SecurityUsers securityUsers,
+      @PathVariable("id") String id) {
+    usersService.deleteRefreshToken(securityUsers, id);
+    CookieUtil.deleteRefreshTokenCookie();
+    return ResponseEntity.status(HttpStatus.NO_CONTENT).header(HttpHeaders.SET_COOKIE, " ").build();
   }
 }

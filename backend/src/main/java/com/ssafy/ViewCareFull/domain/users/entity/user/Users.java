@@ -105,6 +105,10 @@ public abstract class Users {
   public void issueRefreshToken(TokenInfo tokenInfo) {
     refreshToken = tokenInfo.getRefreshToken();
   }
+
+  public void deleteRefreshToken() {
+    refreshToken = null;
+  }
 }
 
 
