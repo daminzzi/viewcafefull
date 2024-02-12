@@ -29,7 +29,7 @@ public class MonthlyMovieService {
     List<Image> notInMealImage = galleryService.getNotInMealImageWithMonth(month, securityUsers.getUser());
     for (Image image : notInMealImage) {
       String imagePath = galleryService.getImagePath(image);
-      String newImagePath = videoOutputPath + image.getImageName();
+      String newImagePath = videoOutputPath + getNewImageName(image);
       ImageUtil.resizeImage(imagePath, newImagePath);
       List<String> imagePaths = ImageUtil.applyFadeEffect(newImagePath, newImagePath, 30);
       List<String> reversedImagePaths = new ArrayList<>();
@@ -51,6 +51,12 @@ public class MonthlyMovieService {
 
     }
 
+  }
+
+  private static String getNewImageName(Image image) {
+    int index = image.getImageName().lastIndexOf(".");
+    String newImageName = image.getImageName().substring(0, index) + ".jpg";
+    return newImageName;
   }
 
 }

@@ -58,11 +58,19 @@ public class ImageUtil {
     try {
       Thumbnails.of(new File(inputImagePath))
           .size(newWidth, newHeight)
-          .outputFormat("JPEG")
+          .outputFormat("jpg")
           .toFile(new File(outputImagePath));
     } catch (IOException e) {
       log.error("이미지 리사이징 실패", e);
       throw new RuntimeException("이미지 리사이징 실패");
     }
+  }
+
+  public static void main(String[] args) {
+    String inputImagePath = "C:\\Users\\Keesung\\Downloads\\test.png";
+    String outputImagePath = "C:\\Users\\Keesung\\Downloads\\test\\test_resized.jpg";
+
+    resizeImage(inputImagePath, outputImagePath);
+    List<String> imagePaths = applyFadeEffect(outputImagePath, outputImagePath, 30);
   }
 }
