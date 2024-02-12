@@ -6,6 +6,7 @@ import com.ssafy.ViewCareFull.domain.report.service.MonthlyMovieService;
 import com.ssafy.ViewCareFull.domain.report.service.MonthlyReportService;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/report")
+@Slf4j
 public class MonthlyReportController {
 
   private final MonthlyReportService monthlyReportService;
@@ -39,6 +41,7 @@ public class MonthlyReportController {
   @PostMapping("/test")
   public ResponseEntity<String> test(@AuthenticationPrincipal SecurityUsers securityUser, @RequestParam int month) {
     monthlyMovieService.createMonthlyMovie(securityUser, month);
+    log.info("video create success");
     return ResponseEntity.ok().body("success");
   }
 
