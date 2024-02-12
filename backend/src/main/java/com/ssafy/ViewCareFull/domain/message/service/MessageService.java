@@ -24,7 +24,8 @@ public class MessageService {
     String domainId = securityUsers.getUsername();
     Page<Message> pageObject = messageRepository.findByMemberIdAndMessageContentContaining(
         domainId, keyword, pageable);
-    return new MessageListResponseDto(pageObject);
+    Integer unreadMsgs = messageRepository.countByToIdAndIsReadFalse(domainId);
+    return new MessageListResponseDto(pageObject, unreadMsgs);
   }
 
   @Transactional

@@ -17,4 +17,6 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
 
   @Query(value = "SELECT m FROM Message m WHERE m.id = :messageId AND m.toId = :memberId")
   Optional<Message> findByIdAndMemberId(@Param("messageId") long messageId, @Param("memberId") String domainId);
+
+  Integer countByToIdAndIsReadFalse(String domainId);
 }
