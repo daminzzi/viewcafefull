@@ -34,7 +34,7 @@ public class MonthlyMovieService {
       ImageUtil.resizeImage(imagePath, newImagePath);
       List<String> fadePaths = ImageUtil.applyFadeEffect(newImagePath, newImagePath, 30);
       List<String> reversedImagePaths = new ArrayList<>();
-      for (int i = imagePaths.size() - 1; i >= 0; i--) {
+      for (int i = fadePaths.size() - 1; i >= 0; i--) {
         reversedImagePaths.add(fadePaths.get(i));
       }
       imagePaths.addAll(fadePaths);
