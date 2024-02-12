@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ReactComponent as EnvelopeClosed } from '../../assets/icons/envelopeClosed.svg';
 import { ReactComponent as EnvelopeOpen } from '../../assets/icons/envelopeOpen.svg';
 import styled from 'styled-components';
@@ -22,10 +22,6 @@ function MessageSimple({
   $isChecked,
   handleCheckboxChange,
 }: MessageProps) {
-  const [contentMaxLength, setContentMaxLength] = useState(
-    window.innerWidth > 1200 ? 80 : 20,
-  );
-
   const dateTime = new Date(message.time);
   const year = dateTime.getFullYear();
 
@@ -36,15 +32,6 @@ function MessageSimple({
 
   const time = `${year}/${month}/${date} ${hours}:${minutes}`;
 
-  useEffect(() => {
-    function handleResize() {
-      setContentMaxLength(window.innerWidth > 1200 ? 80 : 20);
-    }
-
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
   return (
     <MainContainer>
       <div key={message.id}>
@@ -60,16 +47,8 @@ function MessageSimple({
 
         <div onClick={() => openModal(message)}>
           <TitleContainer>
-            <TitleText $isRead={message.isRead}>
-              {message.title.length > 10
-                ? `${message.title.substring(0, 10)}...`
-                : message.title}
-            </TitleText>
-            <ContentText $isRead={message.isRead}>
-              {message.content.length > contentMaxLength
-                ? `${message.content.substring(0, contentMaxLength)}...`
-                : message.content}
-            </ContentText>
+            <TitleText isRead={message.isRead}>{message.title}</TitleText>
+            <ContentText isRead={message.isRead}>{message.content}</ContentText>
           </TitleContainer>
         </div>
         <FlexRowContainer
@@ -105,11 +84,16 @@ export default MessageSimple;
 const TitleText = styled.div<{ $isRead?: boolean }>`
   font-weight: bold;
   padding-bottom: 13px;
-  color: ${(props) => (props.$isRead ? gray : black)};
+  color: ${(props) => (props.isRead ? gray : black)};
+  width: 35vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 const ContentText = styled(TitleText)`
   font-weight: normal;
+  width: 45vw;
 `;
 
 const TimeText = styled.div<{ $isRead?: boolean }>`

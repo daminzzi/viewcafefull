@@ -15,7 +15,7 @@ export const ShowCheckBox = styled.label<{ $isChecked: boolean }>`
     content: '';
     position: absolute;
     left: -10px;
-    top: -8px;
+    top: 0.5px;
     width: 20px;
     height: 20px;
     border: 1px solid ${gray};
@@ -26,7 +26,7 @@ export const ShowCheckBox = styled.label<{ $isChecked: boolean }>`
     content: '';
     position: absolute;
     left: -6px;
-    top: -4px;
+    top: 4.5px;
     width: 12px;
     height: 12px;
     border-radius: 3;
