@@ -1,4 +1,4 @@
-import React, { useState, ReactElement } from 'react';
+import React, { useState, ReactElement, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/esm/locale';
@@ -18,14 +18,23 @@ import Title from '../../components/common/Title';
 import FlexRowContainer from '../../components/common/FlexRowContainer';
 import { Button } from '../../components/common/Buttons';
 import FamilyRow from '../../components/visit/FamilyRow';
+import getConnectInfo from '../../services/connect/getConnectInfo';
 
 function FamilyVisitRegister() {
   const navigator = useNavigate();
 
   //현재 입소자 정보
-  const { currConnect, connectArr } = useConnectStore();
+  const { currConnect } = useConnectStore();
   const resVisitTime = getVisitTime(currConnect.tarDomainId);
-  const connectFamily = connectArr;
+  const [connectFamily, setConnectFamily] = useState<ConnectResponse[]>([]);
+  useEffect(() => {
+    async function init() {
+      console.log('init');
+      const temp = await getConnectInfo('tar', currConnect.tarDomainId);
+      setConnectFamily(temp);
+    }
+    init();
+  }, []);
 
   //면회 신청 날짜
   const [visitDate, setVisitDate] = useState<Date>(new Date());

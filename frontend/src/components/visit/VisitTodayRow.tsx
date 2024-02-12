@@ -13,10 +13,7 @@ function VisitTodayRow({ visit }: Props) {
   const visitYear = parseInt(visit.conferenceDate.substring(0, 4));
   const visitMonth = parseInt(visit.conferenceDate.substring(4, 6));
   const visitDay = parseInt(visit.conferenceDate.substring(6, 8));
-  // function formatDate(date: Date) {
-  //   // return format(date, 'yyyy.mm.dd hh:m');
-  //   return date.toString();
-  // }
+
   const visitDate = new Date(visitYear, visitMonth, visitDay);
   const visitDayType = visitDate.getDay();
   function transDayType(day: number) {
@@ -31,7 +28,7 @@ function VisitTodayRow({ visit }: Props) {
   return (
     <FlexColContainer $alignItems="flex-start" $margin="10px 10px" $width="90%">
       <FlexRowContainer $justifyContent="space-between" $alignItems="center">
-        <span>
+        <span style={{ fontWeight: 600 }}>
           {visitYear}.{visitMonth}.{visitDay}({transDayType(visitDayType)})
         </span>
         <a style={{ textDecoration: 'underline' }} onClick={handleConference}>
@@ -39,7 +36,7 @@ function VisitTodayRow({ visit }: Props) {
         </a>
       </FlexRowContainer>
       <FlexRowContainer $justifyContent="space-evenly" $margin="10px 10px">
-        <span>{visit.conferenceTime}</span>
+        <span style={{ fontWeight: 600 }}>{visit.conferenceTime}</span>
         <span>{visit.targetName}</span>
         <VisitStateTag conferenceState={visit?.conferenceState} />
       </FlexRowContainer>
