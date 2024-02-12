@@ -3,12 +3,14 @@ import { OpenVidu, Publisher, Subscriber } from 'openvidu-browser';
 import UserVideo from './UserVideo';
 import useStreamStore from '../../stores/StreamStore';
 import useUserStore from '../../stores/UserStore';
+import useConnectStore from '../../stores/ConnectStore';
 import { useNavigate, useParams } from 'react-router-dom';
 import postSession from '../../services/visit/postSession';
 import postToken from '../../services/visit/postToken';
 // import html2canvas from 'html2canvas';
 import { styled } from 'styled-components';
 import ToolBar from './ToolBar';
+import { light } from '../../assets/styles/palettes';
 
 function VisitRoom() {
   const { subscriberList, addSubscriber, delSubscriber, resetSubscriberList } =
@@ -16,6 +18,7 @@ function VisitRoom() {
   const OV = new OpenVidu();
   const session = OV.initSession();
   const myUserName = useUserStore().user?.name;
+  const tarUserName = useConnectStore().currConnect.tarName;
   const navigator = useNavigate();
   const params = useParams<{ id: string }>();
   const sessionId = params.id ? params.id : '';
@@ -140,7 +143,7 @@ function VisitRoom() {
 
   return (
     <div>
-      <StyledHeader>면회실 헤더</StyledHeader>
+      <StyledHeader>{tarUserName}님의 면회실</StyledHeader>
       <VideoGroup>
         <VideoOne ref={captureRef}>
           {publisher !== null ? <UserVideo streamManager={publisher} /> : null}
@@ -174,5 +177,10 @@ const VideoOne = styled.div`
 `;
 
 const StyledHeader = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
   height: 7vh;
+  background-color: ${light};
+  font-size: 1.2rem;
 `;

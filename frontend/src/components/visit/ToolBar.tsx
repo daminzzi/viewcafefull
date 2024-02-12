@@ -19,8 +19,7 @@ const StyledToolBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
-  height: 10vh;
+  height: 13vh;
   background-color: ${light};
 `;
 
