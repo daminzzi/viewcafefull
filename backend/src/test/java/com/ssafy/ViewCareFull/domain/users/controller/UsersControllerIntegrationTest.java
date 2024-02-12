@@ -88,7 +88,7 @@ public class UsersControllerIntegrationTest {
     @Test
     @DisplayName("[성공]보호자 회원가입")
     void joinGuardianSuccess() throws Exception {
-      JoinForm joinForm = new JoinForm("user2", "1234", "유저2", "010-1234-1234", "2024-02-06");
+      JoinForm joinForm = new JoinForm("user2", "1234", "유저2", "010-1234-1234", "2024-02-06","");
       mockMvc.perform(RestDocumentationRequestBuilders.post("/users")
               .contentType("application/json")
               .content(objectMapper.writeValueAsString(joinForm)))
