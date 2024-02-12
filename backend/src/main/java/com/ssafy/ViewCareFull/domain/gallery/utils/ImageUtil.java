@@ -66,11 +66,4 @@ public class ImageUtil {
     }
   }
 
-  public static void main(String[] args) {
-    String inputImagePath = "C:\\Users\\Keesung\\Downloads\\test.png";
-    String outputImagePath = "C:\\Users\\Keesung\\Downloads\\test\\test_resized.jpg";
-
-    resizeImage(inputImagePath, outputImagePath);
-    List<String> imagePaths = applyFadeEffect(outputImagePath, outputImagePath, 30);
-  }
 }
