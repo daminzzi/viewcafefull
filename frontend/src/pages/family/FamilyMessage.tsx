@@ -40,7 +40,7 @@ function FamilyMessage() {
       };
       fetchData();
     }
-  }, [currentPage, keyword, selectedMessage]);
+  }, [currentPage, keyword]);
 
   // 메세지 데이터 로딩 중
   if (!messagesData) {
