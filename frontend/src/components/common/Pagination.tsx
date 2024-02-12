@@ -43,7 +43,7 @@ function Pagination({
         <PageButton
           key={i}
           onClick={() => handlePageChange(i)}
-          active={currentPage === i}
+          $active={currentPage === i}
         >
           {i}
         </PageButton>,
@@ -97,7 +97,7 @@ const ChevronButton = styled.button`
   padding-top: 7px;
 `;
 
-const PageButton = styled.button<{ active?: boolean }>`
+const PageButton = styled.button<{ $active?: boolean }>`
   width: 30px;
   height: 30px;
   margin: 1%;
@@ -106,8 +106,8 @@ const PageButton = styled.button<{ active?: boolean }>`
   border: none;
   cursor: pointer;
   text-align: center;
-  background-color: ${(props) => (props.active ? success : white)};
-  color: ${(props) => (props.active ? white : { black })};
+  background-color: ${(props) => (props.$active ? success : white)};
+  color: ${(props) => (props.$active ? white : { black })};
 `;
 
 const PagesContainer = styled.div`

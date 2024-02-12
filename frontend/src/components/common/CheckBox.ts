@@ -8,7 +8,7 @@ export const HiddenCheckBox = styled.input.attrs({ type: 'checkbox' })`
     transform: scale(1);
   }
 `;
-export const ShowCheckBox = styled.label<{ isChecked: boolean }>`
+export const ShowCheckBox = styled.label<{ $isChecked: boolean }>`
   position: relative;
   cursor: pointer;
   &:before {
@@ -31,7 +31,7 @@ export const ShowCheckBox = styled.label<{ isChecked: boolean }>`
     height: 12px;
     border-radius: 3;
     background: url(${checkMark}) center/cover no-repeat;
-    transform: ${(props) => (props.isChecked ? 'scale(1)' : 'scale(0)')};
+    transform: ${(props) => (props.$isChecked ? 'scale(1)' : 'scale(0)')};
     transition: all 0.2s ease;
   }
 `;

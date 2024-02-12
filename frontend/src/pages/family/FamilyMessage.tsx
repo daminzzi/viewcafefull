@@ -66,7 +66,7 @@ function FamilyMessage() {
             <MessageSimple
               openModal={openModal}
               message={message}
-              isChecked={isChecked}
+              $isChecked={isChecked}
               handleCheckboxChange={handleCheckboxChange}
             />
           </FlexRowContainer>

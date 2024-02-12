@@ -9,7 +9,7 @@ import { HiddenCheckBox, ShowCheckBox } from '../common/CheckBox';
 type MessageProps = {
   openModal: (message: Message) => void;
   message: Message;
-  isChecked: boolean;
+  $isChecked: boolean;
   handleCheckboxChange: (
     e: React.ChangeEvent<HTMLInputElement>,
     message: Message,
@@ -19,7 +19,7 @@ type MessageProps = {
 function MessageSimple({
   openModal,
   message,
-  isChecked,
+  $isChecked,
   handleCheckboxChange,
 }: MessageProps) {
   const [contentMaxLength, setContentMaxLength] = useState(
@@ -50,22 +50,22 @@ function MessageSimple({
       <div key={message.id}>
         <HiddenCheckBox
           id={`message-checkbox-${message.id}`}
-          checked={isChecked}
+          checked={$isChecked}
           onChange={(e) => handleCheckboxChange(e, message)}
         />
         <ShowCheckBox
           htmlFor={`message-checkbox-${message.id}`}
-          isChecked={isChecked}
+          $isChecked={$isChecked}
         />
 
         <div onClick={() => openModal(message)}>
           <TitleContainer>
-            <TitleText isRead={message.isRead}>
+            <TitleText $isRead={message.isRead}>
               {message.title.length > 10
                 ? `${message.title.substring(0, 10)}...`
                 : message.title}
             </TitleText>
-            <ContentText isRead={message.isRead}>
+            <ContentText $isRead={message.isRead}>
               {message.content.length > contentMaxLength
                 ? `${message.content.substring(0, contentMaxLength)}...`
                 : message.content}
@@ -93,7 +93,7 @@ function MessageSimple({
               style={{ marginRight: '2px' }}
             />
           )}
-          <TimeText isRead={message.isRead}>{time}</TimeText>
+          <TimeText $isRead={message.isRead}>{time}</TimeText>
         </FlexRowContainer>
       </div>
     </MainContainer>
@@ -102,21 +102,21 @@ function MessageSimple({
 
 export default MessageSimple;
 
-const TitleText = styled.div<{ isRead?: boolean }>`
+const TitleText = styled.div<{ $isRead?: boolean }>`
   font-weight: bold;
   padding-bottom: 13px;
-  color: ${(props) => (props.isRead ? gray : black)};
+  color: ${(props) => (props.$isRead ? gray : black)};
 `;
 
 const ContentText = styled(TitleText)`
   font-weight: normal;
 `;
 
-const TimeText = styled.div<{ isRead?: boolean }>`
+const TimeText = styled.div<{ $isRead?: boolean }>`
   font-size: 13px;
   padding-bottom: 2px;
   margin-left: 2px;
-  color: ${(props) => (props.isRead ? gray : black)};
+  color: ${(props) => (props.$isRead ? gray : black)};
 `;
 
 const MainContainer = styled.div`
