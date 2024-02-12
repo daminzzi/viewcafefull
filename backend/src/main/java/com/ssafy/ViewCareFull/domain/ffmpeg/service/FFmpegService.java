@@ -54,7 +54,7 @@ public class FFmpegService {
         .append("[out]\"") // 이미지 결합 설정
         .append(" -map \"[out]\"") // 이미지 결합 사용 설정
         .append(" -y ") // 저장 시 자동 덮어쓰기 설정
-        .append(videoOutputPath); // 저장 경로 설정
+        .append(videoOutputPath + "video.mp4"); // 저장 경로 설정
 
     String ffmpegCommand = ffmpegCommandBuilder.toString(); // FFmpeg 명령어 완성
 
