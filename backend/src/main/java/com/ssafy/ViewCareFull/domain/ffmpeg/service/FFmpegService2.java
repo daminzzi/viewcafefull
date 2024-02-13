@@ -82,7 +82,7 @@ public class FFmpegService2 {
   private void executeCommand(String command) throws IOException, InterruptedException {
     // 프로세스 실행
     ProcessBuilder processBuilder = new ProcessBuilder(command);
-    processBuilder.command("/usr/bin/bash", "-c", command);
+    processBuilder.command("bash", "-c", command);
     log.info("processBuilderCommand : " + processBuilder.command().toString());
     Process process = processBuilder.start();
 
