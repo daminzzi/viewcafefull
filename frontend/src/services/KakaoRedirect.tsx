@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from './api';
 import useUserStore from '../stores/UserStore';
+import getConnectInfo from './connect/getConnectInfo';
+import useConnectStore from '../stores/ConnectStore';
 
 interface ResponseData {
   user: User | null;
@@ -12,6 +14,7 @@ interface ResponseData {
 function KakaoRedirect() {
   const navigate = useNavigate();
   const { setUser, setAccessToken } = useUserStore();
+  const { updateConnect } = useConnectStore();
 
   useEffect(() => {
     const url = new URL(window.location.href);
@@ -26,10 +29,23 @@ function KakaoRedirect() {
     // 로그인 시도 시 카카오토큰 유무 확인, 있으면 로그인 완료
     api
       .get<ResponseData>(`/users/kakao/signin?code=${kakaoToken}`)
-      .then((response) => {
-        setUser(response.data.user);
-        setAccessToken(response.data.accessToken);
-        navigate('/family');
+      .then(async (response) => {
+        const user = response.data.user;
+        const accessToken = response.data.accessToken;
+
+        setUser(user);
+        setAccessToken(accessToken);
+
+        if (user) {
+          const connectArray = await getConnectInfo('app', user.id);
+          updateConnect('app', user.id);
+
+          if (connectArray.length === 0) {
+            navigate('/connect/register');
+          } else if (connectArray.length !== 0) {
+            navigate('/family');
+          }
+        }
       })
       .catch((error) => {
         // 카카오로 가입되지 않은 사용자인 경우(카카오토큰이 없음)
