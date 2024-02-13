@@ -48,7 +48,7 @@ public class OpenviduService {
     log.info("Start Time : " + String.valueOf(conference.getConferenceRoom().getStartDateTime()));
     if (conference.getConferenceRoom().getStartDateTime() == null) {
       log.info("updateStartTime");
-      conferenceService.updateConferenceStartTime(conference.getId(), LocalDateTime.now());
+      conferenceService.updateConferenceStartTime(conference, LocalDateTime.now());
     }
     return session.getSessionId();
   }
@@ -60,7 +60,7 @@ public class OpenviduService {
     log.info("End Time : " + String.valueOf(conference.getConferenceRoom().getEndDateTime()));
     if (conference.getConferenceRoom().getEndDateTime() == null) {
       log.info("updateEndTime");
-      conferenceService.updateConferenceEndTime(conference.getId(), LocalDateTime.now());
+      conferenceService.updateConferenceEndTime(conference, LocalDateTime.now());
     }
     return sessionId;
   }

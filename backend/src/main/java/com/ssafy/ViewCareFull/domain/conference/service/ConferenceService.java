@@ -149,14 +149,12 @@ public class ConferenceService {
   }
 
   @Transactional
-  public void updateConferenceStartTime(Long conferenceId, LocalDateTime localDateTime) {
-    conferenceRepository.updateStartTimeById(conferenceId, localDateTime)
-        .orElseThrow(() -> new ConferenceException(ConferenceErrorCode.NOT_FOUND_CONFERENCE));
+  public void updateConferenceStartTime(Conference conference, LocalDateTime localDateTime) {
+    conference.getConferenceRoom().startConference(localDateTime);
   }
 
   @Transactional
-  public void updateConferenceEndTime(Long conferenceId, LocalDateTime localDateTime) {
-    conferenceRepository.updateEndTimeById(conferenceId, localDateTime)
-        .orElseThrow(() -> new ConferenceException(ConferenceErrorCode.NOT_FOUND_CONFERENCE));
+  public void updateConferenceEndTime(Conference conference, LocalDateTime localDateTime) {
+    conference.getConferenceRoom().endConference(localDateTime);
   }
 }
