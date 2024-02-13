@@ -118,19 +118,19 @@ function VisitRoom() {
     console.log(videoCount);
     if (videoCount === 0) {
       setVideoHeight('70%');
-      setVideoWidth('70%');
+      setVideoWidth('60%');
     } else if (videoCount >= 1 && videoCount <= 3) {
       setVideoHeight('47%');
-      setVideoWidth('40%');
+      setVideoWidth('30%');
     } else if (videoCount >= 4 && videoCount <= 5) {
       setVideoHeight('47%');
-      setVideoWidth('30%');
+      setVideoWidth('25%');
     }
   }
 
   function renderSubscriberList() {
     return subscriberList.map((sub) => (
-      <VideoOne key={sub.id} $height={videoHeight}>
+      <VideoOne key={sub.id} $height={videoHeight} $width={videoWidth}>
         <UserVideo streamManager={sub} />
       </VideoOne>
     ));
@@ -202,7 +202,7 @@ function VisitRoom() {
 export default VisitRoom;
 
 const VideoGroup = styled.div`
-  height: 75vh;
+  height: 78vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
