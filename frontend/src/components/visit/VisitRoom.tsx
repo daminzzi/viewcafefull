@@ -116,20 +116,16 @@ function VisitRoom() {
 
   function calculateVideoSize() {
     const videoCount = subscriberList.length;
-
-    if (videoCount === 1) {
+    console.log(videoCount);
+    if (videoCount === 0) {
       setVideoHeight('70%');
       setVideoWidth('70%');
-    } else if (videoCount >= 2 && videoCount <= 4) {
+    } else if (videoCount >= 1 && videoCount <= 3) {
       setVideoHeight('47%');
       setVideoWidth('40%');
-    } else if (videoCount >= 5 && videoCount <= 6) {
+    } else if (videoCount >= 4 && videoCount <= 5) {
       setVideoHeight('47%');
       setVideoWidth('30%');
-    } else {
-      // 다른 조건이 필요한 경우에 대한 기본값 설정
-      setVideoHeight('100%');
-      setVideoWidth('100%');
     }
   }
 
