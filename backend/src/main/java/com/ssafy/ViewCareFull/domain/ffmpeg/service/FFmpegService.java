@@ -51,8 +51,8 @@ public class FFmpegService {
         .append(imageUrls.size()) // 이미지 개수 설정
         .append(":v=1") // 비디오로 출력 설정
         .append(":a=0") // 오디오로 출력 미설정
-        .append("[out]\"") // 이미지 결합 설정
-        .append(" -map \"[out]\"") // 이미지 결합 사용 설정
+        .append("[v]\"") // 이미지 결합 설정
+        .append(" -map \"[v]\"") // 이미지 결합 사용 설정
         .append(" -y ") // 저장 시 자동 덮어쓰기 설정
         .append(videoOutputPath + "video.mp4"); // 저장 경로 설정
 
@@ -62,8 +62,7 @@ public class FFmpegService {
   }
 
   private void executeCommand(String command) throws IOException, InterruptedException {
-    ProcessBuilder processBuilder = new ProcessBuilder(); // 프로세스 빌더 인스턴스 생성
-    processBuilder.command("bash", "-c", command); // 명령어 실행을 위한 명령어 및 인자 전달
+    ProcessBuilder processBuilder = new ProcessBuilder(command); // 프로세스 빌더 인스턴스 생성
     Process process = processBuilder.start(); // 프로세스 실행
 
     // 명령어 실행 결과를 읽어오기 위한 BufferedReader 인스턴스 생성
