@@ -25,11 +25,10 @@ function VisitRoom() {
   const navigator = useNavigate();
   const params = useParams<{ id: string }>();
   const sessionId = params.id ? params.id : '';
-  console.log(sessionId, myUserName);
-
   const [publisher, setPublisher] = useState<Publisher | null>(null);
   const [isVideoEnabled, setIsVideoEnabled] = useState(true);
   const [isAudioEnabled, setIsAudioEnabled] = useState(true);
+  const [videoHeight, setVideoHeight] = useState('100%');
 
   const captureRef = useRef<HTMLDivElement>(null);
 
@@ -45,6 +44,7 @@ function VisitRoom() {
         const subscriber = mySession.subscribe(event.stream, undefined);
         // console.log('SubList - ', subscriberList);
         addSubscriber(subscriber);
+        calculateVideoHeight();
         // console.log('add new subscriber');
       });
 
@@ -65,7 +65,7 @@ function VisitRoom() {
           videoSource: undefined,
           publishAudio: true,
           publishVideo: true,
-          resolution: '640x480',
+          resolution: '640x360',
           frameRate: 30,
           insertMode: 'APPEND',
           mirror: false,
@@ -114,9 +114,17 @@ function VisitRoom() {
     }
   }
 
+  function calculateVideoHeight() {
+    if (subscriberList.length < 2) {
+      setVideoHeight('100%');
+      return;
+    }
+    setVideoHeight('47%');
+  }
+
   function renderSubscriberList() {
     return subscriberList.map((sub) => (
-      <VideoOne key={sub.id}>
+      <VideoOne key={sub.id} $height={videoHeight}>
         <UserVideo streamManager={sub} />
       </VideoOne>
     ));
@@ -166,7 +174,7 @@ function VisitRoom() {
     <div>
       <StyledHeader>{tarUserName}님의 면회실</StyledHeader>
       <VideoGroup>
-        <VideoOne ref={captureRef}>
+        <VideoOne ref={captureRef} $height={videoHeight}>
           {publisher !== null ? <UserVideo streamManager={publisher} /> : null}
         </VideoOne>
         {renderSubscriberList()}
@@ -185,16 +193,17 @@ function VisitRoom() {
 export default VisitRoom;
 
 const VideoGroup = styled.div`
-  height: 80vh;
+  height: 75vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   align-items: center;
+  gap: 2rem;
 `;
 
-const VideoOne = styled.div`
+const VideoOne = styled.div<{ $height?: string }>`
   display: inline-block;
-  height: 50%;
+  height: ${(props) => props.$height || '100%'};
 `;
 
 const StyledHeader = styled.div`
