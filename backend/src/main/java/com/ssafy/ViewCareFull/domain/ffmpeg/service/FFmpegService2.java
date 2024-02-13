@@ -31,7 +31,7 @@ public class FFmpegService2 {
   public void buildCommand(List<String> imageUrls) throws IOException, InterruptedException {
     // 이미지를 비디오로 변환하는 FFmpeg 명령어 생성
     StringBuilder ffmpegCommandBuilder = new StringBuilder();
-    int framrate = 20; // 초당 프레임 수 설정
+    int framrate = 25; // 초당 프레임 수 설정
     int imageSec = 2; // 이미지가 보여지는 시간 설정
     int audioStartSec = 30; // 오디오 시작 시간 설정
     log.info("FFmpeg path: " + ffmpegPath);
@@ -42,7 +42,7 @@ public class FFmpegService2 {
       ffmpegCommandBuilder.append(" -i ").append(imageUrl); // 각각의 이미지 사용 설정
     }
     ffmpegCommandBuilder.append(" -i " + audioInputPath + "audio.mp3") // 오디오 사용 설정
-        .append(" -filter_complex \'"); // 여러개의 이미지를 하나로 결합하는 필터 사용
+        .append(" -filter_complex \""); // 여러개의 이미지를 하나로 결합하는 필터 사용
     for (int i = 0; i < imageUrls.size(); i++) {
       StringBuilder append = ffmpegCommandBuilder.append("[").append(i).append(":v]") // index 번째 이미지 필터 설정
           .append("loop=" + imageSec * framrate) // loop/framerate 초 만큼 각 이미지가 재생된다
@@ -67,9 +67,9 @@ public class FFmpegService2 {
         .append(":size=1") // 오디오 반복 횟수 설정
         .append(":start=0") // 오디오 처음부터 시작
         .append(",asetpts=PTS-STARTPTS[a_trimmed]; ") // 오디오 타임 스탬프 조정
-        .append("[a_trimmed]adelay=0|0[a]\'") // 오디오 딜레이 설정
-        .append(" -map \'[v]\'") // 이미지 결합 사용 설정
-        .append(" -map \'[a]\'") // 오디오 결합 사용 설정
+        .append("[a_trimmed]adelay=0|0[a]\"") // 오디오 딜레이 설정
+        .append(" -map \"[v]\"") // 이미지 결합 사용 설정
+        .append(" -map \"[a]\"") // 오디오 결합 사용 설정
         .append(" -y ") // 저장 시 자동 덮어쓰기 설정
         .append(videoOutputPath + "videoJH.mp4"); // 저장 경로 설정
 
