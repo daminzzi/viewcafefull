@@ -13,6 +13,7 @@ import com.ssafy.ViewCareFull.domain.conference.service.ConferenceService;
 import com.ssafy.ViewCareFull.domain.helper.UserRegisterHelper;
 import com.ssafy.ViewCareFull.domain.users.entity.PermissionType;
 import com.ssafy.ViewCareFull.domain.users.security.jwt.JwtAuthenticationFilter;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
@@ -64,6 +65,17 @@ public class ConferenceControllerIntegrationTest {
         .apply(MockMvcRestDocumentation.documentationConfiguration(restDocumentation))
         .addFilter(jwtAuthenticationFilter)
         .build();
+  }
+
+  public Conference saveConference() {
+    LocalDateTime conferenceDateTime = LocalDateTime.now();
+    Conference conference = Conference.createConference(
+        conferenceDateTime.toLocalDate()
+        , conferenceDateTime.toLocalTime());
+
+    conference.linkApplicationUsers(userRegisterHelper.getUserLink());
+    conferenceRepository.save(conference);
+    return conference;
   }
 
   @Nested
@@ -122,13 +134,23 @@ public class ConferenceControllerIntegrationTest {
     }
   }
 
-  private void saveConference() {
-    LocalDateTime conferenceDateTime = LocalDateTime.now();
-    Conference conference = Conference.createConference(
-        conferenceDateTime.toLocalDate()
-        , conferenceDateTime.toLocalTime());
+  @Nested
+  @DisplayName("면회 조회 테스트")
+  class getConferenceListTest {
 
-    conference.linkApplicationUsers(userRegisterHelper.getUserLink());
-    conferenceRepository.save(conference);
+    @Test
+    @DisplayName("[성공] 요양원이 면회 조회 성공 테스트")
+    void getConferenceListByHospitalSuccessTest() throws Exception {
+      // given
+      Conference conference = saveConference();
+      LocalDate today = LocalDate.now();
+      // when
+      mockMvc.perform(
+              RestDocumentationRequestBuilders.get("/conference/per/list")
+                  .header("Content-Type", "application/json")
+                  .header("Authorization", userRegisterHelper.getHospitalAccessToken()))
+          .andExpect(status().isOk())
+          .andDo(MockMvcRestDocumentation.document("면회 조회"));
+    }
   }
 }
