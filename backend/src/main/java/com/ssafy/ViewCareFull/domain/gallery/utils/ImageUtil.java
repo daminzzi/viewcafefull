@@ -15,9 +15,10 @@ import net.coobird.thumbnailator.Thumbnails;
 public class ImageUtil {
 
   public static void main(String[] args) {
-    String inputImagePath = "C:\\Users\\user\\Desktop\\test\\test.jpg";
-    String outputImagePath = "C:\\Users\\user\\Desktop\\test\\test_resized.jpg";
+    String inputImagePath = "C:\\Users\\Keesung\\Desktop\\test\\test.jpg";
+    String outputImagePath = "C:\\Users\\Keesung\\Desktop\\test\\test_resized.jpg";
     resizeImage(inputImagePath, outputImagePath);
+    applyFadeEffect(inputImagePath, outputImagePath, 25);
   }
 
   public static List<String> applyFadeEffect(String inputImagePath, String outputImagePath, int steps) {
@@ -30,30 +31,35 @@ public class ImageUtil {
       int height = originalImage.getHeight();
 
       for (int i = 0; i < steps; i++) {
-        BufferedImage fadedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage fadedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics2D g2d = fadedImage.createGraphics();
 
         // 원본 이미지 복사
         g2d.drawImage(originalImage, 0, 0, null);
 
-        // 투명도 설정
-        int alpha = (int) ((1 - (double) i / steps) * 255);
-        Color fadeColor = new Color(0, 0, 0, alpha);
+        // 페이드 효과 적용을 위한 검은색 테두리 두께 계산
+        int borderThickness = (int) ((double) (steps - i) / steps * Math.min(width, height) / 2);
 
-        // 이미지에 fade 효과 적용
-        g2d.setColor(fadeColor);
-        g2d.fillRect(0, 0, width, height);
+        // 검은색 테두리 적용
+        g2d.setColor(Color.BLACK);
+        // 상단 테두리
+        g2d.fillRect(0, 0, width, borderThickness);
+        // 하단 테두리
+        g2d.fillRect(0, height - borderThickness, width, borderThickness);
+        // 왼쪽 테두리
+        g2d.fillRect(0, borderThickness, borderThickness, height - 2 * borderThickness);
+        // 오른쪽 테두리
+        g2d.fillRect(width - borderThickness, borderThickness, borderThickness, height - 2 * borderThickness);
+
         g2d.dispose();
 
         // 변형된 이미지 저장
         File outputFile = new File(outputImagePath.replace(".jpg", "_" + i + ".jpg"));
         imagePaths.add(outputFile.getAbsolutePath());
-        // format jpg
         ImageIO.write(fadedImage, "jpg", outputFile);
-        log.info("outputFile: " + outputFile.getAbsolutePath());
       }
     } catch (IOException e) {
-      log.error("이미지 fade 효과 적용 실패", e);
+      e.printStackTrace();
       throw new RuntimeException(e);
     }
     return imagePaths;
