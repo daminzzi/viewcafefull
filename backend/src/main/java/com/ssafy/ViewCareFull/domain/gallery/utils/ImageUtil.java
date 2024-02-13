@@ -40,12 +40,14 @@ public class ImageUtil {
         g2d.dispose();
 
         // 변형된 이미지 저장
-        File outputFile = new File(outputImagePath.replace(".png", "_" + i + ".png"));
+        File outputFile = new File(outputImagePath.replace(".jpg", "_" + i + ".jpg"));
         imagePaths.add(outputFile.getAbsolutePath());
         // format jpg
         ImageIO.write(fadedImage, "jpg", outputFile);
+        log.info("outputFile: " + outputFile.getAbsolutePath());
       }
     } catch (IOException e) {
+      log.error("이미지 fade 효과 적용 실패", e);
       throw new RuntimeException(e);
     }
     return imagePaths;
