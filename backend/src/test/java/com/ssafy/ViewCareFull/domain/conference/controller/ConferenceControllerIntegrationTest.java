@@ -6,9 +6,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssafy.ViewCareFull.DatabaseCleanup;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceReservationDto;
 import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceReservationDto.Participant;
+import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceStateDto;
+import com.ssafy.ViewCareFull.domain.conference.entity.Conference;
 import com.ssafy.ViewCareFull.domain.conference.repository.ConferenceRepository;
 import com.ssafy.ViewCareFull.domain.conference.service.ConferenceService;
 import com.ssafy.ViewCareFull.domain.helper.UserRegisterHelper;
+import com.ssafy.ViewCareFull.domain.users.entity.PermissionType;
 import com.ssafy.ViewCareFull.domain.users.security.jwt.JwtAuthenticationFilter;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -65,11 +68,11 @@ public class ConferenceControllerIntegrationTest {
 
   @Nested
   @DisplayName("면회 생성 테스트")
-  class ConferenceTest {
+  class createConferenceTest {
 
     @Test
     @DisplayName("[성공] 면회 생성 성공")
-    void createConferenceTest() throws Exception {
+    void createConferenceSuccessTest() throws Exception {
       // given
       LocalDateTime conferenceDateTime = LocalDateTime.now();
       ConferenceReservationDto conferenceReservationDto = ConferenceReservationDto.builder()
@@ -91,5 +94,41 @@ public class ConferenceControllerIntegrationTest {
       Assertions.assertThat(conferenceRepository.existsById(1L)).isTrue();
 
     }
+  }
+
+  @Nested
+  @DisplayName("면회 승인 변경 테스트")
+  class modifyConferenceStateTest {
+
+    @Test
+    @DisplayName("[성공] 면회 승인 시 방생성 성공")
+    void modifyConferenceStateSuccessTest() throws Exception {
+      // given
+      saveConference();
+
+      ConferenceStateDto conferenceStateDto = new ConferenceStateDto("A");
+      // when
+      mockMvc.perform(
+              RestDocumentationRequestBuilders.patch("/conference/{id}", 1L)
+                  .content(objectMapper.writeValueAsString(conferenceStateDto))
+                  .header("Content-Type", "application/json")
+                  .header("Authorization", userRegisterHelper.getHospitalAccessToken()))
+          .andExpect(status().isOk())
+          .andDo(MockMvcRestDocumentation.document("면회 승인"));
+      // then
+      Conference savedConference = conferenceRepository.findById(1L).get();
+      Assertions.assertThat(savedConference.getConferenceState()).isEqualTo(PermissionType.A);
+      Assertions.assertThat(savedConference.getConferenceRoom().getRoomName()).isEqualTo("1_caregiver");
+    }
+  }
+
+  private void saveConference() {
+    LocalDateTime conferenceDateTime = LocalDateTime.now();
+    Conference conference = Conference.createConference(
+        conferenceDateTime.toLocalDate()
+        , conferenceDateTime.toLocalTime());
+
+    conference.linkApplicationUsers(userRegisterHelper.getUserLink());
+    conferenceRepository.save(conference);
   }
 }

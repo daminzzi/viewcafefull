@@ -99,4 +99,6 @@ public class UserRegisterHelper {
   public Hospital getHospital() {
     return (Hospital) usersRepository.findByDomainId("hospital").get();
   }
+
+  public UserLink getUserLink(){return userLinkRepository.findLinkByCaregiverId(getCaregiver().getId()).get(); }
 }
