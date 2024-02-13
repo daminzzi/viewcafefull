@@ -119,9 +119,12 @@ function VisitRoom() {
     if (videoCount === 0) {
       setVideoHeight('70%');
       setVideoWidth('60%');
-    } else if (videoCount >= 1 && videoCount <= 3) {
+    } else if (videoCount >= 1 && videoCount <= 2) {
       setVideoHeight('47%');
       setVideoWidth('30%');
+    } else if (videoCount === 3) {
+      setVideoHeight('47%');
+      setVideoWidth('40%');
     } else if (videoCount >= 4 && videoCount <= 5) {
       setVideoHeight('47%');
       setVideoWidth('25%');

@@ -15,10 +15,11 @@ const VideoWrapper = styled.div`
 
 const NameTag = styled.span`
   position: absolute;
-  margin-left: -100px;
+  margin-left: -143px;
   color: white;
   background-color: gray;
-  bottom: 5px;
+  bottom: 0px;
+  font-size: 2rem;
 `;
 
 function UserVideo({ streamManager }: Props) {
