@@ -2,9 +2,7 @@ package com.ssafy.ViewCareFull.domain.ffmpeg.service;
 
 
 import com.ssafy.ViewCareFull.domain.ffmpeg.exception.VideoCreateFailException;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -85,19 +83,6 @@ public class FFmpegService2 {
     processBuilder.command("bash", "-c", command);
     log.info("processBuilderCommand : " + processBuilder.command().toString());
     Process process = processBuilder.start();
-
-    // 출력 받기
-    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-    String line;
-    while ((line = reader.readLine()) != null) {
-      System.out.println(line);
-    }
-
-    // 에러 출력 받기
-    BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-    while ((line = errorReader.readLine()) != null) {
-      System.out.println(line);
-    }
 
     // 프로세스의 종료를 대기하고 종료 코드 출력
     int exitCode = process.waitFor();
