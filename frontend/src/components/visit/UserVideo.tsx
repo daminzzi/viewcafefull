@@ -10,6 +10,7 @@ const VideoWrapper = styled.div`
   display: inline-block;
   position: relative;
   height: 100%;
+  width: 100%;
 `;
 
 const NameTag = styled.span`

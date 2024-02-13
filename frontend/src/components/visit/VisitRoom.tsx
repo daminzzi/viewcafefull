@@ -29,7 +29,7 @@ function VisitRoom() {
   const [isVideoEnabled, setIsVideoEnabled] = useState(true);
   const [isAudioEnabled, setIsAudioEnabled] = useState(true);
   const [videoHeight, setVideoHeight] = useState('70%');
-  const [videoWidth, setVideoWidth] = useState('70%');
+  const [videoWidth, setVideoWidth] = useState('50%');
   const captureRef = useRef<HTMLDivElement>(null);
 
   const joinSession = async () => {
@@ -44,7 +44,6 @@ function VisitRoom() {
         const subscriber = mySession.subscribe(event.stream, undefined);
         // console.log('SubList - ', subscriberList);
         addSubscriber(subscriber);
-        calculateVideoSize();
         // console.log('add new subscriber');
       });
 
@@ -177,6 +176,9 @@ function VisitRoom() {
     }
   }, []); // user가 변경될 때마다 useEffect 실행
 
+  useEffect(() => {
+    calculateVideoSize();
+  }, [subscriberList]);
   return (
     <div>
       <StyledHeader>{tarUserName}님의 면회실</StyledHeader>
