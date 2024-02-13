@@ -28,8 +28,8 @@ function VisitRoom() {
   const [publisher, setPublisher] = useState<Publisher | null>(null);
   const [isVideoEnabled, setIsVideoEnabled] = useState(true);
   const [isAudioEnabled, setIsAudioEnabled] = useState(true);
-  const [videoHeight, setVideoHeight] = useState('100%');
-
+  const [videoHeight, setVideoHeight] = useState('70%');
+  const [videoWidth, setVideoWidth] = useState('70%');
   const captureRef = useRef<HTMLDivElement>(null);
 
   const joinSession = async () => {
@@ -44,7 +44,7 @@ function VisitRoom() {
         const subscriber = mySession.subscribe(event.stream, undefined);
         // console.log('SubList - ', subscriberList);
         addSubscriber(subscriber);
-        calculateVideoHeight();
+        calculateVideoSize();
         // console.log('add new subscriber');
       });
 
@@ -114,12 +114,23 @@ function VisitRoom() {
     }
   }
 
-  function calculateVideoHeight() {
-    if (subscriberList.length < 2) {
+  function calculateVideoSize() {
+    const videoCount = subscriberList.length;
+
+    if (videoCount === 1) {
       setVideoHeight('70%');
-      return;
+      setVideoWidth('70%');
+    } else if (videoCount >= 2 && videoCount <= 4) {
+      setVideoHeight('47%');
+      setVideoWidth('40%');
+    } else if (videoCount >= 5 && videoCount <= 6) {
+      setVideoHeight('47%');
+      setVideoWidth('30%');
+    } else {
+      // 다른 조건이 필요한 경우에 대한 기본값 설정
+      setVideoHeight('100%');
+      setVideoWidth('100%');
     }
-    setVideoHeight('47%');
   }
 
   function renderSubscriberList() {
@@ -174,7 +185,7 @@ function VisitRoom() {
     <div>
       <StyledHeader>{tarUserName}님의 면회실</StyledHeader>
       <VideoGroup>
-        <VideoOne ref={captureRef} $height={videoHeight}>
+        <VideoOne ref={captureRef} $height={videoHeight} $width={videoWidth}>
           {publisher !== null ? <UserVideo streamManager={publisher} /> : null}
         </VideoOne>
         {renderSubscriberList()}
@@ -201,9 +212,10 @@ const VideoGroup = styled.div`
   gap: 2rem;
 `;
 
-const VideoOne = styled.div<{ $height?: string }>`
+const VideoOne = styled.div<{ $height?: string; $width?: string }>`
   display: inline-block;
-  height: ${(props) => props.$height || '100%'};
+  height: ${(props) => props.$height || '70%'};
+  width: ${(props) => props.$width || '70%'};
 `;
 
 const StyledHeader = styled.div`
