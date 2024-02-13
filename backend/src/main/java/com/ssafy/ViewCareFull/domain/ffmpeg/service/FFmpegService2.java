@@ -31,7 +31,7 @@ public class FFmpegService2 {
   public void buildCommand(List<String> imageUrls) throws IOException, InterruptedException {
     // 이미지를 비디오로 변환하는 FFmpeg 명령어 생성
     StringBuilder ffmpegCommandBuilder = new StringBuilder();
-    int framrate = 30; // 초당 프레임 수 설정
+    int framrate = 20; // 초당 프레임 수 설정
     int imageSec = 2; // 이미지가 보여지는 시간 설정
     int audioStartSec = 30; // 오디오 시작 시간 설정
     log.info("FFmpeg path: " + ffmpegPath);
@@ -48,7 +48,7 @@ public class FFmpegService2 {
           .append("loop=" + imageSec * framrate) // loop/framerate 초 만큼 각 이미지가 재생된다
           .append(":size=1") // 반복할 프레임 수 설정 - 1프레임만 반복
           .append(":start=0") // 반복 시작 시점 설정 - 0초부터 시작
-          .append(",scale=1920:1080")// 이미지 크기 설정 - 1920x1080으로 설정 (반드시 짝수로)
+          .append(",scale=512:512")// 이미지 크기 설정 - 1920x1080으로 설정 (반드시 짝수로)
           .append(",setsar=1") // 화면 비율 설정 - 1:1로 설정
           .append("[v").append(i).append("]; "); // index 번째 이미지 필터 설정
     }
