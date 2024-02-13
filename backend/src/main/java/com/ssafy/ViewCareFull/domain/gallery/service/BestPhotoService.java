@@ -102,10 +102,10 @@ public class BestPhotoService {
     int size = bestPhotoList.size();
     for (int i = 0; i < size; i++) {
       BestPhoto bestPhoto = bestPhotoList.get(i);
-      Long imageId = bestPhoto.getImage().getId();
+      Image image = bestPhoto.getImage();
       if (i > 2 || bestPhoto.getScore() < 70) {
         bestPhotoRepository.delete(bestPhoto);
-        galleryService.deleteImage(imageId);
+        galleryService.deleteImage(image);
       }
     }
   }

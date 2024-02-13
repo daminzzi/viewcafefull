@@ -15,7 +15,5 @@ public interface ImageRepository extends JpaRepository<Image, Long> {
 
   @Query(value = "SELECT i FROM Image i where i.id not in (select m.id from Meal m) and month(i.imageDateTime) = :month and i.userId = :userId")
   List<Image> findAllNotInMealWithMonthAndUser(Integer month, Long userId);
-
-  @Query(value = "DELETE FROM Image i WHERE i.id = :ImageId")
-  void deleteImageById(Long ImageId);
+  
 }
