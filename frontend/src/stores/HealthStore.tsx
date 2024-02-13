@@ -1,12 +1,18 @@
 import { create } from 'zustand';
+import getCondition from '../services/health/getCondition';
 import noImage from '../assets/images/noImage.jpg';
+
+type WeekInfo = {
+  date: Date;
+  condition: ConditionInfo;
+}
 
 type State = {
   today: Date | null;
   tab: Page;
   selectedDate: Date | null;
   startOfWeek: Date | null;
-  week: Array<Date>;
+  week: Array<WeekInfo>;
   healthInfo: HealthInfo;
 };
 
@@ -15,7 +21,7 @@ type Action = {
   setSelectedDate: (date: Date) => void;
   setTab: (tab: Page) => void;
   setStartOfWeek: (newStart: Date) => void;
-  setWeek: (week: Array<Date>) => void;
+  setWeek: (week: Array<WeekInfo>) => void;
   setHealthInfo: (healthInfo: HealthInfo) => void;
   reset: () => void;
   resetHealthInfo: () => void;
@@ -60,6 +66,14 @@ export const isSameDate = (date1: Date | null, date2: Date | null) => {
   );
 };
 
+export function dateToString(date: Date): string {
+  const year: number = date.getFullYear();
+  const month: string = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day: string = date.getDate().toString().padStart(2, '0');
+
+  return `${year}${month}${day}`;
+}
+
 const useHealthStore = create<State & Action>((set, get) => ({
   ...initialState,
 
@@ -85,17 +99,27 @@ const useHealthStore = create<State & Action>((set, get) => ({
     set({ tab: newTab });
   },
 
-  setStartOfWeek: (newStart: Date) => {
+  setStartOfWeek: async (newStart: Date) => {
     set({ startOfWeek: newStart });
+    const endOfWeek = new Date(newStart)
+    endOfWeek.setDate(endOfWeek.getDate() + 6);
+    const response = await getCondition(dateToString(newStart), dateToString(endOfWeek))
     const newWeek = [];
     for (let i = 0; i < 7; i++) {
-      newWeek.push(new Date(newStart));
-      newWeek[i].setDate(newWeek[i].getDate() + i);
+      const date = new Date(newStart)
+      date.setDate(date.getDate() + i);
+      const newInfo = {
+        date,
+        condition: response[i],
+      }
+      newWeek.push(newInfo);
+      // newWeek.push(new Date(newStart));
+      // newWeek[i].setDate(newWeek[i].getDate() + i);
     }
     set({ week: newWeek });
   },
 
-  setWeek: (newWeek: Array<Date>) => {
+  setWeek: (newWeek: Array<WeekInfo>) => {
     set({ week: newWeek });
   },
 

@@ -46,3 +46,8 @@ type HealthInfo = {
   medicine: HealthInfoData;
   meal: HealthInfoData;
 };
+
+type ConditionInfo = {
+  date: string;
+  data: '좋음' | '보통' | '나쁨' | null;
+}

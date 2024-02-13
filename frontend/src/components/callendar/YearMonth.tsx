@@ -19,7 +19,7 @@ function YearMonth() {
   const { week, selectedDate, setSelectedDate } = useHealthStore();
   let res = false;
   for (let i = 0; i < 7; i++) {
-    if (isSameDate(week[i], selectedDate)) {
+    if (isSameDate(week[i]?.date, selectedDate)) {
       res = true;
       break;
     }
@@ -58,7 +58,7 @@ function YearMonth() {
       </ChevronButton>
       {selectedDate && (
         <Span>
-          {`${res ? selectedDate.getFullYear() : week[0].getFullYear()}.${res ? selectedDate.getMonth() + 1 : week[0].getMonth() + 1}`}
+          {`${res ? selectedDate.getFullYear() : week[0]?.date.getFullYear()}.${res ? selectedDate?.getMonth() + 1 : week[0]?.date.getMonth() + 1}`}
         </Span>
       )}
       <ChevronButton onClick={() => handleChangeMonth(false)}>

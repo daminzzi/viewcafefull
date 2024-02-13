@@ -9,6 +9,7 @@ import getHealth from '../../services/health/getHealth';
 import useHealthStore, {
   initialHealth,
   initialImage,
+  dateToString,
 } from '../../stores/HealthStore';
 import useConnectStore from '../../stores/ConnectStore';
 
@@ -16,14 +17,6 @@ const SubTitle = styled.p`
   font-weight: bold;
   width: 90%;
 `;
-
-function dateToString(date: Date): string {
-  const year: number = date.getFullYear();
-  const month: string = (date.getMonth() + 1).toString().padStart(2, '0');
-  const day: string = date.getDate().toString().padStart(2, '0');
-
-  return `${year}${month}${day}`;
-}
 
 function processInfo(info: HealthResponse) {
   const newHealth = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import styled from 'styled-components';
-import { lightgray } from './assets/styles/palettes';
+import { white } from './assets/styles/palettes';
 import Main from './pages/Main';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login/Login';
@@ -25,7 +25,7 @@ import VisitRoom from './components/visit/VisitRoom';
 import ConnectRegister from './pages/family/ConnectRegister';
 
 const AppDiv = styled.div`
-  background-color: ${lightgray};
+  background-color: ${white};
   margin: 0;
 `;
 

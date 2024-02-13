@@ -11,7 +11,8 @@ function Week() {
   function renderDate() {
     const result = [];
     for (let i = 0; i < 7; i++) {
-      result.push(<DateBox key={i} date={week[i]} moved={moved} />);
+      console.log(week)
+      result.push(<DateBox key={i} date={week[i]?.date} condition={week[i]?.condition} moved={moved} />);
     }
 
     return result;
@@ -36,12 +37,11 @@ function Week() {
     <FlexRowContainer
       $margin="10px 0"
       onMouseDown={(e) => {
-        console.log(e.pageX)
+        console.log(e.pageX);
         setStartX(e.pageX);
         setMoved(false);
       }}
       onMouseUp={(e) => {
-        console.log(11111111)
         if (startX !== null && startX > e.pageX) {
           setMoved(true);
           handleChangeWeek(false);
