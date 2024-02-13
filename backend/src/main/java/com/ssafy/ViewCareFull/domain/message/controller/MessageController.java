@@ -31,8 +31,9 @@ public class MessageController {
   public ResponseEntity<MessageListResponseDto> getMessages(
       @AuthenticationPrincipal SecurityUsers securityUsers,
       @RequestParam(value = "page", defaultValue = "1") int page,
-      @RequestParam(value = "keyword", defaultValue = "") String keyword) {
-    Pageable pageable = PageRequest.of(page - 1, 5, Sort.by("sendDateTime").descending());
+      @RequestParam(value = "keyword", defaultValue = "") String keyword,
+      @RequestParam(value = "size", defaultValue = "6") int size) {
+    Pageable pageable = PageRequest.of(page - 1, size, Sort.by("sendDateTime").descending());
     return ResponseEntity.ok(messageService.getMessages(securityUsers, pageable, keyword));
   }
 
