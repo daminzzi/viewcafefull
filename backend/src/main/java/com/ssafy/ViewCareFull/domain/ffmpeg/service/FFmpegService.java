@@ -82,6 +82,7 @@ public class FFmpegService {
       log.info("Exited with error code: " + exitCode);
       throw new VideoCreateFailException();
     }
+    log.info("Video create success");
   }
 
   public void onlyTest() {

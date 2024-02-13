@@ -40,7 +40,7 @@ public class ImageUtil {
         g2d.dispose();
 
         // 변형된 이미지 저장
-        File outputFile = new File(outputImagePath.replace(".jpg", "_" + i + ".jpg"));
+        File outputFile = new File(outputImagePath.replace(".png", "_" + i + ".png"));
         imagePaths.add(outputFile.getAbsolutePath());
         ImageIO.write(fadedImage, "PNG", outputFile);
       }
@@ -58,7 +58,7 @@ public class ImageUtil {
     try {
       Thumbnails.of(new File(inputImagePath))
           .size(newWidth, newHeight)
-          .outputFormat("jpg")
+          .outputFormat("png")
           .toFile(new File(outputImagePath));
     } catch (IOException e) {
       log.error("이미지 리사이징 실패", e);
