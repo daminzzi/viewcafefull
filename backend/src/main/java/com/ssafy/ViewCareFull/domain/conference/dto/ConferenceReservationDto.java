@@ -40,7 +40,9 @@ public class ConferenceReservationDto {
   }
 
   @Getter
-  private static class Participant {
+  @AllArgsConstructor
+  @NoArgsConstructor
+  public static class Participant {
 
     private String applicationId;
   }
