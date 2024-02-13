@@ -79,7 +79,7 @@ public class BestPhotoService {
     String formattedDateTime = currentTime.format(formatter); // 현재 시간을 포맷에 맞게 변환
 
     // 임시 파일 객체 생성
-    File tempFile = File.createTempFile(conferenceId + formattedDateTime, null);
+    File tempFile = File.createTempFile(conferenceId + formattedDateTime, ".jpg");
     // 임시 파일 저장
     FileUtils.writeByteArrayToFile(tempFile, decodedBytes);
 
@@ -88,7 +88,7 @@ public class BestPhotoService {
     // 파일명
     // 파일 타입 - null 지정 시 자동 추론 - 필요한 경우 image/jpeg, image/png 등으로 지정
     // 파일 데이터 - 임시 파일 읽어와서 활용
-    MultipartFile multipartFile = new MockMultipartFile("file", tempFile.getName(), null,
+    MultipartFile multipartFile = new MockMultipartFile("file", tempFile.getName(), "image/jpeg",
         FileUtils.readFileToByteArray(tempFile));
     // 임시 파일 삭제
     if (tempFile.exists()) {
