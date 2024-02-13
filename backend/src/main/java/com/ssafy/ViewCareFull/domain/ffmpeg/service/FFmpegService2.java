@@ -85,14 +85,15 @@ public class FFmpegService2 {
     log.info("processBuilderCommand : " + processBuilder.command().toString());
     Process process = processBuilder.start();
 
-    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
     String line;
-    while ((line = reader.readLine()) != null) {
-      log.info(line);
-    }
 
     BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-    while ((line = errorReader.readLine()) != null) {
+    while (errorReader.ready() && (line = errorReader.readLine()) != null) {
+      log.error(line);
+    }
+
+    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+    while (reader.ready() && (line = reader.readLine()) != null) {
       log.info(line);
     }
 
