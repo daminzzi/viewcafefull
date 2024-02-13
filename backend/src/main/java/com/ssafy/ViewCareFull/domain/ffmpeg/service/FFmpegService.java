@@ -55,7 +55,7 @@ public class FFmpegService {
     StringBuilder ffmpegCommandBuilder = new StringBuilder();
     int framrate = 25; // 초당 프레임 수 설정 - 현재 25fps로만 동작함 원인 불명
     int imageSec = 4; // 이미지가 보여지는 시간 설정
-    int audioStartSec = 30; // 오디오 시작 시간 설정
+    int audioStartSec = 0; // 오디오 시작 시간 설정
     log.info("FFmpeg path: " + ffmpegPath);
     ffmpegCommandBuilder
         .append(ffmpegPath)
@@ -84,7 +84,7 @@ public class FFmpegService {
         .append("[v]; ") // 이미지 결합 설정
         .append("[" + imageUrls.size() + ":a]") // 오디오 사용 설정
         .append("atrim=start=" + audioStartSec) // 오디오 시작 시간 설정
-        .append(":end=" + (2 * imageUrls.size() + audioStartSec)) // 오디오 종료 시간 설정
+        .append(":end=" + (imageSec * imageUrls.size() + audioStartSec)) // 오디오 종료 시간 설정
         .append(",aloop=loop=1") // 오디오 반복 설정
         .append(":size=1") // 오디오 반복 횟수 설정
         .append(":start=0") // 오디오 처음부터 시작
