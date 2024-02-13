@@ -11,6 +11,7 @@ import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.service.UserLinkService;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
@@ -102,5 +103,15 @@ public class GalleryService {
   @Transactional
   public void deleteImage(Image image) {
     imageRepository.deleteById(image.getId());
+  }
+
+  public List<Image> getBestPhotoImageByCaregiverIdBetweenDate(Long caregiverId, LocalDateTime startDate,
+      LocalDateTime endDate) {
+    return imageRepository.findBestPhotoImageByCaregiverIdBetweenDate(caregiverId, startDate, endDate);
+  }
+
+  public List<Image> getNoneMealImageByCaregiverIdBetweenDate(Long caregiverId, LocalDateTime startDate,
+      LocalDateTime endDate) {
+    return imageRepository.findNoneMealImageByCaregiverIdBetweenDate(caregiverId, startDate, endDate);
   }
 }

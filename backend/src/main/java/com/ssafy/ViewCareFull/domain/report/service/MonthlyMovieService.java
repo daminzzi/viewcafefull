@@ -44,7 +44,7 @@ public class MonthlyMovieService {
       imagePaths.addAll(reversedImagePaths);
     }
     try {
-      ffmpegService.buildCommand(imagePaths);
+      ffmpegService.buildCommand(imagePaths, "video");
     } catch (Exception e) {
       log.error("비디오 생성 실패");
       throw new RuntimeException(e);
