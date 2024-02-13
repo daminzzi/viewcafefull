@@ -8,6 +8,7 @@ type Props = {
   $margin?: string;
   $padding?: string;
   $width?: string;
+  $height?: string;
   $alignItems?: string;
   $gap?: string;
   $borderColor?: string;
@@ -22,6 +23,11 @@ const FlexRowContainer = styled.div<Props>`
   justify-content: space-around;
   align-items: center;
 
+  ${(props) =>
+    props.$height &&
+    css`
+      height: ${props.$height};
+    `}
   ${(props) =>
     props.$backgroundColor &&
     css`

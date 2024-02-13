@@ -113,8 +113,6 @@ const useHealthStore = create<State & Action>((set, get) => ({
         condition: response[i],
       }
       newWeek.push(newInfo);
-      // newWeek.push(new Date(newStart));
-      // newWeek[i].setDate(newWeek[i].getDate() + i);
     }
     set({ week: newWeek });
   },

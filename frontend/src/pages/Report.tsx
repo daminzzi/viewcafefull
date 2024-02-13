@@ -6,9 +6,11 @@ import ReportSubject from '../components/report/ReportSubject';
 import ReportHealthContent from '../components/report/ReportHealthContent';
 import ReportLifeContent from '../components/report/ReportLifeContent';
 import FlexColContainer from '../components/common/FlexColContainer';
-import { styled } from 'styled-components';
-// import styled from 'styled-components';
-// type Props = {};
+import ParentSize from '@visx/responsive/lib/components/ParentSize';
+import PieChart from '../components/chart/PieChart';
+import styled from 'styled-components';
+import LineChart from '../components/chart/LineChart';
+import { blue, failed } from '../assets/styles/palettes';
 
 function Report() {
   const navigator = useNavigate();
@@ -32,6 +34,25 @@ function Report() {
     fetchReportInfo();
   }, []);
 
+  const condition = {
+    good: 15,
+    normal: 14,
+    bad: 10,
+  };
+
+  const sugarData = reportInfo?.sugar.data.map((d) => {
+    const avg = (d.low + d.high) / 2;
+    return { x: d.day, y: avg };
+  });
+
+  const lowData = reportInfo?.pressure.data.map((d) => {
+    return { x: d.day, y: d.low };
+  });
+
+  const highData = reportInfo?.pressure.data.map((d) => {
+    return { x: d.day, y: d.high };
+  });
+
   return (
     <div>
       {reportInfo && (
@@ -47,20 +68,54 @@ function Report() {
             title="1-1. 혈압 정보"
             content={reportInfo?.pressure?.insights}
           >
-            여기 그래프 들어감
+            {lowData && highData ? (
+              <ParentSize>
+                {({ width: visWidth }) => (
+                  <LineChart
+                    width={visWidth}
+                    height={(visWidth * 3) / 4}
+                    data={[lowData, highData]}
+                    keys={['이완기', '수축기']}
+                    colors={[blue, failed]}
+                    domain={[0, 200]}
+                  />
+                )}
+              </ParentSize>
+            ) : null}
           </ReportHealthContent>
           <ReportHealthContent
             title="1-2. 혈당 정보"
             content={reportInfo?.sugar?.insights}
           >
-            여기 그래프 들어감
+            {sugarData ? (
+              <ParentSize>
+                {({ width: visWidth }) => (
+                  <LineChart
+                    width={visWidth}
+                    height={(visWidth * 3) / 4}
+                    data={[sugarData]}
+                    keys={['평균 혈당']}
+                    colors={[blue]}
+                    domain={[0, 300]}
+                  />
+                )}
+              </ParentSize>
+            ) : null}
           </ReportHealthContent>
           <ReportSubject subject="2. 생활 정보" />
           <ReportLifeContent
             title="2-2. 생활 정보 요약"
             content={reportInfo?.lifeInfo}
           >
-            여기 그래프 들어감
+            <ParentSize>
+              {({ width: visWidth }) => (
+                <PieChart
+                  width={visWidth}
+                  height={(visWidth * 3) / 4}
+                  data={condition}
+                />
+              )}
+            </ParentSize>
           </ReportLifeContent>
           <ReportSubject subject="3. 생활 영상" />
           {/* <video src={reportInfo.movie} /> */}

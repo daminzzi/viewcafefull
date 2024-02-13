@@ -4,7 +4,7 @@ import ContentsContainer from '../../components/common/ContentsContainer';
 import FlexColContainer from '../../components/common/FlexColContainer';
 import TabButtonGroup from '../../components/familyhome/TabButtonGroup';
 import TabView from '../../components/familyhome/TabView';
-import Callendar from '../../components/callendar/Callendar';
+import Calendar from '../../components/calendar/Calendar';
 import getHealth from '../../services/health/getHealth';
 import useHealthStore, {
   initialHealth,
@@ -151,7 +151,7 @@ function FamilyHome() {
 
   return (
     <FlexColContainer>
-      <Callendar />
+      <Calendar />
       <ContentsContainer>
         <SubTitle>하루 건강 정보</SubTitle>
         <TabButtonGroup />

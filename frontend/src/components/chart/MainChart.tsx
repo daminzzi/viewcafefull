@@ -55,12 +55,12 @@ function MainChart({ width, maxValue, value, range }: Props) {
           x={0}
           y={25}
           fill={color}
-          width={scale.interpolate((s) => s * xScale(value))}
+          width={scale.to((s) => s * xScale(value))}
           height={15}
           rx={7.5}
         />
         <AnimatedCircle
-          cx={scale.interpolate((s) => s * xScale(value))}
+          cx={scale.to((s) => s * xScale(value))}
           cy={25 + 7.5}
           r={8}
           stroke={black}

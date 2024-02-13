@@ -20,7 +20,8 @@ type Props = {
   height: number;
   margin?: { top: number; right: number; bottom: number; left: number };
   keys: Array<string>;
-  data: Array<ChartData>;
+  // data: Array<ChartData>;
+  data: HealthInfo;
 };
 
 const LegendDiv = styled.div`
@@ -74,6 +75,38 @@ function BarChart({
   type,
   margin = { ...defaultMargin },
 }: Props) {
+  function createChartData(): Array<ChartData> {
+    if (type === 'bp') {
+      return ([
+        {
+          type: 'morning',
+          low: data.low.morning as number,
+          high: data.high.morning as number,
+        },
+        { type: 'noon', low: data.low.noon as number, high: data.high.noon as number },
+        {
+          type: 'dinner',
+          low: data.low.dinner as number,
+          high: data.high.dinner as number,
+        },
+      ])
+    } else {
+      return ([
+        {
+          type: 'before',
+          before: data.before.noon as number,
+          after: data.after.noon as number,
+        },
+        { type: 'noon', before: data.before.noon as number, after: data.after.noon as number },
+        {
+          type: 'dinner',
+          before: data.before.dinner as number,
+          after: data.after.dinner as number,
+        },
+      ])
+    }
+  }
+  const ChartData = createChartData()
   const xMax = Math.max(0, width - margin.left - margin.right);
   const yMax = Math.max(0, height - margin.top - margin.bottom);
   const xScale = scaleLinear<number>({
@@ -96,11 +129,13 @@ function BarChart({
   y1Scale.rangeRound([0, y0Scale.bandwidth()]);
   xScale.rangeRound([0, xMax]);
 
-  const [{ scale }] = useSpring(() => ({
-    from: { scale: 0 },
-    to: { scale: 1 },
-    reset: true
-  }), [data]);
+  const [{ scale }] = useSpring(() => {
+    return {
+      from: { scale: 0 },
+      to: { scale: 1 },
+      reset: true,
+    };
+  }, [data]);
   const AnimatedBar = animated(Bar);
 
   return (
@@ -128,7 +163,7 @@ function BarChart({
         />
         <Group top={margin.top} left={margin.left}>
           <BarGroupHorizontal
-            data={data}
+            data={ChartData}
             keys={keys}
             width={xMax}
             y0={(d) => d.type}
@@ -146,9 +181,9 @@ function BarChart({
                   {barGroup.bars.map((bar) => (
                     <AnimatedBar
                       key={`${barGroup.index}-${bar.index}-${bar.key}`}
-                      x={scale.interpolate((s) => s * bar.x)}
+                      x={scale.to((s) => s * bar.x)}
                       y={bar.y}
-                      width={scale.interpolate((s) => s * bar.width)}
+                      width={scale.to((s) => s * bar.width)}
                       height={bar.height}
                       fill={bar.color}
                       rx={bar.height / 2}

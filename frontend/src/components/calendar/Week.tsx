@@ -11,7 +11,6 @@ function Week() {
   function renderDate() {
     const result = [];
     for (let i = 0; i < 7; i++) {
-      console.log(week)
       result.push(<DateBox key={i} date={week[i]?.date} condition={week[i]?.condition} moved={moved} />);
     }
 

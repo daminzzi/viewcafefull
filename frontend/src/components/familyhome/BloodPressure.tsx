@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import useHealthStore from '../../stores/HealthStore';
 import ParentSize from '@visx/responsive/lib/components/ParentSize';
-import BarChart, { ChartData } from '../chart/BarChart';
+import BarChart from '../chart/BarChart';
 
 const Container = styled.div`
   width: 90%;
@@ -12,19 +12,6 @@ const Container = styled.div`
 
 function BloodPressure() {
   const { healthInfo } = useHealthStore();
-  const data = [
-    {
-      type: 'morning',
-      low: healthInfo.low.morning,
-      high: healthInfo.high.morning,
-    },
-    { type: 'noon', low: healthInfo.low.noon, high: healthInfo.high.noon },
-    {
-      type: 'dinner',
-      low: healthInfo.low.dinner,
-      high: healthInfo.high.dinner,
-    },
-  ];
   const keys = ['low', 'high'];
 
   return (
@@ -36,7 +23,7 @@ function BloodPressure() {
             width={visWidth}
             height={visHeight}
             keys={keys}
-            data={data as Array<ChartData>}
+            data={healthInfo}
           />
         )}
       </ParentSize>

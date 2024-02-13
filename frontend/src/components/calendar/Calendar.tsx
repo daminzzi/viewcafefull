@@ -5,7 +5,7 @@ import YearMonth from './YearMonth';
 import { light } from '../../assets/styles/palettes';
 import FlexColContainer from '../common/FlexColContainer';
 
-function Callendar() {
+function Calendar() {
   return (
     <FlexColContainer $backgroundColor={light}>
       <YearMonth />
@@ -15,4 +15,4 @@ function Callendar() {
   );
 }
 
-export default Callendar;
+export default Calendar;
