@@ -175,7 +175,7 @@ function SignUp() {
   }
 
   return (
-    <S.GrayBackground>
+    <div>
       <S.GlobalStyle />
       <UserContainer
         $height="620px"
@@ -309,7 +309,7 @@ function SignUp() {
           )}
         </form>
       </UserContainer>
-    </S.GrayBackground>
+    </div>
   );
 }
 

@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { lightgray } from '../../assets/styles/palettes';
 import check from '../../assets/images/checkMark.png';
 
 export const GlobalStyle = createGlobalStyle`
@@ -15,10 +14,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const GrayBackground = styled.div`
-  background-color: ${lightgray};
-  min-height: 100vh;
-`;
 
 export const SignUpText = styled.div`
   font-weight: bold;

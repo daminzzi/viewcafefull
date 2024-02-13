@@ -6,7 +6,6 @@ import UserContainer from '../components/common/UserContainer';
 import { ReactComponent as Logo } from '../assets/icons/mainLogo.svg';
 import tarLogin from '../assets/icons/tarLogin.svg';
 import appLogin from '../assets/icons/appLogin.svg';
-import FlexColContainer from '../components/common/FlexColContainer';
 import FlexRowContainer from '../components/common/FlexRowContainer';
 
 function Main() {
@@ -21,21 +20,21 @@ function Main() {
   }
 
   return (
-    <UserContainer $flexDirection="col" $padding="12px">
+    <UserContainer $padding="12px" $justifyContent="space-around">
       <MainText>뷰케어풀</MainText>
-      <FlexColContainer $width="80%" $gap="10px">
-        <Logo width={'200px'}></Logo>
-        <FlexRowContainer>
-          <Button $width="100px" $padding="20px" onClick={handleAppLogin}>
-            <img src={appLogin} />
-            <div>보호자</div>
-          </Button>
-          <Button $width="100px" $padding="20px" onClick={handleTarLogin}>
-            <img src={tarLogin} />
-            <div>간병인</div>
-          </Button>
-        </FlexRowContainer>
-      </FlexColContainer>
+
+      <Logo width={'200px'}></Logo>
+
+      <FlexRowContainer $width="90%" $margin="-80px 0 0 0">
+        <Button $width="100px" $padding="20px" onClick={handleAppLogin}>
+          <img src={appLogin} />
+          <div>보호자</div>
+        </Button>
+        <Button $width="100px" $padding="20px" onClick={handleTarLogin}>
+          <img src={tarLogin} />
+          <div>간병인</div>
+        </Button>
+      </FlexRowContainer>
     </UserContainer>
   );
 }
@@ -43,8 +42,7 @@ function Main() {
 export default Main;
 
 const MainText = styled.div`
-  position: absolute;
-  top: 60px;
   font-weight: bold;
   font-size: 30px;
+  margin-bottom: -60px;
 `;

@@ -70,7 +70,6 @@ function Login() {
   };
 
   return (
-    <S.GrayBackground>
       <UserContainer $alignItems="left" $padding="12px">
         <S.LoginText>로그인</S.LoginText>
         <S.Form onSubmit={handleLogin}>
@@ -129,7 +128,6 @@ function Login() {
           </S.Form>
         ) : null}
       </UserContainer>
-    </S.GrayBackground>
   );
 }
 

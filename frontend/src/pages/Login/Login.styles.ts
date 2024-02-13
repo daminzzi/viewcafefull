@@ -1,10 +1,6 @@
 import styled from 'styled-components';
-import { gray, lightgray } from '../../assets/styles/palettes';
+import { gray } from '../../assets/styles/palettes';
 
-export const GrayBackground = styled.div`
-  background-color: ${lightgray};
-  min-height: 100vh;
-`;
 
 export const RowContainer = styled.div`
   display: flex;
