@@ -33,7 +33,7 @@ public class FFmpegService {
     StringBuilder ffmpegCommandBuilder = new StringBuilder();
     int framrate = 30; // 초당 프레임 수 설정
     int imageSec = 2; // 이미지가 보여지는 시간 설정
-    String audioStartSec = "30"; // 오디오 시작 시간 설정
+    int audioStartSec = 30; // 오디오 시작 시간 설정
     log.info("FFmpeg path: " + ffmpegPath);
     ffmpegCommandBuilder
         .append(ffmpegPath)
