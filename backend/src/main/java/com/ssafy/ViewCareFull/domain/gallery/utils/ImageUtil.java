@@ -61,7 +61,7 @@ public class ImageUtil {
     try {
       Thumbnails.of(new File(inputImagePath))
           .size(newWidth, newHeight)
-          .outputFormat("png")
+          .outputFormat("jpg")
           .toFile(new File(outputImagePath));
     } catch (IOException e) {
       log.error("이미지 리사이징 실패", e);

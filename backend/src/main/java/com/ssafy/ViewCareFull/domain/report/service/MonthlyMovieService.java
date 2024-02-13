@@ -53,7 +53,7 @@ public class MonthlyMovieService {
 
   private static String getNewImageName(Image image) {
     int index = image.getImageName().lastIndexOf(".");
-    return image.getImageName().substring(0, index) + ".png";
+    return image.getImageName().substring(0, index) + ".jpg";
   }
 
 }
