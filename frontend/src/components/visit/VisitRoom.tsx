@@ -113,8 +113,7 @@ function VisitRoom() {
     }
   }
 
-  function calculateVideoSize() {
-    const videoCount = subscriberList.length;
+  function calculateVideoSize(videoCount: number) {
     console.log(videoCount);
     if (videoCount === 0) {
       setVideoHeight('70%');
@@ -180,7 +179,7 @@ function VisitRoom() {
   }, []); // user가 변경될 때마다 useEffect 실행
 
   useEffect(() => {
-    calculateVideoSize();
+    calculateVideoSize(subscriberList.length);
   }, [subscriberList, addSubscriber, delSubscriber]);
   return (
     <div>
