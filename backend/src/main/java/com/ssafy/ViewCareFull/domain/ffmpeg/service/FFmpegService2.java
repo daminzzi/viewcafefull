@@ -81,7 +81,7 @@ public class FFmpegService2 {
 
   private void executeCommand(String command) throws IOException, InterruptedException {
     // 프로세스 실행
-    ProcessBuilder processBuilder = new ProcessBuilder(command);
+    ProcessBuilder processBuilder = new ProcessBuilder("/usr/bin/bash -c" + command);
     Process process = processBuilder.start();
 
     // 출력 받기
@@ -96,7 +96,7 @@ public class FFmpegService2 {
     while ((line = errorReader.readLine()) != null) {
       System.out.println(line);
     }
-    
+
     // 프로세스의 종료를 대기하고 종료 코드 출력
     int exitCode = process.waitFor();
     if (exitCode == 0) {
