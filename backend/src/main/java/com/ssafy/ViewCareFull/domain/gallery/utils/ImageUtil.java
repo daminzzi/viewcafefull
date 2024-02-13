@@ -42,7 +42,8 @@ public class ImageUtil {
         // 변형된 이미지 저장
         File outputFile = new File(outputImagePath.replace(".png", "_" + i + ".png"));
         imagePaths.add(outputFile.getAbsolutePath());
-        ImageIO.write(fadedImage, "PNG", outputFile);
+        // format jpg
+        ImageIO.write(fadedImage, "jpg", outputFile);
       }
     } catch (IOException e) {
       throw new RuntimeException(e);
