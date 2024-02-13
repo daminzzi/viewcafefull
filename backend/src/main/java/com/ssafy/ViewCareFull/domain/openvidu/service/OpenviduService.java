@@ -19,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -41,6 +42,7 @@ public class OpenviduService {
     this.openvidu = new OpenVidu(OPENVIDU_URL, OPENVIDU_SECRET);
   }
 
+  @Transactional
   public String initSession(Map<String, Object> params) throws OpenViduJavaClientException, OpenViduHttpException {
     SessionProperties properties = SessionProperties.fromJson(params).build();
     Session session = openvidu.createSession(properties);
@@ -53,6 +55,7 @@ public class OpenviduService {
     return session.getSessionId();
   }
 
+  @Transactional
   public String closeSession(Map<String, Object> params) {
     String sessionId = params.get("customSessionId").toString();
     Conference conference = conferenceService.getConferenceByRoomName(sessionId);

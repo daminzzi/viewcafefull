@@ -99,6 +99,7 @@ public class GalleryService {
     return fileRealPath + image.getImageName();
   }
 
+  @Transactional
   public void deleteImage(Image image) {
     imageRepository.deleteById(image.getId());
   }
