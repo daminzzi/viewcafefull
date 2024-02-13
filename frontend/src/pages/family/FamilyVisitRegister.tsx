@@ -1,7 +1,7 @@
 import React, { useState, ReactElement, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { ko } from 'date-fns/esm/locale';
+import { ko } from 'date-fns/locale';
 import { ReactComponent as CalendarIcon } from '../../assets/icons/calendar.svg';
 import { ReactComponent as ClockIcon } from '../../assets/icons/clock.svg';
 import { ReactComponent as MultiUserIcon } from '../../assets/icons/multiUser.svg';

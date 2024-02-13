@@ -1,7 +1,5 @@
-/* eslint-disable operator-linebreak */
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-// import axios from 'axios';
 import useUserStore from '../../stores/UserStore';
 import api from '../../services/api';
 import { Button, DisabledButton } from '../../components/common/Buttons';
@@ -9,6 +7,12 @@ import Input from '../../components/common/Input';
 import * as S from './SignUp.styles';
 import UserContainer from '../../components/common/UserContainer';
 import getCheckId from '../../services/user/getCheckId';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { ko } from 'date-fns/locale';
+import { range } from 'lodash';
+import { getYear, getMonth } from 'date-fns';
+
 
 interface Form {
   name: string;
@@ -42,6 +46,21 @@ function SignUp() {
   const kakaoEmail = location.state?.kakaoEmail;
   const [email, setEmail] = useState(kakaoEmail || '');
 
+  const years = range(1990, getYear(new Date()) + 1, 1);
+  const months = [
+    '1월',
+    '2월',
+    '3월',
+    '4월',
+    '5월',
+    '6월',
+    '7월',
+    '8월',
+    '9월',
+    '10월',
+    '11월',
+    '12월',
+  ];
   useEffect(() => {
     setEmail(kakaoEmail || '');
   }, [kakaoEmail]);
@@ -161,7 +180,7 @@ function SignUp() {
         phoneNumber,
         id,
         password,
-        email
+        email,
       });
       if (response.status === 201) {
         setUser(response.data);
@@ -253,13 +272,73 @@ function SignUp() {
           </S.Label>
           <S.Label>
             <div>생년월일</div>
-            <Input
-              $width="98%"
-              type="date"
-              name="birth"
-              value={form.birth}
-              onChange={handleChange}
-              required
+
+            <DatePicker
+              customInput={<Input />}
+              dateFormat="yyyy.MM.dd"
+              shouldCloseOnSelect
+              selected={form.birth ? new Date(form.birth) : null}
+              onChange={(date: Date) =>
+                setForm({ ...form, birth: date.toISOString().split('T')[0] })
+              }
+              placeholderText="생년월일을 입력해주세요."
+              locale={ko}
+              renderCustomHeader={({
+                date,
+                changeYear,
+                changeMonth,
+                decreaseMonth,
+                increaseMonth,
+                prevMonthButtonDisabled,
+                nextMonthButtonDisabled,
+              }) => (
+                <div
+                  style={{
+                    margin: 10,
+                    display: 'flex',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <button
+                    onClick={decreaseMonth}
+                    disabled={prevMonthButtonDisabled}
+                  >
+                    {'<'}
+                  </button>
+                  <select
+                    value={getYear(date)}
+                    onChange={({ target: { value } }) =>
+                      changeYear(parseInt(value))
+                    }
+                  >
+                    {years.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+
+                  <select
+                    value={months[getMonth(date)]}
+                    onChange={({ target: { value } }) =>
+                      changeMonth(months.indexOf(value))
+                    }
+                  >
+                    {months.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+
+                  <button
+                    onClick={increaseMonth}
+                    disabled={nextMonthButtonDisabled}
+                  >
+                    {'>'}
+                  </button>
+                </div>
+              )}
             />
           </S.Label>
           <S.Label>
