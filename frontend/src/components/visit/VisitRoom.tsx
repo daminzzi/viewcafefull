@@ -7,17 +7,20 @@ import useConnectStore from '../../stores/ConnectStore';
 import { useNavigate, useParams } from 'react-router-dom';
 import postSession from '../../services/visit/postSession';
 import postToken from '../../services/visit/postToken';
-// import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas';
 import { styled } from 'styled-components';
 import ToolBar from './ToolBar';
 import { light } from '../../assets/styles/palettes';
+import deleteSession from '../../services/visit/deleteSession';
+import postBestShot from '../../services/visit/postBestShot';
 
 function VisitRoom() {
   const { subscriberList, addSubscriber, delSubscriber, resetSubscriberList } =
     useStreamStore();
+  const { user } = useUserStore();
   const OV = new OpenVidu();
   const session = OV.initSession();
-  const myUserName = useUserStore().user?.name;
+  const myUserName = user?.name;
   const tarUserName = useConnectStore().currConnect.tarName;
   const navigator = useNavigate();
   const params = useParams<{ id: string }>();
@@ -82,7 +85,12 @@ function VisitRoom() {
     session.disconnect();
     resetSubscriberList();
     setPublisher(null);
-    navigator('/family/visit');
+    if (user?.role === 'Guardian') {
+      navigator('/family/visit');
+    } else if (user?.role === 'Caregiver') {
+      deleteSession(sessionId);
+      navigator('/caregiver');
+    }
   }
 
   function toggleVideo() {
@@ -114,17 +122,19 @@ function VisitRoom() {
     ));
   }
 
-  // async function capturePublisher() {
-  //   if (captureRef.current) {
-  //     try {
-  //       const canvas = await html2canvas(captureRef.current);
-  //       const imageDataURL = canvas.toDataURL('image/jpeg');
-  //       console.log(imageDataURL);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-  // }
+  async function capturePublisher() {
+    if (captureRef.current) {
+      try {
+        const canvas = await html2canvas(captureRef.current);
+        const imageDataURL = canvas.toDataURL('image/jpeg');
+        console.log(imageDataURL);
+        const parts = imageDataURL.split(',');
+        postBestShot(sessionId, parts[1]);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
 
   useEffect(() => {
     const init = async () => {
@@ -140,6 +150,17 @@ function VisitRoom() {
       leaveSession();
     };
   }, []);
+
+  useEffect(() => {
+    // user의 type이 'Guardian'인 경우에만 setInterval 설정
+    if (user?.role === 'Caregiver') {
+      const captureInterval = setInterval(capturePublisher, 30000);
+
+      return () => {
+        clearInterval(captureInterval);
+      };
+    }
+  }, []); // user가 변경될 때마다 useEffect 실행
 
   return (
     <div>
