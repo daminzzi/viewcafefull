@@ -107,7 +107,7 @@ public class BestPhotoService {
     for (int i = 0; i < size; i++) {
       BestPhoto bestPhoto = bestPhotoList.get(i);
       Image image = bestPhoto.getImage();
-      if (i > 2 || bestPhoto.getScore() < 70) {
+      if (i > 2 || bestPhoto.getScore() < 60) {
         log.info("delete non best photo image id : " + image.getId());
         bestPhotoRepository.deleteById(bestPhoto.getId());
         galleryService.deleteImage(image);
