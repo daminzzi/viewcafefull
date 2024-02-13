@@ -1,369 +1,153 @@
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-01', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-01', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-01', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-02', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-02', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-02', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-03', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-03', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-03', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-04', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-04', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-04', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-05', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-05', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-05', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-06', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-06', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-06', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-07', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-07', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-07', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-08', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-08', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-08', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-09', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-09', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-09', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-10', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-10', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-10', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-11', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-11', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-11', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-12', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-12', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-12', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-13', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-13', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-13', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-14', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-14', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-14', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-15', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-15', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-15', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-16', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-16', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-16', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-17', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-17', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-17', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-18', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-18', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-18', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-19', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-19', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-19', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-20', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-20', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-20', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-21', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-21', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-21', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-22', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-22', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-22', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-23', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-23', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-23', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-24', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-24', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-24', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-25', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-25', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-25', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-26', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-26', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-26', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-27', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-27', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-27', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-28', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-28', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-28', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-29', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-29', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-29', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-30', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-30', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-30', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-10-31', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-10-31', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-10-31', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-01', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-01', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-01', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-02', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-02', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-02', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-03', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-03', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-03', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-04', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-04', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-04', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-05', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-05', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-05', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-06', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-06', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-06', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-07', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-07', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-07', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-08', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-08', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-08', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-09', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-09', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-09', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-10', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-10', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-10', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-11', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-11', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-11', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-12', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-12', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-12', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-13', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-13', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-13', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-14', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-14', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-14', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-15', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-15', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-15', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-16', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-16', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-16', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-17', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-17', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-17', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-18', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-18', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-18', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-19', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-19', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-19', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-20', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-20', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-20', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-21', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-21', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-21', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-22', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-22', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-22', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-23', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-23', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-23', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-24', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-24', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-24', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-25', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-25', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-25', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-26', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-11-26', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-26', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-27', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-27', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-27', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-11-28', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-28', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-28', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-29', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-29', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-29', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-30', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-30', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-11-30', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-01', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-01', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-01', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-02', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-02', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-02', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-03', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-03', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-03', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-04', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-04', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-04', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-05', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-05', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-05', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-06', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-06', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-06', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-07', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-07', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-07', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-08', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-08', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-08', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-09', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-09', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-09', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-10', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-10', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-10', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-11', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-11', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-11', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-12', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-12', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-12', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-13', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-13', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-13', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-14', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-14', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-14', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-15', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-15', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-15', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-16', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-16', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-16', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-17', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-17', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-17', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-18', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-18', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-18', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-19', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-19', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-19', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-20', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-20', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-20', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-21', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-21', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-21', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-22', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-22', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-22', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-23', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-23', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-23', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-24', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-24', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-24', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-25', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-25', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-25', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-26', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-26', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-26', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-27', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-27', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-27', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-28', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-28', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-28', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-29', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-29', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-29', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2023-12-30', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-30', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-30', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-31', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2023-12-31', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2023-12-31', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-01', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-01', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-01', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-02', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-02', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-02', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-03', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-03', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-03', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-04', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-04', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-04', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-05', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-05', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-05', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-06', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-06', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-06', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-07', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-07', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-07', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-08', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-08', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-08', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-09', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-09', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-09', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-10', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-10', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-10', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-11', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-11', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-11', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-12', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-12', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-12', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-13', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-13', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-13', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-14', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-14', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-14', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-15', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-15', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-15', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-16', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-16', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-16', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-17', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-17', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-17', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-18', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-18', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-18', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-19', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-19', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-19', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-20', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-20', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-20', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-21', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-21', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-21', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-22', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-22', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-22', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-23', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-23', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-23', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-24', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-24', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-24', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-25', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-25', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-25', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-26', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-26', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-26', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-27', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-27', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-27', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-28', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-28', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-28', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-29', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-29', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-29', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-30', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('BAD', '2024-01-30', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('GOOD', '2024-01-30', 'DINNER', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-31', 'MORNING', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-31', 'NOON', 3);
-INSERT INTO `conditions` (`user_condition`, `date`, `time`, `user_id`) VALUES ('NORMAL', '2024-01-31', 'DINNER', 3);
+INSERT INTO `conditions` (`date`, `user_condition`, `user_id`) VALUES
+('2023-10-01', 'BAD', 3),
+('2023-10-02', 'GOOD', 3),
+('2023-10-03', 'NORMAL', 3),
+('2023-10-04', 'BAD', 3),
+('2023-10-05', 'GOOD', 3),
+('2023-10-06', 'NORMAL', 3),
+('2023-10-07', 'BAD', 3),
+('2023-10-08', 'GOOD', 3),
+('2023-10-09', 'BAD', 3),
+('2023-10-10', 'NORMAL', 3),
+('2023-10-11', 'BAD', 3),
+('2023-10-12', 'BAD', 3),
+('2023-10-13', 'GOOD', 3),
+('2023-10-14', 'BAD', 3),
+('2023-10-15', 'GOOD', 3),
+('2023-10-16', 'BAD', 3),
+('2023-10-17', 'BAD', 3),
+('2023-10-18', 'GOOD', 3),
+('2023-10-19', 'BAD', 3),
+('2023-10-20', 'BAD', 3),
+('2023-10-21', 'GOOD', 3),
+('2023-10-22', 'BAD', 3),
+('2023-10-23', 'NORMAL', 3),
+('2023-10-24', 'GOOD', 3),
+('2023-10-25', 'NORMAL', 3),
+('2023-10-26', 'NORMAL', 3),
+('2023-10-27', 'GOOD', 3),
+('2023-10-28', 'NORMAL', 3),
+('2023-10-29', 'GOOD', 3),
+('2023-10-30', 'BAD', 3),
+('2023-10-31', 'BAD', 3),
+('2023-11-01', 'GOOD', 3),
+('2023-11-02', 'BAD', 3),
+('2023-11-03', 'BAD', 3),
+('2023-11-04', 'BAD', 3),
+('2023-11-05', 'NORMAL', 3),
+('2023-11-06', 'BAD', 3),
+('2023-11-07', 'GOOD', 3),
+('2023-11-08', 'NORMAL', 3),
+('2023-11-09', 'NORMAL', 3),
+('2023-11-10', 'BAD', 3),
+('2023-11-11', 'BAD', 3),
+('2023-11-12', 'NORMAL', 3),
+('2023-11-13', 'NORMAL', 3),
+('2023-11-14', 'NORMAL', 3),
+('2023-11-15', 'GOOD', 3),
+('2023-11-16', 'NORMAL', 3),
+('2023-11-17', 'GOOD', 3),
+('2023-11-18', 'NORMAL', 3),
+('2023-11-19', 'BAD', 3),
+('2023-11-20', 'BAD', 3),
+('2023-11-21', 'NORMAL', 3),
+('2023-11-22', 'BAD', 3),
+('2023-11-23', 'GOOD', 3),
+('2023-11-24', 'NORMAL', 3),
+('2023-11-25', 'GOOD', 3),
+('2023-11-26', 'NORMAL', 3),
+('2023-11-27', 'NORMAL', 3),
+('2023-11-28', 'BAD', 3),
+('2023-11-29', 'NORMAL', 3),
+('2023-11-30', 'NORMAL', 3),
+('2023-12-01', 'BAD', 3),
+('2023-12-02', 'GOOD', 3),
+('2023-12-03', 'GOOD', 3),
+('2023-12-04', 'NORMAL', 3),
+('2023-12-05', 'NORMAL', 3),
+('2023-12-06', 'NORMAL', 3),
+('2023-12-07', 'BAD', 3),
+('2023-12-08', 'NORMAL', 3),
+('2023-12-09', 'NORMAL', 3),
+('2023-12-10', 'NORMAL', 3),
+('2023-12-11', 'BAD', 3),
+('2023-12-12', 'NORMAL', 3),
+('2023-12-13', 'NORMAL', 3),
+('2023-12-14', 'GOOD', 3),
+('2023-12-15', 'BAD', 3),
+('2023-12-16', 'NORMAL', 3),
+('2023-12-17', 'NORMAL', 3),
+('2023-12-18', 'BAD', 3),
+('2023-12-19', 'GOOD', 3),
+('2023-12-20', 'NORMAL', 3),
+('2023-12-21', 'GOOD', 3),
+('2023-12-22', 'BAD', 3),
+('2023-12-23', 'BAD', 3),
+('2023-12-24', 'BAD', 3),
+('2023-12-25', 'NORMAL', 3),
+('2023-12-26', 'NORMAL', 3),
+('2023-12-27', 'NORMAL', 3),
+('2023-12-28', 'NORMAL', 3),
+('2023-12-29', 'NORMAL', 3),
+('2023-12-30', 'NORMAL', 3),
+('2023-12-31', 'BAD', 3),
+('2024-01-01', 'BAD', 3),
+('2024-01-02', 'NORMAL', 3),
+('2024-01-03', 'NORMAL', 3),
+('2024-01-04', 'BAD', 3),
+('2024-01-05', 'GOOD', 3),
+('2024-01-06', 'GOOD', 3),
+('2024-01-07', 'NORMAL', 3),
+('2024-01-08', 'BAD', 3),
+('2024-01-09', 'BAD', 3),
+('2024-01-10', 'NORMAL', 3),
+('2024-01-11', 'GOOD', 3),
+('2024-01-12', 'GOOD', 3),
+('2024-01-13', 'NORMAL', 3),
+('2024-01-14', 'GOOD', 3),
+('2024-01-15', 'GOOD', 3),
+('2024-01-16', 'NORMAL', 3),
+('2024-01-17', 'BAD', 3),
+('2024-01-18', 'BAD', 3),
+('2024-01-19', 'BAD', 3),
+('2024-01-20', 'GOOD', 3),
+('2024-01-21', 'NORMAL', 3),
+('2024-01-22', 'NORMAL', 3),
+('2024-01-23', 'GOOD', 3),
+('2024-01-24', 'NORMAL', 3),
+('2024-01-25', 'NORMAL', 3),
+('2024-01-26', 'GOOD', 3),
+('2024-01-27', 'BAD', 3),
+('2024-01-28', 'BAD', 3),
+('2024-01-29', 'GOOD', 3),
+('2024-01-30', 'NORMAL', 3),
+('2024-01-31', 'NORMAL', 3),
+('2024-02-01', 'GOOD', 3),
+('2024-02-02', 'NORMAL', 3),
+('2024-02-03', 'NORMAL', 3),
+('2024-02-04', 'GOOD', 3),
+('2024-02-05', 'BAD', 3),
+('2024-02-06', 'NORMAL', 3),
+('2024-02-07', 'NORMAL', 3),
+('2024-02-08', 'GOOD', 3),
+('2024-02-09', 'NORMAL', 3),
+('2024-02-10', 'BAD', 3),
+('2024-02-11', 'NORMAL', 3),
+('2024-02-12', 'GOOD', 3),
+('2024-02-13', 'GOOD', 3),
+('2024-02-14', 'GOOD', 3),
+('2024-02-15', 'GOOD', 3),
+('2024-02-16', 'NORMAL', 3),
+('2024-02-17', 'BAD', 3),
+('2024-02-18', 'GOOD', 3),
+('2024-02-19', 'GOOD', 3),
+('2024-02-20', 'NORMAL', 3),
+('2024-02-21', 'GOOD', 3),
+('2024-02-22', 'GOOD', 3),
+('2024-02-23', 'GOOD', 3),
+('2024-02-24', 'NORMAL', 3),
+('2024-02-25', 'NORMAL', 3),
+('2024-02-26', 'GOOD', 3),
+('2024-02-27', 'BAD', 3),
+('2024-02-28', 'NORMAL', 3),
+('2024-02-29', 'BAD', 3);

@@ -1,1476 +1,1825 @@
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-01', 'B', 129, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-01', 'A', 177, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-01', 'L', 78, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-01', 'H', 137, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-01', 'B', 81, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-01', 'A', 184, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-01', 'L', 78, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-01', 'H', 124, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-01', 'B', 92, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-01', 'A', 192, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-01', 'L', 64, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-01', 'H', 132, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-02', 'B', 117, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-02', 'A', 152, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-02', 'L', 79, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-02', 'H', 135, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-02', 'B', 101, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-02', 'A', 167, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-02', 'L', 77, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-02', 'H', 132, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-02', 'B', 109, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-02', 'A', 154, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-02', 'L', 79, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-02', 'H', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-03', 'B', 96, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-03', 'A', 191, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-03', 'L', 70, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-03', 'H', 132, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-03', 'B', 115, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-03', 'A', 171, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-03', 'L', 62, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-03', 'H', 133, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-03', 'B', 122, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-03', 'A', 187, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-03', 'L', 67, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-03', 'H', 125, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-04', 'B', 103, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-04', 'A', 170, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-04', 'L', 74, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-04', 'H', 134, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-04', 'B', 118, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-04', 'A', 175, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-04', 'L', 66, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-04', 'H', 134, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-04', 'B', 106, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-04', 'A', 167, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-04', 'L', 74, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-04', 'H', 136, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-05', 'B', 119, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-05', 'A', 184, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-05', 'L', 76, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-05', 'H', 122, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-05', 'B', 113, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-05', 'A', 146, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-05', 'L', 70, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-05', 'H', 134, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-05', 'B', 114, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-05', 'A', 193, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-05', 'L', 73, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-05', 'H', 122, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-06', 'B', 99, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-06', 'A', 185, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-06', 'L', 67, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-06', 'H', 132, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-06', 'B', 128, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-06', 'A', 166, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-06', 'L', 61, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-06', 'H', 125, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-06', 'B', 112, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-06', 'A', 186, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-06', 'L', 73, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-06', 'H', 128, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-07', 'B', 112, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-07', 'A', 155, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-07', 'L', 63, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-07', 'H', 134, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-07', 'B', 123, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-07', 'A', 185, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-07', 'L', 73, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-07', 'H', 137, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-07', 'B', 96, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-07', 'A', 187, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-07', 'L', 60, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-07', 'H', 133, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-08', 'B', 75, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-08', 'A', 153, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-08', 'L', 67, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-08', 'H', 131, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-08', 'B', 122, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-08', 'A', 177, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-08', 'L', 71, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-08', 'H', 126, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-08', 'B', 122, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-08', 'A', 143, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-08', 'L', 62, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-08', 'H', 125, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-09', 'B', 95, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-09', 'A', 160, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-09', 'L', 71, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-09', 'H', 121, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-09', 'B', 114, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-09', 'A', 180, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-09', 'L', 62, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-09', 'H', 120, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-09', 'B', 129, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-09', 'A', 163, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-09', 'L', 75, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-09', 'H', 137, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-10', 'B', 118, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-10', 'A', 187, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-10', 'L', 61, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-10', 'H', 134, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-10', 'B', 127, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-10', 'A', 172, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-10', 'L', 68, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-10', 'H', 131, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-10', 'B', 129, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-10', 'A', 150, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-10', 'L', 69, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-10', 'H', 129, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-11', 'B', 121, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-11', 'A', 147, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-11', 'L', 74, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-11', 'H', 126, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-11', 'B', 90, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-11', 'A', 189, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-11', 'L', 74, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-11', 'H', 136, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-11', 'B', 88, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-11', 'A', 160, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-11', 'L', 63, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-11', 'H', 129, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-12', 'B', 79, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-12', 'A', 162, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-12', 'L', 64, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-12', 'H', 125, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-12', 'B', 128, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-12', 'A', 153, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-12', 'L', 62, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-12', 'H', 122, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-12', 'B', 77, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-12', 'A', 143, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-12', 'L', 60, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-12', 'H', 130, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-13', 'B', 104, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-13', 'A', 185, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-13', 'L', 65, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-13', 'H', 127, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-13', 'B', 92, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-13', 'A', 146, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-13', 'L', 74, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-13', 'H', 133, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-13', 'B', 73, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-13', 'A', 190, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-13', 'L', 72, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-13', 'H', 131, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-14', 'B', 78, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-14', 'A', 152, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-14', 'L', 75, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-14', 'H', 126, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-14', 'B', 97, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-14', 'A', 194, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-14', 'L', 60, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-14', 'H', 128, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-14', 'B', 93, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-14', 'A', 156, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-14', 'L', 69, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-14', 'H', 126, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-15', 'B', 72, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-15', 'A', 143, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-15', 'L', 62, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-15', 'H', 138, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-15', 'B', 89, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-15', 'A', 190, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-15', 'L', 66, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-15', 'H', 139, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-15', 'B', 83, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-15', 'A', 184, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-15', 'L', 65, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-15', 'H', 132, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-16', 'B', 93, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-16', 'A', 155, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-16', 'L', 72, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-16', 'H', 124, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-16', 'B', 106, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-16', 'A', 142, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-16', 'L', 73, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-16', 'H', 127, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-16', 'B', 103, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-16', 'A', 171, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-16', 'L', 71, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-16', 'H', 138, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-17', 'B', 85, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-17', 'A', 174, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-17', 'L', 69, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-17', 'H', 138, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-17', 'B', 125, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-17', 'A', 186, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-17', 'L', 71, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-17', 'H', 132, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-17', 'B', 113, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-17', 'A', 195, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-17', 'L', 64, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-17', 'H', 132, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-18', 'B', 103, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-18', 'A', 182, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-18', 'L', 79, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-18', 'H', 129, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-18', 'B', 105, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-18', 'A', 178, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-18', 'L', 76, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-18', 'H', 131, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-18', 'B', 83, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-18', 'A', 146, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-18', 'L', 68, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-18', 'H', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-19', 'B', 125, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-19', 'A', 194, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-19', 'L', 64, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-19', 'H', 122, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-19', 'B', 122, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-19', 'A', 173, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-19', 'L', 74, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-19', 'H', 126, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-19', 'B', 99, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-19', 'A', 159, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-19', 'L', 79, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-19', 'H', 139, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-20', 'B', 78, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-20', 'A', 170, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-20', 'L', 61, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-20', 'H', 139, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-20', 'B', 128, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-20', 'A', 176, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-20', 'L', 68, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-20', 'H', 139, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-20', 'B', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-20', 'A', 182, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-20', 'L', 62, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-20', 'H', 134, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-21', 'B', 80, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-21', 'A', 181, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-21', 'L', 70, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-21', 'H', 126, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-21', 'B', 101, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-21', 'A', 156, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-21', 'L', 72, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-21', 'H', 132, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-21', 'B', 110, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-21', 'A', 141, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-21', 'L', 61, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-21', 'H', 123, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-22', 'B', 77, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-22', 'A', 152, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-22', 'L', 63, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-22', 'H', 120, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-22', 'B', 80, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-22', 'A', 189, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-22', 'L', 78, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-22', 'H', 130, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-22', 'B', 83, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-22', 'A', 176, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-22', 'L', 63, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-22', 'H', 131, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-23', 'B', 86, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-23', 'A', 173, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-23', 'L', 72, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-23', 'H', 126, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-23', 'B', 127, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-23', 'A', 190, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-23', 'L', 79, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-23', 'H', 134, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-23', 'B', 77, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-23', 'A', 176, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-23', 'L', 65, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-23', 'H', 121, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-24', 'B', 125, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-24', 'A', 158, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-24', 'L', 74, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-24', 'H', 129, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-24', 'B', 123, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-24', 'A', 197, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-24', 'L', 71, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-24', 'H', 139, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-24', 'B', 87, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-24', 'A', 152, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-24', 'L', 63, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-24', 'H', 129, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-25', 'B', 125, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-25', 'A', 164, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-25', 'L', 69, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-25', 'H', 138, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-25', 'B', 115, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-25', 'A', 176, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-25', 'L', 60, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-25', 'H', 130, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-25', 'B', 88, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-25', 'A', 195, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-25', 'L', 72, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-25', 'H', 133, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-26', 'B', 87, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-26', 'A', 153, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-26', 'L', 78, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-26', 'H', 137, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-26', 'B', 96, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-26', 'A', 190, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-26', 'L', 60, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-26', 'H', 139, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-26', 'B', 114, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-26', 'A', 188, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-26', 'L', 65, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-26', 'H', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-27', 'B', 75, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-27', 'A', 141, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-27', 'L', 60, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-27', 'H', 138, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-27', 'B', 111, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-27', 'A', 163, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-27', 'L', 61, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-27', 'H', 135, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-27', 'B', 81, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-27', 'A', 170, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-27', 'L', 64, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-27', 'H', 130, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-28', 'B', 120, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-28', 'A', 150, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-28', 'L', 69, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-28', 'H', 128, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-28', 'B', 113, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-28', 'A', 159, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-28', 'L', 64, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-28', 'H', 125, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-28', 'B', 94, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-28', 'A', 188, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-28', 'L', 75, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-28', 'H', 131, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-29', 'B', 83, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-29', 'A', 153, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-29', 'L', 79, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-29', 'H', 133, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-29', 'B', 122, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-29', 'A', 195, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-29', 'L', 67, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-29', 'H', 123, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-29', 'B', 114, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-29', 'A', 188, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-29', 'L', 64, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-29', 'H', 127, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-30', 'B', 127, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-30', 'A', 148, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-30', 'L', 71, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-30', 'H', 138, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-30', 'B', 83, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-30', 'A', 194, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-30', 'L', 68, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-30', 'H', 126, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-30', 'B', 127, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-30', 'A', 154, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-30', 'L', 62, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-30', 'H', 133, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-31', 'B', 75, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-31', 'A', 170, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-31', 'L', 67, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-31', 'H', 130, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-31', 'B', 124, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-31', 'A', 170, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-31', 'L', 73, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-31', 'H', 134, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-31', 'B', 91, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-31', 'A', 199, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-31', 'L', 62, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-10-31', 'H', 135, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-01', 'B', 93, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-01', 'A', 143, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-01', 'L', 64, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-01', 'H', 125, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-01', 'B', 104, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-01', 'A', 168, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-01', 'L', 77, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-01', 'H', 125, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-01', 'B', 122, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-01', 'A', 175, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-01', 'L', 73, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-01', 'H', 125, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-02', 'B', 74, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-02', 'A', 155, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-02', 'L', 75, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-02', 'H', 132, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-02', 'B', 92, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-02', 'A', 189, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-02', 'L', 74, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-02', 'H', 124, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-02', 'B', 98, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-02', 'A', 156, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-02', 'L', 79, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-02', 'H', 125, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-03', 'B', 92, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-03', 'A', 150, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-03', 'L', 70, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-03', 'H', 137, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-03', 'B', 70, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-03', 'A', 171, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-03', 'L', 61, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-03', 'H', 137, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-03', 'B', 121, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-03', 'A', 156, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-03', 'L', 73, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-03', 'H', 121, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-04', 'B', 114, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-04', 'A', 167, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-04', 'L', 72, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-04', 'H', 122, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-04', 'B', 78, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-04', 'A', 181, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-04', 'L', 73, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-04', 'H', 130, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-04', 'B', 84, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-04', 'A', 181, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-04', 'L', 63, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-04', 'H', 126, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-05', 'B', 83, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-05', 'A', 194, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-05', 'L', 79, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-05', 'H', 120, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-05', 'B', 99, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-05', 'A', 182, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-05', 'L', 65, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-05', 'H', 133, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-05', 'B', 91, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-05', 'A', 145, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-05', 'L', 64, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-05', 'H', 132, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-06', 'B', 72, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-06', 'A', 196, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-06', 'L', 74, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-06', 'H', 136, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-06', 'B', 72, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-06', 'A', 149, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-06', 'L', 74, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-06', 'H', 135, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-06', 'B', 109, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-06', 'A', 173, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-06', 'L', 63, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-06', 'H', 123, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-07', 'B', 103, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-07', 'A', 149, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-07', 'L', 70, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-07', 'H', 134, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-07', 'B', 81, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-07', 'A', 184, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-07', 'L', 65, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-07', 'H', 135, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-07', 'B', 115, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-07', 'A', 187, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-07', 'L', 60, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-07', 'H', 132, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-08', 'B', 98, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-08', 'A', 160, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-08', 'L', 72, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-08', 'H', 124, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-08', 'B', 128, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-08', 'A', 153, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-08', 'L', 73, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-08', 'H', 125, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-08', 'B', 109, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-08', 'A', 189, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-08', 'L', 77, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-08', 'H', 139, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-09', 'B', 83, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-09', 'A', 156, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-09', 'L', 65, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-09', 'H', 120, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-09', 'B', 87, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-09', 'A', 154, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-09', 'L', 67, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-09', 'H', 131, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-09', 'B', 86, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-09', 'A', 145, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-09', 'L', 69, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-09', 'H', 138, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-10', 'B', 105, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-10', 'A', 158, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-10', 'L', 66, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-10', 'H', 130, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-10', 'B', 78, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-10', 'A', 187, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-10', 'L', 60, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-10', 'H', 130, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-10', 'B', 75, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-10', 'A', 181, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-10', 'L', 77, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-10', 'H', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-11', 'B', 83, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-11', 'A', 159, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-11', 'L', 60, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-11', 'H', 126, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-11', 'B', 98, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-11', 'A', 193, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-11', 'L', 68, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-11', 'H', 123, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-11', 'B', 107, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-11', 'A', 150, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-11', 'L', 70, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-11', 'H', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-12', 'B', 88, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-12', 'A', 144, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-12', 'L', 61, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-12', 'H', 134, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-12', 'B', 72, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-12', 'A', 186, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-12', 'L', 63, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-12', 'H', 136, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-12', 'B', 73, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-12', 'A', 159, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-12', 'L', 69, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-12', 'H', 130, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-13', 'B', 125, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-13', 'A', 175, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-13', 'L', 62, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-13', 'H', 124, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-13', 'B', 101, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-13', 'A', 199, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-13', 'L', 66, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-13', 'H', 137, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-13', 'B', 122, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-13', 'A', 150, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-13', 'L', 76, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-13', 'H', 133, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-14', 'B', 129, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-14', 'A', 198, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-14', 'L', 67, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-14', 'H', 134, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-14', 'B', 108, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-14', 'A', 158, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-14', 'L', 71, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-14', 'H', 132, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-14', 'B', 122, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-14', 'A', 185, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-14', 'L', 71, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-14', 'H', 126, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-15', 'B', 92, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-15', 'A', 149, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-15', 'L', 78, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-15', 'H', 135, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-15', 'B', 91, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-15', 'A', 171, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-15', 'L', 69, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-15', 'H', 139, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-15', 'B', 84, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-15', 'A', 195, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-15', 'L', 60, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-15', 'H', 132, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-16', 'B', 93, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-16', 'A', 165, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-16', 'L', 65, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-16', 'H', 139, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-16', 'B', 129, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-16', 'A', 162, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-16', 'L', 61, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-16', 'H', 131, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-16', 'B', 75, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-16', 'A', 198, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-16', 'L', 61, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-16', 'H', 131, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-17', 'B', 109, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-17', 'A', 183, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-17', 'L', 67, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-17', 'H', 120, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-17', 'B', 95, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-17', 'A', 165, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-17', 'L', 66, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-17', 'H', 120, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-17', 'B', 89, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-17', 'A', 149, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-17', 'L', 73, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-17', 'H', 133, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-18', 'B', 72, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-18', 'A', 146, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-18', 'L', 78, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-18', 'H', 130, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-18', 'B', 125, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-18', 'A', 148, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-18', 'L', 76, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-18', 'H', 129, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-18', 'B', 84, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-18', 'A', 193, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-18', 'L', 73, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-18', 'H', 135, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-19', 'B', 85, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-19', 'A', 151, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-19', 'L', 73, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-19', 'H', 127, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-19', 'B', 104, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-19', 'A', 142, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-19', 'L', 71, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-19', 'H', 125, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-19', 'B', 80, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-19', 'A', 154, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-19', 'L', 77, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-19', 'H', 121, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-20', 'B', 127, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-20', 'A', 171, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-20', 'L', 68, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-20', 'H', 131, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-20', 'B', 85, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-20', 'A', 189, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-20', 'L', 71, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-20', 'H', 126, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-20', 'B', 116, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-20', 'A', 158, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-20', 'L', 73, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-20', 'H', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-21', 'B', 108, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-21', 'A', 162, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-21', 'L', 72, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-21', 'H', 122, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-21', 'B', 91, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-21', 'A', 150, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-21', 'L', 69, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-21', 'H', 134, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-21', 'B', 121, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-21', 'A', 141, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-21', 'L', 68, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-21', 'H', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-22', 'B', 79, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-22', 'A', 180, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-22', 'L', 66, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-22', 'H', 138, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-22', 'B', 123, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-22', 'A', 169, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-22', 'L', 79, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-22', 'H', 139, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-22', 'B', 88, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-22', 'A', 181, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-22', 'L', 60, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-22', 'H', 128, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-23', 'B', 123, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-23', 'A', 168, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-23', 'L', 76, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-23', 'H', 131, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-23', 'B', 77, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-23', 'A', 167, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-23', 'L', 73, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-23', 'H', 125, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-23', 'B', 129, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-23', 'A', 198, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-23', 'L', 78, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-23', 'H', 131, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-24', 'B', 100, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-24', 'A', 180, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-24', 'L', 74, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-24', 'H', 139, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-24', 'B', 103, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-24', 'A', 159, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-24', 'L', 69, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-24', 'H', 137, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-24', 'B', 81, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-24', 'A', 199, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-24', 'L', 71, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-24', 'H', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-25', 'B', 127, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-25', 'A', 172, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-25', 'L', 61, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-25', 'H', 134, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-25', 'B', 107, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-25', 'A', 153, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-25', 'L', 65, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-25', 'H', 130, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-25', 'B', 127, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-25', 'A', 146, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-25', 'L', 65, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-25', 'H', 127, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-26', 'B', 92, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-26', 'A', 151, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-26', 'L', 63, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-26', 'H', 120, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-26', 'B', 106, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-26', 'A', 164, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-26', 'L', 71, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-26', 'H', 122, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-26', 'B', 110, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-26', 'A', 183, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-26', 'L', 61, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-26', 'H', 122, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-27', 'B', 118, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-27', 'A', 164, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-27', 'L', 77, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-27', 'H', 131, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-27', 'B', 97, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-27', 'A', 190, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-27', 'L', 61, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-27', 'H', 123, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-27', 'B', 113, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-27', 'A', 166, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-27', 'L', 61, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-27', 'H', 133, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-28', 'B', 91, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-28', 'A', 174, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-28', 'L', 74, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-28', 'H', 128, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-28', 'B', 110, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-28', 'A', 178, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-28', 'L', 75, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-28', 'H', 122, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-28', 'B', 72, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-28', 'A', 150, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-28', 'L', 68, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-28', 'H', 123, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-29', 'B', 79, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-29', 'A', 199, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-29', 'L', 73, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-29', 'H', 124, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-29', 'B', 118, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-29', 'A', 180, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-29', 'L', 79, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-29', 'H', 123, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-29', 'B', 90, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-29', 'A', 154, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-29', 'L', 70, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-29', 'H', 126, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-30', 'B', 117, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-30', 'A', 144, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-30', 'L', 74, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-30', 'H', 124, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-30', 'B', 97, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-30', 'A', 153, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-30', 'L', 64, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-30', 'H', 134, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-30', 'B', 105, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-30', 'A', 180, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-30', 'L', 60, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-11-30', 'H', 138, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-01', 'B', 112, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-01', 'A', 157, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-01', 'L', 75, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-01', 'H', 122, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-01', 'B', 111, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-01', 'A', 187, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-01', 'L', 63, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-01', 'H', 139, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-01', 'B', 74, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-01', 'A', 175, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-01', 'L', 70, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-01', 'H', 133, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-02', 'B', 110, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-02', 'A', 146, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-02', 'L', 61, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-02', 'H', 139, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-02', 'B', 75, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-02', 'A', 153, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-02', 'L', 62, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-02', 'H', 125, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-02', 'B', 101, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-02', 'A', 140, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-02', 'L', 76, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-02', 'H', 122, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-03', 'B', 94, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-03', 'A', 145, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-03', 'L', 65, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-03', 'H', 137, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-03', 'B', 78, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-03', 'A', 188, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-03', 'L', 60, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-03', 'H', 127, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-03', 'B', 107, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-03', 'A', 145, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-03', 'L', 77, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-03', 'H', 139, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-04', 'B', 99, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-04', 'A', 150, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-04', 'L', 77, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-04', 'H', 136, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-04', 'B', 88, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-04', 'A', 165, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-04', 'L', 78, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-04', 'H', 129, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-04', 'B', 90, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-04', 'A', 165, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-04', 'L', 66, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-04', 'H', 133, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-05', 'B', 93, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-05', 'A', 191, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-05', 'L', 75, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-05', 'H', 128, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-05', 'B', 73, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-05', 'A', 141, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-05', 'L', 65, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-05', 'H', 136, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-05', 'B', 74, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-05', 'A', 145, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-05', 'L', 79, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-05', 'H', 131, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-06', 'B', 119, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-06', 'A', 196, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-06', 'L', 72, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-06', 'H', 120, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-06', 'B', 101, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-06', 'A', 184, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-06', 'L', 71, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-06', 'H', 137, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-06', 'B', 110, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-06', 'A', 168, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-06', 'L', 67, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-06', 'H', 126, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-07', 'B', 86, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-07', 'A', 182, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-07', 'L', 64, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-07', 'H', 130, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-07', 'B', 122, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-07', 'A', 150, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-07', 'L', 76, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-07', 'H', 120, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-07', 'B', 72, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-07', 'A', 150, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-07', 'L', 64, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-07', 'H', 129, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-08', 'B', 120, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-08', 'A', 179, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-08', 'L', 60, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-08', 'H', 136, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-08', 'B', 103, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-08', 'A', 186, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-08', 'L', 62, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-08', 'H', 138, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-08', 'B', 107, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-08', 'A', 168, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-08', 'L', 75, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-08', 'H', 136, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-09', 'B', 111, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-09', 'A', 154, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-09', 'L', 72, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-09', 'H', 122, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-09', 'B', 128, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-09', 'A', 154, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-09', 'L', 69, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-09', 'H', 134, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-09', 'B', 91, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-09', 'A', 157, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-09', 'L', 78, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-09', 'H', 125, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-10', 'B', 81, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-10', 'A', 177, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-10', 'L', 65, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-10', 'H', 134, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-10', 'B', 85, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-10', 'A', 174, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-10', 'L', 72, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-10', 'H', 139, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-10', 'B', 99, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-10', 'A', 168, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-10', 'L', 72, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-10', 'H', 121, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-11', 'B', 97, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-11', 'A', 190, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-11', 'L', 65, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-11', 'H', 130, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-11', 'B', 82, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-11', 'A', 191, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-11', 'L', 72, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-11', 'H', 132, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-11', 'B', 102, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-11', 'A', 144, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-11', 'L', 64, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-11', 'H', 130, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-12', 'B', 122, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-12', 'A', 156, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-12', 'L', 77, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-12', 'H', 122, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-12', 'B', 126, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-12', 'A', 187, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-12', 'L', 73, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-12', 'H', 135, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-12', 'B', 129, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-12', 'A', 187, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-12', 'L', 68, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-12', 'H', 130, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-13', 'B', 73, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-13', 'A', 163, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-13', 'L', 74, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-13', 'H', 136, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-13', 'B', 115, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-13', 'A', 165, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-13', 'L', 68, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-13', 'H', 133, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-13', 'B', 102, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-13', 'A', 153, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-13', 'L', 70, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-13', 'H', 122, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-14', 'B', 102, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-14', 'A', 196, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-14', 'L', 61, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-14', 'H', 134, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-14', 'B', 84, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-14', 'A', 147, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-14', 'L', 74, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-14', 'H', 126, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-14', 'B', 128, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-14', 'A', 191, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-14', 'L', 73, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-14', 'H', 138, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-15', 'B', 88, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-15', 'A', 146, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-15', 'L', 69, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-15', 'H', 136, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-15', 'B', 109, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-15', 'A', 161, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-15', 'L', 78, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-15', 'H', 139, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-15', 'B', 106, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-15', 'A', 185, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-15', 'L', 65, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-15', 'H', 122, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-16', 'B', 119, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-16', 'A', 177, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-16', 'L', 61, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-16', 'H', 125, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-16', 'B', 111, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-16', 'A', 199, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-16', 'L', 77, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-16', 'H', 139, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-16', 'B', 112, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-16', 'A', 158, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-16', 'L', 77, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-16', 'H', 139, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-17', 'B', 120, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-17', 'A', 191, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-17', 'L', 60, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-17', 'H', 127, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-17', 'B', 77, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-17', 'A', 160, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-17', 'L', 75, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-17', 'H', 137, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-17', 'B', 112, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-17', 'A', 178, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-17', 'L', 74, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-17', 'H', 137, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-18', 'B', 70, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-18', 'A', 156, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-18', 'L', 60, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-18', 'H', 133, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-18', 'B', 109, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-18', 'A', 160, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-18', 'L', 64, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-18', 'H', 137, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-18', 'B', 93, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-18', 'A', 161, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-18', 'L', 63, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-18', 'H', 138, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-19', 'B', 116, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-19', 'A', 153, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-19', 'L', 63, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-19', 'H', 120, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-19', 'B', 105, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-19', 'A', 167, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-19', 'L', 73, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-19', 'H', 134, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-19', 'B', 123, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-19', 'A', 156, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-19', 'L', 66, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-19', 'H', 136, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-20', 'B', 111, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-20', 'A', 176, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-20', 'L', 66, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-20', 'H', 128, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-20', 'B', 111, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-20', 'A', 163, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-20', 'L', 79, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-20', 'H', 122, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-20', 'B', 128, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-20', 'A', 167, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-20', 'L', 71, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-20', 'H', 134, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-21', 'B', 99, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-21', 'A', 180, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-21', 'L', 79, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-21', 'H', 123, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-21', 'B', 96, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-21', 'A', 142, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-21', 'L', 67, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-21', 'H', 132, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-21', 'B', 84, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-21', 'A', 196, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-21', 'L', 66, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-21', 'H', 124, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-22', 'B', 121, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-22', 'A', 173, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-22', 'L', 64, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-22', 'H', 136, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-22', 'B', 88, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-22', 'A', 144, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-22', 'L', 76, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-22', 'H', 128, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-22', 'B', 85, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-22', 'A', 165, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-22', 'L', 79, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-22', 'H', 121, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-23', 'B', 79, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-23', 'A', 180, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-23', 'L', 64, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-23', 'H', 129, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-23', 'B', 113, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-23', 'A', 145, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-23', 'L', 64, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-23', 'H', 121, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-23', 'B', 96, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-23', 'A', 142, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-23', 'L', 61, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-23', 'H', 130, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-24', 'B', 102, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-24', 'A', 187, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-24', 'L', 64, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-24', 'H', 136, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-24', 'B', 87, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-24', 'A', 174, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-24', 'L', 70, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-24', 'H', 132, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-24', 'B', 90, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-24', 'A', 182, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-24', 'L', 60, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-24', 'H', 135, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-25', 'B', 89, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-25', 'A', 172, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-25', 'L', 72, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-25', 'H', 124, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-25', 'B', 79, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-25', 'A', 167, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-25', 'L', 73, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-25', 'H', 135, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-25', 'B', 110, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-25', 'A', 196, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-25', 'L', 68, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-25', 'H', 129, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-26', 'B', 118, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-26', 'A', 156, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-26', 'L', 65, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-26', 'H', 122, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-26', 'B', 118, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-26', 'A', 196, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-26', 'L', 60, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-26', 'H', 130, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-26', 'B', 94, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-26', 'A', 189, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-26', 'L', 67, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-26', 'H', 138, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-27', 'B', 102, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-27', 'A', 193, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-27', 'L', 70, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-27', 'H', 138, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-27', 'B', 115, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-27', 'A', 190, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-27', 'L', 69, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-27', 'H', 136, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-27', 'B', 88, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-27', 'A', 149, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-27', 'L', 62, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-27', 'H', 129, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-28', 'B', 99, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-28', 'A', 145, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-28', 'L', 71, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-28', 'H', 132, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-28', 'B', 116, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-28', 'A', 178, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-28', 'L', 72, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-28', 'H', 136, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-28', 'B', 116, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-28', 'A', 198, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-28', 'L', 66, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-28', 'H', 132, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-29', 'B', 104, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-29', 'A', 167, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-29', 'L', 72, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-29', 'H', 127, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-29', 'B', 82, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-29', 'A', 160, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-29', 'L', 75, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-29', 'H', 123, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-29', 'B', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-29', 'A', 143, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-29', 'L', 76, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-29', 'H', 132, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-30', 'B', 107, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-30', 'A', 151, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-30', 'L', 79, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-30', 'H', 125, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-30', 'B', 109, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-30', 'A', 191, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-30', 'L', 76, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-30', 'H', 122, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-30', 'B', 94, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-30', 'A', 145, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-30', 'L', 75, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-30', 'H', 124, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-31', 'B', 73, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-31', 'A', 144, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-31', 'L', 64, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-31', 'H', 139, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-31', 'B', 125, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-31', 'A', 199, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-31', 'L', 68, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-31', 'H', 123, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-31', 'B', 80, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-31', 'A', 172, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-31', 'L', 70, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2023-12-31', 'H', 136, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-01', 'B', 117, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-01', 'A', 179, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-01', 'L', 64, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-01', 'H', 124, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-01', 'B', 123, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-01', 'A', 142, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-01', 'L', 63, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-01', 'H', 130, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-01', 'B', 78, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-01', 'A', 199, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-01', 'L', 64, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-01', 'H', 124, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-02', 'B', 72, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-02', 'A', 169, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-02', 'L', 66, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-02', 'H', 124, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-02', 'B', 121, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-02', 'A', 198, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-02', 'L', 60, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-02', 'H', 123, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-02', 'B', 78, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-02', 'A', 174, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-02', 'L', 71, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-02', 'H', 127, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-03', 'B', 81, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-03', 'A', 151, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-03', 'L', 67, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-03', 'H', 137, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-03', 'B', 107, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-03', 'A', 176, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-03', 'L', 78, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-03', 'H', 135, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-03', 'B', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-03', 'A', 184, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-03', 'L', 78, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-03', 'H', 132, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-04', 'B', 105, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-04', 'A', 168, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-04', 'L', 68, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-04', 'H', 136, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-04', 'B', 96, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-04', 'A', 151, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-04', 'L', 69, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-04', 'H', 130, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-04', 'B', 76, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-04', 'A', 142, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-04', 'L', 76, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-04', 'H', 137, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-05', 'B', 101, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-05', 'A', 182, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-05', 'L', 68, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-05', 'H', 138, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-05', 'B', 88, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-05', 'A', 146, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-05', 'L', 65, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-05', 'H', 120, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-05', 'B', 113, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-05', 'A', 176, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-05', 'L', 75, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-05', 'H', 129, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-06', 'B', 103, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-06', 'A', 176, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-06', 'L', 64, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-06', 'H', 137, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-06', 'B', 95, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-06', 'A', 194, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-06', 'L', 62, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-06', 'H', 122, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-06', 'B', 128, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-06', 'A', 184, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-06', 'L', 75, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-06', 'H', 128, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-07', 'B', 96, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-07', 'A', 198, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-07', 'L', 77, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-07', 'H', 135, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-07', 'B', 71, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-07', 'A', 184, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-07', 'L', 70, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-07', 'H', 122, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-07', 'B', 105, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-07', 'A', 174, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-07', 'L', 75, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-07', 'H', 121, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-08', 'B', 73, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-08', 'A', 147, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-08', 'L', 61, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-08', 'H', 124, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-08', 'B', 110, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-08', 'A', 146, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-08', 'L', 63, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-08', 'H', 139, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-08', 'B', 106, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-08', 'A', 178, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-08', 'L', 66, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-08', 'H', 127, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-09', 'B', 74, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-09', 'A', 173, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-09', 'L', 75, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-09', 'H', 136, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-09', 'B', 89, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-09', 'A', 143, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-09', 'L', 71, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-09', 'H', 133, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-09', 'B', 125, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-09', 'A', 193, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-09', 'L', 79, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-09', 'H', 122, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-10', 'B', 75, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-10', 'A', 199, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-10', 'L', 74, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-10', 'H', 135, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-10', 'B', 108, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-10', 'A', 197, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-10', 'L', 69, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-10', 'H', 129, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-10', 'B', 100, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-10', 'A', 142, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-10', 'L', 62, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-10', 'H', 134, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-11', 'B', 103, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-11', 'A', 175, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-11', 'L', 70, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-11', 'H', 137, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-11', 'B', 122, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-11', 'A', 167, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-11', 'L', 64, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-11', 'H', 123, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-11', 'B', 71, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-11', 'A', 153, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-11', 'L', 68, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-11', 'H', 139, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-12', 'B', 76, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-12', 'A', 140, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-12', 'L', 65, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-12', 'H', 131, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-12', 'B', 84, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-12', 'A', 170, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-12', 'L', 63, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-12', 'H', 138, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-12', 'B', 71, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-12', 'A', 167, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-12', 'L', 66, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-12', 'H', 133, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-13', 'B', 127, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-13', 'A', 167, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-13', 'L', 63, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-13', 'H', 125, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-13', 'B', 74, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-13', 'A', 153, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-13', 'L', 76, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-13', 'H', 139, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-13', 'B', 127, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-13', 'A', 168, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-13', 'L', 60, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-13', 'H', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-14', 'B', 121, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-14', 'A', 197, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-14', 'L', 70, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-14', 'H', 139, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-14', 'B', 113, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-14', 'A', 186, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-14', 'L', 71, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-14', 'H', 128, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-14', 'B', 115, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-14', 'A', 174, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-14', 'L', 77, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-14', 'H', 131, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-15', 'B', 99, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-15', 'A', 169, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-15', 'L', 63, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-15', 'H', 133, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-15', 'B', 71, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-15', 'A', 151, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-15', 'L', 78, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-15', 'H', 127, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-15', 'B', 93, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-15', 'A', 157, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-15', 'L', 61, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-15', 'H', 132, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-16', 'B', 102, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-16', 'A', 178, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-16', 'L', 74, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-16', 'H', 132, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-16', 'B', 91, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-16', 'A', 195, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-16', 'L', 64, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-16', 'H', 128, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-16', 'B', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-16', 'A', 161, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-16', 'L', 65, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-16', 'H', 130, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-17', 'B', 115, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-17', 'A', 163, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-17', 'L', 64, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-17', 'H', 135, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-17', 'B', 70, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-17', 'A', 160, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-17', 'L', 77, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-17', 'H', 134, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-17', 'B', 91, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-17', 'A', 154, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-17', 'L', 74, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-17', 'H', 137, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-18', 'B', 85, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-18', 'A', 176, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-18', 'L', 76, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-18', 'H', 120, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-18', 'B', 95, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-18', 'A', 173, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-18', 'L', 65, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-18', 'H', 123, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-18', 'B', 72, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-18', 'A', 180, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-18', 'L', 72, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-18', 'H', 132, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-19', 'B', 107, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-19', 'A', 144, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-19', 'L', 69, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-19', 'H', 138, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-19', 'B', 87, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-19', 'A', 157, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-19', 'L', 62, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-19', 'H', 127, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-19', 'B', 110, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-19', 'A', 161, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-19', 'L', 60, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-19', 'H', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-20', 'B', 85, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-20', 'A', 161, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-20', 'L', 78, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-20', 'H', 124, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-20', 'B', 121, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-20', 'A', 178, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-20', 'L', 68, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-20', 'H', 125, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-20', 'B', 113, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-20', 'A', 163, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-20', 'L', 76, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-20', 'H', 133, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-21', 'B', 128, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-21', 'A', 180, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-21', 'L', 73, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-21', 'H', 127, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-21', 'B', 88, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-21', 'A', 140, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-21', 'L', 62, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-21', 'H', 127, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-21', 'B', 120, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-21', 'A', 184, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-21', 'L', 77, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-21', 'H', 132, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-22', 'B', 109, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-22', 'A', 174, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-22', 'L', 79, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-22', 'H', 135, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-22', 'B', 80, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-22', 'A', 167, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-22', 'L', 69, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-22', 'H', 138, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-22', 'B', 124, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-22', 'A', 161, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-22', 'L', 66, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-22', 'H', 126, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-23', 'B', 99, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-23', 'A', 196, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-23', 'L', 71, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-23', 'H', 121, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-23', 'B', 77, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-23', 'A', 151, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-23', 'L', 71, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-23', 'H', 127, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-23', 'B', 86, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-23', 'A', 165, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-23', 'L', 68, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-23', 'H', 134, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-24', 'B', 79, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-24', 'A', 143, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-24', 'L', 67, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-24', 'H', 129, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-24', 'B', 77, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-24', 'A', 151, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-24', 'L', 71, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-24', 'H', 121, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-24', 'B', 110, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-24', 'A', 191, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-24', 'L', 64, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-24', 'H', 135, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-25', 'B', 80, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-25', 'A', 172, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-25', 'L', 77, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-25', 'H', 135, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-25', 'B', 74, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-25', 'A', 188, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-25', 'L', 73, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-25', 'H', 139, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-25', 'B', 114, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-25', 'A', 199, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-25', 'L', 73, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-25', 'H', 126, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-26', 'B', 87, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-26', 'A', 193, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-26', 'L', 67, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-26', 'H', 125, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-26', 'B', 88, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-26', 'A', 165, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-26', 'L', 68, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-26', 'H', 129, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-26', 'B', 108, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-26', 'A', 174, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-26', 'L', 78, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-26', 'H', 127, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-27', 'B', 123, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-27', 'A', 185, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-27', 'L', 63, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-27', 'H', 139, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-27', 'B', 86, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-27', 'A', 152, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-27', 'L', 73, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-27', 'H', 130, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-27', 'B', 97, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-27', 'A', 179, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-27', 'L', 65, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-27', 'H', 126, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-28', 'B', 124, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-28', 'A', 144, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-28', 'L', 72, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-28', 'H', 135, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-28', 'B', 115, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-28', 'A', 192, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-28', 'L', 74, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-28', 'H', 134, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-28', 'B', 104, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-28', 'A', 199, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-28', 'L', 76, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-28', 'H', 126, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-29', 'B', 74, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-29', 'A', 175, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-29', 'L', 71, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-29', 'H', 130, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-29', 'B', 125, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-29', 'A', 150, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-29', 'L', 76, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-29', 'H', 121, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-29', 'B', 118, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-29', 'A', 160, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-29', 'L', 62, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-29', 'H', 123, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-30', 'B', 103, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-30', 'A', 149, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-30', 'L', 71, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-30', 'H', 130, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-30', 'B', 127, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-30', 'A', 194, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-30', 'L', 72, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-30', 'H', 138, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-30', 'B', 91, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-30', 'A', 188, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-30', 'L', 67, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-30', 'H', 126, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-31', 'B', 129, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-31', 'A', 140, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-31', 'L', 76, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-31', 'H', 123, 'MORNING', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-31', 'B', 106, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-31', 'A', 153, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-31', 'L', 64, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-31', 'H', 139, 'NOON', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-31', 'B', 92, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-31', 'A', 150, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-31', 'L', 73, 'DINNER', 3);
-INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES ('2024-01-31', 'H', 128, 'DINNER', 3);
+INSERT INTO `health` (`health_date`, `health_type`, `level`, `time`, `user_id`) VALUES
+('2023-10-01', 'B', 124, 'MORNING', 3),
+('2023-10-01', 'B', 77, 'NOON', 3),
+('2023-10-01', 'B', 175, 'DINNER', 3),
+('2023-10-01', 'A', 104, 'MORNING', 3),
+('2023-10-01', 'A', 126, 'NOON', 3),
+('2023-10-01', 'A', 107, 'DINNER', 3),
+('2023-10-01', 'L', 120, 'MORNING', 3),
+('2023-10-01', 'L', 172, 'NOON', 3),
+('2023-10-01', 'L', 188, 'DINNER', 3),
+('2023-10-01', 'H', 131, 'MORNING', 3),
+('2023-10-01', 'H', 101, 'NOON', 3),
+('2023-10-01', 'H', 103, 'DINNER', 3),
+('2023-10-02', 'B', 113, 'MORNING', 3),
+('2023-10-02', 'B', 119, 'NOON', 3),
+('2023-10-02', 'B', 101, 'DINNER', 3),
+('2023-10-02', 'A', 179, 'MORNING', 3),
+('2023-10-02', 'A', 170, 'NOON', 3),
+('2023-10-02', 'A', 70, 'DINNER', 3),
+('2023-10-02', 'L', 119, 'MORNING', 3),
+('2023-10-02', 'L', 142, 'NOON', 3),
+('2023-10-02', 'L', 108, 'DINNER', 3),
+('2023-10-02', 'H', 92, 'MORNING', 3),
+('2023-10-02', 'H', 144, 'NOON', 3),
+('2023-10-02', 'H', 85, 'DINNER', 3),
+('2023-10-03', 'B', 146, 'MORNING', 3),
+('2023-10-03', 'B', 174, 'NOON', 3),
+('2023-10-03', 'B', 160, 'DINNER', 3),
+('2023-10-03', 'A', 75, 'MORNING', 3),
+('2023-10-03', 'A', 113, 'NOON', 3),
+('2023-10-03', 'A', 157, 'DINNER', 3),
+('2023-10-03', 'L', 190, 'MORNING', 3),
+('2023-10-03', 'L', 109, 'NOON', 3),
+('2023-10-03', 'L', 109, 'DINNER', 3),
+('2023-10-03', 'H', 100, 'MORNING', 3),
+('2023-10-03', 'H', 122, 'NOON', 3),
+('2023-10-03', 'H', 107, 'DINNER', 3),
+('2023-10-04', 'B', 90, 'MORNING', 3),
+('2023-10-04', 'B', 119, 'NOON', 3),
+('2023-10-04', 'B', 166, 'DINNER', 3),
+('2023-10-04', 'A', 57, 'MORNING', 3),
+('2023-10-04', 'A', 142, 'NOON', 3),
+('2023-10-04', 'A', 157, 'DINNER', 3),
+('2023-10-04', 'L', 171, 'MORNING', 3),
+('2023-10-04', 'L', 53, 'NOON', 3),
+('2023-10-04', 'L', 180, 'DINNER', 3),
+('2023-10-04', 'H', 109, 'MORNING', 3),
+('2023-10-04', 'H', 92, 'NOON', 3),
+('2023-10-04', 'H', 180, 'DINNER', 3),
+('2023-10-05', 'B', 180, 'MORNING', 3),
+('2023-10-05', 'B', 193, 'NOON', 3),
+('2023-10-05', 'B', 145, 'DINNER', 3),
+('2023-10-05', 'A', 62, 'MORNING', 3),
+('2023-10-05', 'A', 124, 'NOON', 3),
+('2023-10-05', 'A', 196, 'DINNER', 3),
+('2023-10-05', 'L', 81, 'MORNING', 3),
+('2023-10-05', 'L', 195, 'NOON', 3),
+('2023-10-05', 'L', 163, 'DINNER', 3),
+('2023-10-05', 'H', 176, 'MORNING', 3),
+('2023-10-05', 'H', 127, 'NOON', 3),
+('2023-10-05', 'H', 82, 'DINNER', 3),
+('2023-10-06', 'B', 181, 'MORNING', 3),
+('2023-10-06', 'B', 146, 'NOON', 3),
+('2023-10-06', 'B', 51, 'DINNER', 3),
+('2023-10-06', 'A', 60, 'MORNING', 3),
+('2023-10-06', 'A', 141, 'NOON', 3),
+('2023-10-06', 'A', 66, 'DINNER', 3),
+('2023-10-06', 'L', 127, 'MORNING', 3),
+('2023-10-06', 'L', 114, 'NOON', 3),
+('2023-10-06', 'L', 116, 'DINNER', 3),
+('2023-10-06', 'H', 153, 'MORNING', 3),
+('2023-10-06', 'H', 125, 'NOON', 3),
+('2023-10-06', 'H', 180, 'DINNER', 3),
+('2023-10-07', 'B', 148, 'MORNING', 3),
+('2023-10-07', 'B', 156, 'NOON', 3),
+('2023-10-07', 'B', 183, 'DINNER', 3),
+('2023-10-07', 'A', 85, 'MORNING', 3),
+('2023-10-07', 'A', 105, 'NOON', 3),
+('2023-10-07', 'A', 102, 'DINNER', 3),
+('2023-10-07', 'L', 152, 'MORNING', 3),
+('2023-10-07', 'L', 141, 'NOON', 3),
+('2023-10-07', 'L', 113, 'DINNER', 3),
+('2023-10-07', 'H', 67, 'MORNING', 3),
+('2023-10-07', 'H', 79, 'NOON', 3),
+('2023-10-07', 'H', 195, 'DINNER', 3),
+('2023-10-08', 'B', 162, 'MORNING', 3),
+('2023-10-08', 'B', 105, 'NOON', 3),
+('2023-10-08', 'B', 170, 'DINNER', 3),
+('2023-10-08', 'A', 191, 'MORNING', 3),
+('2023-10-08', 'A', 198, 'NOON', 3),
+('2023-10-08', 'A', 144, 'DINNER', 3),
+('2023-10-08', 'L', 181, 'MORNING', 3),
+('2023-10-08', 'L', 180, 'NOON', 3),
+('2023-10-08', 'L', 90, 'DINNER', 3),
+('2023-10-08', 'H', 165, 'MORNING', 3),
+('2023-10-08', 'H', 186, 'NOON', 3),
+('2023-10-08', 'H', 153, 'DINNER', 3),
+('2023-10-09', 'B', 88, 'MORNING', 3),
+('2023-10-09', 'B', 185, 'NOON', 3),
+('2023-10-09', 'B', 180, 'DINNER', 3),
+('2023-10-09', 'A', 120, 'MORNING', 3),
+('2023-10-09', 'A', 62, 'NOON', 3),
+('2023-10-09', 'A', 105, 'DINNER', 3),
+('2023-10-09', 'L', 120, 'MORNING', 3),
+('2023-10-09', 'L', 143, 'NOON', 3),
+('2023-10-09', 'L', 148, 'DINNER', 3),
+('2023-10-09', 'H', 72, 'MORNING', 3),
+('2023-10-09', 'H', 129, 'NOON', 3),
+('2023-10-09', 'H', 200, 'DINNER', 3),
+('2023-10-10', 'B', 83, 'MORNING', 3),
+('2023-10-10', 'B', 159, 'NOON', 3),
+('2023-10-10', 'B', 60, 'DINNER', 3),
+('2023-10-10', 'A', 131, 'MORNING', 3),
+('2023-10-10', 'A', 123, 'NOON', 3),
+('2023-10-10', 'A', 189, 'DINNER', 3),
+('2023-10-10', 'L', 174, 'MORNING', 3),
+('2023-10-10', 'L', 191, 'NOON', 3),
+('2023-10-10', 'L', 145, 'DINNER', 3),
+('2023-10-10', 'H', 174, 'MORNING', 3),
+('2023-10-10', 'H', 198, 'NOON', 3),
+('2023-10-10', 'H', 123, 'DINNER', 3),
+('2023-10-11', 'B', 121, 'MORNING', 3),
+('2023-10-11', 'B', 127, 'NOON', 3),
+('2023-10-11', 'B', 55, 'DINNER', 3),
+('2023-10-11', 'A', 53, 'MORNING', 3),
+('2023-10-11', 'A', 150, 'NOON', 3),
+('2023-10-11', 'A', 59, 'DINNER', 3),
+('2023-10-11', 'L', 106, 'MORNING', 3),
+('2023-10-11', 'L', 177, 'NOON', 3),
+('2023-10-11', 'L', 124, 'DINNER', 3),
+('2023-10-11', 'H', 113, 'MORNING', 3),
+('2023-10-11', 'H', 54, 'NOON', 3),
+('2023-10-11', 'H', 182, 'DINNER', 3),
+('2023-10-12', 'B', 71, 'MORNING', 3),
+('2023-10-12', 'B', 63, 'NOON', 3),
+('2023-10-12', 'B', 138, 'DINNER', 3),
+('2023-10-12', 'A', 161, 'MORNING', 3),
+('2023-10-12', 'A', 56, 'NOON', 3),
+('2023-10-12', 'A', 96, 'DINNER', 3),
+('2023-10-12', 'L', 96, 'MORNING', 3),
+('2023-10-12', 'L', 64, 'NOON', 3),
+('2023-10-12', 'L', 113, 'DINNER', 3),
+('2023-10-12', 'H', 152, 'MORNING', 3),
+('2023-10-12', 'H', 125, 'NOON', 3),
+('2023-10-12', 'H', 139, 'DINNER', 3),
+('2023-10-13', 'B', 151, 'MORNING', 3),
+('2023-10-13', 'B', 83, 'NOON', 3),
+('2023-10-13', 'B', 113, 'DINNER', 3),
+('2023-10-13', 'A', 83, 'MORNING', 3),
+('2023-10-13', 'A', 169, 'NOON', 3),
+('2023-10-13', 'A', 186, 'DINNER', 3),
+('2023-10-13', 'L', 72, 'MORNING', 3),
+('2023-10-13', 'L', 149, 'NOON', 3),
+('2023-10-13', 'L', 92, 'DINNER', 3),
+('2023-10-13', 'H', 172, 'MORNING', 3),
+('2023-10-13', 'H', 199, 'NOON', 3),
+('2023-10-13', 'H', 167, 'DINNER', 3),
+('2023-10-14', 'B', 118, 'MORNING', 3),
+('2023-10-14', 'B', 186, 'NOON', 3),
+('2023-10-14', 'B', 101, 'DINNER', 3),
+('2023-10-14', 'A', 194, 'MORNING', 3),
+('2023-10-14', 'A', 162, 'NOON', 3),
+('2023-10-14', 'A', 98, 'DINNER', 3),
+('2023-10-14', 'L', 51, 'MORNING', 3),
+('2023-10-14', 'L', 181, 'NOON', 3),
+('2023-10-14', 'L', 84, 'DINNER', 3),
+('2023-10-14', 'H', 114, 'MORNING', 3),
+('2023-10-14', 'H', 128, 'NOON', 3),
+('2023-10-14', 'H', 96, 'DINNER', 3),
+('2023-10-15', 'B', 95, 'MORNING', 3),
+('2023-10-15', 'B', 128, 'NOON', 3),
+('2023-10-15', 'B', 183, 'DINNER', 3),
+('2023-10-15', 'A', 75, 'MORNING', 3),
+('2023-10-15', 'A', 167, 'NOON', 3),
+('2023-10-15', 'A', 76, 'DINNER', 3),
+('2023-10-15', 'L', 108, 'MORNING', 3),
+('2023-10-15', 'L', 101, 'NOON', 3),
+('2023-10-15', 'L', 77, 'DINNER', 3),
+('2023-10-15', 'H', 66, 'MORNING', 3),
+('2023-10-15', 'H', 148, 'NOON', 3),
+('2023-10-15', 'H', 167, 'DINNER', 3),
+('2023-10-16', 'B', 151, 'MORNING', 3),
+('2023-10-16', 'B', 174, 'NOON', 3),
+('2023-10-16', 'B', 53, 'DINNER', 3),
+('2023-10-16', 'A', 112, 'MORNING', 3),
+('2023-10-16', 'A', 144, 'NOON', 3),
+('2023-10-16', 'A', 57, 'DINNER', 3),
+('2023-10-16', 'L', 127, 'MORNING', 3),
+('2023-10-16', 'L', 155, 'NOON', 3),
+('2023-10-16', 'L', 192, 'DINNER', 3),
+('2023-10-16', 'H', 188, 'MORNING', 3),
+('2023-10-16', 'H', 149, 'NOON', 3),
+('2023-10-16', 'H', 85, 'DINNER', 3),
+('2023-10-17', 'B', 192, 'MORNING', 3),
+('2023-10-17', 'B', 124, 'NOON', 3),
+('2023-10-17', 'B', 171, 'DINNER', 3),
+('2023-10-17', 'A', 161, 'MORNING', 3),
+('2023-10-17', 'A', 119, 'NOON', 3),
+('2023-10-17', 'A', 126, 'DINNER', 3),
+('2023-10-17', 'L', 124, 'MORNING', 3),
+('2023-10-17', 'L', 142, 'NOON', 3),
+('2023-10-17', 'L', 94, 'DINNER', 3),
+('2023-10-17', 'H', 119, 'MORNING', 3),
+('2023-10-17', 'H', 112, 'NOON', 3),
+('2023-10-17', 'H', 146, 'DINNER', 3),
+('2023-10-18', 'B', 87, 'MORNING', 3),
+('2023-10-18', 'B', 116, 'NOON', 3),
+('2023-10-18', 'B', 161, 'DINNER', 3),
+('2023-10-18', 'A', 108, 'MORNING', 3),
+('2023-10-18', 'A', 198, 'NOON', 3),
+('2023-10-18', 'A', 97, 'DINNER', 3),
+('2023-10-18', 'L', 177, 'MORNING', 3),
+('2023-10-18', 'L', 150, 'NOON', 3),
+('2023-10-18', 'L', 78, 'DINNER', 3),
+('2023-10-18', 'H', 191, 'MORNING', 3),
+('2023-10-18', 'H', 96, 'NOON', 3),
+('2023-10-18', 'H', 122, 'DINNER', 3),
+('2023-10-19', 'B', 107, 'MORNING', 3),
+('2023-10-19', 'B', 103, 'NOON', 3),
+('2023-10-19', 'B', 69, 'DINNER', 3),
+('2023-10-19', 'A', 147, 'MORNING', 3),
+('2023-10-19', 'A', 64, 'NOON', 3),
+('2023-10-19', 'A', 160, 'DINNER', 3),
+('2023-10-19', 'L', 198, 'MORNING', 3),
+('2023-10-19', 'L', 144, 'NOON', 3),
+('2023-10-19', 'L', 148, 'DINNER', 3),
+('2023-10-19', 'H', 103, 'MORNING', 3),
+('2023-10-19', 'H', 139, 'NOON', 3),
+('2023-10-19', 'H', 51, 'DINNER', 3),
+('2023-10-20', 'B', 64, 'MORNING', 3),
+('2023-10-20', 'B', 108, 'NOON', 3),
+('2023-10-20', 'B', 123, 'DINNER', 3),
+('2023-10-20', 'A', 62, 'MORNING', 3),
+('2023-10-20', 'A', 68, 'NOON', 3),
+('2023-10-20', 'A', 111, 'DINNER', 3),
+('2023-10-20', 'L', 172, 'MORNING', 3),
+('2023-10-20', 'L', 56, 'NOON', 3),
+('2023-10-20', 'L', 143, 'DINNER', 3),
+('2023-10-20', 'H', 89, 'MORNING', 3),
+('2023-10-20', 'H', 51, 'NOON', 3),
+('2023-10-20', 'H', 166, 'DINNER', 3),
+('2023-10-21', 'B', 84, 'MORNING', 3),
+('2023-10-21', 'B', 95, 'NOON', 3),
+('2023-10-21', 'B', 166, 'DINNER', 3),
+('2023-10-21', 'A', 184, 'MORNING', 3),
+('2023-10-21', 'A', 89, 'NOON', 3),
+('2023-10-21', 'A', 178, 'DINNER', 3),
+('2023-10-21', 'L', 106, 'MORNING', 3),
+('2023-10-21', 'L', 88, 'NOON', 3),
+('2023-10-21', 'L', 149, 'DINNER', 3),
+('2023-10-21', 'H', 184, 'MORNING', 3),
+('2023-10-21', 'H', 81, 'NOON', 3),
+('2023-10-21', 'H', 169, 'DINNER', 3),
+('2023-10-22', 'B', 138, 'MORNING', 3),
+('2023-10-22', 'B', 108, 'NOON', 3),
+('2023-10-22', 'B', 137, 'DINNER', 3),
+('2023-10-22', 'A', 156, 'MORNING', 3),
+('2023-10-22', 'A', 120, 'NOON', 3),
+('2023-10-22', 'A', 158, 'DINNER', 3),
+('2023-10-22', 'L', 180, 'MORNING', 3),
+('2023-10-22', 'L', 150, 'NOON', 3),
+('2023-10-22', 'L', 158, 'DINNER', 3),
+('2023-10-22', 'H', 60, 'MORNING', 3),
+('2023-10-22', 'H', 62, 'NOON', 3),
+('2023-10-22', 'H', 114, 'DINNER', 3),
+('2023-10-23', 'B', 114, 'MORNING', 3),
+('2023-10-23', 'B', 165, 'NOON', 3),
+('2023-10-23', 'B', 64, 'DINNER', 3),
+('2023-10-23', 'A', 123, 'MORNING', 3),
+('2023-10-23', 'A', 99, 'NOON', 3),
+('2023-10-23', 'A', 72, 'DINNER', 3),
+('2023-10-23', 'L', 80, 'MORNING', 3),
+('2023-10-23', 'L', 113, 'NOON', 3),
+('2023-10-23', 'L', 150, 'DINNER', 3),
+('2023-10-23', 'H', 116, 'MORNING', 3),
+('2023-10-23', 'H', 151, 'NOON', 3),
+('2023-10-23', 'H', 122, 'DINNER', 3),
+('2023-10-24', 'B', 109, 'MORNING', 3),
+('2023-10-24', 'B', 67, 'NOON', 3),
+('2023-10-24', 'B', 138, 'DINNER', 3),
+('2023-10-24', 'A', 63, 'MORNING', 3),
+('2023-10-24', 'A', 59, 'NOON', 3),
+('2023-10-24', 'A', 177, 'DINNER', 3),
+('2023-10-24', 'L', 197, 'MORNING', 3),
+('2023-10-24', 'L', 58, 'NOON', 3),
+('2023-10-24', 'L', 195, 'DINNER', 3),
+('2023-10-24', 'H', 148, 'MORNING', 3),
+('2023-10-24', 'H', 195, 'NOON', 3),
+('2023-10-24', 'H', 122, 'DINNER', 3),
+('2023-10-25', 'B', 192, 'MORNING', 3),
+('2023-10-25', 'B', 99, 'NOON', 3),
+('2023-10-25', 'B', 112, 'DINNER', 3),
+('2023-10-25', 'A', 133, 'MORNING', 3),
+('2023-10-25', 'A', 55, 'NOON', 3),
+('2023-10-25', 'A', 135, 'DINNER', 3),
+('2023-10-25', 'L', 73, 'MORNING', 3),
+('2023-10-25', 'L', 156, 'NOON', 3),
+('2023-10-25', 'L', 188, 'DINNER', 3),
+('2023-10-25', 'H', 144, 'MORNING', 3),
+('2023-10-25', 'H', 159, 'NOON', 3),
+('2023-10-25', 'H', 189, 'DINNER', 3),
+('2023-10-26', 'B', 142, 'MORNING', 3),
+('2023-10-26', 'B', 108, 'NOON', 3),
+('2023-10-26', 'B', 173, 'DINNER', 3),
+('2023-10-26', 'A', 121, 'MORNING', 3),
+('2023-10-26', 'A', 54, 'NOON', 3),
+('2023-10-26', 'A', 154, 'DINNER', 3),
+('2023-10-26', 'L', 101, 'MORNING', 3),
+('2023-10-26', 'L', 159, 'NOON', 3),
+('2023-10-26', 'L', 53, 'DINNER', 3),
+('2023-10-26', 'H', 64, 'MORNING', 3),
+('2023-10-26', 'H', 91, 'NOON', 3),
+('2023-10-26', 'H', 103, 'DINNER', 3),
+('2023-10-27', 'B', 197, 'MORNING', 3),
+('2023-10-27', 'B', 154, 'NOON', 3),
+('2023-10-27', 'B', 152, 'DINNER', 3),
+('2023-10-27', 'A', 195, 'MORNING', 3),
+('2023-10-27', 'A', 128, 'NOON', 3),
+('2023-10-27', 'A', 85, 'DINNER', 3),
+('2023-10-27', 'L', 174, 'MORNING', 3),
+('2023-10-27', 'L', 105, 'NOON', 3),
+('2023-10-27', 'L', 79, 'DINNER', 3),
+('2023-10-27', 'H', 139, 'MORNING', 3),
+('2023-10-27', 'H', 59, 'NOON', 3),
+('2023-10-27', 'H', 190, 'DINNER', 3),
+('2023-10-28', 'B', 170, 'MORNING', 3),
+('2023-10-28', 'B', 109, 'NOON', 3),
+('2023-10-28', 'B', 64, 'DINNER', 3),
+('2023-10-28', 'A', 56, 'MORNING', 3),
+('2023-10-28', 'A', 59, 'NOON', 3),
+('2023-10-28', 'A', 146, 'DINNER', 3),
+('2023-10-28', 'L', 91, 'MORNING', 3),
+('2023-10-28', 'L', 68, 'NOON', 3),
+('2023-10-28', 'L', 106, 'DINNER', 3),
+('2023-10-28', 'H', 180, 'MORNING', 3),
+('2023-10-28', 'H', 67, 'NOON', 3),
+('2023-10-28', 'H', 121, 'DINNER', 3),
+('2023-10-29', 'B', 135, 'MORNING', 3),
+('2023-10-29', 'B', 162, 'NOON', 3),
+('2023-10-29', 'B', 184, 'DINNER', 3),
+('2023-10-29', 'A', 130, 'MORNING', 3),
+('2023-10-29', 'A', 163, 'NOON', 3),
+('2023-10-29', 'A', 50, 'DINNER', 3),
+('2023-10-29', 'L', 93, 'MORNING', 3),
+('2023-10-29', 'L', 158, 'NOON', 3),
+('2023-10-29', 'L', 95, 'DINNER', 3),
+('2023-10-29', 'H', 127, 'MORNING', 3),
+('2023-10-29', 'H', 53, 'NOON', 3),
+('2023-10-29', 'H', 197, 'DINNER', 3),
+('2023-10-30', 'B', 113, 'MORNING', 3),
+('2023-10-30', 'B', 183, 'NOON', 3),
+('2023-10-30', 'B', 122, 'DINNER', 3),
+('2023-10-30', 'A', 102, 'MORNING', 3),
+('2023-10-30', 'A', 107, 'NOON', 3),
+('2023-10-30', 'A', 108, 'DINNER', 3),
+('2023-10-30', 'L', 98, 'MORNING', 3),
+('2023-10-30', 'L', 171, 'NOON', 3),
+('2023-10-30', 'L', 50, 'DINNER', 3),
+('2023-10-30', 'H', 111, 'MORNING', 3),
+('2023-10-30', 'H', 60, 'NOON', 3),
+('2023-10-30', 'H', 92, 'DINNER', 3),
+('2023-10-31', 'B', 61, 'MORNING', 3),
+('2023-10-31', 'B', 142, 'NOON', 3),
+('2023-10-31', 'B', 122, 'DINNER', 3),
+('2023-10-31', 'A', 100, 'MORNING', 3),
+('2023-10-31', 'A', 192, 'NOON', 3),
+('2023-10-31', 'A', 190, 'DINNER', 3),
+('2023-10-31', 'L', 55, 'MORNING', 3),
+('2023-10-31', 'L', 135, 'NOON', 3),
+('2023-10-31', 'L', 116, 'DINNER', 3),
+('2023-10-31', 'H', 189, 'MORNING', 3),
+('2023-10-31', 'H', 105, 'NOON', 3),
+('2023-10-31', 'H', 178, 'DINNER', 3),
+('2023-11-01', 'B', 103, 'MORNING', 3),
+('2023-11-01', 'B', 64, 'NOON', 3),
+('2023-11-01', 'B', 162, 'DINNER', 3),
+('2023-11-01', 'A', 187, 'MORNING', 3),
+('2023-11-01', 'A', 83, 'NOON', 3),
+('2023-11-01', 'A', 129, 'DINNER', 3),
+('2023-11-01', 'L', 124, 'MORNING', 3),
+('2023-11-01', 'L', 117, 'NOON', 3),
+('2023-11-01', 'L', 198, 'DINNER', 3),
+('2023-11-01', 'H', 91, 'MORNING', 3),
+('2023-11-01', 'H', 198, 'NOON', 3),
+('2023-11-01', 'H', 140, 'DINNER', 3),
+('2023-11-02', 'B', 85, 'MORNING', 3),
+('2023-11-02', 'B', 67, 'NOON', 3),
+('2023-11-02', 'B', 156, 'DINNER', 3),
+('2023-11-02', 'A', 89, 'MORNING', 3),
+('2023-11-02', 'A', 55, 'NOON', 3),
+('2023-11-02', 'A', 183, 'DINNER', 3),
+('2023-11-02', 'L', 108, 'MORNING', 3),
+('2023-11-02', 'L', 76, 'NOON', 3),
+('2023-11-02', 'L', 110, 'DINNER', 3),
+('2023-11-02', 'H', 67, 'MORNING', 3),
+('2023-11-02', 'H', 166, 'NOON', 3),
+('2023-11-02', 'H', 65, 'DINNER', 3),
+('2023-11-03', 'B', 178, 'MORNING', 3),
+('2023-11-03', 'B', 86, 'NOON', 3),
+('2023-11-03', 'B', 150, 'DINNER', 3),
+('2023-11-03', 'A', 61, 'MORNING', 3),
+('2023-11-03', 'A', 164, 'NOON', 3),
+('2023-11-03', 'A', 75, 'DINNER', 3),
+('2023-11-03', 'L', 169, 'MORNING', 3),
+('2023-11-03', 'L', 173, 'NOON', 3),
+('2023-11-03', 'L', 163, 'DINNER', 3),
+('2023-11-03', 'H', 200, 'MORNING', 3),
+('2023-11-03', 'H', 147, 'NOON', 3),
+('2023-11-03', 'H', 193, 'DINNER', 3),
+('2023-11-04', 'B', 51, 'MORNING', 3),
+('2023-11-04', 'B', 194, 'NOON', 3),
+('2023-11-04', 'B', 134, 'DINNER', 3),
+('2023-11-04', 'A', 114, 'MORNING', 3),
+('2023-11-04', 'A', 100, 'NOON', 3),
+('2023-11-04', 'A', 164, 'DINNER', 3),
+('2023-11-04', 'L', 136, 'MORNING', 3),
+('2023-11-04', 'L', 75, 'NOON', 3),
+('2023-11-04', 'L', 131, 'DINNER', 3),
+('2023-11-04', 'H', 65, 'MORNING', 3),
+('2023-11-04', 'H', 83, 'NOON', 3),
+('2023-11-04', 'H', 153, 'DINNER', 3),
+('2023-11-05', 'B', 51, 'MORNING', 3),
+('2023-11-05', 'B', 75, 'NOON', 3),
+('2023-11-05', 'B', 172, 'DINNER', 3),
+('2023-11-05', 'A', 107, 'MORNING', 3),
+('2023-11-05', 'A', 189, 'NOON', 3),
+('2023-11-05', 'A', 99, 'DINNER', 3),
+('2023-11-05', 'L', 151, 'MORNING', 3),
+('2023-11-05', 'L', 59, 'NOON', 3),
+('2023-11-05', 'L', 94, 'DINNER', 3),
+('2023-11-05', 'H', 199, 'MORNING', 3),
+('2023-11-05', 'H', 88, 'NOON', 3),
+('2023-11-05', 'H', 62, 'DINNER', 3),
+('2023-11-06', 'B', 170, 'MORNING', 3),
+('2023-11-06', 'B', 151, 'NOON', 3),
+('2023-11-06', 'B', 79, 'DINNER', 3),
+('2023-11-06', 'A', 125, 'MORNING', 3),
+('2023-11-06', 'A', 160, 'NOON', 3),
+('2023-11-06', 'A', 139, 'DINNER', 3),
+('2023-11-06', 'L', 168, 'MORNING', 3),
+('2023-11-06', 'L', 69, 'NOON', 3),
+('2023-11-06', 'L', 169, 'DINNER', 3),
+('2023-11-06', 'H', 83, 'MORNING', 3),
+('2023-11-06', 'H', 166, 'NOON', 3),
+('2023-11-06', 'H', 63, 'DINNER', 3),
+('2023-11-07', 'B', 187, 'MORNING', 3),
+('2023-11-07', 'B', 103, 'NOON', 3),
+('2023-11-07', 'B', 114, 'DINNER', 3),
+('2023-11-07', 'A', 115, 'MORNING', 3),
+('2023-11-07', 'A', 100, 'NOON', 3),
+('2023-11-07', 'A', 71, 'DINNER', 3),
+('2023-11-07', 'L', 133, 'MORNING', 3),
+('2023-11-07', 'L', 155, 'NOON', 3),
+('2023-11-07', 'L', 124, 'DINNER', 3),
+('2023-11-07', 'H', 124, 'MORNING', 3),
+('2023-11-07', 'H', 55, 'NOON', 3),
+('2023-11-07', 'H', 156, 'DINNER', 3),
+('2023-11-08', 'B', 190, 'MORNING', 3),
+('2023-11-08', 'B', 114, 'NOON', 3),
+('2023-11-08', 'B', 144, 'DINNER', 3),
+('2023-11-08', 'A', 145, 'MORNING', 3),
+('2023-11-08', 'A', 138, 'NOON', 3),
+('2023-11-08', 'A', 83, 'DINNER', 3),
+('2023-11-08', 'L', 113, 'MORNING', 3),
+('2023-11-08', 'L', 112, 'NOON', 3),
+('2023-11-08', 'L', 107, 'DINNER', 3),
+('2023-11-08', 'H', 63, 'MORNING', 3),
+('2023-11-08', 'H', 135, 'NOON', 3),
+('2023-11-08', 'H', 120, 'DINNER', 3),
+('2023-11-09', 'B', 53, 'MORNING', 3),
+('2023-11-09', 'B', 176, 'NOON', 3),
+('2023-11-09', 'B', 55, 'DINNER', 3),
+('2023-11-09', 'A', 80, 'MORNING', 3),
+('2023-11-09', 'A', 178, 'NOON', 3),
+('2023-11-09', 'A', 93, 'DINNER', 3),
+('2023-11-09', 'L', 197, 'MORNING', 3),
+('2023-11-09', 'L', 78, 'NOON', 3),
+('2023-11-09', 'L', 126, 'DINNER', 3),
+('2023-11-09', 'H', 128, 'MORNING', 3),
+('2023-11-09', 'H', 97, 'NOON', 3),
+('2023-11-09', 'H', 60, 'DINNER', 3),
+('2023-11-10', 'B', 180, 'MORNING', 3),
+('2023-11-10', 'B', 198, 'NOON', 3),
+('2023-11-10', 'B', 68, 'DINNER', 3),
+('2023-11-10', 'A', 116, 'MORNING', 3),
+('2023-11-10', 'A', 171, 'NOON', 3),
+('2023-11-10', 'A', 125, 'DINNER', 3),
+('2023-11-10', 'L', 92, 'MORNING', 3),
+('2023-11-10', 'L', 132, 'NOON', 3),
+('2023-11-10', 'L', 169, 'DINNER', 3),
+('2023-11-10', 'H', 195, 'MORNING', 3),
+('2023-11-10', 'H', 147, 'NOON', 3),
+('2023-11-10', 'H', 59, 'DINNER', 3),
+('2023-11-11', 'B', 127, 'MORNING', 3),
+('2023-11-11', 'B', 62, 'NOON', 3),
+('2023-11-11', 'B', 88, 'DINNER', 3),
+('2023-11-11', 'A', 159, 'MORNING', 3),
+('2023-11-11', 'A', 98, 'NOON', 3),
+('2023-11-11', 'A', 99, 'DINNER', 3),
+('2023-11-11', 'L', 61, 'MORNING', 3),
+('2023-11-11', 'L', 80, 'NOON', 3),
+('2023-11-11', 'L', 77, 'DINNER', 3),
+('2023-11-11', 'H', 110, 'MORNING', 3),
+('2023-11-11', 'H', 143, 'NOON', 3),
+('2023-11-11', 'H', 110, 'DINNER', 3),
+('2023-11-12', 'B', 154, 'MORNING', 3),
+('2023-11-12', 'B', 78, 'NOON', 3),
+('2023-11-12', 'B', 94, 'DINNER', 3),
+('2023-11-12', 'A', 64, 'MORNING', 3),
+('2023-11-12', 'A', 193, 'NOON', 3),
+('2023-11-12', 'A', 176, 'DINNER', 3),
+('2023-11-12', 'L', 127, 'MORNING', 3),
+('2023-11-12', 'L', 137, 'NOON', 3),
+('2023-11-12', 'L', 123, 'DINNER', 3),
+('2023-11-12', 'H', 200, 'MORNING', 3),
+('2023-11-12', 'H', 76, 'NOON', 3),
+('2023-11-12', 'H', 145, 'DINNER', 3),
+('2023-11-13', 'B', 60, 'MORNING', 3),
+('2023-11-13', 'B', 95, 'NOON', 3),
+('2023-11-13', 'B', 88, 'DINNER', 3),
+('2023-11-13', 'A', 116, 'MORNING', 3),
+('2023-11-13', 'A', 101, 'NOON', 3),
+('2023-11-13', 'A', 127, 'DINNER', 3),
+('2023-11-13', 'L', 124, 'MORNING', 3),
+('2023-11-13', 'L', 85, 'NOON', 3),
+('2023-11-13', 'L', 130, 'DINNER', 3),
+('2023-11-13', 'H', 166, 'MORNING', 3),
+('2023-11-13', 'H', 98, 'NOON', 3),
+('2023-11-13', 'H', 161, 'DINNER', 3),
+('2023-11-14', 'B', 197, 'MORNING', 3),
+('2023-11-14', 'B', 151, 'NOON', 3),
+('2023-11-14', 'B', 182, 'DINNER', 3),
+('2023-11-14', 'A', 120, 'MORNING', 3),
+('2023-11-14', 'A', 89, 'NOON', 3),
+('2023-11-14', 'A', 111, 'DINNER', 3),
+('2023-11-14', 'L', 87, 'MORNING', 3),
+('2023-11-14', 'L', 179, 'NOON', 3),
+('2023-11-14', 'L', 52, 'DINNER', 3),
+('2023-11-14', 'H', 132, 'MORNING', 3),
+('2023-11-14', 'H', 145, 'NOON', 3),
+('2023-11-14', 'H', 75, 'DINNER', 3),
+('2023-11-15', 'B', 197, 'MORNING', 3),
+('2023-11-15', 'B', 173, 'NOON', 3),
+('2023-11-15', 'B', 127, 'DINNER', 3),
+('2023-11-15', 'A', 77, 'MORNING', 3),
+('2023-11-15', 'A', 111, 'NOON', 3),
+('2023-11-15', 'A', 173, 'DINNER', 3),
+('2023-11-15', 'L', 133, 'MORNING', 3),
+('2023-11-15', 'L', 129, 'NOON', 3),
+('2023-11-15', 'L', 85, 'DINNER', 3),
+('2023-11-15', 'H', 87, 'MORNING', 3),
+('2023-11-15', 'H', 199, 'NOON', 3),
+('2023-11-15', 'H', 79, 'DINNER', 3),
+('2023-11-16', 'B', 155, 'MORNING', 3),
+('2023-11-16', 'B', 105, 'NOON', 3),
+('2023-11-16', 'B', 68, 'DINNER', 3),
+('2023-11-16', 'A', 58, 'MORNING', 3),
+('2023-11-16', 'A', 126, 'NOON', 3),
+('2023-11-16', 'A', 81, 'DINNER', 3),
+('2023-11-16', 'L', 180, 'MORNING', 3),
+('2023-11-16', 'L', 71, 'NOON', 3),
+('2023-11-16', 'L', 93, 'DINNER', 3),
+('2023-11-16', 'H', 61, 'MORNING', 3),
+('2023-11-16', 'H', 142, 'NOON', 3),
+('2023-11-16', 'H', 100, 'DINNER', 3),
+('2023-11-17', 'B', 200, 'MORNING', 3),
+('2023-11-17', 'B', 125, 'NOON', 3),
+('2023-11-17', 'B', 198, 'DINNER', 3),
+('2023-11-17', 'A', 166, 'MORNING', 3),
+('2023-11-17', 'A', 120, 'NOON', 3),
+('2023-11-17', 'A', 135, 'DINNER', 3),
+('2023-11-17', 'L', 164, 'MORNING', 3),
+('2023-11-17', 'L', 167, 'NOON', 3),
+('2023-11-17', 'L', 90, 'DINNER', 3),
+('2023-11-17', 'H', 195, 'MORNING', 3),
+('2023-11-17', 'H', 95, 'NOON', 3),
+('2023-11-17', 'H', 83, 'DINNER', 3),
+('2023-11-18', 'B', 113, 'MORNING', 3),
+('2023-11-18', 'B', 60, 'NOON', 3),
+('2023-11-18', 'B', 150, 'DINNER', 3),
+('2023-11-18', 'A', 55, 'MORNING', 3),
+('2023-11-18', 'A', 62, 'NOON', 3),
+('2023-11-18', 'A', 140, 'DINNER', 3),
+('2023-11-18', 'L', 191, 'MORNING', 3),
+('2023-11-18', 'L', 156, 'NOON', 3),
+('2023-11-18', 'L', 98, 'DINNER', 3),
+('2023-11-18', 'H', 63, 'MORNING', 3),
+('2023-11-18', 'H', 151, 'NOON', 3),
+('2023-11-18', 'H', 192, 'DINNER', 3),
+('2023-11-19', 'B', 134, 'MORNING', 3),
+('2023-11-19', 'B', 175, 'NOON', 3),
+('2023-11-19', 'B', 196, 'DINNER', 3),
+('2023-11-19', 'A', 64, 'MORNING', 3),
+('2023-11-19', 'A', 64, 'NOON', 3),
+('2023-11-19', 'A', 110, 'DINNER', 3),
+('2023-11-19', 'L', 56, 'MORNING', 3),
+('2023-11-19', 'L', 122, 'NOON', 3),
+('2023-11-19', 'L', 173, 'DINNER', 3),
+('2023-11-19', 'H', 166, 'MORNING', 3),
+('2023-11-19', 'H', 165, 'NOON', 3),
+('2023-11-19', 'H', 160, 'DINNER', 3),
+('2023-11-20', 'B', 189, 'MORNING', 3),
+('2023-11-20', 'B', 111, 'NOON', 3),
+('2023-11-20', 'B', 90, 'DINNER', 3),
+('2023-11-20', 'A', 189, 'MORNING', 3),
+('2023-11-20', 'A', 124, 'NOON', 3),
+('2023-11-20', 'A', 121, 'DINNER', 3),
+('2023-11-20', 'L', 103, 'MORNING', 3),
+('2023-11-20', 'L', 113, 'NOON', 3),
+('2023-11-20', 'L', 68, 'DINNER', 3),
+('2023-11-20', 'H', 163, 'MORNING', 3),
+('2023-11-20', 'H', 192, 'NOON', 3),
+('2023-11-20', 'H', 173, 'DINNER', 3),
+('2023-11-21', 'B', 67, 'MORNING', 3),
+('2023-11-21', 'B', 69, 'NOON', 3),
+('2023-11-21', 'B', 62, 'DINNER', 3),
+('2023-11-21', 'A', 183, 'MORNING', 3),
+('2023-11-21', 'A', 111, 'NOON', 3),
+('2023-11-21', 'A', 112, 'DINNER', 3),
+('2023-11-21', 'L', 135, 'MORNING', 3),
+('2023-11-21', 'L', 125, 'NOON', 3),
+('2023-11-21', 'L', 124, 'DINNER', 3),
+('2023-11-21', 'H', 179, 'MORNING', 3),
+('2023-11-21', 'H', 50, 'NOON', 3),
+('2023-11-21', 'H', 198, 'DINNER', 3),
+('2023-11-22', 'B', 163, 'MORNING', 3),
+('2023-11-22', 'B', 67, 'NOON', 3),
+('2023-11-22', 'B', 148, 'DINNER', 3),
+('2023-11-22', 'A', 192, 'MORNING', 3),
+('2023-11-22', 'A', 161, 'NOON', 3),
+('2023-11-22', 'A', 195, 'DINNER', 3),
+('2023-11-22', 'L', 55, 'MORNING', 3),
+('2023-11-22', 'L', 129, 'NOON', 3),
+('2023-11-22', 'L', 82, 'DINNER', 3),
+('2023-11-22', 'H', 177, 'MORNING', 3),
+('2023-11-22', 'H', 157, 'NOON', 3),
+('2023-11-22', 'H', 200, 'DINNER', 3),
+('2023-11-23', 'B', 92, 'MORNING', 3),
+('2023-11-23', 'B', 67, 'NOON', 3),
+('2023-11-23', 'B', 117, 'DINNER', 3),
+('2023-11-23', 'A', 165, 'MORNING', 3),
+('2023-11-23', 'A', 182, 'NOON', 3),
+('2023-11-23', 'A', 53, 'DINNER', 3),
+('2023-11-23', 'L', 103, 'MORNING', 3),
+('2023-11-23', 'L', 70, 'NOON', 3),
+('2023-11-23', 'L', 136, 'DINNER', 3),
+('2023-11-23', 'H', 104, 'MORNING', 3),
+('2023-11-23', 'H', 153, 'NOON', 3),
+('2023-11-23', 'H', 97, 'DINNER', 3),
+('2023-11-24', 'B', 131, 'MORNING', 3),
+('2023-11-24', 'B', 84, 'NOON', 3),
+('2023-11-24', 'B', 188, 'DINNER', 3),
+('2023-11-24', 'A', 109, 'MORNING', 3),
+('2023-11-24', 'A', 173, 'NOON', 3),
+('2023-11-24', 'A', 113, 'DINNER', 3),
+('2023-11-24', 'L', 180, 'MORNING', 3),
+('2023-11-24', 'L', 53, 'NOON', 3),
+('2023-11-24', 'L', 62, 'DINNER', 3),
+('2023-11-24', 'H', 118, 'MORNING', 3),
+('2023-11-24', 'H', 52, 'NOON', 3),
+('2023-11-24', 'H', 57, 'DINNER', 3),
+('2023-11-25', 'B', 136, 'MORNING', 3),
+('2023-11-25', 'B', 67, 'NOON', 3),
+('2023-11-25', 'B', 109, 'DINNER', 3),
+('2023-11-25', 'A', 150, 'MORNING', 3),
+('2023-11-25', 'A', 142, 'NOON', 3),
+('2023-11-25', 'A', 139, 'DINNER', 3),
+('2023-11-25', 'L', 143, 'MORNING', 3),
+('2023-11-25', 'L', 92, 'NOON', 3),
+('2023-11-25', 'L', 61, 'DINNER', 3),
+('2023-11-25', 'H', 117, 'MORNING', 3),
+('2023-11-25', 'H', 167, 'NOON', 3),
+('2023-11-25', 'H', 166, 'DINNER', 3),
+('2023-11-26', 'B', 98, 'MORNING', 3),
+('2023-11-26', 'B', 161, 'NOON', 3),
+('2023-11-26', 'B', 193, 'DINNER', 3),
+('2023-11-26', 'A', 160, 'MORNING', 3),
+('2023-11-26', 'A', 176, 'NOON', 3),
+('2023-11-26', 'A', 58, 'DINNER', 3),
+('2023-11-26', 'L', 91, 'MORNING', 3),
+('2023-11-26', 'L', 194, 'NOON', 3),
+('2023-11-26', 'L', 80, 'DINNER', 3),
+('2023-11-26', 'H', 59, 'MORNING', 3),
+('2023-11-26', 'H', 75, 'NOON', 3),
+('2023-11-26', 'H', 96, 'DINNER', 3),
+('2023-11-27', 'B', 90, 'MORNING', 3),
+('2023-11-27', 'B', 189, 'NOON', 3),
+('2023-11-27', 'B', 154, 'DINNER', 3),
+('2023-11-27', 'A', 52, 'MORNING', 3),
+('2023-11-27', 'A', 175, 'NOON', 3),
+('2023-11-27', 'A', 57, 'DINNER', 3),
+('2023-11-27', 'L', 166, 'MORNING', 3),
+('2023-11-27', 'L', 126, 'NOON', 3),
+('2023-11-27', 'L', 117, 'DINNER', 3),
+('2023-11-27', 'H', 52, 'MORNING', 3),
+('2023-11-27', 'H', 91, 'NOON', 3),
+('2023-11-27', 'H', 74, 'DINNER', 3),
+('2023-11-28', 'B', 115, 'MORNING', 3),
+('2023-11-28', 'B', 144, 'NOON', 3),
+('2023-11-28', 'B', 131, 'DINNER', 3),
+('2023-11-28', 'A', 77, 'MORNING', 3),
+('2023-11-28', 'A', 88, 'NOON', 3),
+('2023-11-28', 'A', 197, 'DINNER', 3),
+('2023-11-28', 'L', 62, 'MORNING', 3),
+('2023-11-28', 'L', 138, 'NOON', 3),
+('2023-11-28', 'L', 168, 'DINNER', 3),
+('2023-11-28', 'H', 186, 'MORNING', 3),
+('2023-11-28', 'H', 154, 'NOON', 3),
+('2023-11-28', 'H', 103, 'DINNER', 3),
+('2023-11-29', 'B', 94, 'MORNING', 3),
+('2023-11-29', 'B', 51, 'NOON', 3),
+('2023-11-29', 'B', 56, 'DINNER', 3),
+('2023-11-29', 'A', 69, 'MORNING', 3),
+('2023-11-29', 'A', 115, 'NOON', 3),
+('2023-11-29', 'A', 111, 'DINNER', 3),
+('2023-11-29', 'L', 140, 'MORNING', 3),
+('2023-11-29', 'L', 130, 'NOON', 3),
+('2023-11-29', 'L', 198, 'DINNER', 3),
+('2023-11-29', 'H', 71, 'MORNING', 3),
+('2023-11-29', 'H', 103, 'NOON', 3),
+('2023-11-29', 'H', 89, 'DINNER', 3),
+('2023-11-30', 'B', 100, 'MORNING', 3),
+('2023-11-30', 'B', 86, 'NOON', 3),
+('2023-11-30', 'B', 174, 'DINNER', 3),
+('2023-11-30', 'A', 122, 'MORNING', 3),
+('2023-11-30', 'A', 100, 'NOON', 3),
+('2023-11-30', 'A', 93, 'DINNER', 3),
+('2023-11-30', 'L', 83, 'MORNING', 3),
+('2023-11-30', 'L', 67, 'NOON', 3),
+('2023-11-30', 'L', 74, 'DINNER', 3),
+('2023-11-30', 'H', 189, 'MORNING', 3),
+('2023-11-30', 'H', 75, 'NOON', 3),
+('2023-11-30', 'H', 185, 'DINNER', 3),
+('2023-12-01', 'B', 121, 'MORNING', 3),
+('2023-12-01', 'B', 86, 'NOON', 3),
+('2023-12-01', 'B', 53, 'DINNER', 3),
+('2023-12-01', 'A', 101, 'MORNING', 3),
+('2023-12-01', 'A', 59, 'NOON', 3),
+('2023-12-01', 'A', 177, 'DINNER', 3),
+('2023-12-01', 'L', 64, 'MORNING', 3),
+('2023-12-01', 'L', 158, 'NOON', 3),
+('2023-12-01', 'L', 197, 'DINNER', 3),
+('2023-12-01', 'H', 69, 'MORNING', 3),
+('2023-12-01', 'H', 164, 'NOON', 3),
+('2023-12-01', 'H', 51, 'DINNER', 3),
+('2023-12-02', 'B', 159, 'MORNING', 3),
+('2023-12-02', 'B', 60, 'NOON', 3),
+('2023-12-02', 'B', 149, 'DINNER', 3),
+('2023-12-02', 'A', 124, 'MORNING', 3),
+('2023-12-02', 'A', 163, 'NOON', 3),
+('2023-12-02', 'A', 180, 'DINNER', 3),
+('2023-12-02', 'L', 66, 'MORNING', 3),
+('2023-12-02', 'L', 194, 'NOON', 3),
+('2023-12-02', 'L', 169, 'DINNER', 3),
+('2023-12-02', 'H', 90, 'MORNING', 3),
+('2023-12-02', 'H', 51, 'NOON', 3),
+('2023-12-02', 'H', 196, 'DINNER', 3),
+('2023-12-03', 'B', 165, 'MORNING', 3),
+('2023-12-03', 'B', 52, 'NOON', 3),
+('2023-12-03', 'B', 109, 'DINNER', 3),
+('2023-12-03', 'A', 154, 'MORNING', 3),
+('2023-12-03', 'A', 104, 'NOON', 3),
+('2023-12-03', 'A', 147, 'DINNER', 3),
+('2023-12-03', 'L', 170, 'MORNING', 3),
+('2023-12-03', 'L', 162, 'NOON', 3),
+('2023-12-03', 'L', 144, 'DINNER', 3),
+('2023-12-03', 'H', 55, 'MORNING', 3),
+('2023-12-03', 'H', 76, 'NOON', 3),
+('2023-12-03', 'H', 115, 'DINNER', 3),
+('2023-12-04', 'B', 176, 'MORNING', 3),
+('2023-12-04', 'B', 198, 'NOON', 3),
+('2023-12-04', 'B', 171, 'DINNER', 3),
+('2023-12-04', 'A', 66, 'MORNING', 3),
+('2023-12-04', 'A', 51, 'NOON', 3),
+('2023-12-04', 'A', 75, 'DINNER', 3),
+('2023-12-04', 'L', 110, 'MORNING', 3),
+('2023-12-04', 'L', 63, 'NOON', 3),
+('2023-12-04', 'L', 159, 'DINNER', 3),
+('2023-12-04', 'H', 197, 'MORNING', 3),
+('2023-12-04', 'H', 198, 'NOON', 3),
+('2023-12-04', 'H', 70, 'DINNER', 3),
+('2023-12-05', 'B', 79, 'MORNING', 3),
+('2023-12-05', 'B', 145, 'NOON', 3),
+('2023-12-05', 'B', 52, 'DINNER', 3),
+('2023-12-05', 'A', 76, 'MORNING', 3),
+('2023-12-05', 'A', 170, 'NOON', 3),
+('2023-12-05', 'A', 99, 'DINNER', 3),
+('2023-12-05', 'L', 104, 'MORNING', 3),
+('2023-12-05', 'L', 117, 'NOON', 3),
+('2023-12-05', 'L', 184, 'DINNER', 3),
+('2023-12-05', 'H', 160, 'MORNING', 3),
+('2023-12-05', 'H', 56, 'NOON', 3),
+('2023-12-05', 'H', 60, 'DINNER', 3),
+('2023-12-06', 'B', 64, 'MORNING', 3),
+('2023-12-06', 'B', 167, 'NOON', 3),
+('2023-12-06', 'B', 186, 'DINNER', 3),
+('2023-12-06', 'A', 149, 'MORNING', 3),
+('2023-12-06', 'A', 189, 'NOON', 3),
+('2023-12-06', 'A', 98, 'DINNER', 3),
+('2023-12-06', 'L', 145, 'MORNING', 3),
+('2023-12-06', 'L', 115, 'NOON', 3),
+('2023-12-06', 'L', 155, 'DINNER', 3),
+('2023-12-06', 'H', 123, 'MORNING', 3),
+('2023-12-06', 'H', 106, 'NOON', 3),
+('2023-12-06', 'H', 84, 'DINNER', 3),
+('2023-12-07', 'B', 137, 'MORNING', 3),
+('2023-12-07', 'B', 65, 'NOON', 3),
+('2023-12-07', 'B', 50, 'DINNER', 3),
+('2023-12-07', 'A', 66, 'MORNING', 3),
+('2023-12-07', 'A', 62, 'NOON', 3),
+('2023-12-07', 'A', 116, 'DINNER', 3),
+('2023-12-07', 'L', 106, 'MORNING', 3),
+('2023-12-07', 'L', 187, 'NOON', 3),
+('2023-12-07', 'L', 54, 'DINNER', 3),
+('2023-12-07', 'H', 51, 'MORNING', 3),
+('2023-12-07', 'H', 156, 'NOON', 3),
+('2023-12-07', 'H', 61, 'DINNER', 3),
+('2023-12-08', 'B', 118, 'MORNING', 3),
+('2023-12-08', 'B', 143, 'NOON', 3),
+('2023-12-08', 'B', 196, 'DINNER', 3),
+('2023-12-08', 'A', 176, 'MORNING', 3),
+('2023-12-08', 'A', 108, 'NOON', 3),
+('2023-12-08', 'A', 99, 'DINNER', 3),
+('2023-12-08', 'L', 76, 'MORNING', 3),
+('2023-12-08', 'L', 67, 'NOON', 3),
+('2023-12-08', 'L', 168, 'DINNER', 3),
+('2023-12-08', 'H', 95, 'MORNING', 3),
+('2023-12-08', 'H', 74, 'NOON', 3),
+('2023-12-08', 'H', 183, 'DINNER', 3),
+('2023-12-09', 'B', 111, 'MORNING', 3),
+('2023-12-09', 'B', 92, 'NOON', 3),
+('2023-12-09', 'B', 175, 'DINNER', 3),
+('2023-12-09', 'A', 130, 'MORNING', 3),
+('2023-12-09', 'A', 57, 'NOON', 3),
+('2023-12-09', 'A', 55, 'DINNER', 3),
+('2023-12-09', 'L', 81, 'MORNING', 3),
+('2023-12-09', 'L', 174, 'NOON', 3),
+('2023-12-09', 'L', 62, 'DINNER', 3),
+('2023-12-09', 'H', 191, 'MORNING', 3),
+('2023-12-09', 'H', 118, 'NOON', 3),
+('2023-12-09', 'H', 157, 'DINNER', 3),
+('2023-12-10', 'B', 53, 'MORNING', 3),
+('2023-12-10', 'B', 100, 'NOON', 3),
+('2023-12-10', 'B', 145, 'DINNER', 3),
+('2023-12-10', 'A', 175, 'MORNING', 3),
+('2023-12-10', 'A', 113, 'NOON', 3),
+('2023-12-10', 'A', 120, 'DINNER', 3),
+('2023-12-10', 'L', 83, 'MORNING', 3),
+('2023-12-10', 'L', 129, 'NOON', 3),
+('2023-12-10', 'L', 185, 'DINNER', 3),
+('2023-12-10', 'H', 50, 'MORNING', 3),
+('2023-12-10', 'H', 184, 'NOON', 3),
+('2023-12-10', 'H', 80, 'DINNER', 3),
+('2023-12-11', 'B', 104, 'MORNING', 3),
+('2023-12-11', 'B', 56, 'NOON', 3),
+('2023-12-11', 'B', 125, 'DINNER', 3),
+('2023-12-11', 'A', 170, 'MORNING', 3),
+('2023-12-11', 'A', 141, 'NOON', 3),
+('2023-12-11', 'A', 200, 'DINNER', 3),
+('2023-12-11', 'L', 195, 'MORNING', 3),
+('2023-12-11', 'L', 99, 'NOON', 3),
+('2023-12-11', 'L', 161, 'DINNER', 3),
+('2023-12-11', 'H', 112, 'MORNING', 3),
+('2023-12-11', 'H', 158, 'NOON', 3),
+('2023-12-11', 'H', 172, 'DINNER', 3),
+('2023-12-12', 'B', 103, 'MORNING', 3),
+('2023-12-12', 'B', 125, 'NOON', 3),
+('2023-12-12', 'B', 126, 'DINNER', 3),
+('2023-12-12', 'A', 95, 'MORNING', 3),
+('2023-12-12', 'A', 170, 'NOON', 3),
+('2023-12-12', 'A', 120, 'DINNER', 3),
+('2023-12-12', 'L', 98, 'MORNING', 3),
+('2023-12-12', 'L', 189, 'NOON', 3),
+('2023-12-12', 'L', 97, 'DINNER', 3),
+('2023-12-12', 'H', 74, 'MORNING', 3),
+('2023-12-12', 'H', 95, 'NOON', 3),
+('2023-12-12', 'H', 143, 'DINNER', 3),
+('2023-12-13', 'B', 75, 'MORNING', 3),
+('2023-12-13', 'B', 183, 'NOON', 3),
+('2023-12-13', 'B', 50, 'DINNER', 3),
+('2023-12-13', 'A', 92, 'MORNING', 3),
+('2023-12-13', 'A', 194, 'NOON', 3),
+('2023-12-13', 'A', 141, 'DINNER', 3),
+('2023-12-13', 'L', 115, 'MORNING', 3),
+('2023-12-13', 'L', 172, 'NOON', 3),
+('2023-12-13', 'L', 131, 'DINNER', 3),
+('2023-12-13', 'H', 63, 'MORNING', 3),
+('2023-12-13', 'H', 149, 'NOON', 3),
+('2023-12-13', 'H', 192, 'DINNER', 3),
+('2023-12-14', 'B', 76, 'MORNING', 3),
+('2023-12-14', 'B', 131, 'NOON', 3),
+('2023-12-14', 'B', 133, 'DINNER', 3),
+('2023-12-14', 'A', 126, 'MORNING', 3),
+('2023-12-14', 'A', 60, 'NOON', 3),
+('2023-12-14', 'A', 139, 'DINNER', 3),
+('2023-12-14', 'L', 184, 'MORNING', 3),
+('2023-12-14', 'L', 63, 'NOON', 3),
+('2023-12-14', 'L', 90, 'DINNER', 3),
+('2023-12-14', 'H', 136, 'MORNING', 3),
+('2023-12-14', 'H', 95, 'NOON', 3),
+('2023-12-14', 'H', 151, 'DINNER', 3),
+('2023-12-15', 'B', 75, 'MORNING', 3),
+('2023-12-15', 'B', 147, 'NOON', 3),
+('2023-12-15', 'B', 65, 'DINNER', 3),
+('2023-12-15', 'A', 178, 'MORNING', 3),
+('2023-12-15', 'A', 117, 'NOON', 3),
+('2023-12-15', 'A', 137, 'DINNER', 3),
+('2023-12-15', 'L', 95, 'MORNING', 3),
+('2023-12-15', 'L', 78, 'NOON', 3),
+('2023-12-15', 'L', 102, 'DINNER', 3),
+('2023-12-15', 'H', 108, 'MORNING', 3),
+('2023-12-15', 'H', 140, 'NOON', 3),
+('2023-12-15', 'H', 103, 'DINNER', 3),
+('2023-12-16', 'B', 118, 'MORNING', 3),
+('2023-12-16', 'B', 168, 'NOON', 3),
+('2023-12-16', 'B', 124, 'DINNER', 3),
+('2023-12-16', 'A', 182, 'MORNING', 3),
+('2023-12-16', 'A', 75, 'NOON', 3),
+('2023-12-16', 'A', 187, 'DINNER', 3),
+('2023-12-16', 'L', 63, 'MORNING', 3),
+('2023-12-16', 'L', 96, 'NOON', 3),
+('2023-12-16', 'L', 92, 'DINNER', 3),
+('2023-12-16', 'H', 179, 'MORNING', 3),
+('2023-12-16', 'H', 79, 'NOON', 3),
+('2023-12-16', 'H', 76, 'DINNER', 3),
+('2023-12-17', 'B', 145, 'MORNING', 3),
+('2023-12-17', 'B', 83, 'NOON', 3),
+('2023-12-17', 'B', 184, 'DINNER', 3),
+('2023-12-17', 'A', 164, 'MORNING', 3),
+('2023-12-17', 'A', 67, 'NOON', 3),
+('2023-12-17', 'A', 53, 'DINNER', 3),
+('2023-12-17', 'L', 97, 'MORNING', 3),
+('2023-12-17', 'L', 61, 'NOON', 3),
+('2023-12-17', 'L', 175, 'DINNER', 3),
+('2023-12-17', 'H', 160, 'MORNING', 3),
+('2023-12-17', 'H', 80, 'NOON', 3),
+('2023-12-17', 'H', 125, 'DINNER', 3),
+('2023-12-18', 'B', 193, 'MORNING', 3),
+('2023-12-18', 'B', 110, 'NOON', 3),
+('2023-12-18', 'B', 147, 'DINNER', 3),
+('2023-12-18', 'A', 61, 'MORNING', 3),
+('2023-12-18', 'A', 58, 'NOON', 3),
+('2023-12-18', 'A', 110, 'DINNER', 3),
+('2023-12-18', 'L', 73, 'MORNING', 3),
+('2023-12-18', 'L', 184, 'NOON', 3),
+('2023-12-18', 'L', 145, 'DINNER', 3),
+('2023-12-18', 'H', 158, 'MORNING', 3),
+('2023-12-18', 'H', 191, 'NOON', 3),
+('2023-12-18', 'H', 78, 'DINNER', 3),
+('2023-12-19', 'B', 140, 'MORNING', 3),
+('2023-12-19', 'B', 113, 'NOON', 3),
+('2023-12-19', 'B', 115, 'DINNER', 3),
+('2023-12-19', 'A', 78, 'MORNING', 3),
+('2023-12-19', 'A', 74, 'NOON', 3),
+('2023-12-19', 'A', 116, 'DINNER', 3),
+('2023-12-19', 'L', 103, 'MORNING', 3),
+('2023-12-19', 'L', 169, 'NOON', 3),
+('2023-12-19', 'L', 72, 'DINNER', 3),
+('2023-12-19', 'H', 161, 'MORNING', 3),
+('2023-12-19', 'H', 109, 'NOON', 3),
+('2023-12-19', 'H', 114, 'DINNER', 3),
+('2023-12-20', 'B', 55, 'MORNING', 3),
+('2023-12-20', 'B', 180, 'NOON', 3),
+('2023-12-20', 'B', 159, 'DINNER', 3),
+('2023-12-20', 'A', 55, 'MORNING', 3),
+('2023-12-20', 'A', 186, 'NOON', 3),
+('2023-12-20', 'A', 66, 'DINNER', 3),
+('2023-12-20', 'L', 83, 'MORNING', 3),
+('2023-12-20', 'L', 146, 'NOON', 3),
+('2023-12-20', 'L', 130, 'DINNER', 3),
+('2023-12-20', 'H', 160, 'MORNING', 3),
+('2023-12-20', 'H', 109, 'NOON', 3),
+('2023-12-20', 'H', 161, 'DINNER', 3),
+('2023-12-21', 'B', 148, 'MORNING', 3),
+('2023-12-21', 'B', 58, 'NOON', 3),
+('2023-12-21', 'B', 95, 'DINNER', 3),
+('2023-12-21', 'A', 84, 'MORNING', 3),
+('2023-12-21', 'A', 198, 'NOON', 3),
+('2023-12-21', 'A', 59, 'DINNER', 3),
+('2023-12-21', 'L', 65, 'MORNING', 3),
+('2023-12-21', 'L', 110, 'NOON', 3),
+('2023-12-21', 'L', 189, 'DINNER', 3),
+('2023-12-21', 'H', 54, 'MORNING', 3),
+('2023-12-21', 'H', 200, 'NOON', 3),
+('2023-12-21', 'H', 116, 'DINNER', 3),
+('2023-12-22', 'B', 55, 'MORNING', 3),
+('2023-12-22', 'B', 154, 'NOON', 3),
+('2023-12-22', 'B', 58, 'DINNER', 3),
+('2023-12-22', 'A', 181, 'MORNING', 3),
+('2023-12-22', 'A', 79, 'NOON', 3),
+('2023-12-22', 'A', 67, 'DINNER', 3),
+('2023-12-22', 'L', 142, 'MORNING', 3),
+('2023-12-22', 'L', 77, 'NOON', 3),
+('2023-12-22', 'L', 80, 'DINNER', 3),
+('2023-12-22', 'H', 101, 'MORNING', 3),
+('2023-12-22', 'H', 160, 'NOON', 3),
+('2023-12-22', 'H', 78, 'DINNER', 3),
+('2023-12-23', 'B', 75, 'MORNING', 3),
+('2023-12-23', 'B', 172, 'NOON', 3),
+('2023-12-23', 'B', 195, 'DINNER', 3),
+('2023-12-23', 'A', 114, 'MORNING', 3),
+('2023-12-23', 'A', 82, 'NOON', 3),
+('2023-12-23', 'A', 164, 'DINNER', 3),
+('2023-12-23', 'L', 138, 'MORNING', 3),
+('2023-12-23', 'L', 195, 'NOON', 3),
+('2023-12-23', 'L', 190, 'DINNER', 3),
+('2023-12-23', 'H', 146, 'MORNING', 3),
+('2023-12-23', 'H', 75, 'NOON', 3),
+('2023-12-23', 'H', 65, 'DINNER', 3),
+('2023-12-24', 'B', 94, 'MORNING', 3),
+('2023-12-24', 'B', 164, 'NOON', 3),
+('2023-12-24', 'B', 60, 'DINNER', 3),
+('2023-12-24', 'A', 69, 'MORNING', 3),
+('2023-12-24', 'A', 59, 'NOON', 3),
+('2023-12-24', 'A', 187, 'DINNER', 3),
+('2023-12-24', 'L', 61, 'MORNING', 3),
+('2023-12-24', 'L', 188, 'NOON', 3),
+('2023-12-24', 'L', 157, 'DINNER', 3),
+('2023-12-24', 'H', 132, 'MORNING', 3),
+('2023-12-24', 'H', 172, 'NOON', 3),
+('2023-12-24', 'H', 110, 'DINNER', 3),
+('2023-12-25', 'B', 166, 'MORNING', 3),
+('2023-12-25', 'B', 129, 'NOON', 3),
+('2023-12-25', 'B', 154, 'DINNER', 3),
+('2023-12-25', 'A', 176, 'MORNING', 3),
+('2023-12-25', 'A', 118, 'NOON', 3),
+('2023-12-25', 'A', 186, 'DINNER', 3),
+('2023-12-25', 'L', 110, 'MORNING', 3),
+('2023-12-25', 'L', 144, 'NOON', 3),
+('2023-12-25', 'L', 167, 'DINNER', 3),
+('2023-12-25', 'H', 59, 'MORNING', 3),
+('2023-12-25', 'H', 90, 'NOON', 3),
+('2023-12-25', 'H', 78, 'DINNER', 3),
+('2023-12-26', 'B', 125, 'MORNING', 3),
+('2023-12-26', 'B', 147, 'NOON', 3),
+('2023-12-26', 'B', 192, 'DINNER', 3),
+('2023-12-26', 'A', 170, 'MORNING', 3),
+('2023-12-26', 'A', 70, 'NOON', 3),
+('2023-12-26', 'A', 117, 'DINNER', 3),
+('2023-12-26', 'L', 61, 'MORNING', 3),
+('2023-12-26', 'L', 175, 'NOON', 3),
+('2023-12-26', 'L', 127, 'DINNER', 3),
+('2023-12-26', 'H', 65, 'MORNING', 3),
+('2023-12-26', 'H', 61, 'NOON', 3),
+('2023-12-26', 'H', 156, 'DINNER', 3),
+('2023-12-27', 'B', 123, 'MORNING', 3),
+('2023-12-27', 'B', 151, 'NOON', 3),
+('2023-12-27', 'B', 64, 'DINNER', 3),
+('2023-12-27', 'A', 124, 'MORNING', 3),
+('2023-12-27', 'A', 108, 'NOON', 3),
+('2023-12-27', 'A', 199, 'DINNER', 3),
+('2023-12-27', 'L', 90, 'MORNING', 3),
+('2023-12-27', 'L', 85, 'NOON', 3),
+('2023-12-27', 'L', 180, 'DINNER', 3),
+('2023-12-27', 'H', 174, 'MORNING', 3),
+('2023-12-27', 'H', 78, 'NOON', 3),
+('2023-12-27', 'H', 64, 'DINNER', 3),
+('2023-12-28', 'B', 129, 'MORNING', 3),
+('2023-12-28', 'B', 130, 'NOON', 3),
+('2023-12-28', 'B', 189, 'DINNER', 3),
+('2023-12-28', 'A', 115, 'MORNING', 3),
+('2023-12-28', 'A', 109, 'NOON', 3),
+('2023-12-28', 'A', 163, 'DINNER', 3),
+('2023-12-28', 'L', 185, 'MORNING', 3),
+('2023-12-28', 'L', 51, 'NOON', 3),
+('2023-12-28', 'L', 59, 'DINNER', 3),
+('2023-12-28', 'H', 84, 'MORNING', 3),
+('2023-12-28', 'H', 178, 'NOON', 3),
+('2023-12-28', 'H', 62, 'DINNER', 3),
+('2023-12-29', 'B', 170, 'MORNING', 3),
+('2023-12-29', 'B', 123, 'NOON', 3),
+('2023-12-29', 'B', 185, 'DINNER', 3),
+('2023-12-29', 'A', 50, 'MORNING', 3),
+('2023-12-29', 'A', 189, 'NOON', 3),
+('2023-12-29', 'A', 180, 'DINNER', 3),
+('2023-12-29', 'L', 138, 'MORNING', 3),
+('2023-12-29', 'L', 180, 'NOON', 3),
+('2023-12-29', 'L', 122, 'DINNER', 3),
+('2023-12-29', 'H', 110, 'MORNING', 3),
+('2023-12-29', 'H', 59, 'NOON', 3),
+('2023-12-29', 'H', 185, 'DINNER', 3),
+('2023-12-30', 'B', 167, 'MORNING', 3),
+('2023-12-30', 'B', 56, 'NOON', 3),
+('2023-12-30', 'B', 88, 'DINNER', 3),
+('2023-12-30', 'A', 181, 'MORNING', 3),
+('2023-12-30', 'A', 83, 'NOON', 3),
+('2023-12-30', 'A', 66, 'DINNER', 3),
+('2023-12-30', 'L', 71, 'MORNING', 3),
+('2023-12-30', 'L', 119, 'NOON', 3),
+('2023-12-30', 'L', 97, 'DINNER', 3),
+('2023-12-30', 'H', 68, 'MORNING', 3),
+('2023-12-30', 'H', 152, 'NOON', 3),
+('2023-12-30', 'H', 119, 'DINNER', 3),
+('2023-12-31', 'B', 189, 'MORNING', 3),
+('2023-12-31', 'B', 173, 'NOON', 3),
+('2023-12-31', 'B', 66, 'DINNER', 3),
+('2023-12-31', 'A', 58, 'MORNING', 3),
+('2023-12-31', 'A', 168, 'NOON', 3),
+('2023-12-31', 'A', 199, 'DINNER', 3),
+('2023-12-31', 'L', 126, 'MORNING', 3),
+('2023-12-31', 'L', 88, 'NOON', 3),
+('2023-12-31', 'L', 92, 'DINNER', 3),
+('2023-12-31', 'H', 148, 'MORNING', 3),
+('2023-12-31', 'H', 59, 'NOON', 3),
+('2023-12-31', 'H', 52, 'DINNER', 3),
+('2024-01-01', 'B', 81, 'MORNING', 3),
+('2024-01-01', 'B', 93, 'NOON', 3),
+('2024-01-01', 'B', 149, 'DINNER', 3),
+('2024-01-01', 'A', 159, 'MORNING', 3),
+('2024-01-01', 'A', 138, 'NOON', 3),
+('2024-01-01', 'A', 188, 'DINNER', 3),
+('2024-01-01', 'L', 96, 'MORNING', 3),
+('2024-01-01', 'L', 68, 'NOON', 3),
+('2024-01-01', 'L', 103, 'DINNER', 3),
+('2024-01-01', 'H', 189, 'MORNING', 3),
+('2024-01-01', 'H', 136, 'NOON', 3),
+('2024-01-01', 'H', 63, 'DINNER', 3),
+('2024-01-02', 'B', 200, 'MORNING', 3),
+('2024-01-02', 'B', 75, 'NOON', 3),
+('2024-01-02', 'B', 196, 'DINNER', 3),
+('2024-01-02', 'A', 150, 'MORNING', 3),
+('2024-01-02', 'A', 178, 'NOON', 3),
+('2024-01-02', 'A', 126, 'DINNER', 3),
+('2024-01-02', 'L', 93, 'MORNING', 3),
+('2024-01-02', 'L', 115, 'NOON', 3),
+('2024-01-02', 'L', 67, 'DINNER', 3),
+('2024-01-02', 'H', 105, 'MORNING', 3),
+('2024-01-02', 'H', 129, 'NOON', 3),
+('2024-01-02', 'H', 135, 'DINNER', 3),
+('2024-01-03', 'B', 154, 'MORNING', 3),
+('2024-01-03', 'B', 62, 'NOON', 3),
+('2024-01-03', 'B', 143, 'DINNER', 3),
+('2024-01-03', 'A', 75, 'MORNING', 3),
+('2024-01-03', 'A', 58, 'NOON', 3),
+('2024-01-03', 'A', 180, 'DINNER', 3),
+('2024-01-03', 'L', 170, 'MORNING', 3),
+('2024-01-03', 'L', 95, 'NOON', 3),
+('2024-01-03', 'L', 101, 'DINNER', 3),
+('2024-01-03', 'H', 61, 'MORNING', 3),
+('2024-01-03', 'H', 134, 'NOON', 3),
+('2024-01-03', 'H', 89, 'DINNER', 3),
+('2024-01-04', 'B', 118, 'MORNING', 3),
+('2024-01-04', 'B', 199, 'NOON', 3),
+('2024-01-04', 'B', 126, 'DINNER', 3),
+('2024-01-04', 'A', 165, 'MORNING', 3),
+('2024-01-04', 'A', 126, 'NOON', 3),
+('2024-01-04', 'A', 171, 'DINNER', 3),
+('2024-01-04', 'L', 146, 'MORNING', 3),
+('2024-01-04', 'L', 200, 'NOON', 3),
+('2024-01-04', 'L', 87, 'DINNER', 3),
+('2024-01-04', 'H', 104, 'MORNING', 3),
+('2024-01-04', 'H', 185, 'NOON', 3),
+('2024-01-04', 'H', 153, 'DINNER', 3),
+('2024-01-05', 'B', 109, 'MORNING', 3),
+('2024-01-05', 'B', 199, 'NOON', 3),
+('2024-01-05', 'B', 64, 'DINNER', 3),
+('2024-01-05', 'A', 50, 'MORNING', 3),
+('2024-01-05', 'A', 85, 'NOON', 3),
+('2024-01-05', 'A', 95, 'DINNER', 3),
+('2024-01-05', 'L', 61, 'MORNING', 3),
+('2024-01-05', 'L', 71, 'NOON', 3),
+('2024-01-05', 'L', 151, 'DINNER', 3),
+('2024-01-05', 'H', 54, 'MORNING', 3),
+('2024-01-05', 'H', 81, 'NOON', 3),
+('2024-01-05', 'H', 100, 'DINNER', 3),
+('2024-01-06', 'B', 166, 'MORNING', 3),
+('2024-01-06', 'B', 100, 'NOON', 3),
+('2024-01-06', 'B', 174, 'DINNER', 3),
+('2024-01-06', 'A', 63, 'MORNING', 3),
+('2024-01-06', 'A', 94, 'NOON', 3),
+('2024-01-06', 'A', 161, 'DINNER', 3),
+('2024-01-06', 'L', 168, 'MORNING', 3),
+('2024-01-06', 'L', 196, 'NOON', 3),
+('2024-01-06', 'L', 94, 'DINNER', 3),
+('2024-01-06', 'H', 120, 'MORNING', 3),
+('2024-01-06', 'H', 74, 'NOON', 3),
+('2024-01-06', 'H', 195, 'DINNER', 3),
+('2024-01-07', 'B', 193, 'MORNING', 3),
+('2024-01-07', 'B', 120, 'NOON', 3),
+('2024-01-07', 'B', 81, 'DINNER', 3),
+('2024-01-07', 'A', 134, 'MORNING', 3),
+('2024-01-07', 'A', 88, 'NOON', 3),
+('2024-01-07', 'A', 102, 'DINNER', 3),
+('2024-01-07', 'L', 114, 'MORNING', 3),
+('2024-01-07', 'L', 81, 'NOON', 3),
+('2024-01-07', 'L', 86, 'DINNER', 3),
+('2024-01-07', 'H', 161, 'MORNING', 3),
+('2024-01-07', 'H', 146, 'NOON', 3),
+('2024-01-07', 'H', 163, 'DINNER', 3),
+('2024-01-08', 'B', 87, 'MORNING', 3),
+('2024-01-08', 'B', 178, 'NOON', 3),
+('2024-01-08', 'B', 64, 'DINNER', 3),
+('2024-01-08', 'A', 122, 'MORNING', 3),
+('2024-01-08', 'A', 120, 'NOON', 3),
+('2024-01-08', 'A', 134, 'DINNER', 3),
+('2024-01-08', 'L', 119, 'MORNING', 3),
+('2024-01-08', 'L', 130, 'NOON', 3),
+('2024-01-08', 'L', 147, 'DINNER', 3),
+('2024-01-08', 'H', 177, 'MORNING', 3),
+('2024-01-08', 'H', 105, 'NOON', 3),
+('2024-01-08', 'H', 177, 'DINNER', 3),
+('2024-01-09', 'B', 101, 'MORNING', 3),
+('2024-01-09', 'B', 89, 'NOON', 3),
+('2024-01-09', 'B', 138, 'DINNER', 3),
+('2024-01-09', 'A', 50, 'MORNING', 3),
+('2024-01-09', 'A', 63, 'NOON', 3),
+('2024-01-09', 'A', 148, 'DINNER', 3),
+('2024-01-09', 'L', 96, 'MORNING', 3),
+('2024-01-09', 'L', 123, 'NOON', 3),
+('2024-01-09', 'L', 58, 'DINNER', 3),
+('2024-01-09', 'H', 181, 'MORNING', 3),
+('2024-01-09', 'H', 155, 'NOON', 3),
+('2024-01-09', 'H', 198, 'DINNER', 3),
+('2024-01-10', 'B', 74, 'MORNING', 3),
+('2024-01-10', 'B', 65, 'NOON', 3),
+('2024-01-10', 'B', 145, 'DINNER', 3),
+('2024-01-10', 'A', 176, 'MORNING', 3),
+('2024-01-10', 'A', 127, 'NOON', 3),
+('2024-01-10', 'A', 196, 'DINNER', 3),
+('2024-01-10', 'L', 117, 'MORNING', 3),
+('2024-01-10', 'L', 53, 'NOON', 3),
+('2024-01-10', 'L', 61, 'DINNER', 3),
+('2024-01-10', 'H', 127, 'MORNING', 3),
+('2024-01-10', 'H', 140, 'NOON', 3),
+('2024-01-10', 'H', 98, 'DINNER', 3),
+('2024-01-11', 'B', 195, 'MORNING', 3),
+('2024-01-11', 'B', 111, 'NOON', 3),
+('2024-01-11', 'B', 108, 'DINNER', 3),
+('2024-01-11', 'A', 67, 'MORNING', 3),
+('2024-01-11', 'A', 107, 'NOON', 3),
+('2024-01-11', 'A', 170, 'DINNER', 3),
+('2024-01-11', 'L', 197, 'MORNING', 3),
+('2024-01-11', 'L', 191, 'NOON', 3),
+('2024-01-11', 'L', 79, 'DINNER', 3),
+('2024-01-11', 'H', 104, 'MORNING', 3),
+('2024-01-11', 'H', 153, 'NOON', 3),
+('2024-01-11', 'H', 101, 'DINNER', 3),
+('2024-01-12', 'B', 108, 'MORNING', 3),
+('2024-01-12', 'B', 128, 'NOON', 3),
+('2024-01-12', 'B', 54, 'DINNER', 3),
+('2024-01-12', 'A', 96, 'MORNING', 3),
+('2024-01-12', 'A', 50, 'NOON', 3),
+('2024-01-12', 'A', 94, 'DINNER', 3),
+('2024-01-12', 'L', 178, 'MORNING', 3),
+('2024-01-12', 'L', 195, 'NOON', 3),
+('2024-01-12', 'L', 194, 'DINNER', 3),
+('2024-01-12', 'H', 200, 'MORNING', 3),
+('2024-01-12', 'H', 195, 'NOON', 3),
+('2024-01-12', 'H', 118, 'DINNER', 3),
+('2024-01-13', 'B', 151, 'MORNING', 3),
+('2024-01-13', 'B', 81, 'NOON', 3),
+('2024-01-13', 'B', 134, 'DINNER', 3),
+('2024-01-13', 'A', 110, 'MORNING', 3),
+('2024-01-13', 'A', 63, 'NOON', 3),
+('2024-01-13', 'A', 123, 'DINNER', 3),
+('2024-01-13', 'L', 140, 'MORNING', 3),
+('2024-01-13', 'L', 154, 'NOON', 3),
+('2024-01-13', 'L', 156, 'DINNER', 3),
+('2024-01-13', 'H', 88, 'MORNING', 3),
+('2024-01-13', 'H', 106, 'NOON', 3),
+('2024-01-13', 'H', 108, 'DINNER', 3),
+('2024-01-14', 'B', 136, 'MORNING', 3),
+('2024-01-14', 'B', 108, 'NOON', 3),
+('2024-01-14', 'B', 169, 'DINNER', 3),
+('2024-01-14', 'A', 117, 'MORNING', 3),
+('2024-01-14', 'A', 77, 'NOON', 3),
+('2024-01-14', 'A', 101, 'DINNER', 3),
+('2024-01-14', 'L', 95, 'MORNING', 3),
+('2024-01-14', 'L', 161, 'NOON', 3),
+('2024-01-14', 'L', 100, 'DINNER', 3),
+('2024-01-14', 'H', 81, 'MORNING', 3),
+('2024-01-14', 'H', 98, 'NOON', 3),
+('2024-01-14', 'H', 66, 'DINNER', 3),
+('2024-01-15', 'B', 58, 'MORNING', 3),
+('2024-01-15', 'B', 116, 'NOON', 3),
+('2024-01-15', 'B', 92, 'DINNER', 3),
+('2024-01-15', 'A', 156, 'MORNING', 3),
+('2024-01-15', 'A', 176, 'NOON', 3),
+('2024-01-15', 'A', 183, 'DINNER', 3),
+('2024-01-15', 'L', 62, 'MORNING', 3),
+('2024-01-15', 'L', 121, 'NOON', 3),
+('2024-01-15', 'L', 95, 'DINNER', 3),
+('2024-01-15', 'H', 101, 'MORNING', 3),
+('2024-01-15', 'H', 78, 'NOON', 3),
+('2024-01-15', 'H', 83, 'DINNER', 3),
+('2024-01-16', 'B', 52, 'MORNING', 3),
+('2024-01-16', 'B', 70, 'NOON', 3),
+('2024-01-16', 'B', 92, 'DINNER', 3),
+('2024-01-16', 'A', 77, 'MORNING', 3),
+('2024-01-16', 'A', 72, 'NOON', 3),
+('2024-01-16', 'A', 161, 'DINNER', 3),
+('2024-01-16', 'L', 125, 'MORNING', 3),
+('2024-01-16', 'L', 144, 'NOON', 3),
+('2024-01-16', 'L', 179, 'DINNER', 3),
+('2024-01-16', 'H', 52, 'MORNING', 3),
+('2024-01-16', 'H', 172, 'NOON', 3),
+('2024-01-16', 'H', 69, 'DINNER', 3),
+('2024-01-17', 'B', 130, 'MORNING', 3),
+('2024-01-17', 'B', 188, 'NOON', 3),
+('2024-01-17', 'B', 64, 'DINNER', 3),
+('2024-01-17', 'A', 116, 'MORNING', 3),
+('2024-01-17', 'A', 194, 'NOON', 3),
+('2024-01-17', 'A', 162, 'DINNER', 3),
+('2024-01-17', 'L', 180, 'MORNING', 3),
+('2024-01-17', 'L', 134, 'NOON', 3),
+('2024-01-17', 'L', 124, 'DINNER', 3),
+('2024-01-17', 'H', 151, 'MORNING', 3),
+('2024-01-17', 'H', 96, 'NOON', 3),
+('2024-01-17', 'H', 107, 'DINNER', 3),
+('2024-01-18', 'B', 108, 'MORNING', 3),
+('2024-01-18', 'B', 82, 'NOON', 3),
+('2024-01-18', 'B', 173, 'DINNER', 3),
+('2024-01-18', 'A', 162, 'MORNING', 3),
+('2024-01-18', 'A', 134, 'NOON', 3),
+('2024-01-18', 'A', 95, 'DINNER', 3),
+('2024-01-18', 'L', 56, 'MORNING', 3),
+('2024-01-18', 'L', 82, 'NOON', 3),
+('2024-01-18', 'L', 164, 'DINNER', 3),
+('2024-01-18', 'H', 110, 'MORNING', 3),
+('2024-01-18', 'H', 109, 'NOON', 3),
+('2024-01-18', 'H', 141, 'DINNER', 3),
+('2024-01-19', 'B', 170, 'MORNING', 3),
+('2024-01-19', 'B', 80, 'NOON', 3),
+('2024-01-19', 'B', 95, 'DINNER', 3),
+('2024-01-19', 'A', 189, 'MORNING', 3),
+('2024-01-19', 'A', 84, 'NOON', 3),
+('2024-01-19', 'A', 79, 'DINNER', 3),
+('2024-01-19', 'L', 79, 'MORNING', 3),
+('2024-01-19', 'L', 133, 'NOON', 3),
+('2024-01-19', 'L', 75, 'DINNER', 3),
+('2024-01-19', 'H', 147, 'MORNING', 3),
+('2024-01-19', 'H', 108, 'NOON', 3),
+('2024-01-19', 'H', 160, 'DINNER', 3),
+('2024-01-20', 'B', 190, 'MORNING', 3),
+('2024-01-20', 'B', 103, 'NOON', 3),
+('2024-01-20', 'B', 143, 'DINNER', 3),
+('2024-01-20', 'A', 105, 'MORNING', 3),
+('2024-01-20', 'A', 64, 'NOON', 3),
+('2024-01-20', 'A', 182, 'DINNER', 3),
+('2024-01-20', 'L', 100, 'MORNING', 3),
+('2024-01-20', 'L', 86, 'NOON', 3),
+('2024-01-20', 'L', 174, 'DINNER', 3),
+('2024-01-20', 'H', 171, 'MORNING', 3),
+('2024-01-20', 'H', 56, 'NOON', 3),
+('2024-01-20', 'H', 176, 'DINNER', 3),
+('2024-01-21', 'B', 130, 'MORNING', 3),
+('2024-01-21', 'B', 133, 'NOON', 3),
+('2024-01-21', 'B', 105, 'DINNER', 3),
+('2024-01-21', 'A', 123, 'MORNING', 3),
+('2024-01-21', 'A', 104, 'NOON', 3),
+('2024-01-21', 'A', 72, 'DINNER', 3),
+('2024-01-21', 'L', 71, 'MORNING', 3),
+('2024-01-21', 'L', 151, 'NOON', 3),
+('2024-01-21', 'L', 142, 'DINNER', 3),
+('2024-01-21', 'H', 59, 'MORNING', 3),
+('2024-01-21', 'H', 109, 'NOON', 3),
+('2024-01-21', 'H', 135, 'DINNER', 3),
+('2024-01-22', 'B', 97, 'MORNING', 3),
+('2024-01-22', 'B', 87, 'NOON', 3),
+('2024-01-22', 'B', 157, 'DINNER', 3),
+('2024-01-22', 'A', 169, 'MORNING', 3),
+('2024-01-22', 'A', 129, 'NOON', 3),
+('2024-01-22', 'A', 59, 'DINNER', 3),
+('2024-01-22', 'L', 63, 'MORNING', 3),
+('2024-01-22', 'L', 162, 'NOON', 3),
+('2024-01-22', 'L', 195, 'DINNER', 3),
+('2024-01-22', 'H', 149, 'MORNING', 3),
+('2024-01-22', 'H', 200, 'NOON', 3),
+('2024-01-22', 'H', 151, 'DINNER', 3),
+('2024-01-23', 'B', 50, 'MORNING', 3),
+('2024-01-23', 'B', 86, 'NOON', 3),
+('2024-01-23', 'B', 146, 'DINNER', 3),
+('2024-01-23', 'A', 197, 'MORNING', 3),
+('2024-01-23', 'A', 175, 'NOON', 3),
+('2024-01-23', 'A', 66, 'DINNER', 3),
+('2024-01-23', 'L', 139, 'MORNING', 3),
+('2024-01-23', 'L', 51, 'NOON', 3),
+('2024-01-23', 'L', 150, 'DINNER', 3),
+('2024-01-23', 'H', 169, 'MORNING', 3),
+('2024-01-23', 'H', 187, 'NOON', 3),
+('2024-01-23', 'H', 107, 'DINNER', 3),
+('2024-01-24', 'B', 97, 'MORNING', 3),
+('2024-01-24', 'B', 140, 'NOON', 3),
+('2024-01-24', 'B', 76, 'DINNER', 3),
+('2024-01-24', 'A', 107, 'MORNING', 3),
+('2024-01-24', 'A', 112, 'NOON', 3),
+('2024-01-24', 'A', 192, 'DINNER', 3),
+('2024-01-24', 'L', 141, 'MORNING', 3),
+('2024-01-24', 'L', 114, 'NOON', 3),
+('2024-01-24', 'L', 93, 'DINNER', 3),
+('2024-01-24', 'H', 63, 'MORNING', 3),
+('2024-01-24', 'H', 89, 'NOON', 3),
+('2024-01-24', 'H', 83, 'DINNER', 3),
+('2024-01-25', 'B', 78, 'MORNING', 3),
+('2024-01-25', 'B', 84, 'NOON', 3),
+('2024-01-25', 'B', 52, 'DINNER', 3),
+('2024-01-25', 'A', 157, 'MORNING', 3),
+('2024-01-25', 'A', 181, 'NOON', 3),
+('2024-01-25', 'A', 146, 'DINNER', 3),
+('2024-01-25', 'L', 193, 'MORNING', 3),
+('2024-01-25', 'L', 165, 'NOON', 3),
+('2024-01-25', 'L', 160, 'DINNER', 3),
+('2024-01-25', 'H', 53, 'MORNING', 3),
+('2024-01-25', 'H', 70, 'NOON', 3),
+('2024-01-25', 'H', 160, 'DINNER', 3),
+('2024-01-26', 'B', 187, 'MORNING', 3),
+('2024-01-26', 'B', 126, 'NOON', 3),
+('2024-01-26', 'B', 183, 'DINNER', 3),
+('2024-01-26', 'A', 173, 'MORNING', 3),
+('2024-01-26', 'A', 73, 'NOON', 3),
+('2024-01-26', 'A', 142, 'DINNER', 3),
+('2024-01-26', 'L', 120, 'MORNING', 3),
+('2024-01-26', 'L', 73, 'NOON', 3),
+('2024-01-26', 'L', 115, 'DINNER', 3),
+('2024-01-26', 'H', 166, 'MORNING', 3),
+('2024-01-26', 'H', 122, 'NOON', 3),
+('2024-01-26', 'H', 166, 'DINNER', 3),
+('2024-01-27', 'B', 135, 'MORNING', 3),
+('2024-01-27', 'B', 62, 'NOON', 3),
+('2024-01-27', 'B', 113, 'DINNER', 3),
+('2024-01-27', 'A', 121, 'MORNING', 3),
+('2024-01-27', 'A', 136, 'NOON', 3),
+('2024-01-27', 'A', 83, 'DINNER', 3),
+('2024-01-27', 'L', 76, 'MORNING', 3),
+('2024-01-27', 'L', 152, 'NOON', 3),
+('2024-01-27', 'L', 142, 'DINNER', 3),
+('2024-01-27', 'H', 142, 'MORNING', 3),
+('2024-01-27', 'H', 112, 'NOON', 3),
+('2024-01-27', 'H', 60, 'DINNER', 3),
+('2024-01-28', 'B', 90, 'MORNING', 3),
+('2024-01-28', 'B', 138, 'NOON', 3),
+('2024-01-28', 'B', 86, 'DINNER', 3),
+('2024-01-28', 'A', 96, 'MORNING', 3),
+('2024-01-28', 'A', 119, 'NOON', 3),
+('2024-01-28', 'A', 155, 'DINNER', 3),
+('2024-01-28', 'L', 192, 'MORNING', 3),
+('2024-01-28', 'L', 165, 'NOON', 3),
+('2024-01-28', 'L', 112, 'DINNER', 3),
+('2024-01-28', 'H', 82, 'MORNING', 3),
+('2024-01-28', 'H', 103, 'NOON', 3),
+('2024-01-28', 'H', 177, 'DINNER', 3),
+('2024-01-29', 'B', 169, 'MORNING', 3),
+('2024-01-29', 'B', 150, 'NOON', 3),
+('2024-01-29', 'B', 54, 'DINNER', 3),
+('2024-01-29', 'A', 109, 'MORNING', 3),
+('2024-01-29', 'A', 68, 'NOON', 3),
+('2024-01-29', 'A', 115, 'DINNER', 3),
+('2024-01-29', 'L', 196, 'MORNING', 3),
+('2024-01-29', 'L', 111, 'NOON', 3),
+('2024-01-29', 'L', 186, 'DINNER', 3),
+('2024-01-29', 'H', 123, 'MORNING', 3),
+('2024-01-29', 'H', 91, 'NOON', 3),
+('2024-01-29', 'H', 65, 'DINNER', 3),
+('2024-01-30', 'B', 50, 'MORNING', 3),
+('2024-01-30', 'B', 130, 'NOON', 3),
+('2024-01-30', 'B', 170, 'DINNER', 3),
+('2024-01-30', 'A', 89, 'MORNING', 3),
+('2024-01-30', 'A', 105, 'NOON', 3),
+('2024-01-30', 'A', 132, 'DINNER', 3),
+('2024-01-30', 'L', 140, 'MORNING', 3),
+('2024-01-30', 'L', 141, 'NOON', 3),
+('2024-01-30', 'L', 60, 'DINNER', 3),
+('2024-01-30', 'H', 118, 'MORNING', 3),
+('2024-01-30', 'H', 134, 'NOON', 3),
+('2024-01-30', 'H', 68, 'DINNER', 3),
+('2024-01-31', 'B', 82, 'MORNING', 3),
+('2024-01-31', 'B', 146, 'NOON', 3),
+('2024-01-31', 'B', 96, 'DINNER', 3),
+('2024-01-31', 'A', 90, 'MORNING', 3),
+('2024-01-31', 'A', 168, 'NOON', 3),
+('2024-01-31', 'A', 131, 'DINNER', 3),
+('2024-01-31', 'L', 171, 'MORNING', 3),
+('2024-01-31', 'L', 131, 'NOON', 3),
+('2024-01-31', 'L', 196, 'DINNER', 3),
+('2024-01-31', 'H', 198, 'MORNING', 3),
+('2024-01-31', 'H', 159, 'NOON', 3),
+('2024-01-31', 'H', 147, 'DINNER', 3),
+('2024-02-01', 'B', 66, 'MORNING', 3),
+('2024-02-01', 'B', 62, 'NOON', 3),
+('2024-02-01', 'B', 145, 'DINNER', 3),
+('2024-02-01', 'A', 180, 'MORNING', 3),
+('2024-02-01', 'A', 178, 'NOON', 3),
+('2024-02-01', 'A', 175, 'DINNER', 3),
+('2024-02-01', 'L', 123, 'MORNING', 3),
+('2024-02-01', 'L', 151, 'NOON', 3),
+('2024-02-01', 'L', 72, 'DINNER', 3),
+('2024-02-01', 'H', 185, 'MORNING', 3),
+('2024-02-01', 'H', 71, 'NOON', 3),
+('2024-02-01', 'H', 51, 'DINNER', 3),
+('2024-02-02', 'B', 142, 'MORNING', 3),
+('2024-02-02', 'B', 166, 'NOON', 3),
+('2024-02-02', 'B', 66, 'DINNER', 3),
+('2024-02-02', 'A', 63, 'MORNING', 3),
+('2024-02-02', 'A', 75, 'NOON', 3),
+('2024-02-02', 'A', 177, 'DINNER', 3),
+('2024-02-02', 'L', 80, 'MORNING', 3),
+('2024-02-02', 'L', 70, 'NOON', 3),
+('2024-02-02', 'L', 125, 'DINNER', 3),
+('2024-02-02', 'H', 67, 'MORNING', 3),
+('2024-02-02', 'H', 98, 'NOON', 3),
+('2024-02-02', 'H', 103, 'DINNER', 3),
+('2024-02-03', 'B', 124, 'MORNING', 3),
+('2024-02-03', 'B', 99, 'NOON', 3),
+('2024-02-03', 'B', 152, 'DINNER', 3),
+('2024-02-03', 'A', 173, 'MORNING', 3),
+('2024-02-03', 'A', 140, 'NOON', 3),
+('2024-02-03', 'A', 55, 'DINNER', 3),
+('2024-02-03', 'L', 171, 'MORNING', 3),
+('2024-02-03', 'L', 157, 'NOON', 3),
+('2024-02-03', 'L', 142, 'DINNER', 3),
+('2024-02-03', 'H', 125, 'MORNING', 3),
+('2024-02-03', 'H', 114, 'NOON', 3),
+('2024-02-03', 'H', 184, 'DINNER', 3),
+('2024-02-04', 'B', 73, 'MORNING', 3),
+('2024-02-04', 'B', 80, 'NOON', 3),
+('2024-02-04', 'B', 104, 'DINNER', 3),
+('2024-02-04', 'A', 181, 'MORNING', 3),
+('2024-02-04', 'A', 126, 'NOON', 3),
+('2024-02-04', 'A', 165, 'DINNER', 3),
+('2024-02-04', 'L', 100, 'MORNING', 3),
+('2024-02-04', 'L', 105, 'NOON', 3),
+('2024-02-04', 'L', 62, 'DINNER', 3),
+('2024-02-04', 'H', 51, 'MORNING', 3),
+('2024-02-04', 'H', 110, 'NOON', 3),
+('2024-02-04', 'H', 156, 'DINNER', 3),
+('2024-02-05', 'B', 114, 'MORNING', 3),
+('2024-02-05', 'B', 68, 'NOON', 3),
+('2024-02-05', 'B', 100, 'DINNER', 3),
+('2024-02-05', 'A', 132, 'MORNING', 3),
+('2024-02-05', 'A', 97, 'NOON', 3),
+('2024-02-05', 'A', 56, 'DINNER', 3),
+('2024-02-05', 'L', 108, 'MORNING', 3),
+('2024-02-05', 'L', 57, 'NOON', 3),
+('2024-02-05', 'L', 105, 'DINNER', 3),
+('2024-02-05', 'H', 191, 'MORNING', 3),
+('2024-02-05', 'H', 200, 'NOON', 3),
+('2024-02-05', 'H', 115, 'DINNER', 3),
+('2024-02-06', 'B', 166, 'MORNING', 3),
+('2024-02-06', 'B', 133, 'NOON', 3),
+('2024-02-06', 'B', 78, 'DINNER', 3),
+('2024-02-06', 'A', 198, 'MORNING', 3),
+('2024-02-06', 'A', 145, 'NOON', 3),
+('2024-02-06', 'A', 174, 'DINNER', 3),
+('2024-02-06', 'L', 173, 'MORNING', 3),
+('2024-02-06', 'L', 115, 'NOON', 3),
+('2024-02-06', 'L', 61, 'DINNER', 3),
+('2024-02-06', 'H', 172, 'MORNING', 3),
+('2024-02-06', 'H', 179, 'NOON', 3),
+('2024-02-06', 'H', 81, 'DINNER', 3),
+('2024-02-07', 'B', 145, 'MORNING', 3),
+('2024-02-07', 'B', 74, 'NOON', 3),
+('2024-02-07', 'B', 114, 'DINNER', 3),
+('2024-02-07', 'A', 183, 'MORNING', 3),
+('2024-02-07', 'A', 77, 'NOON', 3),
+('2024-02-07', 'A', 119, 'DINNER', 3),
+('2024-02-07', 'L', 150, 'MORNING', 3),
+('2024-02-07', 'L', 72, 'NOON', 3),
+('2024-02-07', 'L', 64, 'DINNER', 3),
+('2024-02-07', 'H', 54, 'MORNING', 3),
+('2024-02-07', 'H', 70, 'NOON', 3),
+('2024-02-07', 'H', 144, 'DINNER', 3),
+('2024-02-08', 'B', 152, 'MORNING', 3),
+('2024-02-08', 'B', 101, 'NOON', 3),
+('2024-02-08', 'B', 114, 'DINNER', 3),
+('2024-02-08', 'A', 169, 'MORNING', 3),
+('2024-02-08', 'A', 68, 'NOON', 3),
+('2024-02-08', 'A', 172, 'DINNER', 3),
+('2024-02-08', 'L', 61, 'MORNING', 3),
+('2024-02-08', 'L', 142, 'NOON', 3),
+('2024-02-08', 'L', 106, 'DINNER', 3),
+('2024-02-08', 'H', 61, 'MORNING', 3),
+('2024-02-08', 'H', 87, 'NOON', 3),
+('2024-02-08', 'H', 159, 'DINNER', 3),
+('2024-02-09', 'B', 183, 'MORNING', 3),
+('2024-02-09', 'B', 64, 'NOON', 3),
+('2024-02-09', 'B', 179, 'DINNER', 3),
+('2024-02-09', 'A', 171, 'MORNING', 3),
+('2024-02-09', 'A', 150, 'NOON', 3),
+('2024-02-09', 'A', 176, 'DINNER', 3),
+('2024-02-09', 'L', 174, 'MORNING', 3),
+('2024-02-09', 'L', 109, 'NOON', 3),
+('2024-02-09', 'L', 137, 'DINNER', 3),
+('2024-02-09', 'H', 113, 'MORNING', 3),
+('2024-02-09', 'H', 152, 'NOON', 3),
+('2024-02-09', 'H', 52, 'DINNER', 3),
+('2024-02-10', 'B', 123, 'MORNING', 3),
+('2024-02-10', 'B', 172, 'NOON', 3),
+('2024-02-10', 'B', 133, 'DINNER', 3),
+('2024-02-10', 'A', 55, 'MORNING', 3),
+('2024-02-10', 'A', 79, 'NOON', 3),
+('2024-02-10', 'A', 124, 'DINNER', 3),
+('2024-02-10', 'L', 61, 'MORNING', 3),
+('2024-02-10', 'L', 141, 'NOON', 3),
+('2024-02-10', 'L', 81, 'DINNER', 3),
+('2024-02-10', 'H', 144, 'MORNING', 3),
+('2024-02-10', 'H', 109, 'NOON', 3),
+('2024-02-10', 'H', 149, 'DINNER', 3),
+('2024-02-11', 'B', 181, 'MORNING', 3),
+('2024-02-11', 'B', 69, 'NOON', 3),
+('2024-02-11', 'B', 65, 'DINNER', 3),
+('2024-02-11', 'A', 161, 'MORNING', 3),
+('2024-02-11', 'A', 98, 'NOON', 3),
+('2024-02-11', 'A', 111, 'DINNER', 3),
+('2024-02-11', 'L', 187, 'MORNING', 3),
+('2024-02-11', 'L', 124, 'NOON', 3),
+('2024-02-11', 'L', 63, 'DINNER', 3),
+('2024-02-11', 'H', 51, 'MORNING', 3),
+('2024-02-11', 'H', 108, 'NOON', 3),
+('2024-02-11', 'H', 166, 'DINNER', 3),
+('2024-02-12', 'B', 98, 'MORNING', 3),
+('2024-02-12', 'B', 148, 'NOON', 3),
+('2024-02-12', 'B', 139, 'DINNER', 3),
+('2024-02-12', 'A', 195, 'MORNING', 3),
+('2024-02-12', 'A', 125, 'NOON', 3),
+('2024-02-12', 'A', 191, 'DINNER', 3),
+('2024-02-12', 'L', 124, 'MORNING', 3),
+('2024-02-12', 'L', 124, 'NOON', 3),
+('2024-02-12', 'L', 181, 'DINNER', 3),
+('2024-02-12', 'H', 152, 'MORNING', 3),
+('2024-02-12', 'H', 174, 'NOON', 3),
+('2024-02-12', 'H', 131, 'DINNER', 3),
+('2024-02-13', 'B', 82, 'MORNING', 3),
+('2024-02-13', 'B', 133, 'NOON', 3),
+('2024-02-13', 'B', 115, 'DINNER', 3),
+('2024-02-13', 'A', 190, 'MORNING', 3),
+('2024-02-13', 'A', 153, 'NOON', 3),
+('2024-02-13', 'A', 109, 'DINNER', 3),
+('2024-02-13', 'L', 78, 'MORNING', 3),
+('2024-02-13', 'L', 117, 'NOON', 3),
+('2024-02-13', 'L', 177, 'DINNER', 3),
+('2024-02-13', 'H', 176, 'MORNING', 3),
+('2024-02-13', 'H', 193, 'NOON', 3),
+('2024-02-13', 'H', 131, 'DINNER', 3),
+('2024-02-14', 'B', 171, 'MORNING', 3),
+('2024-02-14', 'B', 194, 'NOON', 3),
+('2024-02-14', 'B', 120, 'DINNER', 3),
+('2024-02-14', 'A', 80, 'MORNING', 3),
+('2024-02-14', 'A', 154, 'NOON', 3),
+('2024-02-14', 'A', 173, 'DINNER', 3),
+('2024-02-14', 'L', 173, 'MORNING', 3),
+('2024-02-14', 'L', 171, 'NOON', 3),
+('2024-02-14', 'L', 108, 'DINNER', 3),
+('2024-02-14', 'H', 79, 'MORNING', 3),
+('2024-02-14', 'H', 72, 'NOON', 3),
+('2024-02-14', 'H', 71, 'DINNER', 3),
+('2024-02-15', 'B', 114, 'MORNING', 3),
+('2024-02-15', 'B', 190, 'NOON', 3),
+('2024-02-15', 'B', 95, 'DINNER', 3),
+('2024-02-15', 'A', 144, 'MORNING', 3),
+('2024-02-15', 'A', 163, 'NOON', 3),
+('2024-02-15', 'A', 177, 'DINNER', 3),
+('2024-02-15', 'L', 106, 'MORNING', 3),
+('2024-02-15', 'L', 160, 'NOON', 3),
+('2024-02-15', 'L', 141, 'DINNER', 3),
+('2024-02-15', 'H', 72, 'MORNING', 3),
+('2024-02-15', 'H', 101, 'NOON', 3),
+('2024-02-15', 'H', 79, 'DINNER', 3),
+('2024-02-16', 'B', 173, 'MORNING', 3),
+('2024-02-16', 'B', 119, 'NOON', 3),
+('2024-02-16', 'B', 86, 'DINNER', 3),
+('2024-02-16', 'A', 185, 'MORNING', 3),
+('2024-02-16', 'A', 106, 'NOON', 3),
+('2024-02-16', 'A', 107, 'DINNER', 3),
+('2024-02-16', 'L', 133, 'MORNING', 3),
+('2024-02-16', 'L', 111, 'NOON', 3),
+('2024-02-16', 'L', 195, 'DINNER', 3),
+('2024-02-16', 'H', 143, 'MORNING', 3),
+('2024-02-16', 'H', 106, 'NOON', 3),
+('2024-02-16', 'H', 187, 'DINNER', 3),
+('2024-02-17', 'B', 129, 'MORNING', 3),
+('2024-02-17', 'B', 197, 'NOON', 3),
+('2024-02-17', 'B', 143, 'DINNER', 3),
+('2024-02-17', 'A', 101, 'MORNING', 3),
+('2024-02-17', 'A', 85, 'NOON', 3),
+('2024-02-17', 'A', 166, 'DINNER', 3),
+('2024-02-17', 'L', 169, 'MORNING', 3),
+('2024-02-17', 'L', 171, 'NOON', 3),
+('2024-02-17', 'L', 114, 'DINNER', 3),
+('2024-02-17', 'H', 139, 'MORNING', 3),
+('2024-02-17', 'H', 105, 'NOON', 3),
+('2024-02-17', 'H', 134, 'DINNER', 3),
+('2024-02-18', 'B', 177, 'MORNING', 3),
+('2024-02-18', 'B', 91, 'NOON', 3),
+('2024-02-18', 'B', 150, 'DINNER', 3),
+('2024-02-18', 'A', 181, 'MORNING', 3),
+('2024-02-18', 'A', 155, 'NOON', 3),
+('2024-02-18', 'A', 63, 'DINNER', 3),
+('2024-02-18', 'L', 140, 'MORNING', 3),
+('2024-02-18', 'L', 75, 'NOON', 3),
+('2024-02-18', 'L', 51, 'DINNER', 3),
+('2024-02-18', 'H', 96, 'MORNING', 3),
+('2024-02-18', 'H', 83, 'NOON', 3),
+('2024-02-18', 'H', 99, 'DINNER', 3),
+('2024-02-19', 'B', 54, 'MORNING', 3),
+('2024-02-19', 'B', 170, 'NOON', 3),
+('2024-02-19', 'B', 91, 'DINNER', 3),
+('2024-02-19', 'A', 151, 'MORNING', 3),
+('2024-02-19', 'A', 118, 'NOON', 3),
+('2024-02-19', 'A', 87, 'DINNER', 3),
+('2024-02-19', 'L', 163, 'MORNING', 3),
+('2024-02-19', 'L', 131, 'NOON', 3),
+('2024-02-19', 'L', 129, 'DINNER', 3),
+('2024-02-19', 'H', 78, 'MORNING', 3),
+('2024-02-19', 'H', 125, 'NOON', 3),
+('2024-02-19', 'H', 120, 'DINNER', 3),
+('2024-02-20', 'B', 178, 'MORNING', 3),
+('2024-02-20', 'B', 79, 'NOON', 3),
+('2024-02-20', 'B', 152, 'DINNER', 3),
+('2024-02-20', 'A', 170, 'MORNING', 3),
+('2024-02-20', 'A', 111, 'NOON', 3),
+('2024-02-20', 'A', 176, 'DINNER', 3),
+('2024-02-20', 'L', 114, 'MORNING', 3),
+('2024-02-20', 'L', 89, 'NOON', 3),
+('2024-02-20', 'L', 57, 'DINNER', 3),
+('2024-02-20', 'H', 97, 'MORNING', 3),
+('2024-02-20', 'H', 171, 'NOON', 3),
+('2024-02-20', 'H', 163, 'DINNER', 3),
+('2024-02-21', 'B', 146, 'MORNING', 3),
+('2024-02-21', 'B', 99, 'NOON', 3),
+('2024-02-21', 'B', 194, 'DINNER', 3),
+('2024-02-21', 'A', 97, 'MORNING', 3),
+('2024-02-21', 'A', 67, 'NOON', 3),
+('2024-02-21', 'A', 181, 'DINNER', 3),
+('2024-02-21', 'L', 60, 'MORNING', 3),
+('2024-02-21', 'L', 172, 'NOON', 3),
+('2024-02-21', 'L', 199, 'DINNER', 3),
+('2024-02-21', 'H', 101, 'MORNING', 3),
+('2024-02-21', 'H', 176, 'NOON', 3),
+('2024-02-21', 'H', 121, 'DINNER', 3),
+('2024-02-22', 'B', 70, 'MORNING', 3),
+('2024-02-22', 'B', 90, 'NOON', 3),
+('2024-02-22', 'B', 183, 'DINNER', 3),
+('2024-02-22', 'A', 183, 'MORNING', 3),
+('2024-02-22', 'A', 135, 'NOON', 3),
+('2024-02-22', 'A', 110, 'DINNER', 3),
+('2024-02-22', 'L', 121, 'MORNING', 3),
+('2024-02-22', 'L', 134, 'NOON', 3),
+('2024-02-22', 'L', 173, 'DINNER', 3),
+('2024-02-22', 'H', 99, 'MORNING', 3),
+('2024-02-22', 'H', 108, 'NOON', 3),
+('2024-02-22', 'H', 103, 'DINNER', 3),
+('2024-02-23', 'B', 99, 'MORNING', 3),
+('2024-02-23', 'B', 90, 'NOON', 3),
+('2024-02-23', 'B', 96, 'DINNER', 3),
+('2024-02-23', 'A', 163, 'MORNING', 3),
+('2024-02-23', 'A', 52, 'NOON', 3),
+('2024-02-23', 'A', 112, 'DINNER', 3),
+('2024-02-23', 'L', 137, 'MORNING', 3),
+('2024-02-23', 'L', 77, 'NOON', 3),
+('2024-02-23', 'L', 97, 'DINNER', 3),
+('2024-02-23', 'H', 54, 'MORNING', 3),
+('2024-02-23', 'H', 73, 'NOON', 3),
+('2024-02-23', 'H', 78, 'DINNER', 3),
+('2024-02-24', 'B', 168, 'MORNING', 3),
+('2024-02-24', 'B', 176, 'NOON', 3),
+('2024-02-24', 'B', 54, 'DINNER', 3),
+('2024-02-24', 'A', 184, 'MORNING', 3),
+('2024-02-24', 'A', 68, 'NOON', 3),
+('2024-02-24', 'A', 153, 'DINNER', 3),
+('2024-02-24', 'L', 115, 'MORNING', 3),
+('2024-02-24', 'L', 121, 'NOON', 3),
+('2024-02-24', 'L', 169, 'DINNER', 3),
+('2024-02-24', 'H', 104, 'MORNING', 3),
+('2024-02-24', 'H', 190, 'NOON', 3),
+('2024-02-24', 'H', 189, 'DINNER', 3),
+('2024-02-25', 'B', 130, 'MORNING', 3),
+('2024-02-25', 'B', 147, 'NOON', 3),
+('2024-02-25', 'B', 103, 'DINNER', 3),
+('2024-02-25', 'A', 72, 'MORNING', 3),
+('2024-02-25', 'A', 80, 'NOON', 3),
+('2024-02-25', 'A', 92, 'DINNER', 3),
+('2024-02-25', 'L', 150, 'MORNING', 3),
+('2024-02-25', 'L', 51, 'NOON', 3),
+('2024-02-25', 'L', 57, 'DINNER', 3),
+('2024-02-25', 'H', 107, 'MORNING', 3),
+('2024-02-25', 'H', 153, 'NOON', 3),
+('2024-02-25', 'H', 106, 'DINNER', 3),
+('2024-02-26', 'B', 173, 'MORNING', 3),
+('2024-02-26', 'B', 199, 'NOON', 3),
+('2024-02-26', 'B', 181, 'DINNER', 3),
+('2024-02-26', 'A', 145, 'MORNING', 3),
+('2024-02-26', 'A', 51, 'NOON', 3),
+('2024-02-26', 'A', 141, 'DINNER', 3),
+('2024-02-26', 'L', 138, 'MORNING', 3),
+('2024-02-26', 'L', 56, 'NOON', 3),
+('2024-02-26', 'L', 108, 'DINNER', 3),
+('2024-02-26', 'H', 108, 'MORNING', 3),
+('2024-02-26', 'H', 154, 'NOON', 3),
+('2024-02-26', 'H', 124, 'DINNER', 3),
+('2024-02-27', 'B', 156, 'MORNING', 3),
+('2024-02-27', 'B', 128, 'NOON', 3),
+('2024-02-27', 'B', 75, 'DINNER', 3),
+('2024-02-27', 'A', 126, 'MORNING', 3),
+('2024-02-27', 'A', 82, 'NOON', 3),
+('2024-02-27', 'A', 136, 'DINNER', 3),
+('2024-02-27', 'L', 175, 'MORNING', 3),
+('2024-02-27', 'L', 107, 'NOON', 3),
+('2024-02-27', 'L', 175, 'DINNER', 3),
+('2024-02-27', 'H', 52, 'MORNING', 3),
+('2024-02-27', 'H', 121, 'NOON', 3),
+('2024-02-27', 'H', 147, 'DINNER', 3),
+('2024-02-28', 'B', 61, 'MORNING', 3),
+('2024-02-28', 'B', 134, 'NOON', 3),
+('2024-02-28', 'B', 174, 'DINNER', 3),
+('2024-02-28', 'A', 147, 'MORNING', 3),
+('2024-02-28', 'A', 178, 'NOON', 3),
+('2024-02-28', 'A', 124, 'DINNER', 3),
+('2024-02-28', 'L', 194, 'MORNING', 3),
+('2024-02-28', 'L', 133, 'NOON', 3),
+('2024-02-28', 'L', 168, 'DINNER', 3),
+('2024-02-28', 'H', 100, 'MORNING', 3),
+('2024-02-28', 'H', 198, 'NOON', 3),
+('2024-02-28', 'H', 109, 'DINNER', 3),
+('2024-02-29', 'B', 188, 'MORNING', 3),
+('2024-02-29', 'B', 194, 'NOON', 3),
+('2024-02-29', 'B', 95, 'DINNER', 3),
+('2024-02-29', 'A', 142, 'MORNING', 3),
+('2024-02-29', 'A', 143, 'NOON', 3),
+('2024-02-29', 'A', 82, 'DINNER', 3),
+('2024-02-29', 'L', 83, 'MORNING', 3),
+('2024-02-29', 'L', 136, 'NOON', 3),
+('2024-02-29', 'L', 57, 'DINNER', 3),
+('2024-02-29', 'H', 171, 'MORNING', 3),
+('2024-02-29', 'H', 171, 'NOON', 3),
+('2024-02-29', 'H', 124, 'DINNER', 3);
