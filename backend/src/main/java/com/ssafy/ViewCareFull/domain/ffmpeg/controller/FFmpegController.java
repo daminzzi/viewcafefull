@@ -21,7 +21,7 @@ public class FFmpegController {
   @PostMapping("/convert")
   public ResponseEntity<String> convertVideo(@RequestBody List<String> imageUrls)
       throws IOException, InterruptedException {
-    ffmpegService.buildCommand(imageUrls, "output.mp4");
+    ffmpegService.buildCommand(imageUrls, "output");
     return new ResponseEntity<>("convert video create success", HttpStatus.CREATED);
   }
 }
