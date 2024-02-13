@@ -81,12 +81,7 @@ public class FFmpegService2 {
 
   private void executeCommand(String command) throws IOException, InterruptedException {
     ProcessBuilder processBuilder = new ProcessBuilder(command); // 프로세스 빌더 인스턴스 생성
-    String os = System.getProperty("os.name").toLowerCase();
-    if (os.contains("win")) {
-      processBuilder.command("cmd.exe", "/c", command);
-    } else {
-      processBuilder.command("bash", "-c", command);
-    }
+    processBuilder.command(command);
     Process process = processBuilder.start(); // 프로세스 실행
 
     // 명령어 실행 결과를 읽어오기 위한 BufferedReader 인스턴스 생성
