@@ -66,8 +66,8 @@ public class UsersController {
   public ResponseEntity<Void> signout(@AuthenticationPrincipal SecurityUsers securityUsers,
       @PathParam("id") String id) {
     usersService.deleteRefreshToken(securityUsers, id);
-    CookieUtil.deleteRefreshTokenCookie();
-    return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    return ResponseEntity.status(HttpStatus.NO_CONTENT)
+        .header(HttpHeaders.SET_COOKIE, CookieUtil.deleteRefreshTokenCookie().toString()).build();
   }
 
   @PostMapping("/token")
