@@ -65,7 +65,7 @@ function VisitRoom() {
           videoSource: undefined,
           publishAudio: true,
           publishVideo: true,
-          resolution: '640x360',
+          resolution: '640x480',
           frameRate: 30,
           insertMode: 'APPEND',
           mirror: false,
