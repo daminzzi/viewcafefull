@@ -56,8 +56,7 @@ public class OpenviduService {
   }
 
   @Transactional
-  public String closeSession(Map<String, Object> params) {
-    String sessionId = params.get("customSessionId").toString();
+  public String closeSession(String sessionId) {
     Conference conference = conferenceService.getConferenceByRoomName(sessionId);
     bestPhotoService.deleteNonBestPhoto(conference.getId());
     log.info("End Time : " + String.valueOf(conference.getConferenceRoom().getEndDateTime()));

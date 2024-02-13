@@ -35,12 +35,12 @@ public class OpenviduController {
     return new ResponseEntity<>(sessionId, HttpStatus.OK);
   }
 
-  @DeleteMapping("/sessions")
-  public ResponseEntity<String> closeSession(@RequestBody(required = false) Map<String, Object> params)
+  @DeleteMapping("/sessions/{sessionId}")
+  public ResponseEntity<String> closeSession(@PathVariable("sessionId") String sessionId)
       throws OpenViduJavaClientException, OpenViduHttpException {
-    log.info("closeSession: " + params.get("customSessionId").toString());
-    String sessionId = openviduService.closeSession(params);
-    return new ResponseEntity<>("close " + sessionId + " success", HttpStatus.OK);
+    log.info("closeSession: " + sessionId);
+    String sessionName = openviduService.closeSession(sessionId);
+    return new ResponseEntity<>("close " + sessionName + " success", HttpStatus.OK);
   }
 
   /**
