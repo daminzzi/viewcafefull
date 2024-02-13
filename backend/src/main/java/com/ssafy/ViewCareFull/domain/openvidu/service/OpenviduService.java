@@ -1,5 +1,8 @@
 package com.ssafy.ViewCareFull.domain.openvidu.service;
 
+import com.ssafy.ViewCareFull.domain.conference.entity.Conference;
+import com.ssafy.ViewCareFull.domain.conference.service.ConferenceService;
+import com.ssafy.ViewCareFull.domain.gallery.service.BestPhotoService;
 import com.ssafy.ViewCareFull.domain.openvidu.error.OpenviduErrorCode;
 import com.ssafy.ViewCareFull.domain.openvidu.error.exception.OpenviduException;
 import io.openvidu.java.client.Connection;
@@ -9,6 +12,7 @@ import io.openvidu.java.client.OpenViduHttpException;
 import io.openvidu.java.client.OpenViduJavaClientException;
 import io.openvidu.java.client.Session;
 import io.openvidu.java.client.SessionProperties;
+import java.time.LocalDateTime;
 import java.util.Map;
 import javax.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +30,9 @@ public class OpenviduService {
   private String OPENVIDU_SECRET;
 
   private OpenVidu openvidu;
+  private final ConferenceService conferenceService;
+  private final BestPhotoService bestPhotoService;
+
 
   @PostConstruct // 객체 초기화 시점에 호출
   public void init() {
@@ -35,7 +42,21 @@ public class OpenviduService {
   public String initSession(Map<String, Object> params) throws OpenViduJavaClientException, OpenViduHttpException {
     SessionProperties properties = SessionProperties.fromJson(params).build();
     Session session = openvidu.createSession(properties);
+    Conference conference = conferenceService.getConferenceByRoomName(params.get("customSessionId").toString());
+    if (conference.getConferenceRoom().getStartDateTime() == null) {
+      conference.getConferenceRoom().startConference(LocalDateTime.now());
+    }
     return session.getSessionId();
+  }
+
+  public String closeSession(Map<String, Object> params) {
+    String sessionId = params.get("customSessionId").toString();
+    Conference conference = conferenceService.getConferenceByRoomName(sessionId);
+    bestPhotoService.deleteNonBestPhoto(conference.getId());
+    if (conference.getConferenceRoom().getEndDateTime() == null) {
+      conference.getConferenceRoom().endConference(LocalDateTime.now());
+    }
+    return sessionId;
   }
 
   public String creToken(String sessionId, Map<String, Object> params)

@@ -67,7 +67,7 @@ public class ConferenceService {
 
   @Transactional
   public void deleteConference(Long id) {
-    if(!conferenceRepository.existsById(id)){
+    if (!conferenceRepository.existsById(id)) {
       throw new ConferenceException(ConferenceErrorCode.NOT_FOUND_CONFERENCE);
     }
     conferenceRepository.deleteById(id);
@@ -137,6 +137,11 @@ public class ConferenceService {
 
   public Conference getConferenceById(Long conferenceId) {
     return conferenceRepository.getConferenceById(conferenceId)
+        .orElseThrow(() -> new ConferenceException(ConferenceErrorCode.NOT_FOUND_CONFERENCE));
+  }
+
+  public Conference getConferenceByRoomName(String RoomName) {
+    return conferenceRepository.getConferenceByRoomName(RoomName)
         .orElseThrow(() -> new ConferenceException(ConferenceErrorCode.NOT_FOUND_CONFERENCE));
   }
 }

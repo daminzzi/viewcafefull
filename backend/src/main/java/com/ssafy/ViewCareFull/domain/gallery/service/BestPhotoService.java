@@ -96,4 +96,16 @@ public class BestPhotoService {
     }
     return multipartFile;
   }
+
+  public void deleteNonBestPhoto(Long conferenceId) {
+    List<BestPhoto> bestPhotoList = bestPhotoRepository.findByConferenceId(conferenceId);
+    int size = bestPhotoList.size();
+    for (int i = 0; i < size; i++) {
+      BestPhoto bestPhoto = bestPhotoList.get(i);
+      Long imageId = bestPhoto.getImage().getId();
+      if (i > 2 || bestPhoto.getScore() < 80) {
+        galleryService.deleteImage(imageId);
+      }
+    }
+  }
 }

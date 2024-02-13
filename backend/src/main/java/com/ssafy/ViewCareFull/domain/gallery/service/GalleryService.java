@@ -98,4 +98,8 @@ public class GalleryService {
   public String getImagePath(Image image) {
     return fileRealPath + image.getImageName();
   }
+
+  public void deleteImage(Long imageId) {
+    imageRepository.deleteImageById(imageId);
+  }
 }

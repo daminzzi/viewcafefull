@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,6 +33,14 @@ public class OpenviduController {
     log.info("initializeSession: " + params.get("customSessionId").toString());
     String sessionId = openviduService.initSession(params);
     return new ResponseEntity<>(sessionId, HttpStatus.OK);
+  }
+
+  @DeleteMapping("/sessions")
+  public ResponseEntity<String> closeSession(@RequestBody(required = false) Map<String, Object> params)
+      throws OpenViduJavaClientException, OpenViduHttpException {
+    log.info("closeSession: " + params.get("customSessionId").toString());
+    String sessionId = openviduService.closeSession(params);
+    return new ResponseEntity<>("close " + sessionId + " success", HttpStatus.OK);
   }
 
   /**
