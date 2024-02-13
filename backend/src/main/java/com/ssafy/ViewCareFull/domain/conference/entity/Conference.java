@@ -94,8 +94,8 @@ public class Conference extends BaseTime {
   public void updatePermissionState(ConferenceStateDto conferenceStateDto) {
     this.conferenceState = PermissionType.of(conferenceStateDto.getConferenceState());
     if (conferenceState == PermissionType.A) {
-      // TODO: 여기에 만들어진 세션이름 넣어서 conferenceRoom에 생성
-      this.conferenceRoom = new ConferenceRoom();
+      StringBuilder sb = new StringBuilder().append(getId()).append("_").append(getCaregiver().getDomainId());
+      this.conferenceRoom = new ConferenceRoom(sb.toString());
     }
   }
 }
