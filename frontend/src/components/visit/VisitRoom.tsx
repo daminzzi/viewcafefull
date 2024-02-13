@@ -25,12 +25,11 @@ function VisitRoom() {
   const navigator = useNavigate();
   const params = useParams<{ id: string }>();
   const sessionId = params.id ? params.id : '';
-  console.log(sessionId, myUserName);
-
   const [publisher, setPublisher] = useState<Publisher | null>(null);
   const [isVideoEnabled, setIsVideoEnabled] = useState(true);
   const [isAudioEnabled, setIsAudioEnabled] = useState(true);
-
+  const [videoHeight, setVideoHeight] = useState('70%');
+  const [videoWidth, setVideoWidth] = useState('50%');
   const captureRef = useRef<HTMLDivElement>(null);
 
   const joinSession = async () => {
@@ -44,13 +43,15 @@ function VisitRoom() {
         // console.log('new stream created detected');
         const subscriber = mySession.subscribe(event.stream, undefined);
         // console.log('SubList - ', subscriberList);
-        addSubscriber(subscriber);
+        const videoNum = addSubscriber(subscriber);
+        calculateVideoSize(videoNum);
         // console.log('add new subscriber');
       });
 
       mySession.on('streamDestroyed', (event) => {
         if (event.stream.streamManager instanceof Subscriber) {
-          delSubscriber(event.stream.streamManager);
+          const videoNum = delSubscriber(event.stream.streamManager);
+          calculateVideoSize(videoNum);
         }
       });
 
@@ -65,7 +66,7 @@ function VisitRoom() {
           videoSource: undefined,
           publishAudio: true,
           publishVideo: true,
-          resolution: '640x360',
+          resolution: '640x480',
           frameRate: 30,
           insertMode: 'APPEND',
           mirror: false,
@@ -114,9 +115,29 @@ function VisitRoom() {
     }
   }
 
+  function calculateVideoSize(videoCount: number) {
+    console.log(videoCount);
+    if (videoCount === 0) {
+      setVideoHeight('70%');
+      setVideoWidth('60%');
+    } else if (videoCount >= 1 && videoCount <= 2) {
+      setVideoHeight('47%');
+      setVideoWidth('30%');
+    } else if (videoCount === 3) {
+      setVideoHeight('47%');
+      setVideoWidth('40%');
+    } else if (videoCount >= 4 && videoCount <= 5) {
+      setVideoHeight('47%');
+      setVideoWidth('25%');
+    } else {
+      setVideoHeight('47%');
+      setVideoWidth('20%');
+    }
+  }
+
   function renderSubscriberList() {
     return subscriberList.map((sub) => (
-      <VideoOne key={sub.id}>
+      <VideoOne key={sub.id} $height={videoHeight} $width={videoWidth}>
         <UserVideo streamManager={sub} />
       </VideoOne>
     ));
@@ -162,11 +183,14 @@ function VisitRoom() {
     }
   }, []); // user가 변경될 때마다 useEffect 실행
 
+  useEffect(() => {
+    calculateVideoSize(subscriberList.length);
+  }, [subscriberList]);
   return (
     <div>
       <StyledHeader>{tarUserName}님의 면회실</StyledHeader>
       <VideoGroup>
-        <VideoOne ref={captureRef}>
+        <VideoOne ref={captureRef} $height={videoHeight} $width={videoWidth}>
           {publisher !== null ? <UserVideo streamManager={publisher} /> : null}
         </VideoOne>
         {renderSubscriberList()}
@@ -185,7 +209,7 @@ function VisitRoom() {
 export default VisitRoom;
 
 const VideoGroup = styled.div`
-  height: 75vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -193,9 +217,10 @@ const VideoGroup = styled.div`
   gap: 2rem;
 `;
 
-const VideoOne = styled.div`
+const VideoOne = styled.div<{ $height?: string; $width?: string }>`
   display: inline-block;
-  height: 45%;
+  height: ${(props) => props.$height || '70%'};
+  width: ${(props) => props.$width || '70%'};
 `;
 
 const StyledHeader = styled.div`
