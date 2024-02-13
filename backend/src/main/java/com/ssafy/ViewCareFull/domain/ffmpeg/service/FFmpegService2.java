@@ -41,7 +41,7 @@ public class FFmpegService2 {
     for (String imageUrl : imageUrls) {
       ffmpegCommandBuilder.append(" -i ").append(imageUrl); // 각각의 이미지 사용 설정
     }
-    ffmpegCommandBuilder.append(" -i " + "https://i10a601.p.ssafy.io:8091/video/audio.mp3") // 오디오 사용 설정
+    ffmpegCommandBuilder.append(" -i " + audioInputPath + "audio.mp3") // 오디오 사용 설정
         .append(" -filter_complex \'"); // 여러개의 이미지를 하나로 결합하는 필터 사용
     for (int i = 0; i < imageUrls.size(); i++) {
       StringBuilder append = ffmpegCommandBuilder.append("[").append(i).append(":v]") // index 번째 이미지 필터 설정
