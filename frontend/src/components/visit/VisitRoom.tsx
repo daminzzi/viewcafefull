@@ -144,7 +144,7 @@ function VisitRoom() {
 
   useEffect(() => {
     // user의 type이 'Guardian'인 경우에만 setInterval 설정
-    if (user?.role === 'Guardian') {
+    if (user?.role === 'Caregiver') {
       const captureInterval = setInterval(capturePublisher, 30000);
 
       return () => {
