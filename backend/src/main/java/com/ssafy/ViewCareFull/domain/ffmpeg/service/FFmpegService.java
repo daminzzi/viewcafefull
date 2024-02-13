@@ -59,14 +59,14 @@ public class FFmpegService {
         .append(imageUrls.size()) // 이미지 개수 설정
         .append(":v=1") // 비디오로 출력 설정
         .append(":a=0") // 오디오로 출력 미설정
-        .append("[v]\"") // 이미지 결합 설정
+        .append("[v]; ") // 이미지 결합 설정
         .append("[" + imageUrls.size() + ":a]") // 오디오 사용 설정
         .append("atrim=start=" + audioStartSec) // 오디오 시작 시간 설정
-        .append(":end=" + 2 * imageUrls.size()) // 오디오 종료 시간 설정
+        .append(":end=" + (2 * imageUrls.size() + audioStartSec)) // 오디오 종료 시간 설정
         .append(",aloop=loop=1") // 오디오 반복 설정
         .append(":size=1") // 오디오 반복 횟수 설정
-        .append(":start") // 오디오 처음부터 시작
-        .append("asetpts=PTS-STARTPTS[a_trimmed];") // 오디오 타임 스탬프 조정
+        .append(":start=0") // 오디오 처음부터 시작
+        .append(",asetpts=PTS-STARTPTS[a_trimmed]; ") // 오디오 타임 스탬프 조정
         .append("[a_trimmed]adelay=0|0[a]\"") // 오디오 딜레이 설정
         .append(" -map \"[v]\"") // 이미지 결합 사용 설정
         .append(" -map \"[a]\"") // 오디오 결합 사용 설정
