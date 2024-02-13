@@ -43,7 +43,7 @@ public class ImageUtil {
         File outputFile = new File(outputImagePath.replace(".jpg", "_" + i + ".jpg"));
         imagePaths.add(outputFile.getAbsolutePath());
         // format jpg
-        ImageIO.write(fadedImage, "jpg", outputFile);
+        ImageIO.write(fadedImage, "PNG", outputFile);
         log.info("outputFile: " + outputFile.getAbsolutePath());
       }
     } catch (IOException e) {
