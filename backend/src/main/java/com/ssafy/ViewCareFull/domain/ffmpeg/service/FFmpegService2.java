@@ -84,8 +84,13 @@ public class FFmpegService2 {
     log.info("processBuilderCommand : " + processBuilder.command().toString());
     Process process = processBuilder.start();
 
-    // 프로세스의 종료를 대기하고 종료 코드 출력
-    int exitCode = process.waitFor();
+    // 프로세스 종료까지 대기
+    while (process.isAlive()) {
+      Thread.sleep(100); // 100ms 마다 프로세스 종료 여부 확인
+    }
+
+    // 종료 코드 확인
+    int exitCode = process.exitValue();
     if (exitCode == 0) {
       log.info("Exited with create video success code: 0");
     } else {
