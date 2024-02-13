@@ -47,8 +47,8 @@ function MessageSimple({
 
         <div onClick={() => openModal(message)}>
           <TitleContainer>
-            <TitleText isRead={message.isRead}>{message.title}</TitleText>
-            <ContentText isRead={message.isRead}>{message.content}</ContentText>
+            <TitleText $isRead={message.isRead}>{message.title}</TitleText>
+            <ContentText $isRead={message.isRead}>{message.content}</ContentText>
           </TitleContainer>
         </div>
         <FlexRowContainer
@@ -84,7 +84,7 @@ export default MessageSimple;
 const TitleText = styled.div<{ $isRead?: boolean }>`
   font-weight: bold;
   padding-bottom: 13px;
-  color: ${(props) => (props.isRead ? gray : black)};
+  color: ${(props) => (props.$isRead ? gray : black)};
   width: 35vw;
   overflow: hidden;
   text-overflow: ellipsis;
