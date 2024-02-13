@@ -11,6 +11,8 @@ import html2canvas from 'html2canvas';
 import { styled } from 'styled-components';
 import ToolBar from './ToolBar';
 import { light } from '../../assets/styles/palettes';
+import deleteSession from '../../services/visit/deleteSession';
+import postBestShot from '../../services/visit/postBestShot';
 
 function VisitRoom() {
   const { subscriberList, addSubscriber, delSubscriber, resetSubscriberList } =
@@ -83,7 +85,12 @@ function VisitRoom() {
     session.disconnect();
     resetSubscriberList();
     setPublisher(null);
-    navigator('/family/visit');
+    if (user?.role === 'Guardian') {
+      navigator('/family/visit');
+    } else if (user?.role === 'Caregiver') {
+      deleteSession(sessionId);
+      navigator('/caregiver');
+    }
   }
 
   function toggleVideo() {
@@ -121,6 +128,8 @@ function VisitRoom() {
         const canvas = await html2canvas(captureRef.current);
         const imageDataURL = canvas.toDataURL('image/jpeg');
         console.log(imageDataURL);
+        const parts = imageDataURL.split(',');
+        postBestShot(sessionId, parts[1]);
       } catch (error) {
         console.log(error);
       }
