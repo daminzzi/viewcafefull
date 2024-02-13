@@ -65,7 +65,7 @@ function VisitRoom() {
           videoSource: undefined,
           publishAudio: true,
           publishVideo: true,
-          resolution: '640x480',
+          resolution: '640x360',
           frameRate: 30,
           insertMode: 'APPEND',
           mirror: false,
@@ -185,16 +185,17 @@ function VisitRoom() {
 export default VisitRoom;
 
 const VideoGroup = styled.div`
-  height: 80vh;
+  height: 75vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   align-items: center;
+  gap: 2rem;
 `;
 
 const VideoOne = styled.div`
   display: inline-block;
-  height: 50%;
+  height: 45%;
 `;
 
 const StyledHeader = styled.div`
