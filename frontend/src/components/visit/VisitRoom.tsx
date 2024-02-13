@@ -49,6 +49,7 @@ function VisitRoom() {
 
       mySession.on('streamDestroyed', (event) => {
         if (event.stream.streamManager instanceof Subscriber) {
+          calculateVideoSize(subscriberList.length - 1);
           delSubscriber(event.stream.streamManager);
         }
       });
@@ -180,7 +181,7 @@ function VisitRoom() {
 
   useEffect(() => {
     calculateVideoSize(subscriberList.length);
-  }, [subscriberList, addSubscriber, delSubscriber]);
+  }, [subscriberList]);
   return (
     <div>
       <StyledHeader>{tarUserName}님의 면회실</StyledHeader>
