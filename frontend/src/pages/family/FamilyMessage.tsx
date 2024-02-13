@@ -1,37 +1,57 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import getMessage from '../../services/message/getMessage';
 import postReadMessage from '../../services/message/postReadMessage';
+import getReadMessage from '../../services/message/getReadMessage';
 import MessageDetailModal from '../../components/message/MessageDetailModal';
 import Pagination from '../../components/common/Pagination';
-import getReadMessage from '../../services/message/getReadMessage';
 import MessageSimple from '../../components/message/MessageSimple';
+import MessageReport from '../../components/message/MessageReport';
 import useUserStore from '../../stores/UserStore';
-import Title from '../../components/common/Title';
-import { Button } from '../../components/common/Buttons';
-import { black, failed, success, white } from '../../assets/styles/palettes';
 import styled from 'styled-components';
+import Title from '../../components/common/Title';
 import Line from '../../components/common/Line';
 import Input from '../../components/common/Input';
+import { Button } from '../../components/common/Buttons';
 import search from '../../assets/images/search.png';
 import FlexRowContainer from '../../components/common/FlexRowContainer';
 import FlexColContainer from '../../components/common/FlexColContainer';
 import { ReactComponent as Spinner } from '../../assets/icons/spinner.svg';
+import { black, failed, success, white } from '../../assets/styles/palettes';
 
 // 보호자 - 받은 메세지 페이지별 조회
 
 function FamilyMessage() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [keyword, setKeyword] = useState<string>();
-  const [messagesData, setMessagesData] = useState<MessagesResponse | null>(
-    null,
-  );
 
+  const [pageNum, setPageNum] = useState<number>(0);
+  const [messages, setMessages] = useState<Message[]>();
   const [unreadMsgs, setUnreadMsgs] = useState<number>();
   const [sumMsgs, setSumMsgs] = useState<number>();
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
   const [checkedMessages, setCheckedMessages] = useState<Message[]>([]);
   const { user } = useUserStore();
-  const pageGroupSize = 5;
+  const pageGroupSize = 6;
+
+  function parseContent(content: string): ReportMessage | string {
+    try {
+      const jsonContent = JSON.parse(content);
+      return jsonContent;
+    } catch (error) {
+      // JSON 파싱에 실패하면 문자열 그대로 반환
+      return content;
+    }
+  }
+
+  function isReportMessage(obj: string | ReportMessage): obj is ReportMessage {
+    return (
+      typeof obj === 'object' &&
+      'year' in obj &&
+      'month' in obj &&
+      'targetId' in obj &&
+      'targetName' in obj
+    );
+  }
 
   useEffect(() => {
     if (selectedMessage === null) {
@@ -39,7 +59,21 @@ function FamilyMessage() {
         if (user) {
           const res = await getMessage(currentPage, keyword);
           if (res) {
-            setMessagesData(res);
+            const messageList: Message[] = [];
+            res.messages.forEach((message) => {
+              const parsedContent =
+                typeof message.content === 'string'
+                  ? parseContent(message.content)
+                  : message.content;
+              if (isReportMessage(parsedContent)) {
+                messageList.push({ ...message, content: parsedContent });
+              } else {
+                messageList.push(message);
+              }
+            });
+            console.log(messageList);
+            setMessages(messageList);
+            setPageNum(res.pageNum);
             setUnreadMsgs(res.unreadMsgs);
             setSumMsgs(res.sum);
           }
@@ -50,19 +84,40 @@ function FamilyMessage() {
   }, [currentPage, keyword, sumMsgs, unreadMsgs]);
 
   // 메세지 데이터 로딩 중
-  if (!messagesData) {
+  if (!messages) {
     return <Spinner width="20%" />;
   }
 
   // 메세지들 불러오기
   function renderMessages() {
-    if (!messagesData) {
+    if (!messages) {
       return null;
     }
     const messageList = [];
-    for (let i = 0; i < messagesData.messages.length; i++) {
-      const message = messagesData.messages[i];
+    for (let i = 0; i < messages.length; i++) {
+      const message = messages[i];
       const isChecked = checkedMessages.some((m) => m.id === message.id);
+      if (message.from === 'hospital') {
+        messageList.push(
+          <Fragment key={message.id}>
+            <FlexRowContainer
+              $position="relative"
+              $margin="10px 0 0 0"
+              $justifyContent="stretch"
+            >
+              <MessageReport
+                openModal={openModal}
+                message={message}
+                $isChecked={isChecked}
+                handleCheckboxChange={handleCheckboxChange}
+              />
+            </FlexRowContainer>
+
+            <hr />
+          </Fragment>,
+        );
+        continue;
+      }
       messageList.push(
         <Fragment key={message.id}>
           <FlexRowContainer
@@ -120,12 +175,12 @@ function FamilyMessage() {
     try {
       // 모든 메세지의 읽음 처리가 완료될 때까지 대기
       await Promise.all(promises);
-      setMessagesData((prev) => {
-        if (!prev) return null;
+      setMessages((prev) => {
+        if (!prev) return undefined;
         // 새로운 메시지 목록(updatedMessages)생성
         const updatedMessages = [];
-        for (let i = 0; i < prev.messages.length; i++) {
-          const message = prev.messages[i];
+        for (let i = 0; i < prev.length; i++) {
+          const message = prev[i];
           if (
             checkedMessages.some(
               (checkedMessage) => checkedMessage.id === message.id,
@@ -139,9 +194,9 @@ function FamilyMessage() {
           }
         }
         // 이전 메세지 목록 기존 정보 유지하고, 메세지 목록 새롭게 업데이트해서 반환
-        return { ...prev, messages: updatedMessages };
+        return updatedMessages;
       });
-       setUnreadMsgs((unreadMsgs ?? 0) - checkedMessages.length);
+      setUnreadMsgs((unreadMsgs ?? 0) - checkedMessages.length);
     } catch (error) {
       console.error('오류:', error);
     }
@@ -153,13 +208,25 @@ function FamilyMessage() {
   async function openModal(message: Message) {
     const updatedMessage = await getReadMessage(message.id);
     if (updatedMessage) {
-      setSelectedMessage(updatedMessage);
-      setMessagesData((prev) => {
-        if (!prev) return null;
+      let temp: Message = updatedMessage;
+      if (updatedMessage.from === 'hospital') {
+        const parsedContent =
+          typeof updatedMessage.content === 'string'
+            ? parseContent(updatedMessage.content)
+            : message.content;
+        if (isReportMessage(parsedContent)) {
+          temp = { ...updatedMessage, content: parsedContent };
+        } else {
+          temp = updatedMessage;
+        }
+      }
+      setSelectedMessage(temp);
+      setMessages((prev) => {
+        if (!prev) return undefined;
         // 새로운 메시지 목록(updatedMessages)생성
         const updatedMessages = [];
-        for (let i = 0; i < prev.messages.length; i++) {
-          const eachMessage = prev.messages[i];
+        for (let i = 0; i < prev.length; i++) {
+          const eachMessage = prev[i];
           if (message.id === eachMessage.id) {
             // 현재 가리키고 있는 메세지가 선택된 메세지인 경우 읽음 처리
             updatedMessages.push({ ...eachMessage, isRead: true });
@@ -169,11 +236,11 @@ function FamilyMessage() {
           }
         }
         // 이전 메세지 목록 기존 정보 유지하고, 메세지 목록 새롭게 업데이트해서 반환
-        return { ...prev, messages: updatedMessages };
+        return updatedMessages;
       });
-    if (!message.isRead) {
-      setUnreadMsgs((unreadMsgs ?? 0) - 1);
-    }
+      if (!message.isRead) {
+        setUnreadMsgs((unreadMsgs ?? 0) - 1);
+      }
     }
   }
   // 상세보기 할 메세지 선택(더미테스트코드)
@@ -240,7 +307,7 @@ function FamilyMessage() {
         pageGroupSize={pageGroupSize}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-        totalPage={messagesData.pageNum}
+        totalPage={pageNum}
       />
     </div>
   );

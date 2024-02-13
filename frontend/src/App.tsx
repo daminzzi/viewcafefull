@@ -56,7 +56,7 @@ function App() {
             <Route path="gallery/upload" element={<CareGiverGalleryUpload />} />
           </Route>
           <Route path="gallery/detail" element={<GalleryDetail />} />
-          <Route path="/report/:id" element={<Report />} />
+          <Route path="/report/:id/:yearMonth" element={<Report />} />
           <Route path="/openvidu/:id" element={<VisitRoom />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

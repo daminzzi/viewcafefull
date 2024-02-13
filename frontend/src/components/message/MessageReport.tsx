@@ -16,7 +16,7 @@ type MessageProps = {
   ) => void;
 };
 
-function MessageSimple({
+function MessageReport({
   openModal,
   message,
   $isChecked,
@@ -32,10 +32,27 @@ function MessageSimple({
 
   const time = `${year}/${month}/${date} ${hours}:${minutes}`;
 
+  // ReportMessage 여부를 확인하는 함수
+  function isReportMessage(obj: string | ReportMessage): obj is ReportMessage {
+    return (
+      typeof obj === 'object' &&
+      'year' in obj &&
+      'month' in obj &&
+      'targetId' in obj &&
+      'targetName' in obj
+    );
+  }
+
   function renderContentText(): React.ReactNode {
-    if (typeof message.content === 'string') {
-      return message.content;
+    if (isReportMessage(message.content)) {
+      return (
+        <div>
+          {message.content?.year}년 {message.content?.month}월{' '}
+          {message.content?.targetName}님의 건강레포트가 도착했습니다!
+        </div>
+      );
     }
+    return message.content;
   }
 
   return (
@@ -87,7 +104,7 @@ function MessageSimple({
   );
 }
 
-export default MessageSimple;
+export default MessageReport;
 
 const TitleText = styled.div<{ $isRead?: boolean }>`
   font-weight: bold;

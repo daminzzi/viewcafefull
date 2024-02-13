@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import useConnectStore from '../stores/ConnectStore';
 import getReportInfo from '../services/report/getReportInfo';
 import ReportTitle from '../components/report/ReportTitle';
 import ReportSubject from '../components/report/ReportSubject';
@@ -13,17 +12,17 @@ import { styled } from 'styled-components';
 
 function Report() {
   const navigator = useNavigate();
-  const params = useParams<{ id: string }>();
-  const { currConnect } = useConnectStore();
+  const params = useParams<{ id: string; yearMonth: string }>();
   console.log(params.id);
   const [reportInfo, setReportInfo] = useState<ReportInfo>();
   console.log(reportInfo);
 
   useEffect(() => {
     async function fetchReportInfo() {
-      const result = params.id
-        ? await getReportInfo(currConnect.targetId, params.id)
-        : null;
+      const result =
+        params.id && params.yearMonth
+          ? await getReportInfo(params.id, params.yearMonth)
+          : null;
       if (result !== null) {
         setReportInfo(result);
         return;

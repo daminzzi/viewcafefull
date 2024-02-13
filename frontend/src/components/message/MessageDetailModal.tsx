@@ -6,6 +6,7 @@ import FlexColContainer from '../common/FlexColContainer';
 import FlexRowContainer from '../common/FlexRowContainer';
 import Line from '../common/Line';
 import { ReactComponent as Xmark } from '../../assets/icons/xMark.svg';
+import { useNavigate } from 'react-router';
 
 type MessageDetailModalProps = {
   message: Message;
@@ -21,7 +22,19 @@ function MessageDetailModal({
   time,
 }: MessageDetailModalProps) {
   const dateObj = new Date(time);
+  const navigator = useNavigate();
+  function handleGoToReport() {
+    if (isReportMessage(message.content)) {
+      const month =
+        message.content.month < 10
+          ? '0' + message.content.month
+          : message.content.month.toString();
 
+      navigator(
+        `/report/${message.content.targetId}/${message.content.year}${month}`,
+      );
+    }
+  }
   const formattedDate =
     dateObj
       .toLocaleDateString('ko-KR')
@@ -38,6 +51,27 @@ function MessageDetailModal({
     //   console.error('메세지를 삭제하지 못했습니다');
     // }
     alert('추후 지원 예정 기능입니다');
+  }
+
+  // ReportMessage 여부를 확인하는 함수
+  function isReportMessage(obj: string | ReportMessage): obj is ReportMessage {
+    return typeof obj === 'object';
+  }
+
+  function renderContentText(): React.ReactNode {
+    console.log(isReportMessage(message.content));
+    if (isReportMessage(message.content)) {
+      return (
+        <FlexColContainer $gap="3rem">
+          {message.content.year}년 {message.content.month}월{' '}
+          {message.content.targetName}님의 건강레포트가 도착했습니다!
+          <Button type="button" onClick={handleGoToReport} $width="100%">
+            레포트 바로가기
+          </Button>
+        </FlexColContainer>
+      );
+    }
+    return message.content;
   }
 
   return (
@@ -61,7 +95,7 @@ function MessageDetailModal({
         <FlexColContainer $alignItems="stretch" $justifyContent="stretch">
           <Title>내용</Title>
           <Line />
-          <ContentText>{message.content}</ContentText>
+          <ContentText>{renderContentText()}</ContentText>
         </FlexColContainer>
       </FlexColContainer>
       <TimeText>{formattedDate}</TimeText>
