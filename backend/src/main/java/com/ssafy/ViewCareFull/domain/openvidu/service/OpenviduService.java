@@ -16,11 +16,13 @@ import java.time.LocalDateTime;
 import java.util.Map;
 import javax.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class OpenviduService {
 
   @Value("${OPENVIDU_URL}")
@@ -43,8 +45,9 @@ public class OpenviduService {
     SessionProperties properties = SessionProperties.fromJson(params).build();
     Session session = openvidu.createSession(properties);
     Conference conference = conferenceService.getConferenceByRoomName(params.get("customSessionId").toString());
+    log.info("Start Time : " + String.valueOf(conference.getConferenceRoom().getStartDateTime()));
     if (conference.getConferenceRoom().getStartDateTime() == null) {
-      conference.getConferenceRoom().startConference(LocalDateTime.now());
+      conference.updateStartTime(LocalDateTime.now());
     }
     return session.getSessionId();
   }
@@ -53,8 +56,9 @@ public class OpenviduService {
     String sessionId = params.get("customSessionId").toString();
     Conference conference = conferenceService.getConferenceByRoomName(sessionId);
     bestPhotoService.deleteNonBestPhoto(conference.getId());
+    log.info("End Time : " + String.valueOf(conference.getConferenceRoom().getEndDateTime()));
     if (conference.getConferenceRoom().getEndDateTime() == null) {
-      conference.getConferenceRoom().endConference(LocalDateTime.now());
+      conference.updateEndTime(LocalDateTime.now());
     }
     return sessionId;
   }

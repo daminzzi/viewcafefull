@@ -22,6 +22,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -97,5 +98,13 @@ public class Conference extends BaseTime {
       StringBuilder sb = new StringBuilder().append(getId()).append("_").append(getCaregiver().getDomainId());
       this.conferenceRoom = new ConferenceRoom(sb.toString());
     }
+  }
+
+  public void updateStartTime(LocalDateTime localDateTime) {
+    this.conferenceRoom.startConference(localDateTime);
+  }
+
+  public void updateEndTime(LocalDateTime localDateTime) {
+    this.conferenceRoom.endConference(localDateTime);
   }
 }
