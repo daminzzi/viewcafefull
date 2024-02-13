@@ -103,9 +103,29 @@ public class ConferenceService {
           getConferenceListByHospital(user.getId(), startDate, endDate,
               pageable).map(ConferenceInfo::of).getContent();
       return new ConferenceTodayListDto(reservedConferenceList, null);
+
+    } else if ("tar".equals(type) && "Caregiver".equals(user.getUserType())) {
+      List<ConferenceInfo> reservedConferenceList = getConferenceListByCaregiver(user.getId(), startDate, endDate,
+          pageable).map(ConferenceInfo::of).getContent();
+
+      List<ConferenceInfo> todayConferenceInfoList = ConferenceInfo.toList(
+          conferenceRepository.findAllByCaregiverIdAndPermissionState(
+              user.getId(), PermissionType.A, LocalDate.now()));
+
+      return new ConferenceTodayListDto(reservedConferenceList,todayConferenceInfoList);
     }
     throw new ConferenceException(ConferenceErrorCode.INVALID_TYPE);
   }
+
+  public Page<Conference> getConferenceListByCaregiver(Long caregiverId, LocalDate startDate, LocalDate endDate,
+      Pageable pageable) {
+    if (startDate != null && endDate != null) {
+      return conferenceRepository.findAllByCaregiverIdBetweenDate(caregiverId, startDate,
+          endDate, pageable);
+    }
+    return conferenceRepository.findAllByCaregiverId(caregiverId, pageable);
+  }
+
 
   public Page<Conference> getConferenceListByHospital(Long hospitalId, LocalDate startDate, LocalDate endDate,
       Pageable pageable) {
@@ -114,6 +134,7 @@ public class ConferenceService {
     }
     return conferenceRepository.findAllByHospitalId(hospitalId, pageable);
   }
+
 
   public Page<Conference> getConferenceListByGuardian(Long guardianId, LocalDate startDate, LocalDate endDate,
       Pageable pageable) {

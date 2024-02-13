@@ -46,4 +46,15 @@ public interface ConferenceRepository extends JpaRepository<Conference, Long> {
 
   @Query("SELECT c FROM Conference c WHERE c.conferenceRoom.roomName = :roomName")
   Optional<Conference> getConferenceByRoomName(@Param("roomName") String roomName);
+
+  @Query(value = "SELECT c FROM Conference c WHERE c.caregiver.id = :caregiverId and c.conferenceDate between :startDate and :endDate",
+      countQuery = "SELECT count(c) FROM Conference c WHERE c.caregiver.id = :caregiverId and c.conferenceDate between :startDate and :endDate")
+  Page<Conference> findAllByCaregiverIdBetweenDate(Long caregiverId, LocalDate startDate, LocalDate endDate,
+      Pageable pageable);
+
+  @Query(value = "SELECT c FROM Conference c WHERE c.caregiver.id = :caregiverId",
+      countQuery = "SELECT count(c) FROM Conference c WHERE c.caregiver.id = :caregiverId")
+  Page<Conference> findAllByCaregiverId(Long caregiverId, Pageable pageable);
+  @Query("SELECT c FROM Conference c WHERE c.caregiver.id = :caregiverId AND c.conferenceDate=:today And c.conferenceState=:conferenceState ORDER BY c.conferenceTime")
+  List<Conference> findAllByCaregiverIdAndPermissionState(Long caregiverId, PermissionType conferenceState, LocalDate today);
 }

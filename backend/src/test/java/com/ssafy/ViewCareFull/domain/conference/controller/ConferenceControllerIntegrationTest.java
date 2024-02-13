@@ -41,7 +41,7 @@ import org.springframework.web.context.WebApplicationContext;
 @Transactional
 @DisplayName("면회 컨트롤러 Test")
 @ActiveProfiles("test")
-public class ConferenceControllerIntegrationTest {
+class ConferenceControllerIntegrationTest {
 
   private MockMvc mockMvc;
   @Autowired
@@ -167,5 +167,20 @@ public class ConferenceControllerIntegrationTest {
           .andExpect(status().isOk())
           .andDo(MockMvcRestDocumentation.document("면회 조회"));
     }
+  }
+
+  @Test
+  @DisplayName("[성공] 입소자가 면회 조회 성공 테스트")
+  void getConferenceListByGuardianSuccessTest() throws Exception {
+    // given
+    Conference conference = saveConference();
+    LocalDate today = LocalDate.now();
+    // when
+    mockMvc.perform(
+        RestDocumentationRequestBuilders.get("/conference/tar/list")
+            .header("Content-Type", "application/json")
+            .header("Authorization", userRegisterHelper.getCaregiverAccessToken()))
+            .andExpect(status().isOk())
+            .andDo(MockMvcRestDocumentation.document("면회 조회"));
   }
 }
