@@ -49,8 +49,8 @@ function VisitRoom() {
 
       mySession.on('streamDestroyed', (event) => {
         if (event.stream.streamManager instanceof Subscriber) {
-          calculateVideoSize(subscriberList.length - 1);
           delSubscriber(event.stream.streamManager);
+          calculateVideoSize(subscriberList.length);
         }
       });
 
@@ -128,6 +128,9 @@ function VisitRoom() {
     } else if (videoCount >= 4 && videoCount <= 5) {
       setVideoHeight('47%');
       setVideoWidth('25%');
+    } else {
+      setVideoHeight('47%');
+      setVideoWidth('20%');
     }
   }
 
