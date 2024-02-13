@@ -37,13 +37,6 @@ public class UserRegisterHelper {
 
   public void execute(WebApplicationContext context) {
     PasswordEncoder passwordEncoder = context.getBean(PasswordEncoder.class);
-    Caregiver caregiver = Caregiver.builder()
-        .userName("caregiver")
-        .domainId("caregiver")
-        .password(passwordEncoder.encode("1234"))
-        .token("token")
-        .build();
-    usersRepository.save(caregiver);
     Guardian guardian = Guardian.builder()
         .userName("guardian")
         .domainId("guardian")
@@ -56,6 +49,14 @@ public class UserRegisterHelper {
         .password(passwordEncoder.encode("1234"))
         .build();
     usersRepository.save(hospital);
+    Caregiver caregiver = Caregiver.builder()
+        .userName("caregiver")
+        .domainId("caregiver")
+        .password(passwordEncoder.encode("1234"))
+        .token("token")
+        .hospital(hospital)
+        .build();
+    usersRepository.save(caregiver);
     UserLink userLink = UserLink.builder()
         .caregiver(caregiver)
         .guardian(guardian)

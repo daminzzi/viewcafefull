@@ -87,7 +87,7 @@ public class ConditionControllerIntegrationTest {
       // then
       Conditions conditions = conditionRepository.findByUserAndDate(caregiver, LocalDate.of(2024, 2, 8))
           .get();
-      Assertions.assertThat(conditions.getUser().getId()).isEqualTo(1L);
+      Assertions.assertThat(conditions.getUser().getId()).isEqualTo(caregiver.getId());
       Assertions.assertThat(conditions.getCondition()).isEqualTo(ConditionType.GOOD);
     }
 
@@ -113,7 +113,7 @@ public class ConditionControllerIntegrationTest {
       // then
       Conditions conditions = conditionRepository.findByUserAndDate(caregiver, LocalDate.of(2024, 2, 8))
           .get();
-      Assertions.assertThat(conditions.getUser().getId()).isEqualTo(1L);
+      Assertions.assertThat(conditions.getUser().getId()).isEqualTo(caregiver.getId());
       Assertions.assertThat(conditions.getCondition()).isEqualTo(ConditionType.NORMAL);
     }
   }
