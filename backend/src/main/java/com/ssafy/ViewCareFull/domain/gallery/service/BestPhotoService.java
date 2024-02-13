@@ -17,6 +17,7 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mock.web.MockMultipartFile;
@@ -27,6 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
+@Slf4j
 public class BestPhotoService {
 
   private final BestPhotoRepository bestPhotoRepository;
@@ -97,6 +99,7 @@ public class BestPhotoService {
     return multipartFile;
   }
 
+  @Transactional
   public void deleteNonBestPhoto(Long conferenceId) {
     List<BestPhoto> bestPhotoList = bestPhotoRepository.findByConferenceId(conferenceId);
     int size = bestPhotoList.size();
@@ -104,7 +107,8 @@ public class BestPhotoService {
       BestPhoto bestPhoto = bestPhotoList.get(i);
       Image image = bestPhoto.getImage();
       if (i > 2 || bestPhoto.getScore() < 70) {
-        bestPhotoRepository.delete(bestPhoto);
+        log.info("delete non best photo image id : " + image.getId());
+        bestPhotoRepository.deleteById(bestPhoto.getId());
         galleryService.deleteImage(image);
       }
     }

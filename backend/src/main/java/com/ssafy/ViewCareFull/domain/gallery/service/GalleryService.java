@@ -100,6 +100,6 @@ public class GalleryService {
   }
 
   public void deleteImage(Image image) {
-    imageRepository.delete(image);
+    imageRepository.deleteById(image.getId());
   }
 }

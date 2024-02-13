@@ -3,6 +3,7 @@ package com.ssafy.ViewCareFull.domain.conference.repository;
 import com.ssafy.ViewCareFull.domain.conference.entity.Conference;
 import com.ssafy.ViewCareFull.domain.users.entity.PermissionType;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -46,4 +47,12 @@ public interface ConferenceRepository extends JpaRepository<Conference, Long> {
 
   @Query("SELECT c FROM Conference c WHERE c.conferenceRoom.roomName = :roomName")
   Optional<Conference> getConferenceByRoomName(@Param("roomName") String roomName);
+
+  @Query("UPDATE Conference c SET c.conferenceRoom.startDateTime = :localDateTime WHERE c.id = :conferenceId")
+  Optional<Conference> updateStartTimeById(@Param("conferenceId") Long conferenceId,
+      @Param("localDateTime") LocalDateTime localDateTime);
+
+  @Query("UPDATE Conference c SET c.conferenceRoom.endDateTime = :localDateTime WHERE c.id = :conferenceId")
+  Optional<Conference> updateEndTimeById(@Param("conferenceId") Long conferenceId,
+      @Param("localDateTime") LocalDateTime localDateTime);
 }

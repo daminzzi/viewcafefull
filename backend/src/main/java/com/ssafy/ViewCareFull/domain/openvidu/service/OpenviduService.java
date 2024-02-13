@@ -47,7 +47,8 @@ public class OpenviduService {
     Conference conference = conferenceService.getConferenceByRoomName(params.get("customSessionId").toString());
     log.info("Start Time : " + String.valueOf(conference.getConferenceRoom().getStartDateTime()));
     if (conference.getConferenceRoom().getStartDateTime() == null) {
-      conference.updateStartTime(LocalDateTime.now());
+      log.info("updateStartTime");
+      conferenceService.updateConferenceStartTime(conference.getId(), LocalDateTime.now());
     }
     return session.getSessionId();
   }
@@ -58,7 +59,8 @@ public class OpenviduService {
     bestPhotoService.deleteNonBestPhoto(conference.getId());
     log.info("End Time : " + String.valueOf(conference.getConferenceRoom().getEndDateTime()));
     if (conference.getConferenceRoom().getEndDateTime() == null) {
-      conference.updateEndTime(LocalDateTime.now());
+      log.info("updateEndTime");
+      conferenceService.updateConferenceEndTime(conference.getId(), LocalDateTime.now());
     }
     return sessionId;
   }

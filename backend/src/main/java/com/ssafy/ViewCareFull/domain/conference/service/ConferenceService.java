@@ -15,8 +15,10 @@ import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.service.UserLinkService;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -28,6 +30,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
+@Slf4j
 public class ConferenceService {
 
   private final ConferenceRepository conferenceRepository;
@@ -142,6 +145,18 @@ public class ConferenceService {
 
   public Conference getConferenceByRoomName(String RoomName) {
     return conferenceRepository.getConferenceByRoomName(RoomName)
+        .orElseThrow(() -> new ConferenceException(ConferenceErrorCode.NOT_FOUND_CONFERENCE));
+  }
+
+  @Transactional
+  public void updateConferenceStartTime(Long conferenceId, LocalDateTime localDateTime) {
+    conferenceRepository.updateStartTimeById(conferenceId, localDateTime)
+        .orElseThrow(() -> new ConferenceException(ConferenceErrorCode.NOT_FOUND_CONFERENCE));
+  }
+
+  @Transactional
+  public void updateConferenceEndTime(Long conferenceId, LocalDateTime localDateTime) {
+    conferenceRepository.updateEndTimeById(conferenceId, localDateTime)
         .orElseThrow(() -> new ConferenceException(ConferenceErrorCode.NOT_FOUND_CONFERENCE));
   }
 }
