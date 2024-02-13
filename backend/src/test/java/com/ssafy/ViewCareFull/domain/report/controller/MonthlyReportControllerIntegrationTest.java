@@ -5,10 +5,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssafy.ViewCareFull.DatabaseCleanup;
 import com.ssafy.ViewCareFull.domain.helper.UserRegisterHelper;
-import com.ssafy.ViewCareFull.domain.report.ReportRepository;
 import com.ssafy.ViewCareFull.domain.report.dto.MonthlyHealthInfo;
 import com.ssafy.ViewCareFull.domain.report.dto.MonthlyReport;
 import com.ssafy.ViewCareFull.domain.report.dto.RequestReportDto;
+import com.ssafy.ViewCareFull.domain.report.entity.Reports;
+import com.ssafy.ViewCareFull.domain.report.repository.ReportRepository;
 import com.ssafy.ViewCareFull.domain.report.service.MonthlyReportService;
 import com.ssafy.ViewCareFull.domain.report.util.OpenAIApi;
 import com.ssafy.ViewCareFull.domain.users.security.jwt.JwtAuthenticationFilter;
@@ -69,7 +70,7 @@ public class MonthlyReportControllerIntegrationTest {
 
   @Nested
   @DisplayName("월간 리포트 테스트")
-  class SaveReportTest {
+  class ReportTest {
 
     @Test
     @DisplayName("[성공] 월간 리포트 생성 테스트")
@@ -88,5 +89,47 @@ public class MonthlyReportControllerIntegrationTest {
       //then
       Assertions.assertThat(reportRepository.existsById(1L)).isTrue();
     }
+  }
+
+  @Test
+  @DisplayName("[성공] 월간 리포트 조회 테스트")
+  void getMonthlyReportSuccessTest() throws Exception {
+    // given
+    Long caregiverId = userRegisterHelper.getCaregiver().getId();
+    Reports report = Reports.builder()
+        .year(2024)
+        .month(2)
+        .caregiverId(caregiverId)
+        .reportInfo("{}")
+        .build();
+    reportRepository.save(report);
+
+    // when
+    mockMvc.perform(RestDocumentationRequestBuilders.get("/report/{id}", caregiverId)
+            .param("month", "202402")
+            .header("Content-Type", "application/json")
+            .header("Authorization", userRegisterHelper.getGuardianAccessToken()))
+        .andExpect(status().isOk())
+        .andDo(MockMvcRestDocumentation.document("월간리포트 조회"));
+    //then
+    Reports findMonthlyReport = reportRepository.findByIdAndDate(caregiverId, 2024, 2).get();
+    Assertions.assertThat(findMonthlyReport.getId()).isEqualTo(1L);
+    Assertions.assertThat(findMonthlyReport.getYear()).isEqualTo(2024);
+    Assertions.assertThat(findMonthlyReport.getMonth()).isEqualTo(2);
+  }
+
+  @Test
+  @DisplayName("[실패] 월간 리포트 조회 테스트")
+  void getMonthlyReportFailureTest() throws Exception {
+    // given
+    Long caregiverId = userRegisterHelper.getCaregiver().getId();
+
+    // when
+    mockMvc.perform(RestDocumentationRequestBuilders.get("/report/{id}", caregiverId)
+            .param("month", "202402")
+            .header("Content-Type", "application/json")
+            .header("Authorization", userRegisterHelper.getGuardianAccessToken()))
+        .andExpect(status().isNotFound())
+        .andDo(MockMvcRestDocumentation.document("월간리포트 조회"));
   }
 }

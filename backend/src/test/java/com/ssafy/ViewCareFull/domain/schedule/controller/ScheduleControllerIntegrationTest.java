@@ -86,7 +86,7 @@ public class ScheduleControllerIntegrationTest {
           .andDo(MockMvcRestDocumentation.document("일정 조회"));
       // then
       List<Schedule> scheduleList = scheduleRepository.findAllById(userRegisterHelper.getHospital().getId());
-      Assertions.assertThat(scheduleList.size()).isEqualTo(7);
+      Assertions.assertThat(scheduleList).hasSize(7);
     }
   }
 
