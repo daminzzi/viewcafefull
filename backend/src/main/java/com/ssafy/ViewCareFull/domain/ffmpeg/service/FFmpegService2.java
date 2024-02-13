@@ -76,73 +76,32 @@ public class FFmpegService2 {
     String ffmpegCommand = ffmpegCommandBuilder.toString(); // FFmpeg 명령어 완성
 
     log.info("FFmpeg command: " + ffmpegCommand); // 생성된 명령어 로그 출력
-    // executeBuildCommand(ffmpegCommand); // 명령어를 시스템 커맨드로 실행
-    executeRuntimeCommand(ffmpegCommand); // 명령어를 런타임으로 실행
+    executeCommand(ffmpegCommand); // 명령어를 시스템 커맨드로 실행
   }
 
-  private void executeBuildCommand(String command) {
-    try {
-      String[] commands = new String[]{"bash", "-c", command};
-      ProcessBuilder processBuilder = new ProcessBuilder(commands);
-      log.info("processBuilderCommand : " + processBuilder.command().toString());
-      Process process = processBuilder.start();
+  private void executeCommand(String command) throws InterruptedException, IOException {
+    String[] commands = new String[]{"bash", "-c", command};
+    ProcessBuilder processBuilder = new ProcessBuilder(commands);
+    log.info("processBuilderCommand : " + processBuilder.command().toString());
+    Process process = processBuilder.start();
 
-      BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-      String line;
-      while ((line = reader.readLine()) != null) {
-        log.info(line);
-      }
-
-      BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-      while ((line = errorReader.readLine()) != null) {
-        log.info(line);
-      }
-
-      int exitCode = process.waitFor();
-      if (exitCode == 0) {
-        log.info("Exited with create video success code: 0");
-      } else {
-        log.info("Exited with error code: " + exitCode);
-        throw new VideoCreateFailException();
-      }
-    } catch (IOException e) {
-      e.printStackTrace();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    } catch (Exception e) {
-      e.printStackTrace();
+    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+    String line;
+    while ((line = reader.readLine()) != null) {
+      log.info(line);
     }
-  }
 
-  private void executeRuntimeCommand(String command) {
-    try {
-      String[] commands = new String[]{"bash", "-c", command};
-      Process process = Runtime.getRuntime().exec(commands);
+    BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+    while ((line = errorReader.readLine()) != null) {
+      log.info(line);
+    }
 
-      BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-      String line;
-      while ((line = reader.readLine()) != null) {
-        log.info(line);
-      }
-
-      BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-      while ((line = errorReader.readLine()) != null) {
-        log.info(line);
-      }
-
-      int exitCode = process.waitFor();
-      if (exitCode == 0) {
-        log.info("Exited with create video success code: 0");
-      } else {
-        log.info("Exited with error code: " + exitCode);
-        throw new VideoCreateFailException();
-      }
-    } catch (IOException e) {
-      e.printStackTrace();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    } catch (Exception e) {
-      e.printStackTrace();
+    int exitCode = process.waitFor();
+    if (exitCode == 0) {
+      log.info("Exited with create video success code: 0");
+    } else {
+      log.info("Exited with error code: " + exitCode);
+      throw new VideoCreateFailException();
     }
   }
 }
