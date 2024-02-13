@@ -1,6 +1,6 @@
 const main1 = '#BBF7D0';
 const main2 = '#A7F3D0';
-const main3 = '#6EE7B7';
+const main3 = '#4C3B2B';
 const light = '#FFF7ED';
 const deep = '#4C3B2B';
 const medium = '#D2B48C';

@@ -1,5 +1,11 @@
 import styled from 'styled-components';
-import { gray, lightgray, main3, black } from '../../assets/styles/palettes';
+import {
+  gray,
+  lightgray,
+  main3,
+  black,
+  white,
+} from '../../assets/styles/palettes';
 
 interface ButtonProps {
   $color?: string;
@@ -21,7 +27,7 @@ const Button = styled.button<ButtonProps>`
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: ${(props) => props.$color || black};
+  color: ${(props) => props.$color || white};
   width: ${(props) => props.$width || 'auto'};
   height: ${(props) => props.$height || 'auto'};
   padding: ${(props) => props.$padding || '4%'};
@@ -48,6 +54,7 @@ const DisabledButton = styled(Button)`
 `;
 
 const RoundedButton = styled(Button)`
+  color: ${(props) => props.$color || white};
   padding: ${(props) => props.$padding || '2px'};
   border-radius: ${(props) => props.$height || '10px'};
 `;

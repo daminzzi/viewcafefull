@@ -4,8 +4,8 @@ import { Button } from '../components/common/Buttons';
 import styled from 'styled-components';
 import UserContainer from '../components/common/UserContainer';
 import { ReactComponent as Logo } from '../assets/icons/mainLogo.svg';
-import tarLogin from '../assets/icons/tarLogin.svg';
-import appLogin from '../assets/icons/appLogin.svg';
+import tarLogin from '../assets/images/tarLogin.png'
+import appLogin from '../assets/images/appLogin.png';
 import FlexRowContainer from '../components/common/FlexRowContainer';
 
 function Main() {
@@ -27,11 +27,11 @@ function Main() {
 
       <FlexRowContainer $width="90%" $margin="-80px 0 0 0">
         <Button $width="100px" $padding="20px" onClick={handleAppLogin}>
-          <img src={appLogin} />
+          <img src={appLogin} width={'40px'} />
           <div>보호자</div>
         </Button>
         <Button $width="100px" $padding="20px" onClick={handleTarLogin}>
-          <img src={tarLogin} />
+          <img src={tarLogin} width={'40px'} />
           <div>간병인</div>
         </Button>
       </FlexRowContainer>

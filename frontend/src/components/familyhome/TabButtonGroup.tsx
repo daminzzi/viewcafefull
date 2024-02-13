@@ -6,6 +6,7 @@ import FlexRowContainer from '../common/FlexRowContainer';
 import styled, { css } from 'styled-components';
 
 const TabButton = styled(RoundedButton)<{ $isSelected: boolean }>`
+  color: ${deep};
   font-size: 0.8rem;
   width: 3.5rem;
   height: 1.75rem;
