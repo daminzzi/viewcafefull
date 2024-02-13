@@ -43,14 +43,15 @@ function VisitRoom() {
         // console.log('new stream created detected');
         const subscriber = mySession.subscribe(event.stream, undefined);
         // console.log('SubList - ', subscriberList);
-        addSubscriber(subscriber);
+        const videoNum = addSubscriber(subscriber);
+        calculateVideoSize(videoNum);
         // console.log('add new subscriber');
       });
 
       mySession.on('streamDestroyed', (event) => {
         if (event.stream.streamManager instanceof Subscriber) {
-          delSubscriber(event.stream.streamManager);
-          calculateVideoSize(subscriberList.length);
+          const videoNum = delSubscriber(event.stream.streamManager);
+          calculateVideoSize(videoNum);
         }
       });
 
@@ -208,7 +209,7 @@ function VisitRoom() {
 export default VisitRoom;
 
 const VideoGroup = styled.div`
-  height: 78vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

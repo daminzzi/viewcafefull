@@ -3,8 +3,8 @@ import { Subscriber } from 'openvidu-browser';
 
 type StreamState = {
   subscriberList: Subscriber[];
-  addSubscriber: (subscriber: Subscriber) => void;
-  delSubscriber: (subscriber: Subscriber) => void;
+  addSubscriber: (subscriber: Subscriber) => number;
+  delSubscriber: (subscriber: Subscriber) => number;
   resetSubscriberList: () => void;
 };
 
@@ -14,6 +14,7 @@ const useStreamStore = create<StreamState>((set, get) => ({
     set({
       subscriberList: [...get().subscriberList, subscriber],
     });
+    return get().subscriberList.length;
   },
   delSubscriber: (subscriber: Subscriber) => {
     const subscribers = get().subscriberList;
@@ -21,7 +22,9 @@ const useStreamStore = create<StreamState>((set, get) => ({
     if (index > -1) {
       subscribers.splice(index, 1);
       set({ subscriberList: subscribers });
+      return subscribers.length;
     }
+    return -1;
   },
   resetSubscriberList: () => {
     set({ subscriberList: [] });
