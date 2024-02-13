@@ -26,7 +26,7 @@ public class FFmpegService2 {
   @Value("${audio.inputPath}")
   private String audioInputPath;
 
-  public void buildCommand(List<String> imageUrls) throws IOException, InterruptedException {
+  public String buildCommand(List<String> imageUrls) throws IOException, InterruptedException {
     // 이미지를 비디오로 변환하는 FFmpeg 명령어 생성
     StringBuilder ffmpegCommandBuilder = new StringBuilder();
     int framrate = 30; // 초당 프레임 수 설정
@@ -74,10 +74,10 @@ public class FFmpegService2 {
     String ffmpegCommand = ffmpegCommandBuilder.toString(); // FFmpeg 명령어 완성
 
     log.info("FFmpeg command: " + ffmpegCommand); // 생성된 명령어 로그 출력
-    executeCommand(ffmpegCommand); // 명령어를 시스템 커맨드로 실행
+    return executeCommand(ffmpegCommand); // 명령어를 시스템 커맨드로 실행
   }
 
-  private void executeCommand(String command) throws IOException, InterruptedException {
+  private String executeCommand(String command) throws IOException, InterruptedException {
     // 프로세스 실행
     ProcessBuilder processBuilder = new ProcessBuilder("bash", "-c", command);
     log.info("processBuilderCommand : " + processBuilder.command().toString());
@@ -90,10 +90,10 @@ public class FFmpegService2 {
     int exitCode = process.exitValue();
     if (exitCode == 0) {
       log.info("Exited with create video success code: 0");
+      return "create video success";
     } else {
       log.info("Exited with error code: " + exitCode);
       throw new VideoCreateFailException();
     }
-    log.info("Video create success");
   }
 }
