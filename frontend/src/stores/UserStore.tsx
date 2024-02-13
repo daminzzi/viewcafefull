@@ -3,8 +3,6 @@ import { persist } from 'zustand/middleware';
 import deleteUser from '../services/user/deleteUser';
 import postLogin from '../services/user/postLogin';
 import getLogout from '../services/user/getLogout';
-import useHealthStore from './HealthStore';
-import useGalleryStore from './GalleryStore';
 
 const useUserStore = create<UserState>()(
   persist(
@@ -39,8 +37,6 @@ const useUserStore = create<UserState>()(
 
       logout: async () => {
         const { user } = get();
-        const healthStore = useHealthStore();
-        const galleryStore = useGalleryStore();
 
         if (!user) {
           console.error('로그인 해주세요.');
@@ -54,8 +50,6 @@ const useUserStore = create<UserState>()(
             user: null,
             accessToken: null,
           });
-          healthStore.reset(); // 로그아웃시 건강 정보 store reset
-          galleryStore.reset(); // 로그아웃시 갤러리 store reset
         } catch (error) {
           console.error(error);
         }

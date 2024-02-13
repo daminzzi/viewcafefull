@@ -11,19 +11,25 @@ import NoProfile from '../../../assets/images/noProfile.png';
 import { ReactComponent as Plus } from '../../../assets/icons/plus.svg';
 import { failed, white } from '../../../assets/styles/palettes';
 import * as S from './FamilyProfile.styles';
+import useHealthStore from '../../../stores/HealthStore';
+import useGalleryStore from '../../../stores/GalleryStore';
 
 function FamilyProfile() {
   const { currConnect, connectArr, updateConnect } = useConnectStore();
   const { user, logout } = useUserStore();
+  const resetHealthStore = useHealthStore((state) => state.reset);
+  const resetGalleryStore = useGalleryStore((state) => state.reset);
   const navigate = useNavigate();
 
   useEffect(() => {
     updateConnect('tar', currConnect.tarDomainId);
   }, []);
-  function handleLogout() {
-    logout();
+  async function handleLogout() {
+    await logout();
+    resetHealthStore();
+    resetGalleryStore();
     navigate('/');
-  }
+  };
   function TarConnectInfoList() {
     const apps = [];
     for (let index = 0; index < connectArr.length; index++) {
