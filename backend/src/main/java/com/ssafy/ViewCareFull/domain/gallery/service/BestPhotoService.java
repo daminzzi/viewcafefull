@@ -104,6 +104,7 @@ public class BestPhotoService {
       BestPhoto bestPhoto = bestPhotoList.get(i);
       Long imageId = bestPhoto.getImage().getId();
       if (i > 2 || bestPhoto.getScore() < 80) {
+        bestPhotoRepository.delete(bestPhoto);
         galleryService.deleteImage(imageId);
       }
     }
