@@ -39,15 +39,16 @@ public class BestPhotoService {
   private String fileServerUrl;
 
   @Transactional
-  public void writeBestPhoto(SecurityUsers securityUsers, Map<String, Object> params, String conferenceId)
+  public void writeBestPhoto(SecurityUsers securityUsers, Map<String, Object> params, String sessionId)
       throws IOException {
     if (params == null || !params.containsKey("base64Data")) {
       throw new IllegalArgumentException("base64Data parameter is required");
     }
+    Conference conference = conferenceService.getConferenceByRoomName(sessionId);
+    String conferenceId = String.valueOf(conference.getId());
     String base64Image = params.get("base64Data").toString();
     MultipartFile imageFile = convertBase64ToMultipartFile(base64Image, conferenceId);
     Image image = galleryService.saveImage(securityUsers, imageFile);
-    Conference conference = conferenceService.getConferenceById(Long.valueOf(conferenceId));
     int score = gcpService.detectFace(fileServerUrl + image.getImageName());
     bestPhotoRepository.save(new BestPhoto(image, conference, score));
   }

@@ -28,8 +28,8 @@ public class BestPhotoController {
   public ResponseEntity<String> writeBestPhoto(
       @AuthenticationPrincipal SecurityUsers securityUsers,
       @RequestBody(required = false) Map<String, Object> params,
-      @PathVariable("conferenceId") String conferenceId) throws IOException {
-    bestPhotoService.writeBestPhoto(securityUsers, params, conferenceId);
+      @PathVariable("sessionId") String sessionId) throws IOException {
+    bestPhotoService.writeBestPhoto(securityUsers, params, sessionId);
     return new ResponseEntity<>("create success", HttpStatus.CREATED);
   }
 
