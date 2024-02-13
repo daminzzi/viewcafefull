@@ -14,6 +14,12 @@ import net.coobird.thumbnailator.Thumbnails;
 @Slf4j
 public class ImageUtil {
 
+  public static void main(String[] args) {
+    String inputImagePath = "C:\\Users\\user\\Desktop\\test\\test.jpg";
+    String outputImagePath = "C:\\Users\\user\\Desktop\\test\\test_resized.jpg";
+    resizeImage(inputImagePath, outputImagePath);
+  }
+
   public static List<String> applyFadeEffect(String inputImagePath, String outputImagePath, int steps) {
     List<String> imagePaths = new ArrayList<>();
     try {
