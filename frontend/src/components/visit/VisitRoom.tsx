@@ -116,7 +116,7 @@ function VisitRoom() {
 
   function calculateVideoHeight() {
     if (subscriberList.length < 2) {
-      setVideoHeight('100%');
+      setVideoHeight('70%');
       return;
     }
     setVideoHeight('47%');
