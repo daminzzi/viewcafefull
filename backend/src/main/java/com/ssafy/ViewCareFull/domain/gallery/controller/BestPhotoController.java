@@ -24,7 +24,7 @@ public class BestPhotoController {
 
   private final BestPhotoService bestPhotoService;
 
-  @PostMapping("/{conferenceId}")
+  @PostMapping("/{sessionId}")
   public ResponseEntity<String> writeBestPhoto(
       @AuthenticationPrincipal SecurityUsers securityUsers,
       @RequestBody(required = false) Map<String, Object> params,
