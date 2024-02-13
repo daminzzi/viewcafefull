@@ -80,21 +80,23 @@ public class FFmpegService2 {
   }
 
   private void executeCommand(String command) throws IOException, InterruptedException {
-    ProcessBuilder processBuilder = new ProcessBuilder(command); // 프로세스 빌더 인스턴스 생성
-    processBuilder.command(command);
-    Process process = processBuilder.start(); // 프로세스 실행
+    // 프로세스 실행
+    ProcessBuilder processBuilder = new ProcessBuilder(command);
+    Process process = processBuilder.start();
 
-    // 명령어 실행 결과를 읽어오기 위한 BufferedReader 인스턴스 생성
+    // 출력 받기
     BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
     String line;
     while ((line = reader.readLine()) != null) {
-      log.info(line);
+      System.out.println(line);
     }
+
+    // 에러 출력 받기
     BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-    String errorLine;
-    while ((errorLine = errorReader.readLine()) != null) {
-      log.error(errorLine);
+    while ((line = errorReader.readLine()) != null) {
+      System.out.println(line);
     }
+    
     // 프로세스의 종료를 대기하고 종료 코드 출력
     int exitCode = process.waitFor();
     if (exitCode == 0) {
