@@ -26,7 +26,7 @@ const LegendDiv = styled.div`
 `;
 
 const Canvas = styled.div`
- margin: 3vh;
+ margin-bottom: 3vh;
 `
 
 function xAccessor(d: { x: string; y: number }) {

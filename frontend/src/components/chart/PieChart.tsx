@@ -20,7 +20,7 @@ const LegendDiv = styled.div`
   fontsize: 1rem;
 `;
 
-const defaultMargin = { top: 20, right: 20, bottom: 20, left: 20 };
+const defaultMargin = { top: 20, right: 0, bottom: 20, left: 0 };
 
 const colorScale = scaleOrdinal({
   domain: ['good', 'normal', 'bad'],

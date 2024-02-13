@@ -10,7 +10,7 @@ import ParentSize from '@visx/responsive/lib/components/ParentSize';
 import PieChart from '../components/chart/PieChart';
 import styled from 'styled-components';
 import LineChart from '../components/chart/LineChart';
-import { blue, failed } from '../assets/styles/palettes';
+import { blue, failed, gray } from '../assets/styles/palettes';
 
 function Report() {
   const navigator = useNavigate();
@@ -69,18 +69,20 @@ function Report() {
             content={reportInfo?.pressure?.insights}
           >
             {lowData && highData ? (
-              <ParentSize>
-                {({ width: visWidth }) => (
-                  <LineChart
-                    width={visWidth}
-                    height={(visWidth * 3) / 4}
-                    data={[lowData, highData]}
-                    keys={['이완기', '수축기']}
-                    colors={[blue, failed]}
-                    domain={[0, 200]}
-                  />
-                )}
-              </ParentSize>
+              <Canvas>
+                <ParentSize>
+                  {({ width: visWidth }) => (
+                    <LineChart
+                      width={visWidth}
+                      height={(visWidth * 3) / 4}
+                      data={[lowData, highData]}
+                      keys={['이완기', '수축기']}
+                      colors={[blue, failed]}
+                      domain={[0, 200]}
+                    />
+                  )}
+                </ParentSize>
+              </Canvas>
             ) : null}
           </ReportHealthContent>
           <ReportHealthContent
@@ -88,18 +90,20 @@ function Report() {
             content={reportInfo?.sugar?.insights}
           >
             {sugarData ? (
-              <ParentSize>
-                {({ width: visWidth }) => (
-                  <LineChart
-                    width={visWidth}
-                    height={(visWidth * 3) / 4}
-                    data={[sugarData]}
-                    keys={['평균 혈당']}
-                    colors={[blue]}
-                    domain={[0, 300]}
-                  />
-                )}
-              </ParentSize>
+              <Canvas>
+                <ParentSize>
+                  {({ width: visWidth }) => (
+                    <LineChart
+                      width={visWidth}
+                      height={(visWidth * 3) / 4}
+                      data={[sugarData]}
+                      keys={['평균 혈당']}
+                      colors={[blue]}
+                      domain={[0, 300]}
+                    />
+                  )}
+                </ParentSize>
+              </Canvas>
             ) : null}
           </ReportHealthContent>
           <ReportSubject subject="2. 생활 정보" />
@@ -107,15 +111,17 @@ function Report() {
             title="2-2. 생활 정보 요약"
             content={reportInfo?.lifeInfo}
           >
-            <ParentSize>
-              {({ width: visWidth }) => (
-                <PieChart
-                  width={visWidth}
-                  height={(visWidth * 3) / 4}
-                  data={condition}
-                />
-              )}
-            </ParentSize>
+            <Canvas>
+              <ParentSize>
+                {({ width: visWidth }) => (
+                  <PieChart
+                    width={visWidth}
+                    height={(visWidth * 3) / 4}
+                    data={condition}
+                  />
+                )}
+              </ParentSize>
+            </Canvas>
           </ReportLifeContent>
           <ReportSubject subject="3. 생활 영상" />
           {/* <video src={reportInfo.movie} /> */}
@@ -142,6 +148,12 @@ function Report() {
 
 const Message = styled.h3`
   text-align: center;
+`;
+
+const Canvas = styled.div`
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 3px ${gray};
 `;
 
 export default Report;
