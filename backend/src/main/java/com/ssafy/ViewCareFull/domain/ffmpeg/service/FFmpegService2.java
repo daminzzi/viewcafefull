@@ -2,7 +2,9 @@ package com.ssafy.ViewCareFull.domain.ffmpeg.service;
 
 
 import com.ssafy.ViewCareFull.domain.ffmpeg.exception.VideoCreateFailException;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +28,7 @@ public class FFmpegService2 {
   @Value("${audio.inputPath}")
   private String audioInputPath;
 
-  public String buildCommand(List<String> imageUrls) throws IOException, InterruptedException {
+  public void buildCommand(List<String> imageUrls) throws IOException, InterruptedException {
     // 이미지를 비디오로 변환하는 FFmpeg 명령어 생성
     StringBuilder ffmpegCommandBuilder = new StringBuilder();
     int framrate = 30; // 초당 프레임 수 설정
@@ -74,26 +76,73 @@ public class FFmpegService2 {
     String ffmpegCommand = ffmpegCommandBuilder.toString(); // FFmpeg 명령어 완성
 
     log.info("FFmpeg command: " + ffmpegCommand); // 생성된 명령어 로그 출력
-    return executeCommand(ffmpegCommand); // 명령어를 시스템 커맨드로 실행
+    // executeBuildCommand(ffmpegCommand); // 명령어를 시스템 커맨드로 실행
+    executeRuntimeCommand(ffmpegCommand); // 명령어를 런타임으로 실행
   }
 
-  private String executeCommand(String command) throws IOException, InterruptedException {
-    // 프로세스 실행
-    ProcessBuilder processBuilder = new ProcessBuilder("bash", "-c", command);
-    log.info("processBuilderCommand : " + processBuilder.command().toString());
-    Process process = processBuilder.start();
+  private void executeBuildCommand(String command) {
+    try {
+      String[] commands = new String[]{"bash", "-c", command};
+      ProcessBuilder processBuilder = new ProcessBuilder(commands);
+      log.info("processBuilderCommand : " + processBuilder.command().toString());
+      Process process = processBuilder.start();
 
-    // 프로세스 종료까지 대기
-    process.waitFor();
+      BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+      String line;
+      while ((line = reader.readLine()) != null) {
+        log.info(line);
+      }
 
-    // 종료 코드 확인
-    int exitCode = process.exitValue();
-    if (exitCode == 0) {
-      log.info("Exited with create video success code: 0");
-      return "create video success";
-    } else {
-      log.info("Exited with error code: " + exitCode);
-      throw new VideoCreateFailException();
+      BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+      while ((line = errorReader.readLine()) != null) {
+        log.info(line);
+      }
+
+      int exitCode = process.waitFor();
+      if (exitCode == 0) {
+        log.info("Exited with create video success code: 0");
+      } else {
+        log.info("Exited with error code: " + exitCode);
+        throw new VideoCreateFailException();
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  private void executeRuntimeCommand(String command) {
+    try {
+      String[] commands = new String[]{"bash", "-c", command};
+      Process process = Runtime.getRuntime().exec(commands);
+
+      BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+      String line;
+      while ((line = reader.readLine()) != null) {
+        log.info(line);
+      }
+
+      BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+      while ((line = errorReader.readLine()) != null) {
+        log.info(line);
+      }
+
+      int exitCode = process.waitFor();
+      if (exitCode == 0) {
+        log.info("Exited with create video success code: 0");
+      } else {
+        log.info("Exited with error code: " + exitCode);
+        throw new VideoCreateFailException();
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    } catch (Exception e) {
+      e.printStackTrace();
     }
   }
 }
