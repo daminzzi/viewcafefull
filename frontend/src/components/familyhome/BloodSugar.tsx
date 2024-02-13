@@ -1,76 +1,49 @@
 import React from 'react';
 import styled from 'styled-components';
 import useHealthStore from '../../stores/HealthStore';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-);
+import ParentSize from '@visx/responsive/lib/components/ParentSize';
+import BarChart, { ChartData } from '../chart/BarChart';
 
 const Container = styled.div`
   width: 90%;
-  height: 50vh;
+  height: 42vh;
+  padding: 4vh 0;
 `;
-
-const options = {
-  maintainAspectRatio: false,
-  indexAxis: 'y' as const,
-  elements: {
-    bar: {
-      borderWidth: 2,
-    },
-  },
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top' as const,
-    },
-    title: {
-      display: true,
-      text: '혈당',
-    },
-  },
-};
-
-const labels = ['아침', '점심', '저녁'];
 
 function BloodSugar() {
   const { healthInfo } = useHealthStore();
-  const data = {
-    labels: labels,
-    datasets: [
-      {
-        label: '식전 혈당',
-        data: Object.values(healthInfo.before),
-        borderWidth: 1,
-        backgroundColor: '#D2B48C',
-      },
-      {
-        label: '식후 혈당',
-        data: Object.values(healthInfo.after),
-        borderWidth: 1,
-        backgroundColor: '#6EE7B7',
-      },
-    ],
-  };
+  const data = [
+    {
+      type: 'morning',
+      before: healthInfo.before.morning,
+      after: healthInfo.after.morning,
+    },
+    {
+      type: 'noon',
+      before: healthInfo.before.noon,
+      after: healthInfo.after.noon,
+    },
+    {
+      type: 'dinner',
+      before: healthInfo.before.dinner,
+      after: healthInfo.after.dinner,
+    },
+  ];
+  const keys = ['before', 'after'];
 
   return (
     <Container>
-      <Bar options={options} data={data} />
+      <ParentSize debounceTime={10}>
+        {({ width: visWidth, height: visHeight }) => (
+          <BarChart
+            type="bs"
+            width={visWidth}
+            height={visHeight}
+            keys={keys}
+            data={data as Array<ChartData>}
+          />
+        )}
+      </ParentSize>
     </Container>
   );
 }

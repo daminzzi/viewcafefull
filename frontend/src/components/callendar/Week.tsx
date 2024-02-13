@@ -37,7 +37,6 @@ function Week() {
     <FlexRowContainer
       $margin="10px 0"
       onMouseDown={(e) => {
-        console.log(e.pageX);
         setStartX(e.pageX);
         setMoved(false);
       }}

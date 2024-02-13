@@ -23,6 +23,7 @@ import GalleryDetail from './pages/GalleryDetail';
 import Report from './pages/Report';
 import VisitRoom from './components/visit/VisitRoom';
 import ConnectRegister from './pages/family/ConnectRegister';
+import GlobalFont from './assets/styles/GlobalFont';
 
 const AppDiv = styled.div`
   background-color: ${white};
@@ -33,6 +34,7 @@ function App() {
   return (
     <AppDiv>
       <BrowserRouter>
+        <GlobalFont />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
