@@ -4,18 +4,32 @@ import { failed, white, main3 } from '../../assets/styles/palettes';
 import { Button } from '../common/Buttons';
 import FlexColContainer from '../common/FlexColContainer';
 import FlexRowContainer from '../common/FlexRowContainer';
+import Line from '../common/Line';
+import { ReactComponent as Xmark } from '../../assets/icons/xMark.svg';
 
 type MessageDetailModalProps = {
   message: Message;
   userId: string | null;
   onClose: () => void;
+  time: string;
 };
 
 function MessageDetailModal({
   message,
   userId,
   onClose,
+  time,
 }: MessageDetailModalProps) {
+  const dateObj = new Date(time);
+
+  const formattedDate =
+    dateObj
+      .toLocaleDateString('ko-KR')
+      .replaceAll('. ', '/')
+      .replaceAll('.', '') +
+    '/' +
+    dateObj.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' });
+
   async function handleDelete() {
     // try {
     //   await deleteMessage(message.id);
@@ -29,16 +43,9 @@ function MessageDetailModal({
   return (
     <Modal>
       <FlexRowContainer $justifyContent="end">
-        <Button
-          $bgColor={failed}
-          $width="25px"
-          $padding="3px"
-          $margin="0 0 5px 0"
-          $color={white}
-          onClick={onClose}
-        >
-          X
-        </Button>
+        <XmarkContainer>
+          <Xmark width="30px" onClick={onClose}></Xmark>
+        </XmarkContainer>
       </FlexRowContainer>
 
       <FlexColContainer
@@ -47,17 +54,17 @@ function MessageDetailModal({
         $alignItems="stretch"
         $position="relative"
       >
-        <FlexRowContainer $alignItems="stretch" $justifyContent="stretch">
-          <Title>제목:</Title>
-          <Content>{message.title}</Content>
-        </FlexRowContainer>
+        <FlexColContainer $alignItems="stretch" $justifyContent="stretch">
+          <TitleText>{message.title}</TitleText>
+        </FlexColContainer>
 
-        <FlexRowContainer $alignItems="stretch" $justifyContent="stretch">
-          <Title>내용:</Title>
-          <Content>{message.content}</Content>
-        </FlexRowContainer>
+        <FlexColContainer $alignItems="stretch" $justifyContent="stretch">
+          <Title>내용</Title>
+          <Line />
+          <ContentText>{message.content}</ContentText>
+        </FlexColContainer>
       </FlexColContainer>
-
+      <TimeText>{formattedDate}</TimeText>
       {message.from === userId ? (
         <FlexRowContainer $justifyContent="end" $alignItems="end">
           <Button
@@ -78,6 +85,9 @@ function MessageDetailModal({
 export default MessageDetailModal;
 
 const Modal = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -88,7 +98,7 @@ const Modal = styled.div`
   border-radius: 30px;
   border: 2px solid ${main3};
   width: 30%;
-  height: 33%;
+  height: 65%;
   overflow: auto;
   @media (max-width: 600px) {
     width: 70%;
@@ -97,9 +107,22 @@ const Modal = styled.div`
 
 const Title = styled.div`
   font-weight: bold;
-  margin-right: 10px;
+  margin: 5px 0 5px 0;
 `;
 
-const Content = styled.div`
+const TitleText = styled.div`
+  font-weight: bold;
+  font-size: 27px;
+`;
+const ContentText = styled.div`
   flex: 1;
+`;
+
+const TimeText = styled.div`
+  align-self: flex-end;
+  margin-top: auto;
+`;
+
+const XmarkContainer = styled.div`
+  cursor: pointer;
 `;

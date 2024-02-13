@@ -25,6 +25,9 @@ function FamilyMessage() {
   const [messagesData, setMessagesData] = useState<MessagesResponse | null>(
     null,
   );
+
+  const [unreadMsgs, setUnreadMsgs] = useState<number>();
+  const [sumMsgs, setSumMsgs] = useState<number>();
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
   const [checkedMessages, setCheckedMessages] = useState<Message[]>([]);
   const { user } = useUserStore();
@@ -35,12 +38,16 @@ function FamilyMessage() {
       const fetchData = async () => {
         if (user) {
           const res = await getMessage(currentPage, keyword);
-          setMessagesData(res);
+          if (res) {
+            setMessagesData(res);
+            setUnreadMsgs(res.unreadMsgs);
+            setSumMsgs(res.sum);
+          }
         }
       };
       fetchData();
     }
-  }, [currentPage, keyword]);
+  }, [currentPage, keyword, sumMsgs, unreadMsgs]);
 
   // 메세지 데이터 로딩 중
   if (!messagesData) {
@@ -134,6 +141,7 @@ function FamilyMessage() {
         // 이전 메세지 목록 기존 정보 유지하고, 메세지 목록 새롭게 업데이트해서 반환
         return { ...prev, messages: updatedMessages };
       });
+       setUnreadMsgs((unreadMsgs ?? 0) - checkedMessages.length);
     } catch (error) {
       console.error('오류:', error);
     }
@@ -146,8 +154,32 @@ function FamilyMessage() {
     const updatedMessage = await getReadMessage(message.id);
     if (updatedMessage) {
       setSelectedMessage(updatedMessage);
+      setMessagesData((prev) => {
+        if (!prev) return null;
+        // 새로운 메시지 목록(updatedMessages)생성
+        const updatedMessages = [];
+        for (let i = 0; i < prev.messages.length; i++) {
+          const eachMessage = prev.messages[i];
+          if (message.id === eachMessage.id) {
+            // 현재 가리키고 있는 메세지가 선택된 메세지인 경우 읽음 처리
+            updatedMessages.push({ ...eachMessage, isRead: true });
+          } else {
+            // 그대로 유지
+            updatedMessages.push(eachMessage);
+          }
+        }
+        // 이전 메세지 목록 기존 정보 유지하고, 메세지 목록 새롭게 업데이트해서 반환
+        return { ...prev, messages: updatedMessages };
+      });
+    if (!message.isRead) {
+      setUnreadMsgs((unreadMsgs ?? 0) - 1);
+    }
     }
   }
+  // 상세보기 할 메세지 선택(더미테스트코드)
+  // function openModal(message: Message) {
+  //   setSelectedMessage(message);
+  // }
 
   // 모달 닫히면 메세지 선택 해제
   function closeModal() {
@@ -178,8 +210,8 @@ function FamilyMessage() {
 
       <SubContainer>
         <ReadText>
-          <UnReadMsgs>{messagesData.unreadMsgs}</UnReadMsgs>
-          <span>/{messagesData.sum} 안 읽음</span>
+          <UnReadMsgs>{unreadMsgs}</UnReadMsgs>
+          <span>/{sumMsgs} 안 읽음</span>
         </ReadText>
         <Button
           $bgColor={success}
@@ -200,6 +232,7 @@ function FamilyMessage() {
           message={selectedMessage}
           onClose={closeModal}
           userId={user ? user.id : null}
+          time={selectedMessage.time}
         />
       )}
 
