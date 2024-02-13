@@ -49,10 +49,10 @@ public interface ConferenceRepository extends JpaRepository<Conference, Long> {
   Optional<Conference> getConferenceByRoomName(@Param("roomName") String roomName);
 
   @Query("UPDATE Conference c SET c.conferenceRoom.startDateTime = :localDateTime WHERE c.id = :conferenceId")
-  Optional<Conference> updateStartTimeById(@Param("conferenceId") Long conferenceId,
+  Optional<Void> updateStartTimeById(@Param("conferenceId") Long conferenceId,
       @Param("localDateTime") LocalDateTime localDateTime);
 
   @Query("UPDATE Conference c SET c.conferenceRoom.endDateTime = :localDateTime WHERE c.id = :conferenceId")
-  Optional<Conference> updateEndTimeById(@Param("conferenceId") Long conferenceId,
+  Optional<Void> updateEndTimeById(@Param("conferenceId") Long conferenceId,
       @Param("localDateTime") LocalDateTime localDateTime);
 }
