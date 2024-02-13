@@ -152,5 +152,20 @@ public class ConferenceControllerIntegrationTest {
           .andExpect(status().isOk())
           .andDo(MockMvcRestDocumentation.document("면회 조회"));
     }
+
+    @Test
+    @DisplayName("[성공] 보호자가 면회 조회 성공 테스트")
+    void getConferenceListByGuardianSuccessTest() throws Exception {
+      // given
+      Conference conference = saveConference();
+      LocalDate today = LocalDate.now();
+      // when
+      mockMvc.perform(
+              RestDocumentationRequestBuilders.get("/conference/app/list")
+                  .header("Content-Type", "application/json")
+                  .header("Authorization", userRegisterHelper.getGuardianAccessToken()))
+          .andExpect(status().isOk())
+          .andDo(MockMvcRestDocumentation.document("면회 조회"));
+    }
   }
 }
