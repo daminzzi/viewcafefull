@@ -82,4 +82,8 @@ public class UsersService {
       usersRepository.save(user);
     }
   }
+  public Caregiver getCaregiverById(Long id) {
+    return usersRepository.findCaregiverById(id).orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
+  }
+
 }

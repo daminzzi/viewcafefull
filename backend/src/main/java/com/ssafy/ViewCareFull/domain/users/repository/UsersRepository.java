@@ -20,4 +20,7 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
 
   @Query("SELECT u FROM Caregiver u WHERE u.token = :targetCode")
   Optional<Caregiver> findByToken(String targetCode);
+
+  @Query("SELECT u FROM Caregiver u WHERE u.id = :id")
+  Optional<Caregiver> findCaregiverById(@Param("id") Long id);
 }

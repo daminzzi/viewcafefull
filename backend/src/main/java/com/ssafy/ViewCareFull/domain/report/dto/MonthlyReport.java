@@ -3,6 +3,7 @@ package com.ssafy.ViewCareFull.domain.report.dto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssafy.ViewCareFull.domain.report.entity.Reports;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Caregiver;
 import java.util.Arrays;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -18,6 +19,8 @@ public class MonthlyReport {
 
   private int year;
   private int month;
+  private String permission;
+  private String target;
   private String lifeInfo;
   private String movie;
   private String message;
@@ -33,15 +36,18 @@ public class MonthlyReport {
   public Reports toEntity(RequestReportDto requestReportDto) throws JsonProcessingException {
     ObjectMapper objectMapper = new ObjectMapper();
     return Reports.builder()
-        .year(requestReportDto.getMonth()/100)
-        .month(requestReportDto.getMonth()%100)
+        .year(requestReportDto.getMonth() / 100)
+        .month(requestReportDto.getMonth() % 100)
         .caregiverId(requestReportDto.getId())
         .reportInfo(objectMapper.writeValueAsString(this))
         .build();
   }
-  public void cntCondition(int year, int month, NumOfConditions numOfConditions) {
+
+  public void settingReport(int year, int month, Caregiver caregiver, NumOfConditions numOfConditions) {
     this.year = year;
     this.month = month;
+    this.permission = caregiver.getHospital().getUserName();
+    this.target = caregiver.getUserName();
     this.condition = new HealthCondition();
     this.condition.good = numOfConditions.getCntGood();
     this.condition.normal = numOfConditions.getCntNormal();

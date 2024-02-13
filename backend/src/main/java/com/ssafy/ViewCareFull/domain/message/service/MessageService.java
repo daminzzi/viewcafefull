@@ -7,6 +7,9 @@ import com.ssafy.ViewCareFull.domain.message.entity.Message;
 import com.ssafy.ViewCareFull.domain.message.exception.NoMessageException;
 import com.ssafy.ViewCareFull.domain.message.repository.MessageRepository;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -49,5 +52,11 @@ public class MessageService {
     Message message = messageRepository.findByIdAndMemberId(Long.parseLong(id), domainId)
         .orElseThrow(NoMessageException::new);
     messageRepository.delete(message);
+  }
+
+  public List<MessageDto> getMonthlyMessages(String caregiverDomainId, LocalDate start, LocalDate end) {
+    List<Message> messages = messageRepository.findByDomainIdAndDateBetween(caregiverDomainId, start.atStartOfDay(),
+        end.atTime(LocalTime.MAX));
+    return MessageDto.of(messages);
   }
 }

@@ -71,7 +71,7 @@ public class JwtTokenProvider {
     return refreshToken;
   }
 
-  private String createAccessToken(SecurityUsers securityUser, long now, String auth, String id) {
+  public String createAccessToken(SecurityUsers securityUser, long now, String auth, String id) {
     Date accessExpiredTime = new Date(now + ACCESS_TOKEN_EXPIRE_TIME);
     String accessToken = Jwts.builder()
         .setSubject(securityUser.getUsername())

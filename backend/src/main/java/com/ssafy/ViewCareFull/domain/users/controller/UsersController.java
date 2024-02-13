@@ -7,6 +7,7 @@ import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.security.util.CookieUtil;
 import com.ssafy.ViewCareFull.domain.users.service.OAuthUserService;
 import com.ssafy.ViewCareFull.domain.users.service.UsersService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -67,5 +68,12 @@ public class UsersController {
     usersService.deleteRefreshToken(securityUsers, id);
     CookieUtil.deleteRefreshTokenCookie();
     return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+  }
+
+  @PostMapping("/token")
+  public ResponseEntity<String> reissue(HttpServletRequest request) {
+    String refreshToken = request.getHeader("refresh-token");
+    return ResponseEntity.status(HttpStatus.OK).build();
+//        .body(usersService.reissue(refreshToken));
   }
 }
