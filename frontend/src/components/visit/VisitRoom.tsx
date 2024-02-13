@@ -181,7 +181,7 @@ function VisitRoom() {
 
   useEffect(() => {
     calculateVideoSize();
-  }, [subscriberList]);
+  }, [subscriberList, addSubscriber, delSubscriber]);
   return (
     <div>
       <StyledHeader>{tarUserName}님의 면회실</StyledHeader>
