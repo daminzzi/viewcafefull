@@ -52,6 +52,7 @@ public class MonthlyReport {
     this.condition.good = numOfConditions.getCntGood();
     this.condition.normal = numOfConditions.getCntNormal();
     this.condition.bad = numOfConditions.getCntBad();
+    this.message = "갑진년 새해복<br/> 많이 받으세요";
   }
 
   @Getter
