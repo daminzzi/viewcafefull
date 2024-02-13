@@ -1,8 +1,8 @@
 import api from '../api';
 
-async function getVisitList(params: { type: PathType; domainId: string }) {
+async function getVisitList(type: string) {
   try {
-    const response = await api.get(`/conference/${params.type}/list`);
+    const response = await api.get(`/conference/${type}/list`);
     if (response.status !== 200) {
       throw new Error(`오류: ${response.status}`);
     }

@@ -90,7 +90,7 @@ function VisitRoom() {
       navigator('/family/visit');
     } else if (user?.role === 'Caregiver') {
       deleteSession(sessionId);
-      navigator('/caregiver');
+      navigator('/caregiver/visit');
     }
   }
 

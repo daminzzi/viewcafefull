@@ -19,6 +19,7 @@ import CareGiverHome from './pages/caregiver/CareGiverHome';
 import CareGiverSendMessage from './pages/caregiver/CareGiverSendMessage/CareGiverSendMessage';
 import CareGiverGallery from './pages/caregiver/CareGiverGallery';
 import CareGiverGalleryUpload from './pages/caregiver/CareGiverGalleryUpload';
+import CareGiverVisit from './pages/caregiver/CareGiverVisit';
 import GalleryDetail from './pages/GalleryDetail';
 import Report from './pages/Report';
 import VisitRoom from './components/visit/VisitRoom';
@@ -54,6 +55,7 @@ function App() {
             <Route path="message/send" element={<CareGiverSendMessage />} />
             <Route path="gallery" element={<CareGiverGallery />} />
             <Route path="gallery/upload" element={<CareGiverGalleryUpload />} />
+            <Route path="visit" element={<CareGiverVisit />} />
           </Route>
           <Route path="gallery/detail" element={<GalleryDetail />} />
           <Route path="/report/:id/:yearMonth" element={<Report />} />

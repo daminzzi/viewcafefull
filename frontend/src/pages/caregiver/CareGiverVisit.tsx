@@ -5,16 +5,15 @@ import ContentsContainer from '../../components/common/ContentsContainer';
 import FlexColContainer from '../../components/common/FlexColContainer';
 import Line from '../../components/common/Line';
 import Title from '../../components/common/Title';
-import { useNavigate } from 'react-router-dom';
 import VisitTodayRow from '../../components/visit/VisitTodayRow';
+
 function FamilyVisit() {
   const [visitList, setVisitList] = useState<VisitData[] | null>();
   const [todayVisit, setTodayVisit] = useState<VisitData[] | null>();
-  const navigator = useNavigate();
   useEffect(() => {
     const fetchVisitList = async () => {
       try {
-        const data = await getVisitList('app');
+        const data = await getVisitList('tar');
         setVisitList(data.reservedConferenceList);
         setTodayVisit(data.todayConferenceList);
       } catch (error) {
@@ -50,19 +49,9 @@ function FamilyVisit() {
     return arr;
   }
 
-  function handleGotoRegister() {
-    navigator('/family/visit/register');
-  }
-
   return (
     <div>
-      <Title
-        icon={'visit'}
-        buttonContents="면회 신청"
-        handleClick={() => handleGotoRegister()}
-      >
-        면회 조회
-      </Title>
+      <Title icon={'visit'}>면회 조회</Title>
       <FlexColContainer $alignItems="center">
         <div style={{ width: '85%', fontSize: '1.2rem' }}>오늘 예정된 면회</div>
         <ContentsContainer $alignItems="flex-start" $width="85%">
