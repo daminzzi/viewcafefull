@@ -22,7 +22,7 @@ public interface ImageRepository extends JpaRepository<Image, Long> {
   List<Image> findBestPhotoImageByCaregiverIdBetweenDate(@Param("caregiverId") Long caregiverId,
       @Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
 
-  @Query(value = "SELECT i FROM Image i LEFT JOIN Meal m ON i.id = m.image.id  where i.userId = :caregiverId and i.imageDateTime between :startDate and :endDate AND m.image.id IS NULL")
+  @Query(value = "SELECT i FROM Image i LEFT JOIN Meal m ON i.id = m.image.id LEFT JOIN BestPhoto b ON i.id = b.image.id where i.userId = :caregiverId and i.imageDateTime between :startDate and :endDate AND m.image.id IS NULL AND b.image.id IS NULL")
   List<Image> findNoneMealImageByCaregiverIdBetweenDate(@Param("caregiverId") Long caregiverId,
       @Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
 }
