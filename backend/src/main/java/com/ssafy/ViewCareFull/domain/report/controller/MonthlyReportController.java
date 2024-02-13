@@ -1,5 +1,6 @@
 package com.ssafy.ViewCareFull.domain.report.controller;
 
+import com.ssafy.ViewCareFull.domain.ffmpeg.service.FFmpegService;
 import com.ssafy.ViewCareFull.domain.report.dto.MonthlyReport;
 import com.ssafy.ViewCareFull.domain.report.dto.RequestReportDto;
 import com.ssafy.ViewCareFull.domain.report.service.MonthlyMovieService;
@@ -25,6 +26,7 @@ public class MonthlyReportController {
 
   private final MonthlyReportService monthlyReportService;
   private final MonthlyMovieService monthlyMovieService;
+  private final FFmpegService ffmpegService;
 
   @GetMapping("/{id}")
   public ResponseEntity<MonthlyReport> getMonthlyReport(@PathVariable("id") long id, @RequestParam int month) {
@@ -42,6 +44,12 @@ public class MonthlyReportController {
   public ResponseEntity<String> test(@AuthenticationPrincipal SecurityUsers securityUser, @RequestParam int month) {
     monthlyMovieService.createMonthlyMovie(securityUser, month);
     log.info("video create success");
+    return ResponseEntity.ok().body("success");
+  }
+
+  @GetMapping("/test")
+  public ResponseEntity<String> test() {
+    ffmpegService.onlyTest();
     return ResponseEntity.ok().body("success");
   }
 

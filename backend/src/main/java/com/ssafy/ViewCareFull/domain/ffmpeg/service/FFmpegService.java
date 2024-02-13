@@ -28,8 +28,9 @@ public class FFmpegService {
   public void buildCommand(List<String> imageUrls) throws IOException, InterruptedException {
     // 이미지를 비디오로 변환하는 FFmpeg 명령어 생성
     StringBuilder ffmpegCommandBuilder = new StringBuilder();
-    ffmpegCommandBuilder.append(
-            ffmpegPath) // FFmpeg 실행 파일 경로
+    log.info("FFmpeg path: " + ffmpegPath);
+    ffmpegCommandBuilder
+        .append(ffmpegPath)
         .append(" -framerate 30"); // 초당 프레임 수 설정
     for (String imageUrl : imageUrls) {
       ffmpegCommandBuilder.append(" -i ").append(imageUrl); // 각각의 이미지 사용 설정
@@ -58,11 +59,18 @@ public class FFmpegService {
 
     String ffmpegCommand = ffmpegCommandBuilder.toString(); // FFmpeg 명령어 완성
 
+    log.info("FFmpeg command: " + ffmpegCommand); // 생성된 명령어 로그 출력
     executeCommand(ffmpegCommand); // 명령어를 시스템 커맨드로 실행
   }
 
   private void executeCommand(String command) throws IOException, InterruptedException {
     ProcessBuilder processBuilder = new ProcessBuilder(command); // 프로세스 빌더 인스턴스 생성
+    String os = System.getProperty("os.name").toLowerCase();
+    if (os.contains("win")) {
+      processBuilder.command("cmd.exe", "/c", command);
+    } else {
+      processBuilder.command("bash", "-c", command);
+    }
     Process process = processBuilder.start(); // 프로세스 실행
 
     // 명령어 실행 결과를 읽어오기 위한 BufferedReader 인스턴스 생성
@@ -71,7 +79,11 @@ public class FFmpegService {
     while ((line = reader.readLine()) != null) {
       log.info(line);
     }
-
+    BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+    String errorLine;
+    while ((errorLine = errorReader.readLine()) != null) {
+      log.error(errorLine);
+    }
     // 프로세스의 종료를 대기하고 종료 코드 출력
     int exitCode = process.waitFor();
     if (exitCode == 0) {
@@ -79,6 +91,26 @@ public class FFmpegService {
     } else {
       log.info("Exited with error code: " + exitCode);
       throw new VideoCreateFailException();
+    }
+  }
+
+  public void onlyTest() {
+    try {
+      buildCommand(List.of(
+          "C:\\Users\\Keesung\\Downloads\\test\\test_resized_0.jpg",
+          "C:\\Users\\Keesung\\Downloads\\test\\test_resized_10.jpg",
+          "C:\\Users\\Keesung\\Downloads\\test\\test_resized_20.jpg",
+          "C:\\Users\\Keesung\\Downloads\\test\\test_resized.jpg",
+          "C:\\Users\\Keesung\\Downloads\\test\\test_resized.jpg",
+          "C:\\Users\\Keesung\\Downloads\\test\\test_resized.jpg",
+          "C:\\Users\\Keesung\\Downloads\\test\\test_resized.jpg",
+          "C:\\Users\\Keesung\\Downloads\\test\\test_resized.jpg",
+          "C:\\Users\\Keesung\\Downloads\\test\\test_resized_20.jpg",
+          "C:\\Users\\Keesung\\Downloads\\test\\test_resized_10.jpg",
+          "C:\\Users\\Keesung\\Downloads\\test\\test_resized_0.jpg")
+      );
+    } catch (IOException | InterruptedException e) {
+      e.printStackTrace();
     }
   }
 }
