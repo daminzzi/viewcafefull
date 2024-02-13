@@ -32,19 +32,19 @@ public class MonthlyMovieService {
       String imagePath = galleryService.getImagePath(image);
       String newImagePath = videoOutputPath + getNewImageName(image);
       ImageUtil.resizeImage(imagePath, newImagePath);
-      List<String> fadePaths = ImageUtil.applyFadeEffect(newImagePath, newImagePath, 30);
+      List<String> fadePaths = ImageUtil.applyFadeEffect(newImagePath, newImagePath, 25);
       List<String> reversedImagePaths = new ArrayList<>();
       for (int i = fadePaths.size() - 1; i >= 0; i--) {
         reversedImagePaths.add(fadePaths.get(i));
       }
       imagePaths.addAll(fadePaths);
-      for (int i = 0; i < 60; i++) { // 2초간 이미지 반복
+      for (int i = 0; i < 25 * 2; i++) { // 2초간 이미지 반복
         imagePaths.add(newImagePath);
       }
       imagePaths.addAll(reversedImagePaths);
     }
     try {
-      ffmpegService.buildCommand(imagePaths, "video");
+      ffmpegService.buildCommand(imagePaths);
     } catch (Exception e) {
       log.error("비디오 생성 실패");
       throw new RuntimeException(e);
