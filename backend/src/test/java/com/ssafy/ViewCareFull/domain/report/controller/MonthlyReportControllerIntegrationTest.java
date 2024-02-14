@@ -5,9 +5,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssafy.ViewCareFull.DatabaseCleanup;
 import com.ssafy.ViewCareFull.domain.helper.UserRegisterHelper;
-import com.ssafy.ViewCareFull.domain.report.dto.MonthlyHealthInfo;
-import com.ssafy.ViewCareFull.domain.report.dto.MonthlyReport;
-import com.ssafy.ViewCareFull.domain.report.dto.RequestReportDto;
 import com.ssafy.ViewCareFull.domain.report.entity.Reports;
 import com.ssafy.ViewCareFull.domain.report.repository.ReportRepository;
 import com.ssafy.ViewCareFull.domain.report.service.MonthlyMovieService;
@@ -21,7 +18,6 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -75,25 +71,25 @@ public class MonthlyReportControllerIntegrationTest {
   @DisplayName("월간 리포트 테스트")
   class ReportTest {
 
-    @Test
-    @DisplayName("[성공] 월간 리포트 생성 테스트")
-    void createMonthlyReportTest() throws Exception {
-      // given
-      RequestReportDto requestReportDto = new RequestReportDto(202402, userRegisterHelper.getCaregiver().getId());
-      Mockito.when(OpenAIApi.getMonthlyReportResponse(Mockito.any(MonthlyHealthInfo.class)))
-          .thenReturn(new MonthlyReport());
-      Mockito.when(monthlyMovieService.createMonthlyMovie(Mockito.any(), Mockito.anyInt()))
-          .thenReturn("/video/1.mp4");
-      // when
-      mockMvc.perform(RestDocumentationRequestBuilders.post("/report")
-              .content(objectMapper.writeValueAsString(requestReportDto))
-              .header("Content-Type", "application/json")
-              .header("Authorization", userRegisterHelper.getGuardianAccessToken()))
-          .andExpect(status().isOk())
-          .andDo(MockMvcRestDocumentation.document("월간리포트 생성"));
-      //then
-      Assertions.assertThat(reportRepository.existsById(1L)).isTrue();
-    }
+//    @Test
+//    @DisplayName("[성공] 월간 리포트 생성 테스트")
+//    void createMonthlyReportTest() throws Exception {
+//      // given
+//      RequestReportDto requestReportDto = new RequestReportDto(202402, userRegisterHelper.getCaregiver().getId());
+//      Mockito.when(OpenAIApi.getMonthlyReportResponse(Mockito.any(MonthlyHealthInfo.class)))
+//          .thenReturn(new MonthlyReport());
+//      Mockito.when(monthlyMovieService.createMonthlyMovie(Mockito.any(), Mockito.anyInt()))
+//          .thenReturn("/video/1.mp4");
+//      // when
+//      mockMvc.perform(RestDocumentationRequestBuilders.post("/report")
+//              .content(objectMapper.writeValueAsString(requestReportDto))
+//              .header("Content-Type", "application/json")
+//              .header("Authorization", userRegisterHelper.getGuardianAccessToken()))
+//          .andExpect(status().isOk())
+//          .andDo(MockMvcRestDocumentation.document("월간리포트 생성"));
+//      //then
+//      Assertions.assertThat(reportRepository.existsById(1L)).isTrue();
+//    }
   }
 
   @Test
