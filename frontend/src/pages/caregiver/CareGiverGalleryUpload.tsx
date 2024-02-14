@@ -58,13 +58,13 @@ function CareGiverGalleryUpload() {
   const navigate = useNavigate();
   const { reset } = useGalleryStore();
 
-  async function handleSubmit(e: React.MouseEvent) {
+  function handleSubmit(e: React.MouseEvent) {
     e.preventDefault();
     if (imageSrc) {
       const formData = new FormData();
       const files = (imageInput.current as HTMLInputElement).files as FileList;
       formData.append('image', files[0]);
-      await postGalleryUpload(formData);
+      postGalleryUpload(formData);
       reset();
       navigate('/caregiver/gallery');
     } else {

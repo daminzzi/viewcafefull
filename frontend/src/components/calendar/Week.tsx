@@ -40,7 +40,7 @@ function Week() {
         setMoved(false);
       }}
       onMouseUp={(e) => {
-        if (startX !== null && Math.abs(startX - e.pageX) > 150) {
+        if (startX !== null && Math.abs(startX - e.pageX) > 100) {
           const isPrev = startX < e.pageX;
           setMoved(true);
           handleChangeWeek(isPrev);
@@ -52,7 +52,7 @@ function Week() {
         setMoved(false);
       }}
       onTouchEnd={(e) => {
-        if (startX !== null && Math.abs(startX - e.changedTouches[0].pageX) > 150) {
+        if (startX !== null && Math.abs(startX - e.changedTouches[0].pageX) > 100) {
           const isPrev = startX < e.changedTouches[0].pageX;
           setMoved(true);
           handleChangeWeek(isPrev);

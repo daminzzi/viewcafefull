@@ -4,6 +4,7 @@ import TodayConference from '../../components/caregiver/TodayConference';
 import Calendar from '../../components/calendar/Calendar';
 import useHealthStore from '../../stores/HealthStore';
 import MainCondition from '../../components/caregiver/MainCondition';
+import MainMeal from '../../components/caregiver/MainMeal';
 
 function CareGiverHome() {
   const { selectedDate, setSelectedDate, setToday } = useHealthStore();
@@ -18,9 +19,9 @@ function CareGiverHome() {
 
   return (
     <FlexColContainer>
-      <TodayConference />
       <Calendar />
-      
+      <TodayConference />
+      <MainMeal />
       <MainCondition />
     </FlexColContainer>
   );

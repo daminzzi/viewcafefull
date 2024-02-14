@@ -12,6 +12,7 @@ import useHealthStore, {
   dateToString,
 } from '../../stores/HealthStore';
 import useConnectStore from '../../stores/ConnectStore';
+import Line from '../../components/common/Line';
 
 const SubTitle = styled.p`
   font-weight: bold;
@@ -156,6 +157,7 @@ function FamilyHome() {
       <ContentsContainer>
         <SubTitle>하루 건강 정보</SubTitle>
         <TabButtonGroup />
+        <Line $margin='10px 0 0 0' $width='90%' $borderColor='none' />
         <TabView />
       </ContentsContainer>
     </FlexColContainer>

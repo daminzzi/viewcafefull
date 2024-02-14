@@ -22,7 +22,7 @@ function MainChart({ width, maxValue, value, range }: Props) {
   const xScale = scaleLinear<number>({
     domain: [0, maxValue],
   });
-  xScale.rangeRound([0, width]);
+  xScale.rangeRound([0, width-40]);
   const [{ scale }] = useSpring(() => ({
     from: { scale: 0 },
     to: { scale: 1 },
@@ -30,6 +30,19 @@ function MainChart({ width, maxValue, value, range }: Props) {
   }), [value]);
   const AnimatedBar = animated(Bar);
   const AnimatedCircle = animated.circle;
+
+  function calValue() {
+    if (value === null) {
+      return null;
+    }
+
+    if (value > maxValue) {
+      return Math.min(maxValue, value);
+    }
+
+    return value;
+  }
+  const plotValue = calValue()
 
   function colorState() {
     if (value === null) {
@@ -46,21 +59,21 @@ function MainChart({ width, maxValue, value, range }: Props) {
 
   const color = colorState();
 
-  return value !== null ? (
+  return plotValue !== null ? (
     <div>
       <svg width={width} height={45}>
         <rect x={0} y={0} width={width} height={40} fill={white} />
-        <rect x={0} y={25} width={width} height={15} fill={gray} rx={15 / 2} />
+        <rect x={20} y={25} width={width-40} height={15} fill={gray} rx={15 / 2} />
         <AnimatedBar
-          x={0}
+          x={20}
           y={25}
           fill={color}
-          width={scale.to((s) => s * xScale(value))}
+          width={scale.to((s) => s * xScale(plotValue))}
           height={15}
           rx={7.5}
         />
         <AnimatedCircle
-          cx={scale.to((s) => s * xScale(value))}
+          cx={scale.to((s) =>  s * xScale(plotValue) + 20)}
           cy={25 + 7.5}
           r={8}
           stroke={black}
@@ -69,19 +82,19 @@ function MainChart({ width, maxValue, value, range }: Props) {
         />
         <rect
           key="rect"
-          x={xScale(value) - 20}
+          x={xScale(plotValue)}
           height={20}
           width={40}
           fill={color}
         />
         <polygon
           key="polygon"
-          points={`${xScale(value) - 7}, 19 ${xScale(value) + 7}, 19 ${xScale(value)}, 26`}
+          points={`${xScale(plotValue) + 13}, 19 ${xScale(plotValue) + 27}, 19 ${xScale(plotValue) + 20}, 26`}
           fill={color}
         />
         <text
           key="text"
-          x={xScale(value)}
+          x={xScale(plotValue)+20}
           y={16}
           fill={white}
           textAnchor="middle"
