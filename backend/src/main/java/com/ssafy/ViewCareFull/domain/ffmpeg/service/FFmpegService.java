@@ -146,8 +146,8 @@ public class FFmpegService {
 
     // FFmpeg 명령어 생성
     String ffmpegCommand = String.format(
-        "%s -f concat -safe 0 -i %s -i %s -framerate %d -filter_complex \"[0:v]scale=1920:1080,setsar=1[v]; [1:a]atrim=start=%s,asetpts=PTS-STARTPTS[a]\" -map \"[v]\" -map \"[a]\" -y %s",
-        ffmpegPath, fileList.getAbsolutePath(), audioInputPath + "audio.mp3", framerate, audioStartSec,
+        "%s -f concat -safe 0 -i %s -i %s -vf \"fps=%d,scale=480:270\" -c:v libx264 -pix_fmt yuv420p -r %d -c:a aac -shortest -y %s",
+        ffmpegPath, fileList.getAbsolutePath(), audioInputPath + "audio.mp3", framerate, framerate,
         videoOutputPath + "video.mp4");
 
     log.info("FFmpeg command: " + ffmpegCommand);
