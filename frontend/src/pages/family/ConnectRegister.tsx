@@ -56,7 +56,6 @@ function ConnectRegister() {
   }
 
   return (
-    <GrayBackground>
       <UserContainer
         $height="420px"
         $width="300px"
@@ -140,16 +139,11 @@ function ConnectRegister() {
           </Label>
         )}
       </UserContainer>
-    </GrayBackground>
   );
 }
 
 export default ConnectRegister;
 
-const GrayBackground = styled.div`
-  background-color: ${lightgray};
-  min-height: 100vh;
-`;
 
 const Title = styled.div`
   font-weight: bold;
