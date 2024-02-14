@@ -18,7 +18,6 @@ import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.service.UsersService;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,16 +52,16 @@ public class MonthlyReportService {
 
     try {
       MonthlyReport monthlyReportResponse = openAIApi.getMonthlyReportResponse(monthlyAverageHealth);
-      String movieUrl = ffmpegService.createImageToVideo(requestReportDto.getId(),
-          start.atStartOfDay(),
-          end.atTime(LocalTime.MAX));
+//      String movieUrl = ffmpegService.createImageToVideo(requestReportDto.getId(),
+//          start.atStartOfDay(),
+//          end.atTime(LocalTime.MAX));
 
       monthlyReportResponse.settingReport(year, month, caregiver,
           conditionService.cntCondition(requestReportDto.getId(), start, end),
-          movieUrl);
+          "movieUrl");
 
       reportRepository.save(monthlyReportResponse.toEntity(requestReportDto));
-    } catch (IOException | InterruptedException e) {
+    } catch (IOException e) {
       throw new ReportException(ReportErrorCode.NOT_FOUND_CREATED_MOVIE);
     }
   }

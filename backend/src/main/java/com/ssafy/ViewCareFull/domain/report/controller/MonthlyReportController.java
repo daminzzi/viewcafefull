@@ -47,11 +47,5 @@ public class MonthlyReportController {
     return ResponseEntity.ok().body("success");
   }
 
-  @GetMapping("/test")
-  public ResponseEntity<String> test() {
-    ffmpegService.onlyTest();
-    return ResponseEntity.ok().body("success");
-  }
-
 
 }

@@ -7,6 +7,7 @@ import com.ssafy.ViewCareFull.domain.gallery.utils.ImageUtil;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,7 +26,7 @@ public class MonthlyMovieService {
   private String videoOutputPath;
 
   @Transactional
-  public void createMonthlyMovie(SecurityUsers securityUsers, Integer month) {
+  public String createMonthlyMovie(SecurityUsers securityUsers, Integer month) {
     List<Image> notInMealImage = galleryService.getNotInMealImageWithMonth(month, securityUsers.getUser());
     List<String> imagePaths = new ArrayList<>();
     for (Image image : notInMealImage) {
@@ -43,8 +44,9 @@ public class MonthlyMovieService {
       }
       imagePaths.addAll(reversedImagePaths);
     }
+    String videoName = UUID.randomUUID().toString();
     try {
-      ffmpegService.buildCommand(imagePaths);
+      return ffmpegService.buildCommand(imagePaths, videoName + ".mp4");
     } catch (Exception e) {
       log.error("비디오 생성 실패");
       throw new RuntimeException(e);
