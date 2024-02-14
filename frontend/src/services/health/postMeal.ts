@@ -1,9 +1,9 @@
-import apiMultipart from '../apiMutipart';
+import apiMultipart from '../apiMultipart';
 
 async function postMeal(body: FormData) {
   try {
-    const response = await apiMultipart.post('/gallery', body);
-    if (response.status !== 201) {
+    const response = await apiMultipart.post('/meal', body);
+    if (response.status !== 200) {
       throw new Error(`오류: ${response.status}`);
     }
   } catch (err) {

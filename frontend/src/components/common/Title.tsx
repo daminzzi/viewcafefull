@@ -5,11 +5,13 @@ import { ReactComponent as GalleryIcon } from '../../assets/icons/gallery.svg';
 import { ReactComponent as MessageIcon } from '../../assets/icons/message.svg';
 import { ReactComponent as VisitIcon } from '../../assets/icons/visit.svg';
 import { ReactComponent as ProfileIcon } from '../../assets/icons/profile.svg';
+import { ReactComponent as UtensilsIcon } from '../../assets/icons/utensils.svg';
+import { ReactComponent as SmilesIcon } from '../../assets/icons/smile.svg';
 import FlexRowContainer from './FlexRowContainer';
 import { Button } from './Buttons';
 import { success, white } from '../../assets/styles/palettes';
 
-type Icon = 'home' | 'visit' | 'message' | 'gallery' | 'profile';
+type Icon = 'home' | 'visit' | 'message' | 'gallery' | 'profile' | 'meal' | 'condition';
 
 type Props = {
   children: React.ReactNode;
@@ -43,6 +45,10 @@ function Title({ children, icon = null, buttonContents, handleClick }: Props) {
         return <GalleryIcon width="1.5rem" />;
       case 'profile':
         return <ProfileIcon width="1.5rem" />;
+      case 'meal':
+        return <UtensilsIcon width="1.5rem" />;
+      case 'condition':
+        return <SmilesIcon width="1.5rem" />;
       default:
         return null;
     }

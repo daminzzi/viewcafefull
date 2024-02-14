@@ -1,7 +1,7 @@
 import React from 'react';
 import useHealthStore from '../../stores/HealthStore';
 import { RoundedButton } from '../common/Buttons';
-import { white, medium, deep } from '../../assets/styles/palettes';
+import { white, deep } from '../../assets/styles/palettes';
 import FlexRowContainer from '../common/FlexRowContainer';
 import styled, { css } from 'styled-components';
 
@@ -12,7 +12,7 @@ const TabButton = styled(RoundedButton)<{ $isSelected: boolean }>`
   height: 1.75rem;
   border-radius: 2rem;
   background-color: ${white};
-  box-shadow: 0.1rem 0.1rem 0.2rem ${medium};
+  box-shadow: 0.1rem 0.1rem 0.2rem ${deep};
   -ms-user-select: none;
   -moz-user-select: -moz-none;
   -webkit-user-select: none;

@@ -1,8 +1,8 @@
-import api from "../api";
+import apiMutipart from '../apiMultipart';
 
 async function getMeal(day: string) {
   try {
-    const response = await api.get('/meal', { params: { day } });
+    const response = await apiMutipart.get('/meal', { params: { day } });
     if (response.status !== 200) {
       throw new Error(`오류: ${response.status}`);
     }

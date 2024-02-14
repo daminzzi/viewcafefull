@@ -1,4 +1,4 @@
-import apiMultipart from '../apiMutipart';
+import apiMultipart from '../apiMultipart';
 
 async function postGalleryUpload(body: FormData) {
   try {
