@@ -25,6 +25,7 @@ const YearMonth = styled.div`
   width: 100%;
   text-align: center;
   font-size: 2rem;
+  font-weight: 700;
   margin: 2rem;
 `;
 
@@ -32,6 +33,7 @@ const Info = styled.div`
   width: 100%;
   text-align: right;
   font-size: 1.2rem;
+  font-weight: 600;
   margin: 0.2rem;
 `;
 

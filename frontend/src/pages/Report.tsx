@@ -11,6 +11,7 @@ import PieChart from '../components/chart/PieChart';
 import styled from 'styled-components';
 import LineChart from '../components/chart/LineChart';
 import { blue, failed, gray } from '../assets/styles/palettes';
+import VideoContainer from '../components/common/VideoContainer';
 
 function Report() {
   const navigator = useNavigate();
@@ -124,15 +125,7 @@ function Report() {
             </Canvas>
           </ReportLifeContent>
           <ReportSubject subject="3. 생활 영상" />
-          {/* <video src={reportInfo.movie} /> */}
-          <iframe
-            width="99%"
-            height="50%"
-            src="https://www.youtube.com/embed/qfmdXoSlceU?si=XMPQ2aGt7jnCo-Zf"
-            title="YouTube video player"
-            frameBorder="7"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          ></iframe>
+          <VideoContainer src={reportInfo.movie} />
           <FlexColContainer>
             <Message>
               갑진년 새해 복<br />
@@ -148,12 +141,15 @@ function Report() {
 
 const Message = styled.h3`
   text-align: center;
+  font-size: 2rem;
+  margin: 3rem 0;
 `;
 
 const Canvas = styled.div`
   width: 100%;
   border-radius: 20px;
   box-shadow: 0 0 3px ${gray};
+  margin: 1rem 0;
 `;
 
 export default Report;
