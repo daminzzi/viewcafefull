@@ -4,7 +4,7 @@ import FlexColContainer from '../common/FlexColContainer';
 import styled from 'styled-components';
 import MainChart from '../chart/MainChart';
 import ParentSize from '@visx/responsive/lib/components/ParentSize';
-
+import { success, warning, failed } from '../../assets/styles/palettes';
 const StyledHr = styled.hr`
   width: 100%;
 `;
@@ -12,6 +12,12 @@ const StyledHr = styled.hr`
 const Wrapper = styled.div`
   width: 100%;
   height: 45;
+`;
+
+const LabelWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
 `;
 
 function maxValue(obj: HealthInfoData) {
@@ -25,8 +31,10 @@ function Summary() {
 
   return (
     <FlexColContainer $width="90%" $alignItems="start">
-      <p>혈당</p>
-      <p>공복:</p>
+      <StyledLabel style={{ margin: '1rem 0 0.5rem', fontWeight: '600' }}>
+        평균 혈당
+      </StyledLabel>
+      <StyledLabel2>공복:</StyledLabel2>
       <Wrapper>
         <ParentSize>
           {({ width: visWidth }) => (
@@ -38,8 +46,23 @@ function Summary() {
             />
           )}
         </ParentSize>
+        <LabelWrapper>
+          <Legend>
+            <SmallRectangle $backgroundColor={success} />
+            <span>정상 ~99</span>
+          </Legend>
+          <Legend>
+            <SmallRectangle $backgroundColor={warning} />
+            <span>주의 100~124</span>
+          </Legend>
+          <Legend>
+            <SmallRectangle $backgroundColor={failed} />
+            <span>위험 125~</span>
+          </Legend>
+        </LabelWrapper>
       </Wrapper>
-      <p>식후: </p>
+
+      <StyledLabel2>식후: </StyledLabel2>
       <Wrapper>
         <ParentSize>
           {({ width: visWidth }) => (
@@ -51,10 +74,24 @@ function Summary() {
             />
           )}
         </ParentSize>
+        <LabelWrapper>
+          <Legend>
+            <SmallRectangle $backgroundColor={success} />
+            <span>정상 ~139</span>
+          </Legend>
+          <Legend>
+            <SmallRectangle $backgroundColor={warning} />
+            <span>주의 140~199</span>
+          </Legend>
+          <Legend>
+            <SmallRectangle $backgroundColor={failed} />
+            <span>위험 200~</span>
+          </Legend>
+        </LabelWrapper>
       </Wrapper>
       <StyledHr />
-      <span>혈압</span>
-      <p>이완:</p>
+      <StyledLabel style={{ fontWeight: '600' }}> 평균 혈압</StyledLabel>
+      <StyledLabel2>이완:</StyledLabel2>
       <Wrapper>
         <ParentSize>
           {({ width: visWidth }) => (
@@ -66,8 +103,22 @@ function Summary() {
             />
           )}
         </ParentSize>
+        <LabelWrapper>
+          <Legend>
+            <SmallRectangle $backgroundColor={success} />
+            <span>정상 ~79</span>
+          </Legend>
+          <Legend>
+            <SmallRectangle $backgroundColor={warning} />
+            <span>주의 80~89</span>
+          </Legend>
+          <Legend>
+            <SmallRectangle $backgroundColor={failed} />
+            <span>위험 90~</span>
+          </Legend>
+        </LabelWrapper>
       </Wrapper>
-      <p>수축:</p>
+      <StyledLabel2>수축:</StyledLabel2>
       <Wrapper>
         <ParentSize>
           {({ width: visWidth }) => (
@@ -79,9 +130,47 @@ function Summary() {
             />
           )}
         </ParentSize>
+        <LabelWrapper>
+          <Legend>
+            <SmallRectangle $backgroundColor={success} />
+            <span>정상 ~119</span>
+          </Legend>
+          <Legend>
+            <SmallRectangle $backgroundColor={warning} />
+            <span>주의 120~139</span>
+          </Legend>
+          <Legend>
+            <SmallRectangle $backgroundColor={failed} />
+            <span>위험 140~</span>
+          </Legend>
+        </LabelWrapper>
       </Wrapper>
     </FlexColContainer>
   );
 }
+
+const StyledLabel = styled.p`
+  margin: 0.5rem 0;
+`;
+
+const StyledLabel2 = styled.p`
+  margin: 0.8rem 0 0 0;
+`;
+
+const SmallRectangle = styled.div<{ $backgroundColor: string }>`
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: ${(props) => props.$backgroundColor};
+  margin: 0 0.5rem;
+`;
+
+const Legend = styled.div`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  width: 130px;
+`;
 
 export default Summary;

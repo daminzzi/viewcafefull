@@ -7,8 +7,8 @@ import styled, { css } from 'styled-components';
 
 const TabButton = styled(RoundedButton)<{ $isSelected: boolean }>`
   color: ${deep};
-  font-size: 0.8rem;
-  width: 3.5rem;
+  font-size: 0.9rem;
+  width: 4.5rem;
   height: 1.75rem;
   border-radius: 2rem;
   background-color: ${white};
@@ -33,7 +33,7 @@ function isSelected(curr: Page, state: Page) {
 function TabButtonGroup() {
   const { tab, setTab } = useHealthStore();
   return (
-    <FlexRowContainer>
+    <FlexRowContainer $justifyContent="space-evenly">
       <TabButton
         $isSelected={isSelected(tab, 'sum')}
         onClick={() => setTab('sum')}

@@ -9,9 +9,14 @@ type Props = {
   image?: string;
   $size: string;
   $cursor?: string;
+  $aspectRatio?: string;
 };
 
-export const Wrapper = styled.div<{ $size: string; $cursor?: string }>`
+export const Wrapper = styled.div<{
+  $size: string;
+  $cursor?: string;
+  $aspectRatio?: string;
+}>`
   background-color: ${white};
   display: flex;
   justify-content: center;
@@ -21,7 +26,7 @@ export const Wrapper = styled.div<{ $size: string; $cursor?: string }>`
   overflow: hidden;
 
   width: ${(props) => props.$size};
-  aspect-ratio: 1 / 1;
+  aspect-ratio: ${(props) => props.$aspectRatio || 1 / 1};
 
   ${(props) =>
     props.$cursor &&

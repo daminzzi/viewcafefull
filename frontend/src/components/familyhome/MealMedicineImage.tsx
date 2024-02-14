@@ -38,7 +38,7 @@ function MealMedicineImage({ time, src, isMedicine }: Props) {
   const navigate = useNavigate();
 
   function handleClick(image: string): void {
-    console.log('asdf')
+    console.log('asdf');
     navigate(`/gallery/detail`, { state: { src: image } });
   }
 
@@ -47,12 +47,12 @@ function MealMedicineImage({ time, src, isMedicine }: Props) {
       <RoundedButton $width="20%" $height="1.5rem">
         {time}
       </RoundedButton>
-      <Wrapper onClick={() => {handleClick(src)}}>
-        <ImageFrame
-          src={src}
-          alt={time}
-          $size="100%"
-        />
+      <Wrapper
+        onClick={() => {
+          handleClick(src);
+        }}
+      >
+        <ImageFrame src={src} alt={time} $size="100%" $aspectRatio="4/3" />
         <MedicineDiv>
           <PillFill color={color} />
         </MedicineDiv>
