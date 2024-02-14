@@ -14,7 +14,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-
 export const SignUpText = styled.div`
   font-weight: bold;
   font-size: 20px;
@@ -45,7 +44,7 @@ export const IdCheckIcon = styled.div`
   position: absolute;
   margin-right: 15px;
   right: 91px;
-  top: -193px;
+  top: -120px;
   width: 25px;
   height: 100%;
   background-image: url(${check});
@@ -58,10 +57,10 @@ export const IdCheckIcon = styled.div`
 
 export const PwCheckIcon = styled(IdCheckIcon)`
   right: 18px;
-  top: -114px;
+  top: -121px;
 `;
 
 export const PwConfirmCheckIcon = styled(IdCheckIcon)`
   right: 18px;
-  top: -28px;
+  top: -35px;
 `;
