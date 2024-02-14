@@ -16,7 +16,6 @@ import com.ssafy.ViewCareFull.domain.report.util.OpenAIApi;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Caregiver;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.service.UsersService;
-import java.io.IOException;
 import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -62,7 +61,7 @@ public class MonthlyReportService {
           movieUrl);
 
       reportRepository.save(monthlyReportResponse.toEntity(requestReportDto));
-    } catch (IOException e) {
+    } catch (Exception e) {
       // 원래는  Exception 던져야 하지만 현재는 테스트를 위해 1월 데이터를 임시로 저장함.
       Reports reports = reportRepository.findByIdAndDate(requestReportDto.getId(), 2024, 1)
           .orElseThrow(() -> new ReportException(ReportErrorCode.NOT_FOUND_CREATED_REPORT));

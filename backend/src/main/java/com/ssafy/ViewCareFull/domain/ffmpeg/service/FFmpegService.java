@@ -88,7 +88,6 @@ public class FFmpegService {
       File file = new File(imageUrl);
       file.delete();
     }
-    fileList.delete();
     log.info("server video url : " + result);
     return result;
   }
