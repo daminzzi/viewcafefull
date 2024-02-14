@@ -23,7 +23,7 @@ export const ParentContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 92vh;
 `;
 
 export const MainContainer = styled.div`

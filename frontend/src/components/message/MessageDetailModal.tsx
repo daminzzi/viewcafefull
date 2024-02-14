@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { failed, white, main3 } from '../../assets/styles/palettes';
 import { Button } from '../common/Buttons';
@@ -21,6 +21,28 @@ function MessageDetailModal({
   onClose,
   time,
 }: MessageDetailModalProps) {
+  const modalRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        event.stopPropagation();
+        onClose();
+        setTimeout(() => (document.body.style.pointerEvents = 'auto'), 0);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.body.style.pointerEvents = 'none';
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.pointerEvents = 'auto';
+    };
+  }, [onClose]);
+
   const dateObj = new Date(time);
   const navigator = useNavigate();
   function handleGoToReport() {
@@ -75,7 +97,7 @@ function MessageDetailModal({
   }
 
   return (
-    <Modal>
+    <Modal ref={modalRef}>
       <FlexRowContainer $justifyContent="end">
         <XmarkContainer>
           <Xmark width="30px" onClick={onClose}></Xmark>
@@ -150,6 +172,7 @@ const TitleText = styled.div`
 `;
 const ContentText = styled.div`
   flex: 1;
+  word-break: keep-all;
 `;
 
 const TimeText = styled.div`

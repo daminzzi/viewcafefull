@@ -31,7 +31,7 @@ function FamilyMessage() {
   const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
   const [checkedMessages, setCheckedMessages] = useState<Message[]>([]);
   const { user } = useUserStore();
-  const pageGroupSize = 6;
+  const pageGroupSize = 5;
 
   function parseContent(content: string): ReportMessage | string {
     try {

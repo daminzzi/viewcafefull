@@ -3,11 +3,8 @@ import postSendMessage from '../../../services/message/postSendMessage';
 import useUserStore from '../../../stores/UserStore';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../../components/common/Input';
-import { Button } from '../../../components/common/Buttons';
-import { failed, white } from '../../../assets/styles/palettes';
-import * as S from './CareGiverSendMessage.styles'
+import * as S from './CareGiverSendMessage.styles';
 import TextArea from '../../../components/common/TextArea';
-import FlexRowContainer from '../../../components/common/FlexRowContainer';
 import Title from '../../../components/common/Title';
 import getConnectInfo from '../../../services/connect/getConnectInfo';
 
@@ -43,15 +40,11 @@ function CareGiverSendMessage() {
 
       await Promise.all(messagePromises);
       alert('메시지가 전송되었습니다.');
-      navigate('/caregiver/message');
+      navigate('/caregiver/message/send');
     } catch (error) {
       console.error(error);
       alert('메시지 전송에 실패하였습니다.');
     }
-  }
-
-  function handleClose() {
-    navigate('/caregiver/message');
   }
 
   return (
@@ -79,7 +72,7 @@ function CareGiverSendMessage() {
             <div>
               <TextArea
                 $width="97%"
-                $height="40vh"
+                $height="45vh"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 required
@@ -87,23 +80,9 @@ function CareGiverSendMessage() {
             </div>
           </S.Label>
         </S.SubContainer>
-        <FlexRowContainer $justifyContent="end" $alignItems="end">
-          <Button
-            $borderRadius="50px"
-            $bgColor={failed}
-            $width="60px"
-            $padding="10px"
-            $margin="5px"
-            $color={white}
-            onClick={handleClose}
-          >
-            닫기
-          </Button>
-        </FlexRowContainer>
       </S.MainContainer>
     </S.ParentContainer>
   );
 }
 
 export default CareGiverSendMessage;
-

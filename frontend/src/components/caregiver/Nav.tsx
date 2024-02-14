@@ -53,7 +53,7 @@ function Nav() {
       <NavLink to="/caregiver/visit" $isActived={actived === 'visit'}>
         <VisitIcon className="visit-icon" width="40%" />
       </NavLink>
-      <NavLink to="/caregiver/message" $isActived={actived === 'message'}>
+      <NavLink to="/caregiver/message/send" $isActived={actived === 'message'}>
         <MessageIcon className="message-icon" width="40%" />
       </NavLink>
       <NavLink to="/caregiver/gallery" $isActived={actived === 'gallery'}>
