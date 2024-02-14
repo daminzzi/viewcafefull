@@ -7,6 +7,7 @@ import Line from '../../components/common/Line';
 import Title from '../../components/common/Title';
 import { useNavigate } from 'react-router-dom';
 import VisitTodayRow from '../../components/visit/VisitTodayRow';
+
 function FamilyVisit() {
   const [visitList, setVisitList] = useState<VisitData[] | null>();
   const [todayVisit, setTodayVisit] = useState<VisitData[] | null>();
