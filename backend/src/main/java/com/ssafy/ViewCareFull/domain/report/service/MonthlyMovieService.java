@@ -26,8 +26,8 @@ public class MonthlyMovieService {
   private String videoOutputPath;
 
   @Transactional
-  public String createMonthlyMovie(SecurityUsers securityUsers, Integer month) {
-    List<Image> notInMealImage = galleryService.getNotInMealImageWithMonth(month, securityUsers.getUser());
+  public String createMonthlyMovie(SecurityUsers securityUsers, Integer year, Integer month) {
+    List<Image> notInMealImage = galleryService.getNotInMealImageWithMonth(year, month, securityUsers.getUser());
     List<String> imagePaths = new ArrayList<>();
     for (Image image : notInMealImage) {
       String imagePath = galleryService.getImagePath(image);

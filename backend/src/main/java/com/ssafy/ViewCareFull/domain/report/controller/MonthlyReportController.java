@@ -40,9 +40,11 @@ public class MonthlyReportController {
     return ResponseEntity.ok().build();
   }
 
-  @PostMapping("/test")
-  public ResponseEntity<String> test(@AuthenticationPrincipal SecurityUsers securityUser, @RequestParam int month) {
-    monthlyMovieService.createMonthlyMovie(securityUser, month);
+  @PostMapping("/movie_test")
+  public ResponseEntity<String> test(@AuthenticationPrincipal SecurityUsers securityUser,
+      @RequestParam int month,
+      @RequestParam int year) {
+    monthlyMovieService.createMonthlyMovie(securityUser, year, month);
     log.info("video create success");
     return ResponseEntity.ok().body("success");
   }

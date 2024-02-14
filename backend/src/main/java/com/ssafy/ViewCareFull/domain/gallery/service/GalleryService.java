@@ -51,8 +51,8 @@ public class GalleryService {
     return savedImage;
   }
 
-  public List<Image> getNotInMealImageWithMonth(Integer month, Users user) {
-    return imageRepository.findAllNotInMealWithMonthAndUser(month, user.getId());
+  public List<Image> getNotInMealImageWithMonth(Integer year, Integer month, Users user) {
+    return imageRepository.findAllNotInMealWithMonthAndUser(year, month, user.getId());
   }
 
   private void saveImageToDisk(MultipartFile image, String saveLocation) {

@@ -15,8 +15,8 @@ public interface ImageRepository extends JpaRepository<Image, Long> {
       countQuery = "SELECT COUNT(i) FROM Image i WHERE i.userId = :caregiverId")
   Page<Image> findAllByCaregiverId(Long caregiverId, Pageable pageable);
 
-  @Query(value = "SELECT i FROM Image i where i not in (select m.image from Meal m) and month(i.imageDateTime) = :month and i.userId = :userId")
-  List<Image> findAllNotInMealWithMonthAndUser(Integer month, Long userId);
+  @Query(value = "SELECT i FROM Image i where i not in (select m.image from Meal m) and month(i.imageDateTime) = :month and i.userId = :userId and year(i.imageDateTime) = :year")
+  List<Image> findAllNotInMealWithMonthAndUser(Integer year, Integer month, Long userId);
 
   @Query(value = "SELECT i FROM Image i INNER JOIN BestPhoto b ON i.id = b.image.id  where i.userId = :caregiverId and i.imageDateTime between :startDate and :endDate")
   List<Image> findBestPhotoImageByCaregiverIdBetweenDate(@Param("caregiverId") Long caregiverId,

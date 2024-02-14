@@ -51,7 +51,7 @@ public class MonthlyReportService {
 
     try {
       MonthlyReport monthlyReportResponse = openAIApi.getMonthlyReportResponse(monthlyAverageHealth);
-      String movieUrl = monthlyMovieService.createMonthlyMovie(securityUser, month);
+      String movieUrl = monthlyMovieService.createMonthlyMovie(securityUser, year, month);
 
       monthlyReportResponse.settingReport(year, month, caregiver,
           conditionService.cntCondition(requestReportDto.getId(), start, end),
