@@ -125,13 +125,16 @@ function Report() {
             </Canvas>
           </ReportLifeContent>
           <ReportSubject subject="3. 생활 영상" />
-          <VideoContainer src={reportInfo.movie} />
+          <VideoContainer
+            src={reportInfo.movie}
+            controls
+            autoPlay
+            width="90%"
+          />
           <FlexColContainer>
-            <Message>
-              갑진년 새해 복<br />
-              많이 받으세요
-              <br />
-            </Message>
+            <Message
+              dangerouslySetInnerHTML={{ __html: reportInfo.message }}
+            ></Message>
           </FlexColContainer>
         </FlexColContainer>
       )}
