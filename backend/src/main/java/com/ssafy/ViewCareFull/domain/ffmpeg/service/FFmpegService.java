@@ -65,7 +65,9 @@ public class FFmpegService {
     // 이미지를 비디오로 변환하는 FFmpeg 명령어 생성
     File fileList = new File("filelist.txt");
     try (PrintWriter out = new PrintWriter(new FileWriter(fileList))) {
-      out.println("file '" + videoOutputPath + "logo.jpg'");
+      for (int i = 0; i < 25; i++) {
+        out.println("file '" + videoOutputPath + "logo.jpg'");
+      }
       for (String imageUrl : imageUrls) {
         out.println("file '" + imageUrl + "'");
       }
