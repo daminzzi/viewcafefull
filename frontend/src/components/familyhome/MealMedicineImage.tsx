@@ -38,7 +38,6 @@ function MealMedicineImage({ time, src, isMedicine }: Props) {
   const navigate = useNavigate();
 
   function handleClick(image: string): void {
-    console.log('asdf');
     navigate(`/gallery/detail`, { state: { src: image } });
   }
 

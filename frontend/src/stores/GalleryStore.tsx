@@ -22,7 +22,7 @@ const initialState: State = {
   isCallable: true,
 };
 
-const useGalleryStore = create<State & Action>((set) => ({
+const useGalleryStore = create<State & Action>((set, get) => ({
   ...initialState,
 
   switchIsLoading: () => {
@@ -38,7 +38,15 @@ const useGalleryStore = create<State & Action>((set) => ({
   },
 
   addInfo: (newInfo) => {
-    set((state) => ({ galleryInfo: state.galleryInfo.concat(newInfo) }));
+    const newGallery = [...get().galleryInfo]
+    if (newGallery.length > 0 && newGallery.at(-1)?.date === newInfo[0].date){
+      const last = newGallery.length - 1;
+      newGallery[last].images = newGallery[last].images.concat(newInfo[0].images)
+      newGallery[last].thumnail = newGallery[last].thumnail.concat(newInfo[0].thumnail)
+      set((state) => ({galleryInfo: state.galleryInfo.concat(newInfo.slice(1))}))
+    } else {
+      set((state) => ({ galleryInfo: state.galleryInfo.concat(newInfo) }));
+    }
   },
 
   reset: () => {

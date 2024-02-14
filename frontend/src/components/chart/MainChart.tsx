@@ -37,7 +37,7 @@ function MainChart({ width, maxValue, value, range }: Props) {
     }
     if (value < range[0]) {
       return success;
-    } else if (value >= range[0] && value < range[1]) {
+    } else if (value < range[1]) {
       return warning;
     } else if (value >= range[1]) {
       return failed;

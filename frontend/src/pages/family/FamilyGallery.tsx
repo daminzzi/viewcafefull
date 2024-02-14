@@ -33,6 +33,7 @@ function FamilyGallery() {
     switchIsLoading();
     const response = await getGallery(page);
     if (response.data.length > 0) {
+      console.log(response.data)
       addInfo(response.data);
     } else if (response.data.length <= 0) {
       switchIsCallable();
@@ -49,7 +50,6 @@ function FamilyGallery() {
     if (entry.isIntersecting && !isLoading) {
       observer.disconnect();
       getInfo();
-      console.log(entry);
     }
   };
 

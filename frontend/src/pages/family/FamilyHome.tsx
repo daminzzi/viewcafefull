@@ -138,9 +138,10 @@ function FamilyHome() {
   }
 
   useEffect(() => {
-    setToday(new Date());
+    const curr = new Date();
+    setToday(curr);
     if (selectedDate === null) {
-      setSelectedDate(new Date());
+      setSelectedDate(curr);
     }
   }, []);
 

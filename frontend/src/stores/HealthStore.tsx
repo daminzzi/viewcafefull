@@ -25,6 +25,7 @@ type Action = {
   setHealthInfo: (healthInfo: HealthInfo) => void;
   reset: () => void;
   resetHealthInfo: () => void;
+  refreshWeek: () => void;
 };
 
 export const initialHealth: HealthInfoData = {
@@ -118,6 +119,29 @@ const useHealthStore = create<State & Action>((set, get) => ({
       newWeek.push(newInfo);
     }
     set({ week: newWeek });
+  },
+
+  refreshWeek: async () => {
+    const start = get().startOfWeek
+    if (start !== null) {
+      const end = new Date(start);
+      end.setDate(end.getDate() + 6);
+      const response = await getCondition(
+        dateToString(start),
+        dateToString(end),
+      )
+      const newWeek = [];
+      for (let i = 0; i < 7; i++) {
+        const date = new Date(start);
+        date.setDate(date.getDate() + i);
+        const newInfo = {
+          date,
+          condition: response[i],
+        };
+        newWeek.push(newInfo);
+      }
+      set({ week: newWeek });
+    }
   },
 
   setWeek: (newWeek: Array<WeekInfo>) => {

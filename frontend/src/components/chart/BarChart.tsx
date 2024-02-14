@@ -76,36 +76,44 @@ function BarChart({
 }: Props) {
   function createChartData(): Array<ChartData> {
     if (type === 'bp') {
-      return ([
+      return [
         {
           type: 'morning',
           low: data.low.morning as number,
           high: data.high.morning as number,
         },
-        { type: 'noon', low: data.low.noon as number, high: data.high.noon as number },
+        {
+          type: 'noon',
+          low: data.low.noon as number,
+          high: data.high.noon as number,
+        },
         {
           type: 'dinner',
           low: data.low.dinner as number,
           high: data.high.dinner as number,
         },
-      ])
+      ];
     } else {
-      return ([
+      return [
         {
           type: 'morning',
           before: data.before.noon as number,
           after: data.after.noon as number,
         },
-        { type: 'noon', before: data.before.noon as number, after: data.after.noon as number },
+        {
+          type: 'noon',
+          before: data.before.noon as number,
+          after: data.after.noon as number,
+        },
         {
           type: 'dinner',
           before: data.before.dinner as number,
           after: data.after.dinner as number,
         },
-      ])
+      ];
     }
   }
-  const ChartData = createChartData()
+  const ChartData = createChartData();
   const xMax = Math.max(0, width - margin.left - margin.right);
   const yMax = Math.max(0, height - margin.top - margin.bottom);
   const xScale = scaleLinear<number>({
@@ -177,17 +185,27 @@ function BarChart({
                   key={`bar-group-horizontal-${barGroup.index}-${barGroup.y0}`}
                   top={barGroup.y0}
                 >
-                  {barGroup.bars.map((bar) => (
-                    <AnimatedBar
-                      key={`${barGroup.index}-${bar.index}-${bar.key}`}
-                      x={scale.to((s) => s * bar.x)}
-                      y={bar.y}
-                      width={scale.to((s) => s * bar.width)}
-                      height={bar.height}
-                      fill={bar.color}
-                      rx={bar.height / 2}
-                    />
-                  ))}
+                  {barGroup.bars.map((bar) => {
+                    return (
+                    <g key={`${barGroup.index}-${bar.index}-${bar.key}`}>
+                      <AnimatedBar
+                        x={bar.x}
+                        y={bar.y}
+                        width={scale.to((s) => s * bar.width)}
+                        height={bar.height}
+                        fill={bar.color}
+                        rx={bar.height / 2}
+                      />
+                      <text
+                        x={bar.x}
+                        y={bar.y}
+                        dx={bar.width+4}
+                        dy={bar.height/2}
+                        fontSize={14}
+                        alignmentBaseline="middle" 
+                      >{bar.value}</text>
+                    </g>
+                  )})}
                 </Group>
               ))
             }

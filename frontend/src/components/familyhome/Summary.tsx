@@ -124,7 +124,7 @@ function Summary() {
           {({ width: visWidth }) => (
             <MainChart
               width={visWidth}
-              maxValue={300}
+              maxValue={200}
               value={maxValue(healthInfo.high)}
               range={[120, 140]}
             />
