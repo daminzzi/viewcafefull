@@ -5,11 +5,13 @@ type LineProps = {
   $borderColor?: string;
   $margin?: string;
   $width?: string;
+  $borderWidth?: string;
 };
 const Line = styled.hr<LineProps>`
   width: ${(props) => props.$width || '100%'};
   border-bottom: 1px solid ${(props) => props.$borderColor || gray};
   margin: ${(props) => props.$margin || '0px 0px 3px 0px'};
+  border-width: ${(props) => props.$borderWidth || '1px'};
 `;
 
 export default Line;

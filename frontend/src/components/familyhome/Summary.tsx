@@ -32,7 +32,7 @@ function Summary() {
   return (
     <FlexColContainer $width="90%" $alignItems="start">
       <StyledLabel style={{ margin: '1rem 0 0.5rem', fontWeight: '600' }}>
-        평균 혈당
+        최고 혈당
       </StyledLabel>
       <StyledLabel2>공복:</StyledLabel2>
       <Wrapper>
@@ -90,7 +90,7 @@ function Summary() {
         </LabelWrapper>
       </Wrapper>
       <StyledHr />
-      <StyledLabel style={{ fontWeight: '600' }}> 평균 혈압</StyledLabel>
+      <StyledLabel style={{ fontWeight: '600' }}> 최고 혈압</StyledLabel>
       <StyledLabel2>이완:</StyledLabel2>
       <Wrapper>
         <ParentSize>
