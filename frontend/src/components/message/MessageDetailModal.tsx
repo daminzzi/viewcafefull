@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { failed, white, main3 } from '../../assets/styles/palettes';
 import { Button } from '../common/Buttons';
@@ -21,28 +21,6 @@ function MessageDetailModal({
   onClose,
   time,
 }: MessageDetailModalProps) {
-  const modalRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        modalRef.current &&
-        !modalRef.current.contains(event.target as Node)
-      ) {
-        event.stopPropagation();
-        onClose();
-        setTimeout(() => (document.body.style.pointerEvents = 'auto'), 0);
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside);
-    document.body.style.pointerEvents = 'none';
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.body.style.pointerEvents = 'auto';
-    };
-  }, [onClose]);
-
   const dateObj = new Date(time);
   const navigator = useNavigate();
   function handleGoToReport() {
@@ -97,44 +75,46 @@ function MessageDetailModal({
   }
 
   return (
-    <Modal ref={modalRef}>
-      <FlexRowContainer $justifyContent="end">
-        <XmarkContainer>
-          <Xmark width="30px" onClick={onClose}></Xmark>
-        </XmarkContainer>
-      </FlexRowContainer>
-
-      <FlexColContainer
-        $justifyContent="start"
-        $gap="8px"
-        $alignItems="stretch"
-        $position="relative"
-      >
-        <FlexColContainer $alignItems="stretch" $justifyContent="stretch">
-          <TitleText>{message.title}</TitleText>
-        </FlexColContainer>
-
-        <FlexColContainer $alignItems="stretch" $justifyContent="stretch">
-          <Title>내용</Title>
-          <Line />
-          <ContentText>{renderContentText()}</ContentText>
-        </FlexColContainer>
-      </FlexColContainer>
-      <TimeText>{formattedDate}</TimeText>
-      {message.from === userId ? (
-        <FlexRowContainer $justifyContent="end" $alignItems="end">
-          <Button
-            $bgColor={failed}
-            $color={white}
-            $padding="8px"
-            $width="4rem"
-            onClick={handleDelete}
-          >
-            삭제
-          </Button>
+    <ModalContainer onClick={onClose}>
+      <Modal onClick={(e) => e.stopPropagation()}>
+        <FlexRowContainer $justifyContent="end">
+          <XmarkContainer>
+            <Xmark width="30px" onClick={onClose}></Xmark>
+          </XmarkContainer>
         </FlexRowContainer>
-      ) : null}
-    </Modal>
+
+        <FlexColContainer
+          $justifyContent="start"
+          $gap="8px"
+          $alignItems="stretch"
+          $position="relative"
+        >
+          <FlexColContainer $alignItems="stretch" $justifyContent="stretch">
+            <TitleText>{message.title}</TitleText>
+          </FlexColContainer>
+
+          <FlexColContainer $alignItems="stretch" $justifyContent="stretch">
+            <Title>내용</Title>
+            <Line />
+            <ContentText>{renderContentText()}</ContentText>
+          </FlexColContainer>
+        </FlexColContainer>
+        <TimeText>{formattedDate}</TimeText>
+        {message.from === userId ? (
+          <FlexRowContainer $justifyContent="end" $alignItems="end">
+            <Button
+              $bgColor={failed}
+              $color={white}
+              $padding="8px"
+              $width="4rem"
+              onClick={handleDelete}
+            >
+              삭제
+            </Button>
+          </FlexRowContainer>
+        ) : null}
+      </Modal>
+    </ModalContainer>
   );
 }
 
@@ -150,7 +130,6 @@ const Modal = styled.div`
   transform: translate(-50%, -50%);
   background-color: ${white};
   padding: 20px;
-  z-index: 10;
   border-radius: 30px;
   border: 2px solid ${main3};
   width: 30%;
@@ -182,4 +161,14 @@ const TimeText = styled.div`
 
 const XmarkContainer = styled.div`
   cursor: pointer;
+`;
+
+const ModalContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.2);
+  top: 0;
+  left: 0;
+  z-index: 2;
 `;
