@@ -2,6 +2,7 @@ package com.ssafy.ViewCareFull.domain.report.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ssafy.ViewCareFull.domain.condition.service.ConditionService;
+import com.ssafy.ViewCareFull.domain.ffmpeg.service.FFmpegService;
 import com.ssafy.ViewCareFull.domain.health.service.HealthService;
 import com.ssafy.ViewCareFull.domain.message.service.MessageService;
 import com.ssafy.ViewCareFull.domain.report.dto.MonthlyHealthInfo;
@@ -15,7 +16,9 @@ import com.ssafy.ViewCareFull.domain.report.util.OpenAIApi;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Caregiver;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.service.UsersService;
+import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +34,7 @@ public class MonthlyReportService {
   private final ConditionService conditionService;
   private final MessageService messageService;
   private final UsersService usersService;
+  private final FFmpegService ffmpegService;
 
 
   @Transactional
@@ -47,14 +51,19 @@ public class MonthlyReportService {
     Caregiver caregiver = usersService.getCaregiverById(requestReportDto.getId());
     monthlyAverageHealth.addMessageList(messageService.getMonthlyMessages(caregiver.getDomainId(), start, end));
 
-    MonthlyReport monthlyReportResponse = openAIApi.getMonthlyReportResponse(monthlyAverageHealth);
-    monthlyReportResponse.settingReport(year, month, caregiver,
-        conditionService.cntCondition(requestReportDto.getId(), start, end));
-    //TODO: 제작된 베스트샷 영상 추가
     try {
+      MonthlyReport monthlyReportResponse = openAIApi.getMonthlyReportResponse(monthlyAverageHealth);
+      String movieUrl = ffmpegService.createImageToVideo(requestReportDto.getId(),
+          start.atStartOfDay(),
+          end.atTime(LocalTime.MAX));
+
+      monthlyReportResponse.settingReport(year, month, caregiver,
+          conditionService.cntCondition(requestReportDto.getId(), start, end),
+          movieUrl);
+
       reportRepository.save(monthlyReportResponse.toEntity(requestReportDto));
-    } catch (JsonProcessingException e) {
-      throw new ReportException(ReportErrorCode.NOT_MATCHED_JSON_FORMAT);
+    } catch (IOException | InterruptedException e) {
+      throw new ReportException(ReportErrorCode.NOT_FOUND_CREATED_MOVIE);
     }
   }
 

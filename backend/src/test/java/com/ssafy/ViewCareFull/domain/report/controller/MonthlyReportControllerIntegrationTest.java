@@ -4,6 +4,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssafy.ViewCareFull.DatabaseCleanup;
+import com.ssafy.ViewCareFull.domain.ffmpeg.service.FFmpegService;
 import com.ssafy.ViewCareFull.domain.helper.UserRegisterHelper;
 import com.ssafy.ViewCareFull.domain.report.dto.MonthlyHealthInfo;
 import com.ssafy.ViewCareFull.domain.report.dto.MonthlyReport;
@@ -55,6 +56,8 @@ public class MonthlyReportControllerIntegrationTest {
   private ReportRepository reportRepository;
   @MockBean
   private OpenAIApi OpenAIApi;
+  @MockBean
+  private FFmpegService ffmpegService;
   @InjectMocks
   private MonthlyReportService monthlyReportService;
 
@@ -79,6 +82,8 @@ public class MonthlyReportControllerIntegrationTest {
       RequestReportDto requestReportDto = new RequestReportDto(202402, userRegisterHelper.getCaregiver().getId());
       Mockito.when(OpenAIApi.getMonthlyReportResponse(Mockito.any(MonthlyHealthInfo.class)))
           .thenReturn(new MonthlyReport());
+      Mockito.when(ffmpegService.createImageToVideo(Mockito.anyLong(), Mockito.any(), Mockito.any()))
+          .thenReturn("/video/1.mp4");
       // when
       mockMvc.perform(RestDocumentationRequestBuilders.post("/report")
               .content(objectMapper.writeValueAsString(requestReportDto))

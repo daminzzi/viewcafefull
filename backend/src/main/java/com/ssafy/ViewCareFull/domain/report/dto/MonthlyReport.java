@@ -43,7 +43,7 @@ public class MonthlyReport {
         .build();
   }
 
-  public void settingReport(int year, int month, Caregiver caregiver, NumOfConditions numOfConditions) {
+  public void settingReport(int year, int month, Caregiver caregiver, NumOfConditions numOfConditions, String url) {
     this.year = year;
     this.month = month;
     this.permission = caregiver.getHospital().getUserName();
@@ -53,6 +53,7 @@ public class MonthlyReport {
     this.condition.normal = numOfConditions.getCntNormal();
     this.condition.bad = numOfConditions.getCntBad();
     this.message = "갑진년 새해복<br/> 많이 받으세요";
+    this.movie = url;
   }
 
   @Getter
