@@ -20,7 +20,8 @@ public class StaticRoutingConfiguration implements WebMvcConfigurer {
     registry.addMapping("/**")
         .allowedOrigins("https://i10a601.p.ssafy.io:8030", "https://i10a601.p.ssafy.io:8090",
             "https://i10a601.p.ssafy.io:8091", "http://localhost:3000", "http://localhost:5173",
-            "http://localhost:8080", "http://i10a601.p.ssafy.io:8081", "http://i10a601.p.ssafy.io:8080")
+            "http://localhost:8080", "http://i10a601.p.ssafy.io:8081", "http://i10a601.p.ssafy.io:8080",
+            "https://i10a601.p.ssafy.io", "http://i10a601.p.ssafy.io")
         .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS")
         .allowCredentials(true)
         .exposedHeaders("Authorization");
