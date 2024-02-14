@@ -22,7 +22,7 @@ const UserContainer = styled.div<ContainerProps>`
   width: ${(props) => props.$width || '300px'};
   height: ${(props) => props.$height || '500px'};
   background-color: ${white};
-  border: 2px solid ${main3};
+  border: 4px solid ${main3};
   border-radius: 30px;
   position: absolute;
   top: 50%;

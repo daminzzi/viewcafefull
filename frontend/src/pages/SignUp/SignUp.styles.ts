@@ -44,7 +44,7 @@ export const IdCheckIcon = styled.div`
   position: absolute;
   margin-right: 15px;
   right: 91px;
-  top: -120px;
+  top: -194px;
   width: 25px;
   height: 100%;
   background-image: url(${check});
@@ -57,10 +57,10 @@ export const IdCheckIcon = styled.div`
 
 export const PwCheckIcon = styled(IdCheckIcon)`
   right: 18px;
-  top: -121px;
+  top: -115px;
 `;
 
 export const PwConfirmCheckIcon = styled(IdCheckIcon)`
   right: 18px;
-  top: -35px;
+  top: -29px;
 `;

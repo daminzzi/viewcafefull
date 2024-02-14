@@ -13,7 +13,6 @@ import { ko } from 'date-fns/locale';
 import { range } from 'lodash';
 import { getYear, getMonth } from 'date-fns';
 
-
 interface Form {
   name: string;
   phone1: string;
@@ -272,74 +271,81 @@ function SignUp() {
           </S.Label>
           <S.Label>
             <div>생년월일</div>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                width: '100%',
+              }}
+            >
+              <DatePicker
+                customInput={<Input $width="98%" />}
+                dateFormat="yyyy.MM.dd"
+                shouldCloseOnSelect
+                selected={form.birth ? new Date(form.birth) : null}
+                onChange={(date: Date) =>
+                  setForm({ ...form, birth: date.toISOString().split('T')[0] })
+                }
+                placeholderText="생년월일을 입력해주세요."
+                locale={ko}
+                renderCustomHeader={({
+                  date,
+                  changeYear,
+                  changeMonth,
+                  decreaseMonth,
+                  increaseMonth,
+                  prevMonthButtonDisabled,
+                  nextMonthButtonDisabled,
+                }) => (
+                  <div
+                    style={{
+                      margin: 10,
+                      display: 'flex',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <button
+                      onClick={decreaseMonth}
+                      disabled={prevMonthButtonDisabled}
+                    >
+                      {'<'}
+                    </button>
+                    <select
+                      value={getYear(date)}
+                      onChange={({ target: { value } }) =>
+                        changeYear(parseInt(value))
+                      }
+                    >
+                      {years.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
 
-            <DatePicker
-              customInput={<Input />}
-              dateFormat="yyyy.MM.dd"
-              shouldCloseOnSelect
-              selected={form.birth ? new Date(form.birth) : null}
-              onChange={(date: Date) =>
-                setForm({ ...form, birth: date.toISOString().split('T')[0] })
-              }
-              placeholderText="생년월일을 입력해주세요."
-              locale={ko}
-              renderCustomHeader={({
-                date,
-                changeYear,
-                changeMonth,
-                decreaseMonth,
-                increaseMonth,
-                prevMonthButtonDisabled,
-                nextMonthButtonDisabled,
-              }) => (
-                <div
-                  style={{
-                    margin: 10,
-                    display: 'flex',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <button
-                    onClick={decreaseMonth}
-                    disabled={prevMonthButtonDisabled}
-                  >
-                    {'<'}
-                  </button>
-                  <select
-                    value={getYear(date)}
-                    onChange={({ target: { value } }) =>
-                      changeYear(parseInt(value))
-                    }
-                  >
-                    {years.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
+                    <select
+                      value={months[getMonth(date)]}
+                      onChange={({ target: { value } }) =>
+                        changeMonth(months.indexOf(value))
+                      }
+                    >
+                      {months.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
 
-                  <select
-                    value={months[getMonth(date)]}
-                    onChange={({ target: { value } }) =>
-                      changeMonth(months.indexOf(value))
-                    }
-                  >
-                    {months.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
-
-                  <button
-                    onClick={increaseMonth}
-                    disabled={nextMonthButtonDisabled}
-                  >
-                    {'>'}
-                  </button>
-                </div>
-              )}
-            />
+                    <button
+                      onClick={increaseMonth}
+                      disabled={nextMonthButtonDisabled}
+                    >
+                      {'>'}
+                    </button>
+                  </div>
+                )}
+              />
+            </div>
           </S.Label>
           <S.Label>
             <div>전화번호</div>

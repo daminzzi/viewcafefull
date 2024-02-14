@@ -131,7 +131,7 @@ const Modal = styled.div`
   background-color: ${white};
   padding: 20px;
   border-radius: 30px;
-  border: 2px solid ${main3};
+  border: 4px solid ${main3};
   width: 30%;
   height: 65%;
   overflow: auto;
@@ -147,7 +147,7 @@ const Title = styled.div`
 
 const TitleText = styled.div`
   font-weight: bold;
-  font-size: 27px;
+  font-size: 1.5rem;
 `;
 const ContentText = styled.div`
   flex: 1;

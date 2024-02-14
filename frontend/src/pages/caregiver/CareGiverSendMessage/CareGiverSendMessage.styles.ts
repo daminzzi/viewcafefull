@@ -23,7 +23,7 @@ export const ParentContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 92vh;
+  height: 80vh;
 `;
 
 export const MainContainer = styled.div`
@@ -32,7 +32,7 @@ export const MainContainer = styled.div`
   height: 70vh;
   border-radius: 30px;
   background-color: ${white};
-  border: 2px solid ${main3};
+  border: 4px solid ${main3};
 `;
 
 export const SubContainer = styled.div`

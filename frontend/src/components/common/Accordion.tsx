@@ -30,7 +30,7 @@ function Accordion({ title, subTitle, suffix, content, imgUrl }: AccordionProps)
   return (
     <FlexColContainer
       $justifyContent="center"
-      $border="2px solid"
+      $border="4px solid"
       $borderColor={main3}
       $margin="10px"
       $borderRadius="30px"

@@ -4,7 +4,7 @@ import FlexColContainer from './FlexColContainer';
 
 const ContentsContainer = styled(FlexColContainer)`
   background-color: ${white};
-  border: 2px solid ${main3};
+  border: 4px solid ${main3};
   border-radius: 30px;
   margin: 20px 0;
   width: 90%;
