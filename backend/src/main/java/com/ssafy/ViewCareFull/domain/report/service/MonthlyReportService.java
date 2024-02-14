@@ -2,7 +2,6 @@ package com.ssafy.ViewCareFull.domain.report.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ssafy.ViewCareFull.domain.condition.service.ConditionService;
-import com.ssafy.ViewCareFull.domain.ffmpeg.service.FFmpegService;
 import com.ssafy.ViewCareFull.domain.health.service.HealthService;
 import com.ssafy.ViewCareFull.domain.message.service.MessageService;
 import com.ssafy.ViewCareFull.domain.report.dto.MonthlyHealthInfo;
@@ -33,7 +32,7 @@ public class MonthlyReportService {
   private final ConditionService conditionService;
   private final MessageService messageService;
   private final UsersService usersService;
-  private final FFmpegService ffmpegService;
+  private final MonthlyMovieService monthlyMovieService;
 
 
   @Transactional
@@ -52,13 +51,11 @@ public class MonthlyReportService {
 
     try {
       MonthlyReport monthlyReportResponse = openAIApi.getMonthlyReportResponse(monthlyAverageHealth);
-//      String movieUrl = ffmpegService.createImageToVideo(requestReportDto.getId(),
-//          start.atStartOfDay(),
-//          end.atTime(LocalTime.MAX));
+      String movieUrl = monthlyMovieService.createMonthlyMovie(securityUser, month);
 
       monthlyReportResponse.settingReport(year, month, caregiver,
           conditionService.cntCondition(requestReportDto.getId(), start, end),
-          "movieUrl");
+          movieUrl);
 
       reportRepository.save(monthlyReportResponse.toEntity(requestReportDto));
     } catch (IOException e) {
