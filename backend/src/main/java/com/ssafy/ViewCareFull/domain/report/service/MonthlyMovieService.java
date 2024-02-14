@@ -46,7 +46,7 @@ public class MonthlyMovieService {
     }
     String videoName = UUID.randomUUID().toString();
     try {
-      return ffmpegService.buildCommand(imagePaths, videoName + ".mp4");
+      return ffmpegService.buildCommand(imagePaths, videoName);
     } catch (Exception e) {
       log.error("비디오 생성 실패");
       throw new RuntimeException(e);
