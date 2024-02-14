@@ -161,7 +161,6 @@ function FamilyHome() {
           $margin="10px 0 0 0"
           $width="90%"
           $borderColor="none"
-          $borderWidth="2px"
         />
         <TabView />
       </ContentsContainer>
