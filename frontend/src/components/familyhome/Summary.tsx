@@ -169,7 +169,7 @@ const Legend = styled.div`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   width: 130px;
 `;
 

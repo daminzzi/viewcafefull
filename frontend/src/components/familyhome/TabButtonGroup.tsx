@@ -8,7 +8,7 @@ import styled, { css } from 'styled-components';
 const TabButton = styled(RoundedButton)<{ $isSelected: boolean }>`
   color: ${deep};
   font-size: 0.9rem;
-  width: 4.5rem;
+  width: 4rem;
   height: 1.75rem;
   border-radius: 2rem;
   background-color: ${white};
