@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useUserStore from '../../stores/UserStore';
 import api from '../../services/api';
@@ -143,9 +143,15 @@ function SignUp() {
   // input태그의 이름, 사용자가 입력한 값을 실시간으로 각각 동적 할당
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
+    let formattedValue = value;
+
+    if (['phone1', 'phone2', 'phone3'].includes(name)) {
+      formattedValue = value.replace(/\D/g, '');
+    }
+
     setForm((prevForm) => ({
       ...prevForm,
-      [name]: value,
+      [name]: formattedValue,
     }));
   }
 
@@ -169,9 +175,7 @@ function SignUp() {
   }, [vaildId, checkId]);
 
   // 회원가입
-  async function handleSignUp(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
+  async function handleSignUp() {
     const phoneNumber = `${form.phone1}-${form.phone2}-${form.phone3}`;
     try {
       const response = await api.post('/users', {
@@ -202,7 +206,7 @@ function SignUp() {
         $alignItems="left"
       >
         <S.SignUpText>회원가입</S.SignUpText>
-        <form onSubmit={handleSignUp}>
+        <div>
           <S.Label>
             <div>아이디</div>
             <S.IDContainer>
@@ -386,13 +390,13 @@ function SignUp() {
           </S.Label>
           <br />
           {submitRequirements ? (
-            <Button $width="100%" type="submit">
+            <Button $width="100%" type="button" onClick={handleSignUp}>
               회원가입
             </Button>
           ) : (
             <DisabledButton $width="100%">회원가입</DisabledButton>
           )}
-        </form>
+        </div>
       </UserContainer>
     </div>
   );
