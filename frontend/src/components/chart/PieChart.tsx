@@ -27,22 +27,6 @@ const colorScale = scaleOrdinal({
   range: [success, warning, failed],
 });
 
-function parseCondition(condition: string) {
-  switch (condition) {
-    case 'good':
-      return '좋음';
-
-    case 'normal':
-      return '보통';
-
-    case 'bad':
-      return '나쁨';
-
-    default:
-      return;
-  }
-}
-
 const PieChart = ({
   width,
   height,
@@ -62,6 +46,22 @@ const PieChart = ({
     { condition: 'normal', value: data.normal },
     { condition: 'bad', value: data.bad },
   ];
+
+  function parseCondition(condition: string) {
+    switch (condition) {
+      case 'good':
+        return `좋음: ${data.good}`;
+  
+      case 'normal':
+        return `보통: ${data.normal}`;
+  
+      case 'bad':
+        return `나쁨: ${data.bad}`;
+  
+      default:
+        return;
+    }
+  }
 
   return (
     <FlexRowContainer $width={`${width}`} $height={`${height}`}>

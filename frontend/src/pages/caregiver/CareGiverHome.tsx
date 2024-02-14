@@ -1,10 +1,13 @@
 import React from 'react';
+import FlexColContainer from '../../components/common/FlexColContainer';
+import Calendar from '../../components/calendar/Calendar';
+
 
 function CareGiverHome() {
   return (
-    <div>
-      <h1>CareGiverHome</h1>
-    </div>
+    <FlexColContainer>
+      <Calendar />
+    </FlexColContainer>
   );
 }
 

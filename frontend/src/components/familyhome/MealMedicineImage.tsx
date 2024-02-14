@@ -3,9 +3,9 @@ import ImageFrame from '../common/ImageFrame';
 import styled from 'styled-components';
 import { ReactComponent as PillFill } from '../../assets/icons/pillFill.svg';
 import { white, success, gray } from '../../assets/styles/palettes';
-// import FlexColContainer from '../common/FlexColContainer';
 import FlexRowContainer from '../common/FlexRowContainer';
 import { RoundedButton } from '../common/Buttons';
+import { useNavigate } from 'react-router';
 
 const Container = styled(FlexRowContainer)`
   width: 90%;
@@ -24,6 +24,7 @@ const MedicineDiv = styled.div`
 const Wrapper = styled.div`
   width: 45%;
   position: relative;
+  cursor: pointer;
 `;
 
 type Props = {
@@ -34,13 +35,24 @@ type Props = {
 
 function MealMedicineImage({ time, src, isMedicine }: Props) {
   const color = isMedicine ? success : gray;
+  const navigate = useNavigate();
+
+  function handleClick(image: string): void {
+    console.log('asdf')
+    navigate(`/gallery/detail`, { state: { src: image } });
+  }
+
   return (
     <Container>
       <RoundedButton $width="20%" $height="1.5rem">
         {time}
       </RoundedButton>
-      <Wrapper>
-        <ImageFrame src={src} alt={time} $size="100%"></ImageFrame>
+      <Wrapper onClick={() => {handleClick(src)}}>
+        <ImageFrame
+          src={src}
+          alt={time}
+          $size="100%"
+        />
         <MedicineDiv>
           <PillFill color={color} />
         </MedicineDiv>

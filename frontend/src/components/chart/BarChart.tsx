@@ -20,7 +20,6 @@ type Props = {
   height: number;
   margin?: { top: number; right: number; bottom: number; left: number };
   keys: Array<string>;
-  // data: Array<ChartData>;
   data: HealthInfo;
 };
 
@@ -93,7 +92,7 @@ function BarChart({
     } else {
       return ([
         {
-          type: 'before',
+          type: 'morning',
           before: data.before.noon as number,
           after: data.after.noon as number,
         },

@@ -2,10 +2,10 @@ import { create } from 'zustand';
 import getCondition from '../services/health/getCondition';
 import noImage from '../assets/images/noImage.jpg';
 
-type WeekInfo = {
+export type WeekInfo = {
   date: Date;
   condition: ConditionInfo;
-}
+};
 
 type State = {
   today: Date | null;
@@ -55,7 +55,7 @@ export const initialState: State = {
   },
 };
 
-export const isSameDate = (date1: Date | null, date2: Date | null) => {
+export function isSameDate(date1: Date | null, date2: Date | null) {
   if (!date1 || !date2) {
     return null;
   }
@@ -64,7 +64,7 @@ export const isSameDate = (date1: Date | null, date2: Date | null) => {
     date1.getMonth() === date2.getMonth() &&
     date1.getDate() === date2.getDate()
   );
-};
+}
 
 export function dateToString(date: Date): string {
   const year: number = date.getFullYear();
@@ -101,17 +101,20 @@ const useHealthStore = create<State & Action>((set, get) => ({
 
   setStartOfWeek: async (newStart: Date) => {
     set({ startOfWeek: newStart });
-    const endOfWeek = new Date(newStart)
+    const endOfWeek = new Date(newStart);
     endOfWeek.setDate(endOfWeek.getDate() + 6);
-    const response = await getCondition(dateToString(newStart), dateToString(endOfWeek))
+    const response = await getCondition(
+      dateToString(newStart),
+      dateToString(endOfWeek),
+    );
     const newWeek = [];
     for (let i = 0; i < 7; i++) {
-      const date = new Date(newStart)
+      const date = new Date(newStart);
       date.setDate(date.getDate() + i);
       const newInfo = {
         date,
         condition: response[i],
-      }
+      };
       newWeek.push(newInfo);
     }
     set({ week: newWeek });
