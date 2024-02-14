@@ -32,8 +32,6 @@ public class FFmpegService {
   // 오디오 파일이 저장된 경로
   @Value("${audio.inputPath}")
   private String audioInputPath;
-  @Value("${file.server.video}")
-  private String videoServerUrl;
 
   private String executeCommand(String command, String outputName) throws InterruptedException, IOException {
     String[] commands = new String[]{"bash", "-c", command};
@@ -56,7 +54,7 @@ public class FFmpegService {
     int exitCode = process.waitFor();
     if (exitCode == 0) {
       log.info("Exited with create video success code: 0");
-      return videoServerUrl + outputName + ".mp4";
+      return outputName + ".mp4";
     } else {
       log.info("Exited with error code: " + exitCode);
       throw new VideoCreateFailException();
@@ -67,6 +65,7 @@ public class FFmpegService {
     // 이미지를 비디오로 변환하는 FFmpeg 명령어 생성
     File fileList = new File("filelist.txt");
     try (PrintWriter out = new PrintWriter(new FileWriter(fileList))) {
+      out.println("file '" + videoOutputPath + "logo.jpg'");
       for (String imageUrl : imageUrls) {
         out.println("file '" + imageUrl + "'");
       }

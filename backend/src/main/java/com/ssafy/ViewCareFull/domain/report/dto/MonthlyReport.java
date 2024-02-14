@@ -28,9 +28,15 @@ public class MonthlyReport {
   private SugarMetrics sugar;
   private HealthCondition condition;
 
-  public static MonthlyReport of(Reports report) throws JsonProcessingException {
+  public static MonthlyReport of(Reports report, String serverUrl) throws JsonProcessingException {
     ObjectMapper objectMapper = new ObjectMapper();
-    return objectMapper.readValue(report.getReportInfo(), MonthlyReport.class);
+    MonthlyReport monthlyReport = objectMapper.readValue(report.getReportInfo(), MonthlyReport.class);
+    monthlyReport.updateMovieUrl(serverUrl);
+    return monthlyReport;
+  }
+
+  private void updateMovieUrl(String serverUrl) {
+    this.movie = serverUrl + this.movie;
   }
 
   public Reports toEntity(RequestReportDto requestReportDto) throws JsonProcessingException {
@@ -54,6 +60,10 @@ public class MonthlyReport {
     this.condition.bad = numOfConditions.getCntBad();
     this.message = "갑진년 새해복<br/> 많이 받으세요";
     this.movie = url;
+  }
+
+  public void changeMovieUrl(String movieUrl) {
+    this.movie = movieUrl;
   }
 
   @Getter

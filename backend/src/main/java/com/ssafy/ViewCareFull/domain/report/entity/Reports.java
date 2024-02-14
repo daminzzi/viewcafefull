@@ -34,4 +34,13 @@ public class Reports {
   @Lob
   @Column(columnDefinition = "LONGTEXT")
   private String reportInfo;
+
+  public Reports copy(int month, String reportInfo) {
+    return Reports.builder()
+        .year(this.year)
+        .month(month)
+        .caregiverId(this.caregiverId)
+        .reportInfo(reportInfo)
+        .build();
+  }
 }
