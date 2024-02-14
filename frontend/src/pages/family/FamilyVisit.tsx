@@ -65,11 +65,19 @@ function FamilyVisit() {
       </Title>
       <FlexColContainer $alignItems="center">
         <div style={{ width: '85%', fontSize: '1.2rem' }}>오늘 예정된 면회</div>
-        <ContentsContainer $alignItems="flex-start" $width="85%">
+        <ContentsContainer
+          $alignItems="flex-start"
+          $width="85%"
+          $padding="10px 0 0 0"
+        >
           {todayVisit && repeatVisitTodayRow(todayVisit)}
         </ContentsContainer>
         <div style={{ width: '85%', fontSize: '1.2rem' }}>면회 신청 목록</div>
-        <ContentsContainer $alignItems="flex-start" $width="85%">
+        <ContentsContainer
+          $alignItems="flex-start"
+          $width="85%"
+          $padding="10px 0 0 0"
+        >
           {visitList && repeatVisitRow(visitList)}
         </ContentsContainer>
       </FlexColContainer>
