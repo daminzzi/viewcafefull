@@ -3,6 +3,7 @@ package com.ssafy.ViewCareFull.domain.conference.repository;
 import com.ssafy.ViewCareFull.domain.conference.entity.Conference;
 import com.ssafy.ViewCareFull.domain.users.entity.PermissionType;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -33,9 +34,10 @@ public interface ConferenceRepository extends JpaRepository<Conference, Long> {
   Page<Conference> findAllByGuardianIdBetweenDate(@Param("applicationId") Long applicationId,
       @Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate, Pageable pageable);
 
-  @Query("SELECT c FROM Conference c JOIN ConferenceReservation r ON c.id = r.conference.id WHERE r.guardian = :applicationId AND c.conferenceDate=:today And c.conferenceState=:conferenceState ORDER BY c.conferenceTime")
+  @Query("SELECT c FROM Conference c JOIN ConferenceReservation r ON c.id = r.conference.id WHERE r.guardian = :applicationId AND c.conferenceDate=:date And c.conferenceTime>=:time And c.conferenceState=:conferenceState ORDER BY c.conferenceTime")
   List<Conference> findAllByGuardianIdAndPermissionState(@Param("applicationId") Long applicationId,
-      @Param("conferenceState") PermissionType conferenceState, @Param("today") LocalDate date);
+      @Param("conferenceState") PermissionType conferenceState, @Param("date") LocalDate date,
+      @Param("time") LocalTime time);
 
   @Query("SELECT count(c) FROM Conference c WHERE c.hospital.id=:permissionId and c.conferenceState=:conferenceState")
   int countByHospitalIdAndPermissionState(@Param("permissionId") Long permissionId,
@@ -55,6 +57,9 @@ public interface ConferenceRepository extends JpaRepository<Conference, Long> {
   @Query(value = "SELECT c FROM Conference c WHERE c.caregiver.id = :caregiverId",
       countQuery = "SELECT count(c) FROM Conference c WHERE c.caregiver.id = :caregiverId")
   Page<Conference> findAllByCaregiverId(Long caregiverId, Pageable pageable);
-  @Query("SELECT c FROM Conference c WHERE c.caregiver.id = :caregiverId AND c.conferenceDate=:today And c.conferenceState=:conferenceState ORDER BY c.conferenceTime")
-  List<Conference> findAllByCaregiverIdAndPermissionState(Long caregiverId, PermissionType conferenceState, LocalDate today);
+
+  @Query("SELECT c FROM Conference c WHERE c.caregiver.id = :caregiverId AND c.conferenceDate=:date And c.conferenceTime>=:time And c.conferenceState=:conferenceState ORDER BY c.conferenceTime")
+  List<Conference> findAllByCaregiverIdAndPermissionState(@Param("caregiverId") Long caregiverId,
+      @Param("conferenceState") PermissionType conferenceState, @Param("date") LocalDate date,
+      @Param("time") LocalTime time);
 }

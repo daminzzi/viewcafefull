@@ -16,6 +16,8 @@ import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.service.UserLinkService;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -94,25 +96,43 @@ public class ConferenceService {
 
       List<ConferenceInfo> todayConferenceInfoList = ConferenceInfo.toList(
           conferenceRepository.findAllByGuardianIdAndPermissionState(
-              user.getId(), PermissionType.A, LocalDate.now()));
+              user.getId(),
+              PermissionType.A,
+              LocalDate.now(ZoneId.of("Asia/Seoul")),
+              LocalTime.now(ZoneId.of("Asia/Seoul"))));
 
       return new ConferenceTodayListDto(reservedConferenceList, todayConferenceInfoList);
 
     } else if ("per".equals(type) && "Hospital".equals(user.getUserType())) {
       List<ConferenceInfo> reservedConferenceList =
-          getConferenceListByHospital(user.getId(), startDate, endDate,
-              pageable).map(ConferenceInfo::of).getContent();
+          getConferenceListByHospital(
+              user.getId(),
+              startDate,
+              endDate,
+              pageable)
+              .map(ConferenceInfo::of)
+              .getContent();
+
       return new ConferenceTodayListDto(reservedConferenceList, null);
 
     } else if ("tar".equals(type) && "Caregiver".equals(user.getUserType())) {
-      List<ConferenceInfo> reservedConferenceList = getConferenceListByCaregiver(user.getId(), startDate, endDate,
-          pageable).map(ConferenceInfo::of).getContent();
+      List<ConferenceInfo> reservedConferenceList =
+          getConferenceListByCaregiver(
+              user.getId(),
+              startDate,
+              endDate,
+              pageable)
+              .map(ConferenceInfo::of)
+              .getContent();
 
       List<ConferenceInfo> todayConferenceInfoList = ConferenceInfo.toList(
           conferenceRepository.findAllByCaregiverIdAndPermissionState(
-              user.getId(), PermissionType.A, LocalDate.now()));
+              user.getId(),
+              PermissionType.A,
+              LocalDate.now(ZoneId.of("Asia/Seoul")),
+              LocalTime.now(ZoneId.of("Asia/Seoul"))));
 
-      return new ConferenceTodayListDto(reservedConferenceList,todayConferenceInfoList);
+      return new ConferenceTodayListDto(reservedConferenceList, todayConferenceInfoList);
     }
     throw new ConferenceException(ConferenceErrorCode.INVALID_TYPE);
   }
@@ -153,8 +173,14 @@ public class ConferenceService {
   public ConferenceInfoSummaryDto getMainConferenceList(SecurityUsers securityUser) {
     Pageable pageable = PageRequest.of(0, 10, Sort.by(Direction.ASC, "conferenceTime"));
     int newConferenceCnt = countNewReservation(securityUser);
-    List<ConferenceInfo> todayConferenceList = getConferenceListByHospital(securityUser.getUser().getId(),
-        LocalDate.now(), LocalDate.now(), pageable).map(ConferenceInfo::of).getContent();
+    List<ConferenceInfo> todayConferenceList =
+        getConferenceListByHospital(
+            securityUser.getUser().getId(),
+            LocalDate.now(ZoneId.of("Asia/Seoul")),
+            LocalDate.now(ZoneId.of("Asia/Seoul")),
+            pageable)
+            .map(ConferenceInfo::of)
+            .getContent();
     return new ConferenceInfoSummaryDto(newConferenceCnt, todayConferenceList);
   }
 
