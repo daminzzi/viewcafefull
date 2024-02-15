@@ -39,7 +39,8 @@
 
 ### 온라인 화상 면회
 
-![img](files/)
+<img alt="img" height="924" src="https://github.com/skagmltn7/skagmltn7/assets/133394749/ec542b2f-dec6-41fa-84cc-c1eaceb645b9" width="469"/>
+
 ![img](files/면회.gif)
 
 - 화상 면회 예약 시스템
