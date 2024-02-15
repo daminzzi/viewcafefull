@@ -18,6 +18,7 @@ import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.service.UsersService;
 import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
+@Slf4j
 public class MonthlyReportService {
 
   private final OpenAIApi openAIApi;
@@ -62,8 +64,10 @@ public class MonthlyReportService {
 
       reportRepository.save(monthlyReportResponse.toEntity(requestReportDto));
     } catch (Exception e) {
+      log.error("createMonthlyReport error : {}", e.getMessage());
+      log.error("createMonthlyReport error : {}", e.getStackTrace());
       // 원래는  Exception 던져야 하지만 현재는 테스트를 위해 1월 데이터를 임시로 저장함.
-      Reports reports = reportRepository.findByIdAndDate(requestReportDto.getId(), 2024, 1)
+      Reports reports = reportRepository.findByIdAndDate(3, 2024, 1)
           .orElseThrow(() -> new ReportException(ReportErrorCode.NOT_FOUND_CREATED_REPORT));
       try {
         MonthlyReport monthlyReport = objectMapper.readValue(reports.getReportInfo(), MonthlyReport.class);
