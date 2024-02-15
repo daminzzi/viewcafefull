@@ -18,6 +18,9 @@ public class OpenAIChkUtil {
   }
 
   public static boolean contentChk(OpenAICompletedMessage result) {
+    if (result.getContent().length == 0) {
+      return false;
+    }
     String openAIResult = result.getContent()[0].getText().getValue();
     for (String property : MonthlyReport.properties()) {
       if (!openAIResult.contains(property)) {
