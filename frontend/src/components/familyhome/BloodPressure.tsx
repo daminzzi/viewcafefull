@@ -13,8 +13,15 @@ const Container = styled.div`
 function BloodPressure() {
   const { healthInfo } = useHealthStore();
   const keys = ['low', 'high'];
+  const isData =
+  !!healthInfo.before.morning ||
+  !!healthInfo.before.noon ||
+  !!healthInfo.before.dinner ||
+  !!healthInfo.after.morning ||
+  !!healthInfo.after.noon ||
+  !!healthInfo.after.dinner;
 
-  return (
+  return isData ? (
     <Container>
       <ParentSize debounceTime={10}>
         {({ width: visWidth, height: visHeight }) => (
@@ -28,7 +35,11 @@ function BloodPressure() {
         )}
       </ParentSize>
     </Container>
-  );
+  ) : (
+    <Container>
+      <p>건강정보가 없습니다.</p>
+    </Container>
+  )
 }
 
 export default BloodPressure;

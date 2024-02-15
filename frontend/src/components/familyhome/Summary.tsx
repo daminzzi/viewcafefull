@@ -29,122 +29,136 @@ function maxValue(obj: HealthInfoData) {
 function Summary() {
   const { healthInfo } = useHealthStore();
 
+  function nodata(data: number | null) {
+    if (data === null) {
+      return <p>건강정보가 없습니다</p>;
+    }
+    return null;
+  }
+
   return (
     <FlexColContainer $width="90%" $alignItems="start">
       <StyledLabel style={{ margin: '1rem 0 0.5rem', fontWeight: '600' }}>
         최고 혈당
       </StyledLabel>
       <StyledLabel2>공복:</StyledLabel2>
-      <Wrapper>
-        <ParentSize>
-          {({ width: visWidth }) => (
-            <MainChart
-              width={visWidth}
-              maxValue={300}
-              value={maxValue(healthInfo.before)}
-              range={[100, 125]}
-            />
-          )}
-        </ParentSize>
-        <LabelWrapper>
-          <Legend>
-            <SmallRectangle $backgroundColor={success} />
-            <span>정상 ~99</span>
-          </Legend>
-          <Legend>
-            <SmallRectangle $backgroundColor={warning} />
-            <span>주의 100~124</span>
-          </Legend>
-          <Legend>
-            <SmallRectangle $backgroundColor={failed} />
-            <span>위험 125~</span>
-          </Legend>
-        </LabelWrapper>
-      </Wrapper>
-
+      {nodata(maxValue(healthInfo.before)) || (
+        <Wrapper>
+          <ParentSize>
+            {({ width: visWidth }) => (
+              <MainChart
+                width={visWidth}
+                maxValue={300}
+                value={maxValue(healthInfo.before)}
+                range={[100, 125]}
+              />
+            )}
+          </ParentSize>
+          <LabelWrapper>
+            <Legend>
+              <SmallRectangle $backgroundColor={success} />
+              <span>정상 ~99</span>
+            </Legend>
+            <Legend>
+              <SmallRectangle $backgroundColor={warning} />
+              <span>주의 100~124</span>
+            </Legend>
+            <Legend>
+              <SmallRectangle $backgroundColor={failed} />
+              <span>위험 125~</span>
+            </Legend>
+          </LabelWrapper>
+        </Wrapper>
+      )}
       <StyledLabel2>식후: </StyledLabel2>
-      <Wrapper>
-        <ParentSize>
-          {({ width: visWidth }) => (
-            <MainChart
-              width={visWidth}
-              maxValue={300}
-              value={maxValue(healthInfo.after)}
-              range={[140, 200]}
-            />
-          )}
-        </ParentSize>
-        <LabelWrapper>
-          <Legend>
-            <SmallRectangle $backgroundColor={success} />
-            <span>정상 ~139</span>
-          </Legend>
-          <Legend>
-            <SmallRectangle $backgroundColor={warning} />
-            <span>주의 140~199</span>
-          </Legend>
-          <Legend>
-            <SmallRectangle $backgroundColor={failed} />
-            <span>위험 200~</span>
-          </Legend>
-        </LabelWrapper>
-      </Wrapper>
+      {nodata(maxValue(healthInfo.after)) || (
+        <Wrapper>
+          <ParentSize>
+            {({ width: visWidth }) => (
+              <MainChart
+                width={visWidth}
+                maxValue={300}
+                value={maxValue(healthInfo.after)}
+                range={[140, 200]}
+              />
+            )}
+          </ParentSize>
+          <LabelWrapper>
+            <Legend>
+              <SmallRectangle $backgroundColor={success} />
+              <span>정상 ~139</span>
+            </Legend>
+            <Legend>
+              <SmallRectangle $backgroundColor={warning} />
+              <span>주의 140~199</span>
+            </Legend>
+            <Legend>
+              <SmallRectangle $backgroundColor={failed} />
+              <span>위험 200~</span>
+            </Legend>
+          </LabelWrapper>
+        </Wrapper>
+      )}
       <StyledHr />
       <StyledLabel style={{ fontWeight: '600' }}> 최고 혈압</StyledLabel>
       <StyledLabel2>이완:</StyledLabel2>
-      <Wrapper>
-        <ParentSize>
-          {({ width: visWidth }) => (
-            <MainChart
-              width={visWidth}
-              maxValue={200}
-              value={maxValue(healthInfo.low)}
-              range={[80, 90]}
-            />
-          )}
-        </ParentSize>
-        <LabelWrapper>
-          <Legend>
-            <SmallRectangle $backgroundColor={success} />
-            <span>정상 ~79</span>
-          </Legend>
-          <Legend>
-            <SmallRectangle $backgroundColor={warning} />
-            <span>주의 80~89</span>
-          </Legend>
-          <Legend>
-            <SmallRectangle $backgroundColor={failed} />
-            <span>위험 90~</span>
-          </Legend>
-        </LabelWrapper>
-      </Wrapper>
+      {nodata(maxValue(healthInfo.low)) || (
+        <Wrapper>
+          <ParentSize>
+            {({ width: visWidth }) => (
+              <MainChart
+                width={visWidth}
+                maxValue={200}
+                value={maxValue(healthInfo.low)}
+                range={[80, 90]}
+              />
+            )}
+          </ParentSize>
+          <LabelWrapper>
+            <Legend>
+              <SmallRectangle $backgroundColor={success} />
+              <span>정상 ~79</span>
+            </Legend>
+            <Legend>
+              <SmallRectangle $backgroundColor={warning} />
+              <span>주의 80~89</span>
+            </Legend>
+            <Legend>
+              <SmallRectangle $backgroundColor={failed} />
+              <span>위험 90~</span>
+            </Legend>
+          </LabelWrapper>
+        </Wrapper>
+      )}
       <StyledLabel2>수축:</StyledLabel2>
-      <Wrapper>
-        <ParentSize>
-          {({ width: visWidth }) => (
-            <MainChart
-              width={visWidth}
-              maxValue={200}
-              value={maxValue(healthInfo.high)}
-              range={[120, 140]}
-            />
-          )}
-        </ParentSize>
-        <LabelWrapper>
-          <Legend>
-            <SmallRectangle $backgroundColor={success} />
-            <span>정상 ~119</span>
-          </Legend>
-          <Legend>
-            <SmallRectangle $backgroundColor={warning} />
-            <span>주의 120~139</span>
-          </Legend>
-          <Legend>
-            <SmallRectangle $backgroundColor={failed} />
-            <span>위험 140~</span>
-          </Legend>
-        </LabelWrapper>
-      </Wrapper>
+      {nodata(maxValue(healthInfo.before)) || (
+        <Wrapper>
+          <ParentSize>
+            {({ width: visWidth }) => (
+              <MainChart
+                width={visWidth}
+                maxValue={200}
+                value={maxValue(healthInfo.high)}
+                range={[120, 140]}
+              />
+            )}
+          </ParentSize>
+          <LabelWrapper>
+            <Legend>
+              <SmallRectangle $backgroundColor={success} />
+              <span>정상 ~119</span>
+            </Legend>
+            <Legend>
+              <SmallRectangle $backgroundColor={warning} />
+              <span>주의 120~139</span>
+            </Legend>
+            <Legend>
+              <SmallRectangle $backgroundColor={failed} />
+              <span>위험 140~</span>
+            </Legend>
+          </LabelWrapper>
+        </Wrapper>
+      )}
     </FlexColContainer>
   );
 }

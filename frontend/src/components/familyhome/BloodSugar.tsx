@@ -13,8 +13,15 @@ const Container = styled.div`
 function BloodSugar() {
   const { healthInfo } = useHealthStore();
   const keys = ['before', 'after'];
+  const isData =
+    !!healthInfo.before.morning ||
+    !!healthInfo.before.noon ||
+    !!healthInfo.before.dinner ||
+    !!healthInfo.after.morning ||
+    !!healthInfo.after.noon ||
+    !!healthInfo.after.dinner;
 
-  return (
+  return isData ? (
     <Container>
       <ParentSize debounceTime={10}>
         {({ width: visWidth, height: visHeight }) => (
@@ -27,6 +34,10 @@ function BloodSugar() {
           />
         )}
       </ParentSize>
+    </Container>
+  ) : (
+    <Container>
+      <p>건강정보가 없습니다.</p>
     </Container>
   );
 }
