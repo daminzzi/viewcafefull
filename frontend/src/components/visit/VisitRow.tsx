@@ -15,8 +15,9 @@ function VisitRow({ visit }: Props) {
   //   // return format(date, 'yyyy.mm.dd hh:m');
   //   return date.toString();
   // }
-  const visitDate = new Date(visitYear, visitMonth, visitDay);
+  const visitDate = new Date(visitYear, visitMonth - 1, visitDay);
   const visitDayType = visitDate.getDay();
+
   function transDayType(day: number) {
     const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
     return daysOfWeek[day];

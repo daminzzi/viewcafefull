@@ -157,11 +157,7 @@ function FamilyHome() {
       <ContentsContainer>
         <SubTitle>하루 건강 정보</SubTitle>
         <TabButtonGroup />
-        <Line
-          $margin="10px 0 0 0"
-          $width="90%"
-          $borderColor="none"
-        />
+        <Line $margin="10px 0 0 0" $width="90%" $borderColor="none" />
         <TabView />
       </ContentsContainer>
     </FlexColContainer>

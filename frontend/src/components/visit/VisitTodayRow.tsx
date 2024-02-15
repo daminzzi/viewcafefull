@@ -14,7 +14,7 @@ function VisitTodayRow({ visit }: Props) {
   const visitMonth = parseInt(visit.conferenceDate.substring(4, 6));
   const visitDay = parseInt(visit.conferenceDate.substring(6, 8));
 
-  const visitDate = new Date(visitYear, visitMonth, visitDay);
+  const visitDate = new Date(visitYear, visitMonth - 1, visitDay);
   const visitDayType = visitDate.getDay();
   function transDayType(day: number) {
     const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
