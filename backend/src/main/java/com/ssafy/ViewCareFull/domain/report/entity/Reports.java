@@ -35,11 +35,11 @@ public class Reports {
   @Column(columnDefinition = "LONGTEXT")
   private String reportInfo;
 
-  public Reports copy(int month, String reportInfo) {
+  public Reports copy(int month, String reportInfo, Long caregiverId) {
     return Reports.builder()
         .year(this.year)
         .month(month)
-        .caregiverId(this.caregiverId)
+        .caregiverId(caregiverId)
         .reportInfo(reportInfo)
         .build();
   }

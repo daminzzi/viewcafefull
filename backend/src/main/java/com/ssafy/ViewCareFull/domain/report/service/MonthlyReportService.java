@@ -66,6 +66,7 @@ public class MonthlyReportService {
     } catch (Exception e) {
       log.error("createMonthlyReport error : {}", e.getMessage());
       log.error("createMonthlyReport error : {}", e.getStackTrace());
+      e.printStackTrace();
       // 원래는  Exception 던져야 하지만 현재는 테스트를 위해 1월 데이터를 임시로 저장함.
       Reports reports = reportRepository.findByIdAndDate(3, 2024, 1)
           .orElseThrow(() -> new ReportException(ReportErrorCode.NOT_FOUND_CREATED_REPORT));
@@ -73,7 +74,7 @@ public class MonthlyReportService {
         MonthlyReport monthlyReport = objectMapper.readValue(reports.getReportInfo(), MonthlyReport.class);
         monthlyReport.changeMovieUrl(movieUrl);
         String reportInfo = objectMapper.writeValueAsString(monthlyReport);
-        reportRepository.save(reports.copy(month, reportInfo));
+        reportRepository.save(reports.copy(month, reportInfo, requestReportDto.getId()));
       } catch (JsonProcessingException jsonProcessingException) {
         throw new ReportException(ReportErrorCode.NOT_MATCHED_JSON_FORMAT);
       }
