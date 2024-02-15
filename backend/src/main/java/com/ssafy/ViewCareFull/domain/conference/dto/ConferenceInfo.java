@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ConferenceInfo {
 
+  private long conferenceId;
   private String applicationId;
   private String targetName;
   private String permissionId;
@@ -29,6 +30,7 @@ public class ConferenceInfo {
 
   public static ConferenceInfo of(Conference conference) {
     ConferenceInfo.ConferenceInfoBuilder conferenceInfoBuilder = ConferenceInfo.builder()
+        .conferenceId(conference.getId())
         .applicationId(conference.getGuardian().getDomainId())
         .targetName(conference.getCaregiver().getUserName())
         .permissionId(conference.getHospital().getDomainId())
