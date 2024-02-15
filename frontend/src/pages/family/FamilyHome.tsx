@@ -148,8 +148,10 @@ function FamilyHome() {
 
   // date 변경 시 건강 정보 요청, 변경
   useEffect(() => {
-    getInfo();
-  }, [selectedDate]);
+    if (selectedDate && currConnect.tarDomainId) {
+      getInfo();
+    }
+  }, [selectedDate, currConnect]);
 
   return (
     <FlexColContainer>
