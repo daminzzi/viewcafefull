@@ -1,19 +1,20 @@
-<p align="center">
+<div align="center">
     <img src="https://github.com/skagmltn7/skagmltn7/assets/133394749/7a5fef45-7259-45db-9101-8d6b005d5c2a" alt="logo" width="600" height="200"/>
-</p>
+</div>
 
-<p align="center">
+<div align="center">
 
 #### 보호자와 요양원 사이의 원활한 소통을 돕는 서비스
 
-</p>
+</div>
 
-<p align="center">
+<div align="center">
     <a href="#video">Video</a> • 
     <a href="#features">Features</a> •
     <a href="#contributors">Contributors</a> •
-    <a href="#project-output">Project Output</a>
-</p>
+    <a href="#project-output">Project Output</a> •
+    <a href="https://www.notion.so/daminzziA601-71f81b9d61484dc99e9e549473288b04">Notion</a>
+</div>
 
 ## 뷰케어풀
 
@@ -44,7 +45,25 @@
 
 ## Contributors
 
+![team](files/05_팀구성.png)
+
 ## Project Output
+
+#### <a href="files/01_기능정의서.xlsx">기능정의서</a>
+#### 시스템 아키텍처
+
+![시스템아키텍처](files/03_시스템아키텍처.png)
+
+#### ERD
+
+![erd](files/02_ERD.png)
+
+#### <a href="https://www.notion.so/daminzziAPI-Docs-c338583e13774ea8b891a94485b7817c">api 명세서</a>
+
+![apiDocs](files/04_apiDocs.png)
+
+
+
 
 
 
