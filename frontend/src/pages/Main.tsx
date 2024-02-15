@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/common/Buttons';
+// import useUserStore from '../stores/UserStore';
 import styled from 'styled-components';
 import UserContainer from '../components/common/UserContainer';
 import logo from '../assets/images/logo512.png';
@@ -10,6 +11,25 @@ import FlexRowContainer from '../components/common/FlexRowContainer';
 
 function Main() {
   const navigate = useNavigate();
+  // const { isLogin, role, logout } = useUserStore();
+
+  // if (isLogin) {
+  //   switch (role) {
+  //     case 'Caregiver':
+  //       navigate('/caregiver', { replace: true })
+  //       break;
+
+  //     case 'Guardian':
+  //       navigate('/family', { replace: true })
+  //       break;
+
+  //     default:
+  //       console.log('aaaaa')
+  //       alert('33접근 권한이 없습니다.');
+  //       logout();
+  //       break;
+  //   }
+  // }
 
   function handleAppLogin() {
     navigate('/login', { state: { pathType: 'app' } });

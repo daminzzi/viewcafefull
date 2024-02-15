@@ -8,13 +8,14 @@ type User = {
 
 type UserState = {
   user: User | null;
+  role: 'Guardian' | 'Caregiver' | 'Hospital' | null;
   isAuthenticated: boolean;
   isLogin: boolean;
   accessToken: string | null;
   setAccessToken: (token: string | null) => void;
   setUser: (user: User | null) => void;
   login: (form: { id: string; password: string }) => void;
-  logout: () => void;
+  logout: () => Promise<void>;
   deleteUser: () => void;
 };
 

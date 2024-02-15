@@ -71,7 +71,6 @@ function FamilyMessage() {
                 messageList.push(message);
               }
             });
-            console.log(messageList);
             setMessages(messageList);
             setPageNum(res.pageNum);
             setUnreadMsgs(res.unreadMsgs);

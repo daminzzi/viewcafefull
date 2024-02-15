@@ -24,6 +24,8 @@ import GalleryDetail from './pages/GalleryDetail';
 import Report from './pages/Report';
 import VisitRoom from './components/visit/VisitRoom';
 import ConnectRegister from './pages/family/ConnectRegister';
+import LogoutRequired from './pages/LogoutRequired';
+import LogoutPage from './pages/LogoutPage';
 
 const AppDiv = styled.div`
   background-color: ${white};
@@ -35,10 +37,12 @@ function App() {
     <AppDiv>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/kakaoLogin" element={<KakaoRedirect />} />
+          <Route path="/" element={<LogoutRequired />}>
+            <Route path="" element={<Main />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<SignUp />} />
+            <Route path="kakaoLogin" element={<KakaoRedirect />} />
+          </Route>
           <Route path="/connect/register" element={<ConnectRegister />} />
           <Route path="/family" element={<Family />}>
             <Route path="" element={<FamilyHome />} />
@@ -58,6 +62,7 @@ function App() {
           <Route path="gallery/detail" element={<GalleryDetail />} />
           <Route path="/report/:id/:yearMonth" element={<Report />} />
           <Route path="/openvidu/:id" element={<VisitRoom />} />
+          <Route path='/logout' element={<LogoutPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -23,7 +23,7 @@ interface Form {
 
 function SignUp() {
   const navigate = useNavigate();
-  const setUser = useUserStore((state) => state.setUser);
+  const { isLogin, role, logout, setUser } = useUserStore();
   const [form, setForm] = useState<Form>({
     name: '',
     phone1: '',
@@ -31,6 +31,22 @@ function SignUp() {
     phone3: '',
     birth: '',
   });
+
+  if (isLogin) {
+    switch (role) {
+      case 'Caregiver':
+        navigate('/caregiver', { replace: true})
+        return;
+      case 'Guardian':
+        navigate('/family', { replace: true})
+        return;
+      default:
+        alert('접근 권한이 없습니다.');
+        logout();
+        navigate('', {replace: true});
+        return;
+    }
+  }
 
   const [id, setId] = useState<string>('');
   const [password, setPassword] = useState<string>('');

@@ -6,8 +6,10 @@ import getLogout from '../services/user/getLogout';
 
 const useUserStore = create<UserState>()(
   persist(
-    (set, get): UserState => ({
+    (set, get): UserState =>
+      ({
       user: null,
+      role: null,
       isAuthenticated: false,
       isLogin: false,
       accessToken: null,
@@ -45,9 +47,10 @@ const useUserStore = create<UserState>()(
         try {
           await getLogout(user.id);
           set({
-            isLogin: false,
-            isAuthenticated: false,
             user: null,
+            role: null,
+            isAuthenticated: false,
+            isLogin: false,
             accessToken: null,
           });
         } catch (error) {
@@ -65,6 +68,7 @@ const useUserStore = create<UserState>()(
           await deleteUser();
           set({
             isLogin: false,
+            role: null,
             isAuthenticated: false,
             user: null,
             accessToken: null,

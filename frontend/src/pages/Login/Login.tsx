@@ -19,12 +19,12 @@ function Login() {
   const { updateConnect } = useConnectStore();
   const navigate = useNavigate();
   const location = useLocation();
-
-  const pathType: PathType = location.state?.pathType ?? 'tar';
   const [form, setForm] = useState<Form>({
     id: '',
     password: '',
   });
+
+  const pathType: PathType = location.state?.pathType ?? 'tar';
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;

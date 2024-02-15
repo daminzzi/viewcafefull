@@ -59,7 +59,7 @@ function MainChart({ width, maxValue, value, range }: Props) {
 
   const color = colorState();
 
-  return plotValue !== null ? (
+  return plotValue !== null && width > 0 ? (
     <div>
       <svg width={width} height={45}>
         <rect x={0} y={0} width={width} height={40} fill={white} />

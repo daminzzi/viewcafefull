@@ -30,6 +30,25 @@ const useConnectStore = create<ConnectState>()(
         set((state) => ({ currConnect: state.connectArr[0] }));
         return newConnectArr;
       },
+
+      reset() {
+        set({
+          connectArr: [],
+          currConnect: {
+            applicationId: '0',
+            appDomainId: '',
+            appName: '',
+            targetId: '0',
+            tarDomainId: '',
+            tarName: '',
+            permissionId: '0',
+            perDomainId: '',
+            perName: '',
+            agreement: '',
+            relationship: '',
+          },
+        });
+      }
     }),
     {
       name: 'connect-storage',
