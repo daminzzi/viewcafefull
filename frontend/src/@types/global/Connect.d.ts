@@ -16,5 +16,5 @@ type ConnectState = {
   connectArr: Array<ConnectResponse>;
   currConnect: ConnectResponse;
   setCurr: (index: number) => void;
-  updateConnect: (type: PathType, domainId: string) => void;
+  updateConnect: (type: PathType, domainId: string) => Promise<Array<ConnectResponse>>;
 };

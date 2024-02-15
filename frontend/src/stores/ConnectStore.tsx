@@ -28,6 +28,7 @@ const useConnectStore = create<ConnectState>()(
         const newConnectArr = await getConnectInfo(type, domainId);
         set({ connectArr: newConnectArr });
         set((state) => ({ currConnect: state.connectArr[0] }));
+        return newConnectArr;
       },
     }),
     {

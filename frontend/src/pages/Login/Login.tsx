@@ -6,7 +6,7 @@ import KakaoButton from '../../assets/images/kakao_login_medium_wide.png';
 import { Button } from '../../components/common/Buttons';
 import UserContainer from '../../components/common/UserContainer';
 import * as S from './Login.styles';
-import getConnectInfo from '../../services/connect/getConnectInfo';
+// import getConnectInfo from '../../services/connect/getConnectInfo';
 import useConnectStore from '../../stores/ConnectStore';
 
 interface Form {
@@ -40,8 +40,7 @@ function Login() {
 
     try {
       await login(form);
-      const connectArray = await getConnectInfo('app', form.id);
-      updateConnect('app', form.id);
+      const connectArray = await updateConnect('app', form.id);
 
       if (connectArray.length === 0) {
         navigate('/connect/register');
