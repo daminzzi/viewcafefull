@@ -168,7 +168,7 @@ function FamilyVisitRegister() {
       <ContentsContainer
         $padding="10px 20px"
         $margin="0px 0px 20px 0px"
-        $width="85%"
+        $width="78%"
       >
         <FlexColContainer>
           <FlexColContainer $width="100%">
