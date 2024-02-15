@@ -8,8 +8,8 @@ import Title from '../../components/common/Title';
 import VisitTodayRow from '../../components/visit/VisitTodayRow';
 
 function FamilyVisit() {
-  const [visitList, setVisitList] = useState<VisitData[] | null>();
-  const [todayVisit, setTodayVisit] = useState<VisitData[] | null>();
+  const [visitList, setVisitList] = useState<VisitData[]>([]);
+  const [todayVisit, setTodayVisit] = useState<VisitData[]>([]);
   useEffect(() => {
     const fetchVisitList = async () => {
       try {
@@ -59,7 +59,13 @@ function FamilyVisit() {
           $width="85%"
           $padding="10px 0 0 0"
         >
-          {todayVisit && repeatVisitTodayRow(todayVisit)}
+          {todayVisit.length > 0 ? (
+            repeatVisitTodayRow(todayVisit)
+          ) : (
+            <FlexColContainer $height="3rem" $padding="0 0 10px 0">
+              예정된 면회가 없습니다.
+            </FlexColContainer>
+          )}
         </ContentsContainer>
         <div style={{ width: '85%', fontSize: '1.2rem' }}>면회 신청 목록</div>
         <ContentsContainer
@@ -67,7 +73,13 @@ function FamilyVisit() {
           $width="85%"
           $padding="10px 0 0 0"
         >
-          {visitList && repeatVisitRow(visitList)}
+          {visitList.length > 0 ? (
+            repeatVisitRow(visitList)
+          ) : (
+            <FlexColContainer $height="3rem" $padding="0 0 10px 0">
+              신청한 면회가 없습니다.
+            </FlexColContainer>
+          )}
         </ContentsContainer>
       </FlexColContainer>
     </div>
