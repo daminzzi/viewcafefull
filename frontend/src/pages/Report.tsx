@@ -61,8 +61,8 @@ function Report() {
           <ReportTitle
             year={reportInfo.year}
             month={reportInfo.month}
-            permission="하늘선요양원"
-            target="이복순"
+            permission={reportInfo.permission}
+            target={reportInfo.target}
           />
           <ReportSubject subject="1. 건강 정보" />
           <ReportHealthContent

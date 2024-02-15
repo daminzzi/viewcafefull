@@ -1,6 +1,8 @@
 type ReportInfo = {
   year: number;
   month: number;
+  permission: string;
+  target: string;
   lifeInfo: string;
   movie: string;
   message: string;
