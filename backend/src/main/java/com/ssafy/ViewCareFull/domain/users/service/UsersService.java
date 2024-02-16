@@ -4,16 +4,13 @@ import com.ssafy.ViewCareFull.domain.users.dto.JoinForm;
 import com.ssafy.ViewCareFull.domain.users.dto.LoginForm;
 import com.ssafy.ViewCareFull.domain.users.dto.LoginResponse;
 import com.ssafy.ViewCareFull.domain.users.dto.TokenInfo;
-import com.ssafy.ViewCareFull.domain.users.entity.UserLink;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Caregiver;
-import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import com.ssafy.ViewCareFull.domain.users.error.UserErrorCode;
 import com.ssafy.ViewCareFull.domain.users.error.exception.UsersException;
 import com.ssafy.ViewCareFull.domain.users.repository.UsersRepository;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.security.util.JwtTokenUtil;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -25,7 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class UsersService {
 
   private final UsersRepository usersRepository;
-  private final UserLinkService userLinkService;
   private final PasswordEncoder passwordEncoder;
   private final JwtTokenUtil jwtTokenUtil;
 
@@ -91,10 +87,4 @@ public class UsersService {
     return usersRepository.findCaregiverById(id).orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
   }
 
-  public List<Guardian> getGuardiansByCaregiverId(Long caregiverId) {
-    List<UserLink> userLinks = userLinkService.getUserLinksByCaregiverId(caregiverId);
-    return userLinks.stream()
-        .map(UserLink::getGuardian)
-        .toList();
-  }
 }
