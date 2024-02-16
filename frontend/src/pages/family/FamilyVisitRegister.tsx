@@ -197,7 +197,7 @@ function FamilyVisitRegister() {
                 minDate={new Date()}
                 placeholderText="면회 날짜 선택"
                 locale={ko}
-                customInput={<Input $width="98%" $fontSize="1rem" />}
+                customInput={<Input $width="98%" $fontSize="1rem" inputMode='none'/>}
                 renderCustomHeader={({
                   date,
                   decreaseMonth,
