@@ -1,9 +1,7 @@
 package com.ssafy.ViewCareFull.domain.users.repository;
 
 import com.ssafy.ViewCareFull.domain.users.entity.user.Caregiver;
-import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
-import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -26,5 +24,4 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
   @Query("SELECT u FROM Caregiver u WHERE u.id = :id")
   Optional<Caregiver> findCaregiverById(@Param("id") Long id);
 
-  List<Guardian> findGuardiansByCaregiverId(Long id);
 }

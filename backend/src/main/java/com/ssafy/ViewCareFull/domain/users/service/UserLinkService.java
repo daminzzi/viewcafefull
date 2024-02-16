@@ -99,4 +99,12 @@ public class UserLinkService {
   public List<UserLink> getUserLinksByCaregiverId(Long caregiverId) {
     return userLinkRepository.findUserLinkByCaregiverId(caregiverId);
   }
+
+
+  public List<Guardian> getGuardiansByCaregiverId(Long caregiverId) {
+    List<UserLink> userLinks = getUserLinksByCaregiverId(caregiverId);
+    return userLinks.stream()
+        .map(UserLink::getGuardian)
+        .toList();
+  }
 }

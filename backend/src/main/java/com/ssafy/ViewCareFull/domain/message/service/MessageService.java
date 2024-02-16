@@ -11,7 +11,7 @@ import com.ssafy.ViewCareFull.domain.users.entity.user.Caregiver;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
-import com.ssafy.ViewCareFull.domain.users.service.UsersService;
+import com.ssafy.ViewCareFull.domain.users.service.UserLinkService;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -27,7 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class MessageService {
 
   private final MessageRepository messageRepository;
-  private final UsersService usersService;
+  private final UserLinkService userLinkService;
 
   public MessageListResponseDto getMessages(SecurityUsers securityUsers, Pageable pageable, String keyword) {
     String domainId = securityUsers.getUsername();
@@ -69,7 +69,7 @@ public class MessageService {
 
   @Transactional
   public void sendReportMessages(Caregiver caregiver, ReportMessageDto reportMessageDto) {
-    List<Guardian> guardians = usersService.getGuardiansByCaregiverId(caregiver.getId());
+    List<Guardian> guardians = userLinkService.getGuardiansByCaregiverId(caregiver.getId());
     for (Guardian guardian : guardians) {
       String title = reportMessageDto.getYear() + "년 " + reportMessageDto.getMonth() + "월 건강레포트";
       MessageRequestDto message = MessageRequestDto.builder()
