@@ -7,6 +7,7 @@ import com.ssafy.ViewCareFull.domain.health.service.HealthService;
 import com.ssafy.ViewCareFull.domain.message.service.MessageService;
 import com.ssafy.ViewCareFull.domain.report.dto.MonthlyHealthInfo;
 import com.ssafy.ViewCareFull.domain.report.dto.MonthlyReport;
+import com.ssafy.ViewCareFull.domain.report.dto.ReportMessageDto;
 import com.ssafy.ViewCareFull.domain.report.dto.RequestReportDto;
 import com.ssafy.ViewCareFull.domain.report.entity.Reports;
 import com.ssafy.ViewCareFull.domain.report.error.ReportErrorCode;
@@ -74,11 +75,22 @@ public class MonthlyReportService {
         MonthlyReport monthlyReport = objectMapper.readValue(reports.getReportInfo(), MonthlyReport.class);
         monthlyReport.changeMovieUrl(movieUrl);
         String reportInfo = objectMapper.writeValueAsString(monthlyReport);
-        reportRepository.save(reports.copy(month, reportInfo, requestReportDto.getId()));
+        reportRepository.save(reports.copy(month, reportInfo, caregiver.getId()));
       } catch (JsonProcessingException jsonProcessingException) {
         throw new ReportException(ReportErrorCode.NOT_MATCHED_JSON_FORMAT);
       }
 //      throw new ReportException(ReportErrorCode.NOT_FOUND_CREATED_MOVIE);
+    }
+    try {
+      ReportMessageDto reportMessageDto = ReportMessageDto.builder()
+          .year(year)
+          .month(month)
+          .targetId(caregiver.getId())
+          .targetName(caregiver.getUserName())
+          .build();
+      messageService.sendReportMessages(caregiver, reportMessageDto);
+    } catch (Exception e) {
+      log.error("메세지 보내기 실패");
     }
   }
 

@@ -6,7 +6,12 @@ import com.ssafy.ViewCareFull.domain.message.dto.MessageRequestDto;
 import com.ssafy.ViewCareFull.domain.message.entity.Message;
 import com.ssafy.ViewCareFull.domain.message.exception.NoMessageException;
 import com.ssafy.ViewCareFull.domain.message.repository.MessageRepository;
+import com.ssafy.ViewCareFull.domain.report.dto.ReportMessageDto;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Caregiver;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Guardian;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
+import com.ssafy.ViewCareFull.domain.users.service.UsersService;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -22,6 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class MessageService {
 
   private final MessageRepository messageRepository;
+  private final UsersService usersService;
 
   public MessageListResponseDto getMessages(SecurityUsers securityUsers, Pageable pageable, String keyword) {
     String domainId = securityUsers.getUsername();
@@ -37,6 +43,7 @@ public class MessageService {
     Message newMessage = new Message(fromId, message);
     messageRepository.save(newMessage);
   }
+
 
   @Transactional
   public MessageDto readMessage(SecurityUsers securityUsers, String id) {
@@ -58,5 +65,24 @@ public class MessageService {
     List<Message> messages = messageRepository.findByDomainIdAndDateBetween(caregiverDomainId, start.atStartOfDay(),
         end.atTime(LocalTime.MAX));
     return MessageDto.of(messages);
+  }
+
+  @Transactional
+  public void sendReportMessages(Caregiver caregiver, ReportMessageDto reportMessageDto) {
+    List<Guardian> guardians = usersService.getGuardiansByCaregiverId(caregiver.getId());
+    for (Guardian guardian : guardians) {
+      String title = reportMessageDto.getYear() + "년 " + reportMessageDto.getMonth() + "월 건강레포트";
+      MessageRequestDto message = MessageRequestDto.builder()
+          .to(guardian.getDomainId())
+          .title(title)
+          .content(reportMessageDto.toJson())
+          .build();
+      sendMessage(caregiver, message);
+    }
+  }
+
+  private void sendMessage(Users users, MessageRequestDto message) {
+    Message newMessage = new Message(users.getDomainId(), message);
+    messageRepository.save(newMessage);
   }
 }

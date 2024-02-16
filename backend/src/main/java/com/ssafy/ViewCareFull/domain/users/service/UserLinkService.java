@@ -96,4 +96,7 @@ public class UserLinkService {
     return userLinkRepository.findCaregiverByGuardian(userDomainId);
   }
 
+  public List<UserLink> getUserLinksByCaregiverId(Long caregiverId) {
+    return userLinkRepository.findUserLinkByCaregiverId(caregiverId);
+  }
 }
