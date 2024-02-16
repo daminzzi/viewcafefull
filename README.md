@@ -50,8 +50,16 @@
 
 ## Video
 
+### 홍보 영상
+
 <a href="https://youtu.be/Gm4LXf2_LOI?si=SnyHuTJRkVYjZbNx">
   <img src="https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FGm4LXf2_LOI%3Fsi%3DSnyHuTJRkVYjZbNx" width="560" height="315"/>
+</a>
+
+### 시연영상
+
+<a href="https://www.youtube.com/watch?v=NzsNZ8ZRi7o">
+  <img src="https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DNzsNZ8ZRi7o" width="560" height="315" />
 </a>
 
 ## Features
