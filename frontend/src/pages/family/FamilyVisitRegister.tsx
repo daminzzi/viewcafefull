@@ -247,6 +247,7 @@ function FamilyVisitRegister() {
                 control: (provided) => ({
                   ...provided,
                   border: `2px solid ${lightgray}`,
+                  inputMode: 'none'
                 }),
                 container: (provided) => ({
                   ...provided,
