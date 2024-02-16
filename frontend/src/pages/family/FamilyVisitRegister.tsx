@@ -252,6 +252,7 @@ function FamilyVisitRegister() {
                 container: (provided) => ({
                   ...provided,
                   width: `50%`,
+                  inputMode: 'none'
                 }),
               }}
             />
