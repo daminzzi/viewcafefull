@@ -65,9 +65,7 @@ public class MonthlyReportService {
 
       reportRepository.save(monthlyReportResponse.toEntity(requestReportDto));
     } catch (Exception e) {
-      log.error("createMonthlyReport error : {}", e.getMessage());
-      log.error("createMonthlyReport error : {}", e.getStackTrace());
-      e.printStackTrace();
+      log.error("월간 레포트 생성 실패로 임시 데이터 저장 로직 실행");
       // 원래는  Exception 던져야 하지만 현재는 테스트를 위해 1월 데이터를 임시로 저장함.
       Reports reports = reportRepository.findByIdAndDate(3, 2024, 1)
           .orElseThrow(() -> new ReportException(ReportErrorCode.NOT_FOUND_CREATED_REPORT));
