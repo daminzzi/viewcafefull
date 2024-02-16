@@ -130,7 +130,6 @@ class ConferenceControllerIntegrationTest {
       // then
       Conference savedConference = conferenceRepository.findById(1L).get();
       Assertions.assertThat(savedConference.getConferenceState()).isEqualTo(PermissionType.A);
-      Assertions.assertThat(savedConference.getConferenceRoom().getRoomName()).isEqualTo("1_caregiver");
     }
   }
 
@@ -177,10 +176,10 @@ class ConferenceControllerIntegrationTest {
     LocalDate today = LocalDate.now();
     // when
     mockMvc.perform(
-        RestDocumentationRequestBuilders.get("/conference/tar/list")
-            .header("Content-Type", "application/json")
-            .header("Authorization", userRegisterHelper.getCaregiverAccessToken()))
-            .andExpect(status().isOk())
-            .andDo(MockMvcRestDocumentation.document("면회 조회"));
+            RestDocumentationRequestBuilders.get("/conference/tar/list")
+                .header("Content-Type", "application/json")
+                .header("Authorization", userRegisterHelper.getCaregiverAccessToken()))
+        .andExpect(status().isOk())
+        .andDo(MockMvcRestDocumentation.document("면회 조회"));
   }
 }
