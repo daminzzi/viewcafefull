@@ -16,14 +16,17 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
+@Slf4j
 public class MessageService {
 
   private final MessageRepository messageRepository;
@@ -67,7 +70,7 @@ public class MessageService {
     return MessageDto.of(messages);
   }
 
-  @Transactional
+  @Transactional(propagation = Propagation.REQUIRES_NEW)
   public void sendReportMessages(Caregiver caregiver, ReportMessageDto reportMessageDto) {
     List<Guardian> guardians = userLinkService.getGuardiansByCaregiverId(caregiver.getId());
     for (Guardian guardian : guardians) {
@@ -78,6 +81,9 @@ public class MessageService {
           .content(reportMessageDto.toJson())
           .build();
       sendMessage(caregiver, message);
+      log.info("월간 레포트 메시지 전송 완료");
+      log.info("보호자 : " + guardian.getDomainId());
+      log.info("메세지 내용 : " + message.getContent());
     }
   }
 
