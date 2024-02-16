@@ -72,6 +72,7 @@ public class MonthlyReportService {
       try {
         MonthlyReport monthlyReport = objectMapper.readValue(reports.getReportInfo(), MonthlyReport.class);
         monthlyReport.changeMovieUrl(movieUrl);
+        monthlyReport.changeMonth(month);
         String reportInfo = objectMapper.writeValueAsString(monthlyReport);
         reportRepository.save(reports.copy(month, reportInfo, caregiver.getId()));
       } catch (JsonProcessingException jsonProcessingException) {
@@ -80,6 +81,7 @@ public class MonthlyReportService {
 //      throw new ReportException(ReportErrorCode.NOT_FOUND_CREATED_MOVIE);
     }
     try {
+      log.info("메세지 만드는 중입니다.");
       ReportMessageDto reportMessageDto = ReportMessageDto.builder()
           .year(year)
           .month(month)

@@ -66,6 +66,10 @@ public class MonthlyReport {
     this.movie = movieUrl;
   }
 
+  public void changeMonth(int month) {
+    this.month = month;
+  }
+
   @Getter
   @AllArgsConstructor
   @NoArgsConstructor
