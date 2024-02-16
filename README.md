@@ -56,6 +56,12 @@
 
 ## Features
 
+### 어플리케이션 사용방법
+
+[웹브라우저로 뷰케어풀 접속하기](https://i10a601.p.ssafy.io/)
+
+<img src="files/어플리케이션다운로드방법.PNG" alt="logo" width="660" height="315"/>
+
 ### 온라인 화상 면회
 
 <img alt="img" height="739" src="https://github.com/skagmltn7/skagmltn7/assets/133394749/ec542b2f-dec6-41fa-84cc-c1eaceb645b9" width="350"/>
@@ -292,6 +298,7 @@
 ## Project Output
 
 ### <a href="files/01_기능정의서.xlsx">기능정의서</a>
+### <a href="files/06_와이어프레임.pdf">와이어프레임</a>
 
 ### 시스템 아키텍처
 
