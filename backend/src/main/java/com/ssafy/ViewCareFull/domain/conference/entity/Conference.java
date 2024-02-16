@@ -1,7 +1,6 @@
 package com.ssafy.ViewCareFull.domain.conference.entity;
 
 import com.ssafy.ViewCareFull.domain.common.entity.BaseTime;
-import com.ssafy.ViewCareFull.domain.conference.dto.ConferenceStateDto;
 import com.ssafy.ViewCareFull.domain.users.entity.PermissionType;
 import com.ssafy.ViewCareFull.domain.users.entity.UserLink;
 import com.ssafy.ViewCareFull.domain.users.entity.user.Caregiver;
@@ -26,6 +25,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -92,11 +92,10 @@ public class Conference extends BaseTime {
     this.hospital = userLink.getHospital();
   }
 
-  public void updatePermissionState(ConferenceStateDto conferenceStateDto) {
-    this.conferenceState = PermissionType.of(conferenceStateDto.getConferenceState());
+  public void updatePermissionState(String permissionType) {
+    this.conferenceState = PermissionType.of(permissionType);
     if (conferenceState == PermissionType.A) {
-      StringBuilder sb = new StringBuilder().append(getId()).append("_").append(getCaregiver().getDomainId());
-      this.conferenceRoom = new ConferenceRoom(sb.toString());
+      this.conferenceRoom = new ConferenceRoom(UUID.randomUUID().toString());
     }
   }
 

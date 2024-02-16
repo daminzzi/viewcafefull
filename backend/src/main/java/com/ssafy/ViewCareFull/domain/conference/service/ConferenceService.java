@@ -48,7 +48,6 @@ public class ConferenceService {
 
     Conference conference = Conference.createConference(conferenceReservationDto.getConferenceDate(),
         conferenceReservationDto.getConferenceTime());
-
     for (UserLink userLink : userLinkByCaregiver) {
       if (conferenceReservationDto.chkApply(userLink.getGuardian())) {
         if (userLink.getGuardian().getId().equals(securityUser.getUser().getId())) {
@@ -57,6 +56,7 @@ public class ConferenceService {
         conference.addReservationList(userLink);
       }
     }
+    conference.updatePermissionState("A");
     conferenceRepository.save(conference);
   }
 
@@ -67,7 +67,7 @@ public class ConferenceService {
 
     Conference conference = conferenceRepository.findById(id)
         .orElseThrow(() -> new ConferenceException(ConferenceErrorCode.NOT_FOUND_CONFERENCE));
-    conference.updatePermissionState(conferenceStateDto);
+    conference.updatePermissionState(conferenceStateDto.getConferenceState());
   }
 
   @Transactional
