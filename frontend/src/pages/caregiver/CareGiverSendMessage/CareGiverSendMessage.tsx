@@ -40,8 +40,8 @@ function CareGiverSendMessage() {
 
       await Promise.all(messagePromises);
       alert('메시지가 전송되었습니다.');
-      setTitle('')
-      setContent('')
+      setTitle('');
+      setContent('');
       navigate('/caregiver/message/send');
     } catch (error) {
       console.error(error);

@@ -16,6 +16,10 @@ const TextArea = styled.textarea<TextAreaProps>`
   height: ${(props) => props.$height || '30px'};
   text-align: ${(props) => props.$textAlign || 'left'};
   margin-bottom: ${(props) => props.$marginBottom || '0px'};
+
+  @media (max-height: 500px) {
+    height: 25vh;
+  }
 `;
 
 export default TextArea;
