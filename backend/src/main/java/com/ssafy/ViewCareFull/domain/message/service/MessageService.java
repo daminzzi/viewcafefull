@@ -80,7 +80,7 @@ public class MessageService {
           .title(title)
           .content(reportMessageDto.toJson())
           .build();
-      sendMessage(caregiver, message);
+      sendMessage(caregiver.getHospital(), message);
       log.info("월간 레포트 메시지 전송 완료");
       log.info("보호자 : " + guardian.getDomainId());
       log.info("메세지 내용 : " + message.getContent());
