@@ -244,6 +244,10 @@ function FamilyVisitRegister() {
                 borderRadius: 7,
               })}
               styles={{
+                input:(provided) => ({
+                  ...provided,
+                    inputMode: 'none'
+                }),
                 control: (provided) => ({
                   ...provided,
                   border: `2px solid ${lightgray}`,
