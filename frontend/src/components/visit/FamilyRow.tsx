@@ -21,7 +21,7 @@ function FamilyRow({ isChecked, handleCheckBoxChange, connectFamily }: Props) {
         id={`family-checkbox-${connectFamily.appDomainId}`}
         checked={isChecked}
         onChange={() => {
-          console.log('check');
+          // console.log('check');
           handleCheckBoxChange(connectFamily.appDomainId);
         }}
       />

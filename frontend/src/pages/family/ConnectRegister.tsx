@@ -32,7 +32,7 @@ function ConnectRegister() {
   async function handleSubmit() {
     // 로그인이 되어있지 않은 상태
     if (user === null) {
-      console.log('로그인이 필요합니다.', form, otherRelationship);
+      // console.log('로그인이 필요합니다.', form, otherRelationship);
       navigate('/family/');
       return;
     }
@@ -50,100 +50,99 @@ function ConnectRegister() {
     }
 
     await postConnection(body);
-    console.log(body);
+    // console.log(body);
     await updateConnect('app', user.id);
     navigate('/family');
   }
 
   return (
-      <UserContainer
-        $height="420px"
-        $width="300px"
-        $padding="12px"
-        $alignItems="left"
-        $justifyContent="start"
+    <UserContainer
+      $height="420px"
+      $width="300px"
+      $padding="12px"
+      $alignItems="left"
+      $justifyContent="start"
+    >
+      <FlexRowContainer
+        $justifyContent="space-between"
+        $padding="10px"
+        $width="auto"
       >
-        <FlexRowContainer
-          $justifyContent="space-between"
-          $padding="10px"
-          $width="auto"
+        <Title>입소자 연결 신청</Title>
+        <Button
+          $width="22%"
+          $padding="8px"
+          type="button"
+          onClick={handleSubmit}
         >
-          <Title>입소자 연결 신청</Title>
-          <Button
-            $width="22%"
-            $padding="8px"
-            type="button"
-            onClick={handleSubmit}
-          >
-            신청
-          </Button>
-        </FlexRowContainer>
+          신청
+        </Button>
+      </FlexRowContainer>
 
+      <Label>
+        <div>요양원명</div>
+        <Input
+          $width="98%"
+          type="text"
+          name="nursingHome"
+          placeholder="요양원명을 입력해주세요."
+          value={form.nursingHome}
+          onChange={handleChange}
+        />
+      </Label>
+      <Label>
+        <div>입소자코드</div>
+        <Input
+          $width="98%"
+          name="targetCode"
+          placeholder="입소자코드를 입력해주세요."
+          value={form.targetCode}
+          onChange={handleChange}
+        />
+      </Label>
+      <Label>
+        <div>입소자명</div>
+        <Input
+          $width="98%"
+          type="text"
+          name="targetName"
+          placeholder="입소자명을 입력해주세요."
+          value={form.targetName}
+          onChange={handleChange}
+        />
+      </Label>
+      <Label>
+        <div>입소자와의 관계</div>
+        <Select
+          name="relationship"
+          value={form.relationship}
+          onChange={handleChange}
+        >
+          <option value="아들">아들</option>
+          <option value="딸">딸</option>
+          <option value="손자">손자</option>
+          <option value="손녀">손녀</option>
+          <option value="etc">기타</option>
+        </Select>
+      </Label>
+      {form.relationship === 'etc' && (
         <Label>
-          <div>요양원명</div>
+          <div>기타 관계</div>
           <Input
             $width="98%"
             type="text"
-            name="nursingHome"
-            placeholder="요양원명을 입력해주세요."
-            value={form.nursingHome}
-            onChange={handleChange}
+            name="otherRelationship"
+            placeholder="관계를 입력해주세요."
+            value={otherRelationship}
+            onChange={(e) => setOtherRelationship(e.target.value)}
           />
         </Label>
-        <Label>
-          <div>입소자코드</div>
-          <Input
-            $width="98%"
-            name="targetCode"
-            placeholder="입소자코드를 입력해주세요."
-            value={form.targetCode}
-            onChange={handleChange}
-          />
-        </Label>
-        <Label>
-          <div>입소자명</div>
-          <Input
-            $width="98%"
-            type="text"
-            name="targetName"
-            placeholder="입소자명을 입력해주세요."
-            value={form.targetName}
-            onChange={handleChange}
-          />
-        </Label>
-        <Label>
-          <div>입소자와의 관계</div>
-          <Select
-            name="relationship"
-            value={form.relationship}
-            onChange={handleChange}
-          >
-            <option value="아들">아들</option>
-            <option value="딸">딸</option>
-            <option value="손자">손자</option>
-            <option value="손녀">손녀</option>
-            <option value="etc">기타</option>
-          </Select>
-        </Label>
-        {form.relationship === 'etc' && (
-          <Label>
-            <div>기타 관계</div>
-            <Input
-              $width="98%"
-              type="text"
-              name="otherRelationship"
-              placeholder="관계를 입력해주세요."
-              value={otherRelationship}
-              onChange={(e) => setOtherRelationship(e.target.value)}
-            />
-          </Label>
-        )}
-      </UserContainer>
+      )}
+    </UserContainer>
   );
 }
 
 export default ConnectRegister;
-
 
 const Title = styled.div`
   font-weight: bold;

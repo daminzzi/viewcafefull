@@ -16,9 +16,9 @@ import VideoContainer from '../components/common/VideoContainer';
 function Report() {
   const navigator = useNavigate();
   const params = useParams<{ id: string; yearMonth: string }>();
-  console.log(params.id);
+  // console.log(params.id);
   const [reportInfo, setReportInfo] = useState<ReportInfo>();
-  console.log(reportInfo);
+  // console.log(reportInfo);
 
   useEffect(() => {
     async function fetchReportInfo() {

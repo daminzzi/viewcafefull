@@ -59,7 +59,7 @@ function MessageDetailModal({
   }
 
   function renderContentText(): React.ReactNode {
-    console.log(isReportMessage(message.content));
+    // console.log(isReportMessage(message.content));
     if (isReportMessage(message.content)) {
       return (
         <FlexColContainer $gap="3rem">

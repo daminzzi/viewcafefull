@@ -33,10 +33,10 @@ function VisitRoom() {
   const captureRef = useRef<HTMLDivElement>(null);
 
   const joinSession = async () => {
-    console.log('joinSession');
-    console.log(OV, session);
+    // console.log('joinSession');
+    // console.log(OV, session);
     if (OV !== null && session !== null) {
-      console.log('session not null');
+      // console.log('session not null');
       const mySession = session;
 
       mySession.on('streamCreated', (event) => {
@@ -80,7 +80,7 @@ function VisitRoom() {
   };
 
   function leaveSession() {
-    console.log('leaving session');
+    // console.log('leaving session');
 
     // Empty all properties...
     session.disconnect();
@@ -95,28 +95,28 @@ function VisitRoom() {
   }
 
   function toggleVideo() {
-    console.log('toggleVideo');
+    // console.log('toggleVideo');
     if (publisher) {
       // 비디오 상태 토글
       publisher.publishVideo(!isVideoEnabled);
       setIsVideoEnabled(!isVideoEnabled);
-      console.log(isVideoEnabled);
-      console.log(publisher.publishVideo);
+      // console.log(isVideoEnabled);
+      // console.log(publisher.publishVideo);
     }
   }
 
   function toggleAudio() {
-    console.log('toggleAudio');
+    // console.log('toggleAudio');
     if (publisher) {
       // 오디오 상태 토글
       publisher.publishAudio(!isAudioEnabled);
       setIsAudioEnabled(!isAudioEnabled);
-      console.log(isAudioEnabled);
+      // console.log(isAudioEnabled);
     }
   }
 
   function calculateVideoSize(videoCount: number) {
-    console.log(videoCount);
+    // console.log(videoCount);
     if (videoCount === 0) {
       setVideoHeight('70%');
       setVideoWidth('60%');
@@ -148,7 +148,7 @@ function VisitRoom() {
       try {
         const canvas = await html2canvas(captureRef.current);
         const imageDataURL = canvas.toDataURL('image/jpeg');
-        console.log(imageDataURL);
+        // console.log(imageDataURL);
         const parts = imageDataURL.split(',');
         postBestShot(sessionId, parts[1]);
       } catch (error) {
@@ -161,13 +161,13 @@ function VisitRoom() {
     const init = async () => {
       await postSession(sessionId);
       await joinSession();
-      console.log('useEffect');
+      // console.log('useEffect');
     };
     init();
 
     return () => {
       // unmount
-      console.log('컴포넌트가 화면에서 사라짐');
+      // console.log('/컴포넌트가 화면에서 사라짐');
       leaveSession();
     };
   }, []);

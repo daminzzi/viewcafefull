@@ -7,7 +7,7 @@ async function getVisitList(form: {
   conferenceDate: string;
   conferenceTime: string;
 }) {
-  console.log(form);
+  // console.log(form);
   try {
     const response = await api.post('/conference', form);
     if (response.status !== 201) {

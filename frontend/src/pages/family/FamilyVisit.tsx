@@ -31,7 +31,9 @@ function FamilyVisit() {
       arr.push(
         <FlexColContainer key={i}>
           <VisitTodayRow visit={list[i]} />
-          {i < list.length - 1 && <Line />}
+          {i < list.length - 1 && (
+            <Line $borderLeft="none" $borderRight="none" />
+          )}
         </FlexColContainer>,
       );
     }
@@ -44,7 +46,9 @@ function FamilyVisit() {
       arr.push(
         <FlexColContainer key={i}>
           <VisitRow visit={list[i]} />
-          {i < list.length - 1 && <Line />}
+          {i < list.length - 1 && (
+            <Line $borderLeft="none" $borderRight="none" />
+          )}
         </FlexColContainer>,
       );
     }

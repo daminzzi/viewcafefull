@@ -55,7 +55,7 @@ function CareGiverGallery() {
     if (entry.isIntersecting && !isLoading) {
       observer.disconnect();
       getInfo();
-      console.log(entry);
+      // console.log(entry);
     }
   };
 

@@ -29,7 +29,7 @@ function FamilyVisitRegister() {
   const [connectFamily, setConnectFamily] = useState<ConnectResponse[]>([]);
   useEffect(() => {
     async function init() {
-      console.log('init');
+      // console.log('init');
       const temp = await getConnectInfo('tar', currConnect.tarDomainId);
       setConnectFamily(temp);
     }
@@ -80,12 +80,12 @@ function FamilyVisitRegister() {
   }
 
   function handleSelectDate(date: Date) {
-    console.log(date);
+    // console.log(date);
     const timeRange = generateTimeArray(date.getDay());
-    console.log(timeRange);
+    // console.log(timeRange);
 
     setVisitTimeArr(timeRange);
-    console.log(visitTimeArr);
+    // console.log(visitTimeArr);
   }
 
   function handleSelectTime(time: Option | null) {
@@ -100,7 +100,7 @@ function FamilyVisitRegister() {
     } else {
       setSelectedFamily([...selectedFamily, memberId]);
     }
-    console.log(selectedFamily);
+    // console.log(selectedFamily);
   }
 
   function showVisitFamily() {
@@ -154,7 +154,7 @@ function FamilyVisitRegister() {
         conferenceDate: getFormatDate(visitDate),
         conferenceTime: visitTime.value,
       };
-      console.log(form);
+      // console.log(form);
       postVisitRegister(form);
       navigator('/family/visit');
     } catch (error) {
