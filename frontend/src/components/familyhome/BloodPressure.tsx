@@ -1,71 +1,45 @@
 import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import styled from 'styled-components';
+import useHealthStore from '../../stores/HealthStore';
+import ParentSize from '@visx/responsive/lib/components/ParentSize';
+import BarChart from '../chart/BarChart';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-);
+const Container = styled.div`
+  width: 90%;
+  height: 42vh;
+  padding: 4vh 0;
+`;
 
-type Props = {
-  lowArr: Array<number>;
-  highArr: Array<number>;
-};
+function BloodPressure() {
+  const { healthInfo } = useHealthStore();
+  const keys = ['low', 'high'];
+  const isData =
+  !!healthInfo.before.morning ||
+  !!healthInfo.before.noon ||
+  !!healthInfo.before.dinner ||
+  !!healthInfo.after.morning ||
+  !!healthInfo.after.noon ||
+  !!healthInfo.after.dinner;
 
-const options = {
-  maintainAspectRatio: false,
-  indexAxis: 'y' as const,
-  elements: {
-    bar: {
-      borderWidth: 2,
-    },
-  },
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top' as const,
-    },
-    title: {
-      display: true,
-      text: '혈압',
-    },
-  },
-};
-
-const label: string[] = ['아침', '점심', '저녁'];
-
-function BloodPressure({ lowArr, highArr }: Props) {
-  const data = {
-    labels: label,
-    datasets: [
-      {
-        label: '수축 혈압',
-        data: lowArr,
-        borderWidth: 1,
-        backgroundColor: '#D2B48C',
-      },
-      {
-        label: '이완 혈압',
-        data: highArr,
-        borderWidth: 1,
-        backgroundColor: '#6EE7B7',
-      },
-    ],
-  };
-
-  return <Bar options={options} data={data} />;
+  return isData ? (
+    <Container>
+      <ParentSize debounceTime={10}>
+        {({ width: visWidth, height: visHeight }) => (
+          <BarChart
+            type="bp"
+            width={visWidth}
+            height={visHeight}
+            keys={keys}
+            data={healthInfo}
+          />
+        )}
+      </ParentSize>
+    </Container>
+  ) : (
+    <Container>
+      <p>건강정보가 없습니다.</p>
+    </Container>
+  )
 }
 
 export default BloodPressure;

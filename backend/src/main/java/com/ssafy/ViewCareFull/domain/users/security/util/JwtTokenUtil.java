@@ -19,9 +19,9 @@ public class JwtTokenUtil {
   private final AuthenticationManagerBuilder authenticationManagerBuilder;
   private final JwtTokenProvider jwtTokenProvider;
 
-  static public String getAccessToken(HttpServletRequest req) {
+  public static String getAccessToken(HttpServletRequest req) {
     String bearerToken = req.getHeader("Authorization");
-    if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("bearer ")) {
+    if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
       return bearerToken.substring(7);
     }
     return null;
@@ -30,7 +30,8 @@ public class JwtTokenUtil {
   public TokenInfo getJwtToken(String id, String password) {
     UsernamePasswordAuthenticationToken authenticationToken =
         new UsernamePasswordAuthenticationToken(id, password);
-
+    System.out.println("=====================================");
+    System.out.println("id: " + id + " password: " + password);
     Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
 
     return jwtTokenProvider.generateToken((SecurityUsers) authentication.getPrincipal());
@@ -42,4 +43,21 @@ public class JwtTokenUtil {
         .user(user)
         .build()));
   }
+
+//  public String reissueAccessToken(String refreshToken) {
+//    if (!jwtTokenProvider.validateToken(refreshToken)) {
+//      throw new UsersException(UserErrorCode.INVALID_REFRESH_TOKEN);
+//    }
+//
+//    Authentication authentication = jwtTokenProvider.getAuthentication(request.getAccessToken());
+//
+//    if (!StringUtils.hasText(refreshToken)) {
+//      throw new UsersException(UserErrorCode.INVALID_REFRESH_TOKEN);
+//    }
+//    if (!refreshToken.equals(request.getRefreshToken())) {
+//      throw new BadRequestException("refresh token", request.getRefreshToken());
+//    }
+//
+//    return jwtTokenProvider. (refreshToken);
+//  }
 }

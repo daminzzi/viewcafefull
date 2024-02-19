@@ -1,13 +1,17 @@
 package com.ssafy.ViewCareFull.domain.health.service;
 
 import com.ssafy.ViewCareFull.domain.health.dto.HealthInfo;
+import com.ssafy.ViewCareFull.domain.report.dto.MonthlyBloodPressure;
+import com.ssafy.ViewCareFull.domain.report.dto.MonthlyBloodSugar;
+import com.ssafy.ViewCareFull.domain.report.dto.MonthlyHealthInfo;
 import com.ssafy.ViewCareFull.domain.health.entity.Health;
 import com.ssafy.ViewCareFull.domain.health.error.HealthErrorCode;
 import com.ssafy.ViewCareFull.domain.health.error.exception.HealthException;
 import com.ssafy.ViewCareFull.domain.health.repository.HealthRepository;
-import com.ssafy.ViewCareFull.domain.users.error.UserErrorCode;
-import com.ssafy.ViewCareFull.domain.users.error.exception.UsersException;
-import com.ssafy.ViewCareFull.domain.users.repository.UsersRepository;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
+import com.ssafy.ViewCareFull.domain.users.service.UsersService;
+import java.time.LocalDate;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,16 +22,14 @@ import org.springframework.transaction.annotation.Transactional;
 public class HealthServiceImpl implements HealthService {
 
   private final HealthRepository healthRepository;
-  private final UsersRepository usersRepository;
+  private final UsersService usersService;
 
   @Override
   @Transactional
   public void saveHealthInfo(String domainId, HealthInfo healthInfo) {
-    // TODO: 연결정보CRUD 완료시 등록한사람(병원)과 입소자 연결이 있는지 체크하기
     // 건강정보를 등록하려는 입소자가 서비스에 등록된 사용자인지 체크
-    usersRepository.findByDomainId(domainId)
-        .orElseThrow(() -> new UsersException(UserErrorCode.NOT_FOUND_USERID));
-    healthRepository.save(new Health(domainId, healthInfo));
+    Users user = usersService.getUser(domainId);
+    healthRepository.save(new Health(user, healthInfo));
   }
 
   @Override
@@ -49,6 +51,34 @@ public class HealthServiceImpl implements HealthService {
     Health updateHealth = healthRepository.findById(healthId)
         .orElseThrow(() -> new HealthException(HealthErrorCode.NOT_FOUND_HEALTH_ID));
     updateHealth.update(healthInfo);
+  }
+
+  @Override
+  public List<Health> getHealthListWithIdDate(String domainId, LocalDate date) {
+    return healthRepository.findByDomainIdAndDate(domainId, date);
+  }
+
+  @Override
+  public MonthlyHealthInfo getMonthlyAverageHealthList(Long id, LocalDate start, LocalDate end) {
+    int lastOfMonth = end.getDayOfMonth();
+    List<Health> monthlyHealthInfoList = healthRepository.findAllByUserIdAndHealthDateBetween(id, start, end);
+
+    MonthlyBloodPressure monthlyBloodPressure = new MonthlyBloodPressure(lastOfMonth);
+    MonthlyBloodSugar monthlyBloodSugar = new MonthlyBloodSugar(lastOfMonth);
+
+    for (Health health : monthlyHealthInfoList) {
+      switch (health.getHealthType()) {
+        case B, A:
+          monthlyBloodSugar.add(health);
+          break;
+        case L, H:
+          monthlyBloodPressure.add(health);
+          break;
+      }
+    }
+    monthlyBloodSugar.averge(lastOfMonth);
+    monthlyBloodPressure.averge(lastOfMonth);
+    return new MonthlyHealthInfo(monthlyBloodSugar, monthlyBloodPressure);
   }
 
 }

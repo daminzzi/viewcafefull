@@ -27,6 +27,7 @@ public class GalleryController {
   public ResponseEntity<String> saveImage(
       @AuthenticationPrincipal SecurityUsers securityUsers,
       @RequestPart("image") MultipartFile image) {
+    System.out.println(image.getOriginalFilename() + "======================================================");
     galleryService.saveImage(securityUsers, image);
     return ResponseEntity.created(null).body("success");
   }

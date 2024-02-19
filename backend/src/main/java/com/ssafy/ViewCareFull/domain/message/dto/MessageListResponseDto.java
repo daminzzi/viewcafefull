@@ -19,9 +19,9 @@ public class MessageListResponseDto {
   private Long pageNum;
   private List<MessageDto> messages;
 
-  public MessageListResponseDto(Page<Message> page) {
+  public MessageListResponseDto(Page<Message> page, int unreadMsgs) {
     this.sum = page.getTotalElements();
-    this.unreadMsgs = page.getTotalElements();
+    this.unreadMsgs = (long) unreadMsgs;
     this.pageNum = (long) page.getTotalPages();
     this.messages = MessageDto.of(page.getContent());
   }

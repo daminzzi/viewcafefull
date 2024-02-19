@@ -8,7 +8,13 @@ type Props = {
   $margin?: string;
   $padding?: string;
   $width?: string;
+  $height?: string;
   $alignItems?: string;
+  $gap?: string;
+  $borderColor?: string;
+  $position?: string;
+  $right?: string;
+  $top?: string;
 };
 
 const FlexRowContainer = styled.div<Props>`
@@ -17,6 +23,11 @@ const FlexRowContainer = styled.div<Props>`
   justify-content: space-around;
   align-items: center;
 
+  ${(props) =>
+    props.$height &&
+    css`
+      height: ${props.$height};
+    `}
   ${(props) =>
     props.$backgroundColor &&
     css`
@@ -56,6 +67,31 @@ const FlexRowContainer = styled.div<Props>`
     props.$alignItems &&
     css`
       align-items: ${props.$alignItems};
+    `}
+  ${(props) =>
+    props.$gap &&
+    css`
+      gap: ${props.$gap};
+    `}
+  ${(props) =>
+    props.$borderColor &&
+    css`
+      border-color: ${props.$borderColor};
+    `}
+  ${(props) =>
+    props.$position &&
+    css`
+      position: ${props.$position};
+    `}
+  ${(props) =>
+    props.$right &&
+    css`
+      right: ${props.$right};
+    `}
+  ${(props) =>
+    props.$top &&
+    css`
+      top: ${props.$top};
     `}
 `;
 

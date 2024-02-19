@@ -1,14 +1,20 @@
 import api from '../api';
 
-async function getReportInfo(yearMonth: string) {
+async function getReportInfo(
+  targetId: string,
+  yearMonth: string,
+): Promise<ReportInfo> {
+  let reportInfo: ReportInfo;
   try {
-    const response = await api.get(`/report?month=${yearMonth}`);
+    const response = await api.get(`/report/${targetId}?month=${yearMonth}`);
     if (response.status !== 200) {
       throw new Error(`오류: ${response.status}`);
     }
-    return response.data;
+    reportInfo = response.data;
+    return reportInfo;
   } catch (e) {
     console.error(e);
+    throw e;
   }
 }
 

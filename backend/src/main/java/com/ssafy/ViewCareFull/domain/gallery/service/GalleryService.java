@@ -11,6 +11,8 @@ import com.ssafy.ViewCareFull.domain.users.security.SecurityUsers;
 import com.ssafy.ViewCareFull.domain.users.service.UserLinkService;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -35,15 +37,22 @@ public class GalleryService {
   private String fileServerUrl;
 
   @Transactional
-  public void saveImage(SecurityUsers securityUsers, MultipartFile image) {
+  public Image saveImage(SecurityUsers securityUsers, MultipartFile image) {
     Users user = securityUsers.getUser();
+    System.out.println("111111111111111111111111111111111");
     CaregiverIdDto caregiverIdDto = userLinkService.getCareGiverIdFromOtherUser(user.getId())
         .orElseThrow(NoMatchCaregiverException::new);
+    System.out.println("222222222222222222222222222222222");
     String ext = getImageExtension(image);
     String fileName = UUID.randomUUID().toString() + ext;
     String saveLocation = fileRealPath + fileName;
-    imageRepository.save(new Image(saveLocation, fileName, caregiverIdDto));
+    Image savedImage = imageRepository.save(new Image(saveLocation, fileName, caregiverIdDto));
     saveImageToDisk(image, saveLocation);
+    return savedImage;
+  }
+
+  public List<Image> getNotInMealImageWithMonth(Integer year, Integer month, Users user) {
+    return imageRepository.findAllNotInMealWithMonthAndUser(year, month, user.getId());
   }
 
   private void saveImageToDisk(MultipartFile image, String saveLocation) {
@@ -69,5 +78,40 @@ public class GalleryService {
         .orElseThrow(NoMatchCaregiverException::new);
     Page<Image> page = imageRepository.findAllByCaregiverId(caregiverIdDto.getCaregiverId(), pageable);
     return new GalleryResponseDto(page, fileServerUrl);
+  }
+
+  public Image getImage(Long imageId) {
+    return imageRepository.findById(imageId).orElseThrow();
+  }
+
+  public String getImageUrl(Long imageId) {
+    return fileServerUrl + imageRepository.findById(imageId).orElseThrow().getImageName();
+  }
+
+  public String getImageUrl(Image image) {
+    return fileServerUrl + image.getImageName();
+  }
+
+  public String getImagePath(Long imageId) {
+    return fileRealPath + imageRepository.findById(imageId).orElseThrow().getImageName();
+  }
+
+  public String getImagePath(Image image) {
+    return fileRealPath + image.getImageName();
+  }
+
+  @Transactional
+  public void deleteImage(Image image) {
+    imageRepository.deleteById(image.getId());
+  }
+
+  public List<Image> getBestPhotoImageByCaregiverIdBetweenDate(Long caregiverId, LocalDateTime startDate,
+      LocalDateTime endDate) {
+    return imageRepository.findBestPhotoImageByCaregiverIdBetweenDate(caregiverId, startDate, endDate);
+  }
+
+  public List<Image> getNoneMealImageByCaregiverIdBetweenDate(Long caregiverId, LocalDateTime startDate,
+      LocalDateTime endDate) {
+    return imageRepository.findNoneMealImageByCaregiverIdBetweenDate(caregiverId, startDate, endDate);
   }
 }

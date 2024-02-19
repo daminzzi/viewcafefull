@@ -1,34 +1,23 @@
-interface User {
+type User = {
   id: string;
   name: string;
-  phoneNumber: number;
-  birth: number;
+  phoneNumber: string;
+  birth: stirng;
   role: string;
-}
+};
 
 type UserState = {
   user: User | null;
+  role: 'Guardian' | 'Caregiver' | 'Hospital' | null;
   isAuthenticated: boolean;
   isLogin: boolean;
   accessToken: string | null;
   setAccessToken: (token: string | null) => void;
   setUser: (user: User | null) => void;
   login: (form: { id: string; password: string }) => void;
-  logout: () => void;
+  logout: () => Promise<void>;
   deleteUser: () => void;
 };
-
-interface UserInfo {
-  parentId: number[] | null;
-  parentName: string[] | null;
-  residentId: number | null;
-  residentName: string | null;
-  hospitalId: number;
-  hospitalName: string;
-  phoneNumber: string;
-  birth: string;
-  userRole: string;
-}
 
 type UserConnectInfo = {
   applicationId: string;

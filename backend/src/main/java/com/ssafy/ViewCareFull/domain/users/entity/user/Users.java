@@ -1,6 +1,8 @@
 package com.ssafy.ViewCareFull.domain.users.entity.user;
 
+import com.ssafy.ViewCareFull.domain.users.dto.JoinForm;
 import com.ssafy.ViewCareFull.domain.users.dto.TokenInfo;
+import com.ssafy.ViewCareFull.domain.users.error.exception.UserTypeException;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.DiscriminatorType;
@@ -16,6 +18,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Entity
 @Getter
@@ -63,15 +66,48 @@ public abstract class Users {
   @Column(name = "naver_id")
   private String naverId;
 
-  @Column
-  private String token;
+
+  public static Users createUser(JoinForm joinForm, PasswordEncoder passwordEncoder) {
+    switch (joinForm.getUserType()) {
+      case Caregiver:
+        return Caregiver.builder()
+            .domainId(joinForm.getId())
+            .password(passwordEncoder.encode(joinForm.getPassword()))
+            .userName(joinForm.getName())
+            .phoneNumber(joinForm.getPhoneNumber())
+            .brith(joinForm.getBirth())
+            .build();
+      case Guardian:
+        return Guardian.builder()
+            .domainId(joinForm.getId())
+            .password(passwordEncoder.encode(joinForm.getPassword()))
+            .userName(joinForm.getName())
+            .phoneNumber(joinForm.getPhoneNumber())
+            .brith(joinForm.getBirth())
+            .kakaoId(joinForm.getEmail())
+            .build();
+      case Hospital:
+        return Hospital.builder()
+            .domainId(joinForm.getId())
+            .password(passwordEncoder.encode(joinForm.getPassword()))
+            .userName(joinForm.getName())
+            .phoneNumber(joinForm.getPhoneNumber())
+            .brith(joinForm.getBirth())
+            .build();
+    }
+    throw new UserTypeException();
+  }
 
   public String getUserType() {
-    return this.getClass().getAnnotation(DiscriminatorValue.class).value().toString();
+    return this.getClass().getAnnotation(DiscriminatorValue.class).value();
   }
 
   public void issueRefreshToken(TokenInfo tokenInfo) {
     refreshToken = tokenInfo.getRefreshToken();
+  }
+
+  public void deleteRefreshToken() {
+    refreshToken = null;
   }
 }
 

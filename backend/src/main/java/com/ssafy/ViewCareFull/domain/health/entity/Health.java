@@ -1,13 +1,18 @@
 package com.ssafy.ViewCareFull.domain.health.entity;
 
+import com.ssafy.ViewCareFull.domain.common.entity.TimeType;
 import com.ssafy.ViewCareFull.domain.health.dto.HealthInfo;
+import com.ssafy.ViewCareFull.domain.users.entity.user.Users;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 import lombok.AllArgsConstructor;
@@ -22,8 +27,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Health {
 
-  public Health(String domainId, HealthInfo healthInfo) {
-    this.userId = domainId;
+  public Health(Users user, HealthInfo healthInfo) {
+    this.user = user;
     this.level = healthInfo.getLevel();
     this.healthType = HealthType.matchHealthType(healthInfo.getHealthType());
     this.healthDate = LocalDate.parse(healthInfo.getHealthDate());
@@ -34,8 +39,9 @@ public class Health {
   private Long id;
 
   @NotNull
-  @Column(name = "user_id")
-  private String userId;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "user_id")
+  private Users user;
 
   @NotNull
   @Column(name = "level")
@@ -45,6 +51,10 @@ public class Health {
   @Enumerated(EnumType.STRING)
   @Column(name = "health_type")
   private HealthType healthType;
+
+  @Enumerated(EnumType.STRING)
+  @Column(name = "time")
+  private TimeType time;
 
   @NotNull
   @Column(name = "health_date")

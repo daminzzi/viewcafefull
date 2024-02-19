@@ -51,6 +51,12 @@ dependencies {
     //PostConstruct - InitializingBean afterPropertiesSet
     implementation group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
 
+    //gcp
+    implementation 'com.google.cloud:google-cloud-vision:3.31.0'
+
+    //FileUtils - base64 To File
+    implementation 'commons-io:commons-io:2.11.0'
+    implementation 'org.springframework:spring-test:6.1.2'
 
     // h2
     implementation 'com.h2database:h2'
@@ -66,14 +72,15 @@ dependencies {
     testImplementation 'org.mockito:mockito-core:3.12.4'
     // oauth2
     implementation 'org.springframework.boot:spring-boot-configuration-processor'
-    //webClient
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
-
+    // thumbnailator
+    implementation 'net.coobird:thumbnailator:0.4.20'
 }
 
 openapi3 {
     servers = [
-            { url = 'http://localhost:8080' }
+            { url = 'http://localhost:8080' },
+            { url = 'http://i10a601.p.ssafy.io:8081' },
+            { url = 'http://i10a601.p.ssafy.io:8080' },
     ]
     title = 'ViewCareFull API'
     description = 'ViewCareFull API Documentation'

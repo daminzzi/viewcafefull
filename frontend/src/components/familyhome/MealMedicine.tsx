@@ -1,33 +1,45 @@
 import React from 'react';
-import { renderImage } from './Summary';
+// import FlexRowContainer from '../common/FlexRowContainer';
+import FlexColContainer from '../common/FlexColContainer';
+import useHealthStore from '../../stores/HealthStore';
+import MealMedicineImage from './MealMedicineImage';
 
-type Props = {
-  mealObj: MealObj;
-  medicineObj: MedicineObj;
-};
+function MealMedicine() {
+  const { healthInfo } = useHealthStore();
+  function renderImage() {
+    const result = [];
+    result.push(
+      <MealMedicineImage
+        key="0"
+        time="아침"
+        src={healthInfo.meal.morning as string}
+        isMedicine={healthInfo.medicine.morning as boolean}
+      />,
+    );
+    result.push(
+      <MealMedicineImage
+        key="1"
+        time="점심"
+        src={healthInfo.meal.noon as string}
+        isMedicine={healthInfo.medicine.noon as boolean}
+      />,
+    );
+    result.push(
+      <MealMedicineImage
+        key="2"
+        time="저녁"
+        src={healthInfo.meal.dinner as string}
+        isMedicine={healthInfo.medicine.dinner as boolean}
+      />,
+    );
 
-function medicineInfo(medicine: Medicine | null) {
-  return medicine === null ? null : (
-    <div>
-      <p>약 이름 : {medicine.medicineName}</p>
-      <p>약 효능 : {medicine.information}</p>
-    </div>
-  );
-}
+    return result;
+  }
 
-function MealMedicine(props: Props) {
   return (
-    <div>
-      <p>아침</p>
-      {renderImage(props.mealObj.breakfast, 'breakfast')}
-      {medicineInfo(props.medicineObj.breakfast)}
-      <p>점심</p>
-      {renderImage(props.mealObj.lunch, 'lunch')}
-      {medicineInfo(props.medicineObj.lunch)}
-      <p>저녁</p>
-      {renderImage(props.mealObj.dinner, 'dinner')}
-      {medicineInfo(props.medicineObj.dinner)}
-    </div>
+    <FlexColContainer $margin="4vh 0" $gap="3vh">
+      {renderImage()}
+    </FlexColContainer>
   );
 }
 

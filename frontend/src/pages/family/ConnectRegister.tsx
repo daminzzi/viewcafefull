@@ -1,19 +1,26 @@
 import React, { ChangeEvent, useState } from 'react';
 import postConnection from '../../services/connect/postConnection';
-import useUserStore from '../../stores/userStore';
+import useUserStore from '../../stores/UserStore';
 import { useNavigate } from 'react-router-dom';
+import UserContainer from '../../components/common/UserContainer';
+import styled from 'styled-components';
+import { lightgray } from '../../assets/styles/palettes';
+import Input from '../../components/common/Input';
+import { Button } from '../../components/common/Buttons';
+import FlexRowContainer from '../../components/common/FlexRowContainer';
+import useConnectStore from '../../stores/ConnectStore';
 
 function ConnectRegister() {
   const navigate = useNavigate();
   const { user } = useUserStore();
+  const { updateConnect } = useConnectStore();
   const [form, setForm] = useState({
     nursingHome: '',
     targetCode: '',
     targetName: '',
-    relationship: '',
+    relationship: '아들',
   });
   const [otherRelationship, setOtherRelationship] = useState<string>('');
-
   function handleChange(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     const { name, value } = e.target;
     setForm((prevForm) => ({
@@ -22,10 +29,10 @@ function ConnectRegister() {
     }));
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
     // 로그인이 되어있지 않은 상태
     if (user === null) {
-      console.log('로그인이 필요합니다.', form, otherRelationship);
+      // console.log('로그인이 필요합니다.', form, otherRelationship);
       navigate('/family/');
       return;
     }
@@ -42,76 +49,122 @@ function ConnectRegister() {
       body.relationship = otherRelationship;
     }
 
-    postConnection(body);
-    console.log(body);
-    navigate('/family/');
+    await postConnection(body);
+    // console.log(body);
+    await updateConnect('app', user.id);
+    navigate('/family');
   }
 
   return (
-    <div>
-      <h1>연결 신청</h1>
-      <form>
-        <button type="button" onClick={handleSubmit}>
+    <UserContainer
+      $height="420px"
+      $width="300px"
+      $padding="12px"
+      $alignItems="left"
+      $justifyContent="start"
+    >
+      <FlexRowContainer
+        $justifyContent="space-between"
+        $padding="10px"
+        $width="auto"
+      >
+        <Title>입소자 연결 신청</Title>
+        <Button
+          $width="22%"
+          $padding="8px"
+          type="button"
+          onClick={handleSubmit}
+        >
           신청
-        </button>
-        <label>
-          요양원명
-          <input
+        </Button>
+      </FlexRowContainer>
+
+      <Label>
+        <div>요양원명</div>
+        <Input
+          $width="98%"
+          type="text"
+          name="nursingHome"
+          placeholder="요양원명을 입력해주세요."
+          value={form.nursingHome}
+          onChange={handleChange}
+        />
+      </Label>
+      <Label>
+        <div>입소자코드</div>
+        <Input
+          $width="98%"
+          name="targetCode"
+          placeholder="입소자코드를 입력해주세요."
+          value={form.targetCode}
+          onChange={handleChange}
+        />
+      </Label>
+      <Label>
+        <div>입소자명</div>
+        <Input
+          $width="98%"
+          type="text"
+          name="targetName"
+          placeholder="입소자명을 입력해주세요."
+          value={form.targetName}
+          onChange={handleChange}
+        />
+      </Label>
+      <Label>
+        <div>입소자와의 관계</div>
+        <Select
+          name="relationship"
+          value={form.relationship}
+          onChange={handleChange}
+        >
+          <option value="아들">아들</option>
+          <option value="딸">딸</option>
+          <option value="손자">손자</option>
+          <option value="손녀">손녀</option>
+          <option value="etc">기타</option>
+        </Select>
+      </Label>
+      {form.relationship === 'etc' && (
+        <Label>
+          <div>기타 관계</div>
+          <Input
+            $width="98%"
             type="text"
-            name="nursingHome"
-            placeholder="요양원명"
-            value={form.nursingHome}
-            onChange={handleChange}
+            name="otherRelationship"
+            placeholder="관계를 입력해주세요."
+            value={otherRelationship}
+            onChange={(e) => setOtherRelationship(e.target.value)}
           />
-        </label>
-        <label>
-          입소자코드
-          <input
-            type="text"
-            name="targetCode"
-            placeholder="입소자코드"
-            value={form.targetCode}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          입소자명
-          <input
-            type="text"
-            name="targetName"
-            placeholder="입소자명"
-            value={form.targetName}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          입소자와의 관계
-          <select
-            name="relationship"
-            value={form.relationship}
-            onChange={handleChange}
-          >
-            <option value="son">아들</option>
-            <option value="daughter">딸</option>
-            <option value="grandson">손자</option>
-            <option value="granddaughter">손녀</option>
-            <option value="etc">기타</option>
-          </select>
-        </label>
-        {form.relationship === 'etc' && (
-          <label>
-            기타 관계
-            <input
-              type="text"
-              name="otherRelationship"
-              value={otherRelationship}
-              onChange={(e) => setOtherRelationship(e.target.value)}
-            />
-          </label>
-        )}
-      </form>
-    </div>
+        </Label>
+      )}
+    </UserContainer>
   );
 }
 
 export default ConnectRegister;
+
+const Title = styled.div`
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 10px;
+`;
+
+const Label = styled.label`
+  > div {
+    margin: 8px 0px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+`;
+
+const Select = styled.select`
+  width: 100%;
+  display: flex;
+  border: 2px solid ${lightgray};
+  border-radius: 7px;
+  height: 30px;
+  text-align: 'left';
+  margin-bottom: '0px';
+  text-indent: 5px;
+`;

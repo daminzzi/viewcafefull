@@ -16,10 +16,16 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(
     name = "user_link",
     uniqueConstraints = {
@@ -57,4 +63,18 @@ public class UserLink {
 
   @NotNull
   private String relationship;
+
+  public static UserLink of(Guardian guardian, Caregiver caregiver, Hospital hospital, String relationship) {
+    return UserLink.builder()
+        .hospital(hospital)
+        .caregiver(caregiver)
+        .guardian(guardian)
+        .relationship(relationship)
+        .agreement(PermissionType.A)
+        .build();
+  }
+
+  public void updateAgreement(String agreement) {
+    this.agreement = PermissionType.valueOf(agreement);
+  }
 }

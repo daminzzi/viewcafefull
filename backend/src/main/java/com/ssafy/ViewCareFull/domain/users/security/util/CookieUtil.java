@@ -15,4 +15,13 @@ public class CookieUtil {
         .build();
   }
 
+  public static ResponseCookie deleteRefreshTokenCookie() {
+    return ResponseCookie.from("refresh-token", "delete")
+        .path("/")
+        .sameSite("None")
+        .httpOnly(true)
+        .secure(true)
+        .maxAge(0)
+        .build();
+  }
 }
